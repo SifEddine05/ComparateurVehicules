@@ -1,23 +1,20 @@
 <?php
     require_once('DataBase.php') ; 
-    //?page=news&id=123
 
-    class ContactModel{
+    class MarqueModel {
         private $db;
 
         public function __construct()
         {
             $this->db = new DataBaseModel();
         }
-        public function getContacts()
+        public function getPrincipaleMarques()
         {
             $conn = $this->db->connect();
-            $requet="SELECT contact.type,contact.url,image.url as logo FROM `contact` Inner Join image on contact.logo = image.ImageId";
+            $requet = "SELECT marque.MarqueId,marque.Nom,url as logo FROM `marque` INNER JOIN image on marque.ImageId = image.ImageId Order by Principale LIMIT 10";
             $result = $this->db->requete($conn,$requet);
             $this->db->disconnect($conn);
             return $result;
-            
         }
     }
-
 ?>

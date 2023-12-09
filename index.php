@@ -7,7 +7,13 @@
 </head>
 <body>
     <img src="/ComparateurVehicules/assets/facebook.png" />
-    <a href="tel:+1234567890">Call Us</a>
+    <a href="newsDetails?id=1">Call Us</a>
+    <?php
+    require_once("./Models/MarqueModel.php");
+    $model = new MarqueModel();
+    $res = $model->getPrincipaleMarques();
+    print_r($res);
+?>
 
 </body>
 </html>
