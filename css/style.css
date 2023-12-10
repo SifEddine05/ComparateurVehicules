@@ -88,15 +88,24 @@ a{
     position: absolute;
     right: 0;
     margin-top: 70px;
-    margin-right:60px ;
+    margin-right:65px ;
     border: 2px solid #068FFF; 
     border-radius: 2%;
     opacity: 0;
     transition: opacity 1s ease-in-out;
 }
+
+.diaporama a:hover{
+    background-color: #068FFF;
+   opacity: 95%;
+}
+.diaporama a {
+    display: none;
+
+}
 .diaporama h3 {
     position: absolute;
-    right: 65px;
+    right: 70px;
     width: 75px;
     margin-top: 80px;
     background-color: #068FFF;
@@ -114,6 +123,10 @@ a{
 
 .diaporama img.active {
     opacity: 1;
+}
+
+.diaporama a.active {
+    display: block;
 }
 
 .diaporama h3.active {

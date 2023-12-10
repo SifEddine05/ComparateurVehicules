@@ -75,14 +75,17 @@
                     {
                         $class = ($key === 0) ? 'active' : '';
                     ?>
+                            
+                            <a class="<?php echo $class; ?>" href=<?php echo $d['url'] ?> >
+                                <img class="<?php echo $class; ?>" src="<?php echo $d['image']; ?>" alt="diaporama"/>
+                                <h3 class="<?php echo $class; ?>"><?php  if($d['Type']=="pub"){
+                                echo "Publicite" ;
+                            }
+                            else{
+                                echo "News";
+                            } ?></h3>
+                        </a>
                         
-                        <img class="<?php echo $class; ?>" src="<?php echo $d['image']; ?>" alt="diaporama"/>
-                        <h3 class="<?php echo $class; ?>"><?php  if($d['Type']=="pub"){
-                            echo "Publicite" ;
-                        }
-                        else{
-                            echo "News";
-                        } ?></h3>
 
                     <?php
                     }
