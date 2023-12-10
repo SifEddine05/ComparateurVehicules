@@ -35,6 +35,92 @@ a{
     padding-left: 25px;
     padding-right: 25px;
 }
+.container-diapo{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 25px;
+    
+}
+
+.diapo-text{
+    max-width: 40%;
+    padding-left: 45px;
+    
+}
+
+.diapo-text h2{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    text-align: center;
+    color:#4E4FEB;
+    font-weight: 900;
+
+}
+.diapo-text p{
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    text-align: center;
+    font-weight: 200;
+    line-height: 1.6; 
+
+
+}
+
+.diaporama{
+    position: relative;
+    max-width: 100%;
+    display: flex;
+}
+
+.diaporama div{
+    position: relative;
+    height: 575px;
+    width: 300px;
+    background-color: #4E4FEB;
+    margin-right: 25px;
+}
+
+
+.diaporama img {
+    width: 700px;
+    height: auto;
+    position: absolute;
+    right: 0;
+    margin-top: 70px;
+    margin-right:60px ;
+    border: 2px solid #068FFF; 
+    border-radius: 2%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+.diaporama h3 {
+    position: absolute;
+    right: 65px;
+    width: 75px;
+    margin-top: 80px;
+    background-color: #068FFF;
+    text-align: center;
+    padding:10px ;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    
+}
+
+
+.diaporama img.active {
+    opacity: 1;
+}
+
+.diaporama h3.active {
+    opacity: 1;
+}
+
+
 
 body {
     /* background-color: rgba(37, 37, 208, 0.5); */

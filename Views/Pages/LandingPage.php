@@ -13,6 +13,7 @@ require_once("Views/Components/UserComponents.php");
             $this->UserComponents->Header();
             echo "<body>";
             $this->UserComponents->NavBar();
+            $this->UserComponents->Diaporama() ; 
             echo "</body> </html>";
         }
     }
