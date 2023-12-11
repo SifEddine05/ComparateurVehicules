@@ -1,6 +1,7 @@
 <?php
     require_once("Controllers/ContactController.php");
     require_once("Controllers/DiaporamaController.php");
+    require_once("Controllers/MarqueController.php");
 
         
         
@@ -9,10 +10,13 @@
     class UserComponents {
         private $Conctrl ; 
         private $diapctrl ; 
+        private $Marquectrl ; 
+
         public function __construct()
         {
             $this->Conctrl = new ContactController();
             $this->diapctrl = new DiaporamaController();
+            $this->Marquectrl = new MarqueController();
 
 
         }
@@ -65,7 +69,7 @@
                 <div class="diapo-text">
                 <h2>
                     <h1>Avec Notre Website</h1>
-                    <a href="" class="typewrite" data-period="2000" data-type='[ "Découvrez l avenir automobile ", "Explorez les dernières actualités et publicités ", "Des conseils éclairés pour des décisions automobiles" ]'>
+                    <a  class="typewrite" data-period="2000" data-type='[ "Découvrez l avenir automobile ", "Explorez les dernières actualités et publicités ", "Des conseils éclairés pour des décisions automobiles" ]'>
                         <span class="wrap"></span>
                     </a>
                 </h2>
@@ -145,6 +149,30 @@
             </div>
             <p class="copyright">Auto Look © 2023</p>
         </footer>
+        <?php
+        }
+
+        public function principaleMarques()
+        {
+            $marques = $this->Marquectrl->getPrincipaleMarque() ;
+            ?>
+
+            <div class="principale-marques-super-container">
+                <h1>Les principales marques</h1>
+                <div class="principale-marques-container">
+                    <?php
+                    foreach($marques as   $m){
+                    ?>
+                        <div class="principale-marques">
+                            <a href="marque?id=<?php echo $m['MarqueId'] ?>">
+                                <img src=<?php echo $m['logo'] ?> width="200px"/>
+                            </a>
+                        </div>
+
+                    <?php
+                    }?>
+                </div>
+            </div>
         <?php
         }
     }

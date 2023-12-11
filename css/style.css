@@ -15,11 +15,13 @@ a{
 }
 .button{
     padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
     /* background-color: #FF4D30; */
     background-color: #4E4FEB;
     color: white;
     font-weight: bold;
-    border-radius: 10%;
+    border-radius: 5%;
     border: 0px;
 }
 .button:hover{
@@ -55,7 +57,8 @@ a{
 }
 
 .diapo-text h2{
-    font-family: 'Mina', sans-serif;
+    font-family: 'Montserrat';
+    font-size: 22px;
     text-align: center;
     color:#4E4FEB;
     margin-top: 25px;
@@ -160,7 +163,7 @@ h1{
 .menu-container a{
     width: 100%;
     text-align: center;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: bold;
     color: white;
     padding-top:10px ;
@@ -214,6 +217,7 @@ footer{
 .typewrite{
     font-size: 54px;
     color: #4E4FEB;
+
     text-align: center;
     width: 100%;
 
@@ -226,6 +230,37 @@ body {
     background-color: #EEEEEE;
     margin-bottom: 0;
 }
+
+
+.principale-marques{
+    border-radius: 5%;
+    padding: 15px;
+    width: fit-content;
+    box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.33);
+    -webkit-box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.33);
+    -moz-box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.33);
+
+}
+
+.principale-marques-container
+{
+    width: 100%;
+    display: flex;
+    justify-content: center ;
+    gap: 75px;
+}
+.principale-marques-super-container{
+    padding-bottom: 100px;
+
+}
+
+.principale-marques-super-container h1
+{
+    font-size: 48px;
+    
+}
+
+
 
 
 

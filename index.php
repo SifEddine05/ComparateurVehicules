@@ -15,36 +15,12 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- <?php
-        require_once("./Views/Pages/LandingPage.php");
-        $model = new LandingPage();
-        $model->getLandingPage();
-
-    ?> -->
 
     <?php
         require_once('Routes.php')
-
     ?>
 
-<!-- 5057F4 -->
-    <!-- <img src="/ComparateurVehicules/assets/facebook.png" />
-    <a href="newsDetails?id=1">Call Us</a> -->
-    <!-- <div>
-        <img src="./assets/logoo.png" alt="logo" />
-        <div>
-            <?php
-                require_once("./Models/MarqueModel.php");
 
-            ?>
-        </div>
-    </div> -->
-    <!-- <?php
-    require_once("./Models/MarqueModel.php");
-    $model = new MarqueModel();
-    $res = $model->getPrincipaleMarques();
-    print_r($res);
-?> -->
 
 </body>
 </html>
