@@ -111,6 +111,40 @@
             </div>
             <?php
         }
+
+        public function footer()
+        {
+        ?>
+        <footer>
+            <div class="social-container">
+                <?php
+                $contacts = $this->Conctrl->getContacts();
+
+                foreach($contacts as $ct)
+                {
+                    ?>
+                        <a  href="<?php echo $ct['url'] ?>" target="_blank" >
+                            <img src="<?php echo $ct['logo'] ?>"  class="img-contact" widht="75px" alt="contact" /> 
+                        </a>
+                        
+                        <?php
+                    ;
+                }
+                ?>
+            </div>
+            <div class="list-liens">
+                <a href="/ComparateurVehicules">Accueil</a>
+                <a href="News">News</a>
+                <a  href="Comparateur">Comparateur</a>
+                <a  href="Marque">Marque</a>
+                <a  href="Avis">Avis</a>
+                <a  href="GuideAchat">Guide Achat</a>
+                <a  href="Contact">Contact</a>
+            </div>
+            <p class="copyright">Auto Look © 2023</p>
+        </footer>
+        <?php
+        }
     }
 ?>
 

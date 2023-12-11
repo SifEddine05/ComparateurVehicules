@@ -15,6 +15,7 @@ require_once("Views/Components/UserComponents.php");
             $this->UserComponents->NavBar();
             $this->UserComponents->Diaporama() ; 
             $this->UserComponents->menu() ; 
+            $this->UserComponents->footer() ; 
 
             echo "</body> </html>";
         }

@@ -1,5 +1,9 @@
 .img-contact{
     width: 30px;
+
+}
+.img-contact:hover{
+    opacity: 0.75;    
 }
 a{
     text-decoration: none ; 
@@ -159,10 +163,52 @@ a{
     background-color: #068FFF;
 }
 
+
+
+.social-container{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    gap:75px
+
+}
+.list-liens{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 100px;
+    margin-top: 20px;
+   
+}
+
+.list-liens a{
+    color: black;
+    font-size: 18px;
+    font-weight: 100;
+}
+
+.list-liens a:hover{
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+}
+.copyright{
+    text-align: center;
+    margin: 0;
+    padding-bottom: 8px;
+}
+
+footer{
+    background-color: white;
+}
+
 body {
     /* background-color: rgba(37, 37, 208, 0.5); */
     /*FF4D30*/
     /* background-color: rgba(255,237,234,0.2); */
     background-color: #EEEEEE;
+    margin-bottom: 0;
 }
+
+
 
