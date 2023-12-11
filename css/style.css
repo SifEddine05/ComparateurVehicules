@@ -47,6 +47,7 @@ a{
     
 }
 
+
 .diapo-text{
     max-width: 40%;
     padding-left: 45px;
@@ -54,12 +55,20 @@ a{
 }
 
 .diapo-text h2{
-    font-family: 'Montserrat', sans-serif;
-    font-size: 36px;
+    font-family: 'Mina', sans-serif;
     text-align: center;
     color:#4E4FEB;
+    margin-top: 25px;
     font-weight: 900;
+    width: 100%;
 
+}
+h1{
+   width: 100%;
+    font-size: 72px;
+    text-align: center;
+    margin-bottom: 75px;
+    color: #000;
 }
 .diapo-text p{
     font-family: 'Lato', sans-serif;
@@ -87,7 +96,7 @@ a{
 
 
 .diaporama img {
-    width: 700px;
+    width: 750px;
     height: auto;
     position: absolute;
     right: 0;
@@ -200,6 +209,14 @@ a{
 
 footer{
     background-color: white;
+}
+
+.typewrite{
+    font-size: 54px;
+    color: #4E4FEB;
+    text-align: center;
+    width: 100%;
+
 }
 
 body {

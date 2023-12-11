@@ -63,10 +63,12 @@
             ?>
             <div class="container-diapo">
                 <div class="diapo-text">
-                    <h2>Dernieres Nouvelles Automobiles</h2>
-                    <p>
-                    Découvrez l'avenir de l'automobile sur notre site comparateur de véhicules, une destination complète pour une expérience automobile simplifiée. Explorez les dernières actualités, publicités et marques renommées avec des informations détaillées. Utilisez notre outil de comparaison intuitif pour évaluer spécifications, prix et avis. Notre guide d'achat propose des conseils éclairés, tandis que l'espace administration assure une gestion optimale. Connectez-vous pour un espace personnel, où vous pouvez sauvegarder favoris, noter et commenter. Avec une interface conviviale et des fonctionnalités innovantes, notre site redéfinit l'expérience automobile, offrant tout pour des décisions informées et passionnantes.
-                    </p>
+                <h2>
+                    <h1>Avec Notre Website</h1>
+                    <a href="" class="typewrite" data-period="2000" data-type='[ "Découvrez l avenir automobile ", "Explorez les dernières actualités et publicités ", "Des conseils éclairés pour des décisions automobiles" ]'>
+                        <span class="wrap"></span>
+                    </a>
+                </h2>
                 </div>
                 <div class="diaporama">
                         <div class="box"></div>
