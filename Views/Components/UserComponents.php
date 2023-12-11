@@ -96,6 +96,21 @@
             <?php
             // print_r($res);
         } 
+
+        public function menu()
+        {
+            ?>
+            <div class="menu-container">
+                <a href="/">Accueil</a>
+                <a href="News">News</a>
+                <a  href="Comparateur">Comparateur</a>
+                <a  href="Marque">Marque</a>
+                <a  href="Avis">Avis</a>
+                <a  href="GuideAchat">Guide Achat</a>
+                <a  href="Contact">Contact</a>
+            </div>
+            <?php
+        }
     }
 ?>
 
