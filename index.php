@@ -8,9 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mina&display=swap" rel="stylesheet">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-    <script src="/ComparateurVehicules/js/script.js" defer></script>
 
     <title>Document</title>
 </head>
@@ -20,7 +20,8 @@
         require_once('Routes.php')
     ?>
 
-
+    
+<script src="/ComparateurVehicules/js/script.js" defer></script>
 
 </body>
 </html>

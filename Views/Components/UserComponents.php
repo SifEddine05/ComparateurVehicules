@@ -158,7 +158,7 @@
             ?>
 
             <div class="principale-marques-super-container">
-                <h1>Les principales marques</h1>
+                <h1 class="titles">Les principales marques</h1>
                 <div class="principale-marques-container">
                     <?php
                     foreach($marques as   $m){
@@ -175,17 +175,86 @@
             </div>
         <?php
         }
+
+        public function form($id,$n)
+        {
+            ?>
+            <form class="form-div" id="form<?php echo $n ?>">
+                    <h5>Vehicule <?php echo $n ?></h5>
+                    <div class="selects-container">
+                        <div class="custom-select">
+                            <label class="lables" for="marque<?php echo $id ?>">Marque</label>
+                            <input type="text" id="searchInput<?php echo $id ?>" name="marque<?php echo $id ?>" oninput="filterOptions(<?php echo $id ?>)" onclick="showallOptions(<?php echo $id ?>)" required="required">
+                            <div class="dropdown" id="dropdown">
+                                <div class="dropdown-item" onclick="selectOption('Option 1',<?php echo $id ?>) ">Option 1</div>
+                                <div class="dropdown-item" onclick="selectOption('Option 2',<?php echo $id ?>)">Option 2</div>
+                                <div class="dropdown-item" onclick="selectOption('Option 3',<?php echo $id ?>)">Option 3</div>
+                            </div>
+                        </div>
+                        <?php $id=$id+1 ?>
+                        <div class="custom-select">
+                            <label class="lables" for="model<?php echo $id ?>">Modèle</label>
+                            <input type="text" id="searchInput<?php echo $id ?>" name="modele<?php echo $id ?>" oninput="filterOptions(<?php echo $id ?>)" onclick="showallOptions(<?php echo $id ?>)" required="required">
+                            <div class="dropdown" id="dropdown">
+                                <div class="dropdown-item" onclick="selectOption('Option 1',<?php echo $id ?>) ">Option 1</div>
+                                <div class="dropdown-item" onclick="selectOption('Option 2',<?php echo $id ?>)">Option 2</div>
+                                <div class="dropdown-item" onclick="selectOption('Option 3',<?php echo $id ?>)">Option 3</div>
+                            </div>
+                        </div>
+                        <?php $id=$id+1 ?>
+                        <div class="custom-select">
+                            <label class="lables" for="version<?php echo $id ?>">Version</label>
+                            <input type="text" id="searchInput<?php echo $id ?>" name="version<?php echo $id ?>" oninput="filterOptions(<?php echo $id ?>)" onclick="showallOptions(<?php echo $id ?>)" required="required">
+                            <div class="dropdown" id="dropdown">
+                                <div class="dropdown-item" onclick="selectOption('Option 1',<?php echo $id ?>) ">Option 1</div>
+                                <div class="dropdown-item" onclick="selectOption('Option 2',<?php echo $id ?>)">Option 2</div>
+                                <div class="dropdown-item" onclick="selectOption('Option 3',<?php echo $id ?>)">Option 3</div>
+                            </div>
+                        </div>
+                        <?php $id=$id+1 ?>
+                        <div class="custom-select">
+                            <label class="lables" for="annee<?php echo $id ?>">Année</label>
+                            <input type="text" id="searchInput<?php echo $id ?>" name="annee<?php echo $id ?>" oninput="filterOptions(<?php echo $id ?>)" onclick="showallOptions(<?php echo $id ?>)" required="required">
+                            <div class="dropdown" id="dropdown">
+                                <div class="dropdown-item" onclick="selectOption('Option 1',<?php echo $id ?>) ">Option 1</div>
+                                <div class="dropdown-item" onclick="selectOption('Option 2',<?php echo $id ?>)">Option 2</div>
+                                <div class="dropdown-item" onclick="selectOption('Option 3',<?php echo $id ?>)">Option 3</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </form>  
+        <?php
+        }
+
+
+        public function formComparation()
+        { 
+        ?>
+        <div class="form-container">
+            <h1 class="titles">Comparez Vehicules</h1>
+            <label for="NombreVehicule">Entrez le nombre des vehicules à comparer</label>
+            <select id="NombreVehicule" name="NombreVehicule" >
+                    <option value=2> 2 Vehicules</option>
+                    <option value=3> 3 Vehicules</option>
+                    <option value=4> 4 Vehicules</option>
+            </select>
+            <div class="grid-container">
+
+               <?php $this->form(1,1) ?> 
+               <?php $this->form(5,2) ?> 
+               <?php $this->form(9,3) ?> 
+               <?php $this->form(13,4) ?> 
+
+                
+            </div>
+            <button> submit </button>
+            
+        </div>
+
+        <?php
+        }
+
+
     }
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>

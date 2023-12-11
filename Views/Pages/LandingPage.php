@@ -16,6 +16,8 @@ require_once("Views/Components/UserComponents.php");
             $this->UserComponents->Diaporama() ; 
             $this->UserComponents->menu() ; 
             $this->UserComponents->principaleMarques();
+            $this->UserComponents->formComparation();
+
             $this->UserComponents->footer() ; 
             echo "</body> </html>";
         }

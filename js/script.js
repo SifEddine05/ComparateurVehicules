@@ -84,5 +84,105 @@ function animateDiaporama()
         };
 
 }
+
+let inputNum = -1;
+
+
+function showallOptions(index)
+{
+    inputNum = index;
+    const dropdowns = document.getElementsByClassName('dropdown');
+    for(drop of dropdowns)
+    {
+        drop.classList.remove('active');
+
+    }
+    const dropdown =dropdowns[index-1];
+    const options = dropdown.getElementsByClassName('dropdown-item');
+    for (const option of options) {
+        option.style.display = 'block';
+    }
+    dropdown.classList.add('active');
+    console.log(dropdown.classList);
+
+}
+
+function filterOptions(index) {
+    console.log(index);
+    const input = document.getElementById('searchInput'+index);
+    
+    const dropdowns = document.getElementsByClassName('dropdown');
+    const dropdown =dropdowns[index-1];
+    const options = dropdown.getElementsByClassName('dropdown-item');
+
+    const searchTerm = input.value.toLowerCase();
+    if(searchTerm==='')
+    {
+        dropdown.classList.remove('active');
+    
+    }else{
+        for (const option of options) {
+            const optionText = option.textContent.toLowerCase();
+            if (optionText.includes(searchTerm)) {
+                option.style.display = 'block';
+            } else {
+                option.style.display = 'none';
+            }
+        }
+        dropdown.classList.add('active');
+
+    }
+    
+
+}
+
+function selectOption(value,index) {
+    document.getElementById('searchInput'+index).value = value;
+    const dropdowns = document.getElementsByClassName('dropdown');
+    const dropdown =dropdowns[index-1];
+    dropdown.classList.remove('active');
+}
+
+document.addEventListener('click', function (e) {
+    const customSelects = document.getElementsByClassName('custom-select');
+    const customSelect = customSelects[inputNum-1];
+    if(customSelect)
+    {
+        if (!customSelect.contains(e.target)  ) {
+            const dropdowns = document.getElementsByClassName('dropdown');
+            for(const dropdown of dropdowns)
+            {
+                dropdown.classList.remove('active');
+    
+            }
+        }
+    }
+    
+});
+
+document.getElementById('NombreVehicule').addEventListener('change' , (e)=>{
+    const value = e.target.value
+    console.log(value);
+
+    if(value==2)
+    {
+        document.getElementById("form3").style.display = 'none' ;
+        document.getElementById("form4").style.display = 'none' ;
+    }
+    else if(value==3)
+    {        
+
+        document.getElementById("form3").style.display = 'block' ;
+
+        document.getElementById("form4").style.display = 'none' ;
+    }
+    else {
+        document.getElementById("form3").style.display = 'block' ;
+        document.getElementById("form4").style.display = 'block' ;
+    }
+})
+
+
+
 animateDiaporama()
 typewriter()
