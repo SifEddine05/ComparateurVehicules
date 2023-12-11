@@ -9,10 +9,16 @@
     <title>Document</title>
 </head>
 <body>
-    <?php
+    <!-- <?php
         require_once("./Views/Pages/LandingPage.php");
         $model = new LandingPage();
         $model->getLandingPage();
+
+    ?> -->
+
+    <?php
+        require_once('Routes.php')
+        
     ?>
 
 <!-- 5057F4 -->

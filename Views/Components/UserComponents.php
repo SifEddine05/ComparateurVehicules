@@ -101,7 +101,7 @@
         {
             ?>
             <div class="menu-container">
-                <a href="/">Accueil</a>
+                <a href="/ComparateurVehicules">Accueil</a>
                 <a href="News">News</a>
                 <a  href="Comparateur">Comparateur</a>
                 <a  href="Marque">Marque</a>
