@@ -1,6 +1,6 @@
 <?php 
 require_once("Views/Components/UserComponents.php");
-    class LandingPage {
+    class ComparatorPage {
         private $UserComponents ;
 
         public function __construct()
@@ -13,12 +13,8 @@ require_once("Views/Components/UserComponents.php");
             $this->UserComponents->Header();
             echo "<body>";
             $this->UserComponents->NavBar();
-            $this->UserComponents->Diaporama() ; 
             $this->UserComponents->menu() ; 
-            $this->UserComponents->principaleMarques();
             $this->UserComponents->formComparation();
-            $this->UserComponents->guideAchatButton();
-            $this->UserComponents->PopulaireComparations();
             $this->UserComponents->footer() ; 
             echo "</body> </html>";
         }
