@@ -319,14 +319,36 @@
         public function guideAchatButton()
         {
         ?>
+        <div class="sectionAchat">
             <div class='guideAchatLien' >
                 <div>
-                    <img src="/ComparateurVehicules/assets/GuideAchat.png" alt="guideAcht" />
+                    <img src="/ComparateurVehicules/assets/GuideAchat.png" alt="guideAcht" width="600px" />
                 </div>
                 <div>
-                    <p>hhhh</p>
+                    <h1 class="titles" id="titleachat">Notre guide d'achat à votre service</h1>
+                    <div>
+                        <div class="icon-container">
+                            <img src="/ComparateurVehicules/assets/icon1.png" alt="icon" />
+                            <p>Analyse objective des prix</p>
+                        </div>
+                        <div class="icon-container">
+                            <img src="/ComparateurVehicules/assets/icon2.png" alt="icon" />
+                            <p>Visibilité complète sur l'historique du véhicule</p>
+                        </div>
+                        <div class="icon-container">
+                            <img src="/ComparateurVehicules/assets/icon3.png" alt="icon" />
+                            <p>Simulateur de financement pour maîtriser votre budget</p>
+                        </div>
+                        <div class="icon-container">
+                            <img src="/ComparateurVehicules/assets/icon4.png" alt="icon" />
+                            <p>Conseils d'entretien pour une projection claire sur l'avenir</p>
+                        </div>   
+                    </div>
+
                 </div>
             </div>
+            <button id="NavigateGuide"> Naviguer au guide d'achat  </button>
+        </div>
 
         <?php
         }
