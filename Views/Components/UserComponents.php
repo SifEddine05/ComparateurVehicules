@@ -191,14 +191,24 @@
                   
         }
 
-        public function showOptionsVersion($marque,$modele)
+        public function showOptionsVersion($modele,$id)
         {
-
+            $modeles = $this->vehctl->getVersionByModele($modele);
+            foreach($modeles as $mod)
+            {?>
+                <div class="dropdown-item" onclick="selectOption('<?php echo $mod['version'] ?>','<?php echo $id ?>','<?php echo $mod['version'] ?>')"><?php echo $mod['version'] ?></div>
+            <?php
+            }
         }
 
-        public function showOptionsAnnee($marque,$modele,$version)
+        public function showOptionsAnnee($version,$id)
         {
-
+            $versions = $this->vehctl->getAnneeByVersion($version);
+            foreach($versions as $vr)
+            {?>
+                <div class="dropdown-item" onclick="selectOption('<?php echo $vr['Annees'] ?>','<?php echo $id ?>','<?php echo $vr['Annees'] ?>')"><?php echo $vr['Annees'] ?></div>
+            <?php
+            }
         }
 
 
@@ -244,9 +254,7 @@
                             <input type="hidden"  id="hidesearchInput<?php echo $id ?>" name="hidemodele<?php echo $id ?>" >
 
                             <div class="dropdown drop-div2" id="dropdown">
-                                <!-- <div class="dropdown-item" onclick="selectOption('Option 1',<?php echo $id ?>) ">Option 1</div>
-                                <div class="dropdown-item" onclick="selectOption('Option 2',<?php echo $id ?>)">Option 2</div>
-                                <div class="dropdown-item" onclick="selectOption('Option 3',<?php echo $id ?>)">Option 3</div> -->
+                               
                             </div>
                         </div>
                         <?php $id=$id+1 ?>
@@ -256,9 +264,7 @@
                             <input type="hidden"  id="hidesearchInput<?php echo $id ?>" name="hideversion<?php echo $id ?>" >
 
                             <div class="dropdown drop-div3" id="dropdown">
-                                <div class="dropdown-item" onclick="selectOption('Option 1',<?php echo $id ?>) ">Option 1</div>
-                                <div class="dropdown-item" onclick="selectOption('Option 2',<?php echo $id ?>)">Option 2</div>
-                                <div class="dropdown-item" onclick="selectOption('Option 3',<?php echo $id ?>)">Option 3</div>
+                              
                             </div>
                         </div>
                         <?php $id=$id+1 ?>
@@ -268,9 +274,7 @@
                             <input type="hidden"  id="hidesearchInput<?php echo $id ?>" name="hideannee<?php echo $id ?>" >
 
                             <div class="dropdown drop-div4" id="dropdown">
-                                <div class="dropdown-item" onclick="selectOption('Option 1',<?php echo $id ?>) ">Option 1</div>
-                                <div class="dropdown-item" onclick="selectOption('Option 2',<?php echo $id ?>)">Option 2</div>
-                                <div class="dropdown-item" onclick="selectOption('Option 3',<?php echo $id ?>)">Option 3</div>
+                                
                             </div>
                         </div>
                     </div>

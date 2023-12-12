@@ -134,7 +134,7 @@ function filterOptions(index) {
 }
 
 function selectOption(value,index,nom) {
-    console.log(index);
+    index = parseInt(index, 10);
     document.getElementById('searchInput'+index).value = nom;
     document.getElementById('hidesearchInput'+index).value = value;
     const dropdowns = document.getElementsByClassName('dropdown');
@@ -147,12 +147,14 @@ function selectOption(value,index,nom) {
     }
     else if(index==2 || index==6 || index==10)
     {
-        Marque(index)
+        getVersionOptions(value,index+1)
+        Modele(index)
 
     }
     else if(index==3 || index==7 || index==11)
     {
-
+        getAnneeOptions(value,index+1)
+        Version(index)
     }
     else{
 
@@ -201,12 +203,48 @@ document.getElementById('NombreVehicule').addEventListener('change' , (e)=>{
 
 function Marque(id)
 {
-    let index = id 
+
+    let index =0
+    index = parseInt(id, 10);
     const btn1 = document.getElementById('searchInput'+index) ;
     index= index +1 
     const btn2 = document.getElementById('searchInput'+index) ;
-    btn2.value=''
+    if(btn2) {btn2.value=''
     btn2.disabled = false;
+    }
+    index= index +1 
+    const btn3 = document.getElementById('searchInput'+index) ;
+    if(btn3) btn3.value=''
+
+    index= index +1 
+    const btn4 = document.getElementById('searchInput'+index) ;
+    if(btn4) btn4.value=''
+}
+
+function Modele(id){
+    let index =0
+    index = parseInt(id, 10);
+    const btn1 = document.getElementById('searchInput'+index) ;
+    index= index +1 
+    const btn2 = document.getElementById('searchInput'+index) ;
+    if(btn2) {btn2.value=''
+    btn2.disabled = false;
+    }
+    index= index +1 
+    const btn3 = document.getElementById('searchInput'+index) ;
+    if(btn3) btn3.value=''
+}
+
+function Version(id){
+    let index =0
+    index = parseInt(id, 10);
+    const btn1 = document.getElementById('searchInput'+index) ;
+    index= index +1 
+    const btn2 = document.getElementById('searchInput'+index) ;
+    if(btn2) {btn2.value=''
+    btn2.disabled = false;
+    }
+  
 }
 
 
@@ -221,9 +259,94 @@ function getModeleOptions(id,inex) {
         type: 'POST',
         data: {marqueId: id , index :inex},
         success: function(response) {
-            $('.drop-div2').empty()
+            
+            if(inex>=1 && inex<= 4)
+            {
+                $('#form1 .drop-div2').empty()
+                $('#form1 .drop-div2').append(response);
+            }
+            else if(inex>=5 && inex<= 8)
+            {
+                $('#form2 .drop-div2').empty()
+                $('#form2 .drop-div2').append(response);
+            }
+            else if(inex>=9 && inex<=13)
+            {
+                $('#form3 .drop-div2').empty()
+                $('#form3 .drop-div2').append(response);
+            }
+            else {
+                $('#form4 .drop-div2').empty()
+                $('#form4 .drop-div2').append(response);
+            }
+        },
+        error: function() {
+            console.error('Failed to reload content.');
+        }
+    });
+}
 
-            $('.drop-div2').append(response);
+function getVersionOptions(id,inex)
+{
+    $.ajax({
+
+        url: '/ComparateurVehicules/api/apiRoutes.php',
+        type: 'POST',
+        data: {modeleId: id , index :inex},
+        success: function(response) {
+            console.log(response);
+            if(inex>=1 && inex<= 4)
+            {
+                $('#form1 .drop-div3').empty()
+                $('#form1 .drop-div3').append(response);
+            }
+            else if(inex>=5 && inex<= 8)
+            {
+                $('#form2 .drop-div3').empty()
+                $('#form2 .drop-div3').append(response);
+            }
+            else if(inex>=9 && inex<=13)
+            {
+                $('#form3 .drop-div3').empty()
+                $('#form3 .drop-div3').append(response);
+            }
+            else {
+                $('#form4 .drop-div3').empty()
+                $('#form4 .drop-div3').append(response);
+            }
+        },
+        error: function() {
+            console.error('Failed to reload content.');
+        }
+    });
+}
+
+function getAnneeOptions(id,inex)
+{
+    $.ajax({
+        url: '/ComparateurVehicules/api/apiRoutes.php',
+        type: 'POST',
+        data: {version: id , index :inex},
+        success: function(response) {
+            if(inex>=1 && inex<= 4)
+            {
+                $('#form1 .drop-div4').empty()
+                $('#form1 .drop-div4').append(response);
+            }
+            else if(inex>=5 && inex<= 8)
+            {
+                $('#form2 .drop-div4').empty()
+                $('#form2 .drop-div4').append(response);
+            }
+            else if(inex>=9 && inex<=13)
+            {
+                $('#form3 .drop-div4').empty()
+                $('#form3 .drop-div4').append(response);
+            }
+            else {
+                $('#form4 .drop-div4').empty()
+                $('#form4 .drop-div4').append(response);
+            }
         },
         error: function() {
             console.error('Failed to reload content.');

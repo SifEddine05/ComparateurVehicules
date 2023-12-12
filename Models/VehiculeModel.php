@@ -29,6 +29,40 @@
             return $results;
         }
 
+        public function getVersionByModele($modele)
+        {
+            $conn = $this->db->connect();
+
+            $query = $conn->prepare("SELECT version
+            FROM vehicule
+            INNER JOIN caracteristique ON vehicule.CaracteristiqueId = caracteristique.CaracteristiqueId
+            WHERE vehicule.ModeleId = ?;");
+
+            $query->execute(array($modele));
+            $results = $query->fetchAll(PDO::FETCH_ASSOC);
+            $this->db->disconnect($conn);
+            return $results;
+        }
+
+        public function getAnneeByVersion($version)
+        {
+            $conn = $this->db->connect();
+
+            $query = $conn->prepare("SELECT Annees
+            FROM `vehicule`
+            INNER JOIN caracteristique ON vehicule.CaracteristiqueId = caracteristique.CaracteristiqueId
+            WHERE version = ?
+            ");
+
+            $query->execute(array($version));
+            $results = $query->fetchAll(PDO::FETCH_ASSOC);
+            $this->db->disconnect($conn);
+            return $results;
+        }
+
+        
+
+
         // public function getVehiculeByMMVA()
         // {
             

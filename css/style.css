@@ -300,6 +300,8 @@ body {
    
 }
 
+
+
 .form-div .image-v1 {
     position: relative;
     background-color: #068FFF;
@@ -415,7 +417,9 @@ form h5 {
 
 #form1 ,#form2 {
     display: block;
+    
 }
 #form3 ,#form4{
     display: none ;
+
 }
