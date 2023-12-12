@@ -27,4 +27,5 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Views/Components/U
         $result = $vctl->showOptionsAnnee($id,$index);
         echo $result;
     }
+
 ?>

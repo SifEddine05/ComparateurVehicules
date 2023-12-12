@@ -259,6 +259,7 @@ body {
 
 .form-container{
     margin-top: 50px;
+    margin-bottom: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -422,4 +423,30 @@ form h5 {
 #form3 ,#form4{
     display: none ;
 
+}
+
+#CompareBtn{
+    padding: 15px;
+    width: 250px;
+    background-color: #4E4FEB;
+    color: #fff;
+    border: 0px;
+    border-radius:  7px;
+    font-size: 20px;
+    font-weight: bold;
+
+    box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.1);
+    -webkit-box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.1);
+    -moz-box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.1);
+}
+#CompareBtn:hover{
+    background-color: #00F;
+    cursor: pointer;
+}
+#error-from{
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: none;
 }

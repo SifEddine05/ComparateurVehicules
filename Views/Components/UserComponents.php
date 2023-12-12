@@ -223,7 +223,7 @@
                 $img = "/ComparateurVehicules/assets/V2.png";
             }
             ?>
-            <form class="form-div" id="form<?php echo $n ?>">
+            <div class="form-div" id="form<?php echo $n ?>">
 
                     <div class="image-v1">
                         <img src=<?php echo $img ?> width="400px"/>
@@ -279,7 +279,7 @@
                         </div>
                     </div>
                     
-                </form>  
+                </div>  
         <?php
         }
 
@@ -298,7 +298,7 @@
                 </select>
             </div>
            
-            <div class="grid-container">
+            <form action="/ComparateurVehicules/api/apiRoute.php" method="POST" id="MainForm" class="grid-container">
 
                <?php $this->form(1,1) ?> 
                <?php $this->form(5,2) ?> 
@@ -306,10 +306,27 @@
                <?php $this->form(13,4) ?> 
 
                 
-            </div>
-            <button> submit </button>
+            </form>
+            <span id="error-from" >S'il vous plaît remplissez tous les champs</span>
+            <button id="CompareBtn"> Compare  </button>
             
         </div>
+
+        <?php
+        }
+
+
+        public function guideAchatButton()
+        {
+        ?>
+            <div class='guideAchatLien' >
+                <div>
+                    <img src="/ComparateurVehicules/assets/GuideAchat.png" alt="guideAcht" />
+                </div>
+                <div>
+                    <p>hhhh</p>
+                </div>
+            </div>
 
         <?php
         }

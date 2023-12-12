@@ -103,7 +103,6 @@ function showallOptions(index)
         option.style.display = 'block';
     }
     dropdown.classList.add('active');
-    console.log(dropdown.classList);
 
 }
 
@@ -140,18 +139,18 @@ function selectOption(value,index,nom) {
     const dropdowns = document.getElementsByClassName('dropdown');
     const dropdown =dropdowns[index-1];
     dropdown.classList.remove('active');
-    if(index==1 || index==5 || index==9)
+    if(index==1 || index==5 || index==9 || index===13)
     { 
         getModeleOptions(value,index+1)
         Marque(index)
     }
-    else if(index==2 || index==6 || index==10)
+    else if(index==2 || index==6 || index==10 || index===14)
     {
         getVersionOptions(value,index+1)
         Modele(index)
 
     }
-    else if(index==3 || index==7 || index==11)
+    else if(index==3 || index==7 || index==11 || index===15)
     {
         getAnneeOptions(value,index+1)
         Version(index)
@@ -179,7 +178,7 @@ document.addEventListener('click', function (e) {
     
 });
 
-document.getElementById('NombreVehicule').addEventListener('change' , (e)=>{
+document.getElementById('NombreVehicule')?.addEventListener('change' , (e)=>{
     const value = e.target.value
     console.log(value);
 
@@ -205,19 +204,30 @@ function Marque(id)
 {
 
     let index =0
+    console.log(index);
     index = parseInt(id, 10);
     const btn1 = document.getElementById('searchInput'+index) ;
     index= index +1 
     const btn2 = document.getElementById('searchInput'+index) ;
+    const btn21 = document.getElementById('hidesearchInput'+index) ;
+
     if(btn2) {btn2.value=''
     btn2.disabled = false;
     }
+    if(btn21) btn21.value=''
+
+
+
     index= index +1 
     const btn3 = document.getElementById('searchInput'+index) ;
+    const btn31 = document.getElementById('hidesearchInput'+index) ;
+    if(btn31) btn31.value=''
     if(btn3) btn3.value=''
 
     index= index +1 
     const btn4 = document.getElementById('searchInput'+index) ;
+    const btn41 = document.getElementById('hidesearchInput'+index) ;
+    if(btn41) btn41.value=''
     if(btn4) btn4.value=''
 }
 
@@ -227,11 +237,18 @@ function Modele(id){
     const btn1 = document.getElementById('searchInput'+index) ;
     index= index +1 
     const btn2 = document.getElementById('searchInput'+index) ;
+    const btn21 = document.getElementById('hidesearchInput'+index) ;
+
     if(btn2) {btn2.value=''
     btn2.disabled = false;
     }
+    if(btn21) btn21.value=''
+
     index= index +1 
     const btn3 = document.getElementById('searchInput'+index) ;
+    const btn31 = document.getElementById('hidesearchInput'+index) ;
+    if(btn31) btn31.value=''
+
     if(btn3) btn3.value=''
 }
 
@@ -241,9 +258,13 @@ function Version(id){
     const btn1 = document.getElementById('searchInput'+index) ;
     index= index +1 
     const btn2 = document.getElementById('searchInput'+index) ;
+    const btn21 = document.getElementById('hidesearchInput'+index) ;
+
     if(btn2) {btn2.value=''
     btn2.disabled = false;
     }
+    if(btn21) btn21.value=''
+
   
 }
 
@@ -354,6 +375,66 @@ function getAnneeOptions(id,inex)
     });
 }
 
+
+
+const CompareSubmit = document.getElementById("CompareBtn")
+CompareSubmit?.addEventListener('click' , ()=>{
+    const marque1 = document.getElementById("hidesearchInput1")?.value
+    const modele1= document.getElementById("hidesearchInput2")?.value
+    const version1= document.getElementById("hidesearchInput3")?.value
+    const annee1 = document.getElementById("hidesearchInput4")?.value
+
+    const marque2 = document.getElementById("hidesearchInput5")?.value
+    const modele2= document.getElementById("hidesearchInput6")?.value
+    const version2= document.getElementById("hidesearchInput7")?.value
+    const annee2 = document.getElementById("hidesearchInput8")?.value
+
+    const marque3 = document.getElementById("hidesearchInput9")?.value
+    const modele3= document.getElementById("hidesearchInput10")?.value
+    const version3= document.getElementById("hidesearchInput11")?.value
+    const annee3 = document.getElementById("hidesearchInput12")?.value
+
+    const marque4 = document.getElementById("hidesearchInput13")?.value
+    const modele4= document.getElementById("hidesearchInput14")?.value
+    const version4= document.getElementById("hidesearchInput15")?.value
+    const annee4 = document.getElementById("hidesearchInput16")?.value
+
+    const nbrForms = document.getElementById('NombreVehicule')?.value
+
+    const span = document.getElementById("error-from")
+
+    span.style.display="none"
+    if(marque1=='' || marque2=='' || modele1=='' || modele2 =='' || version1=='' || version2=='' || annee1=='' || annee2=='')
+    {
+        span.style.display="block"
+    }
+    else{
+        if(nbrForms == 3)
+        {
+            if(marque3=='' ||modele3=='' || version3=='' || annee3=='')
+            {
+                span.style.display="block"
+            }
+            else{
+                console.log("good");
+            }
+        }
+        else if(nbrForms==4)
+        {
+            if(marque3=='' ||modele3=='' || version3=='' || annee3==''|| marque4=='' ||modele4=='' || version4=='' || annee4=='')
+            {
+                span.style.display="block"
+            }
+            else{
+                console.log("good");
+            }
+        }
+        else{
+            console.log("good");
+        }
+    }
+
+})
 
 
 
