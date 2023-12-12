@@ -158,7 +158,7 @@
             ?>
 
             <div class="principale-marques-super-container">
-                <h1 class="titles">Les principales marques</h1>
+                <h1 class="titles">Les Marques Principales </h1>
                 <div class="principale-marques-container">
                     <?php
                     foreach($marques as   $m){
@@ -178,13 +178,24 @@
 
         public function form($id,$n)
         {
+
+            if($n % 2 ==0) {
+                $img = "/ComparateurVehicules/assets/image1.webp"  ;
+            }
+            else{
+                $img = "/ComparateurVehicules/assets/V2.png";
+            }
             ?>
             <form class="form-div" id="form<?php echo $n ?>">
+                    <div class="image-v1">
+                        <img src=<?php echo $img ?> width="400px"/>
+
+                    </div>
                     <h5>Vehicule <?php echo $n ?></h5>
                     <div class="selects-container">
                         <div class="custom-select">
                             <label class="lables" for="marque<?php echo $id ?>">Marque</label>
-                            <input type="text" id="searchInput<?php echo $id ?>" name="marque<?php echo $id ?>" oninput="filterOptions(<?php echo $id ?>)" onclick="showallOptions(<?php echo $id ?>)" required="required">
+                            <input type="text" id="searchInput<?php echo $id ?>" name="marque<?php echo $id ?>" oninput="filterOptions(<?php echo $id ?>)" onclick="showallOptions(<?php echo $id ?>)" required="required" >
                             <div class="dropdown" id="dropdown">
                                 <div class="dropdown-item" onclick="selectOption('Option 1',<?php echo $id ?>) ">Option 1</div>
                                 <div class="dropdown-item" onclick="selectOption('Option 2',<?php echo $id ?>)">Option 2</div>
@@ -233,12 +244,15 @@
         ?>
         <div class="form-container">
             <h1 class="titles">Comparez Vehicules</h1>
-            <label for="NombreVehicule">Entrez le nombre des vehicules à comparer</label>
-            <select id="NombreVehicule" name="NombreVehicule" >
-                    <option value=2> 2 Vehicules</option>
-                    <option value=3> 3 Vehicules</option>
-                    <option value=4> 4 Vehicules</option>
-            </select>
+            <div class="nbrVehicule">
+                <label for="NombreVehicule">Entrez le nombre des vehicules à comparer</label>
+                <select id="NombreVehicule" name="NombreVehicule" >
+                        <option value=2> 2 Vehicules</option>
+                        <option value=3> 3 Vehicules</option>
+                        <option value=4> 4 Vehicules</option>
+                </select>
+            </div>
+           
             <div class="grid-container">
 
                <?php $this->form(1,1) ?> 

@@ -249,20 +249,23 @@ body {
     display: flex;
     justify-content: center ;
     gap: 55px;
-    padding-top: 15px;
+    padding-top: 75px;
+    padding-bottom: 75px;
 }
 
 .principale-marques-super-container{
-    margin-top: 25px;
+    margin-top: 50px;
 }
 
 .form-container{
-    margin-top: 85px;
-    width: 100%;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-left: 75px;
+    padding-right: 75px;
+   
 }
 
 
@@ -270,6 +273,12 @@ body {
 
 .titles
 {
+    color: #00F;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: IM FELL French Canon SC;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
     font-size: 48px;
     margin: 0;
     margin-bottom: 50px;
@@ -277,42 +286,63 @@ body {
 
 
 .form-div{
-    width: 60%;
-    padding: 10px;   
+    /* padding: 10px;    */
     border-radius: 2%; 
+   /* position: relative;
     padding-left: 75px;
     padding-right: 75px;
-    padding-top: 25px;
-    box-shadow: -3px 1px 5px 5px rgba(32, 123, 240, 0.897);
-    -webkit-box-shadow: -3px 1px 5px 5px rgba(32, 123, 240, 0.897);
-    -moz-box-shadow: -3px 1px 5px 5px rgba(32, 123, 240, 0.897);
+    padding-top: 25px; */
+    box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.33);
+    -webkit-box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.33);
+    -moz-box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.33);
     margin-bottom: 50px;
-    padding-bottom: 25px;
+    padding-bottom: 50px;
    
 }
 
+.form-div .image-v1 {
+    position: relative;
+    background-color: #068FFF;
+    max-height: 175px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+}
 form h5 {
     color: #4E4FEB;
-    font-size: 24px;
+    font-size: 36px;
     font-weight: bold;
     margin: 0;
+    margin-top: 50px;
     margin-bottom: 25px;
 }
 
 .form-container label{
     font-size: 22px;
-    font-weight: bold;
+    text-align: left;
+    font-weight: 500;
+    align-self: flex-start;
+
+}
+
+.nbrVehicule{
+    align-self: flex-start;
 }
 
 .form-container select{
     padding: 8px;
     border-radius: 5%;
     font-size: 16px;
+    align-self: flex-start;
+    background-color: #4E4FEB;
+    margin-left: 5px;
+    color:white;
 }
 
 
 .form-container select:hover{
     cursor: pointer;
+    background-color: #068FFF;
 }
 
 
@@ -330,7 +360,7 @@ form h5 {
     display: grid;
     margin-top: 35px;
     text-align: center;
-
+    width: 100%;
     place-items: center;
     grid-template-columns: repeat(2, 1fr); /* Three columns of equal width */
     gap: 20px 0px ;
@@ -369,7 +399,8 @@ form h5 {
 }
 
 .lables{
-    font-size: 17px !important;
+    font-size: 22px !important;
+    font-weight: 500 !important;
     width: 100%;
 }
 
@@ -377,7 +408,8 @@ form h5 {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Three columns of equal width */
     gap: 10px 100px;
-    width: 100%;
+    padding-left: 75px;
+    padding-right: 75px;
 
 }
 
