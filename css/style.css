@@ -517,3 +517,68 @@ form h5 {
     
     width: 30px;
 }
+
+
+
+.comp-container{
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+}
+
+.comp{
+    margin: auto;
+    width: 400px;
+    border-radius: 5px;
+    height: 600px;
+    padding-top: 50px;
+}
+
+.VS{
+    color: #00F !important;
+}
+.comp .element1{
+    width:380px;
+    height: 180px;
+    margin: auto;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #068FFF;
+    transform: rotate(-10deg); /* Equal to rotateZ(45deg) */
+
+}
+
+.comp .element2{
+    width: 380px;
+    height: 180px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    background-color: #068FFF;
+    margin-top: 50px;
+    transform: rotate(-10deg); /* Equal to rotateZ(45deg) */
+}
+
+.conainer-bestcomp{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    gap: 10px;
+}
+
+.comp p{
+    font-size: 28px;
+    color: #fff;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    font-family: IM FELL French Canon SC;
+    font-style: normal;
+    text-align: center;
+    font-weight: 900;
+    line-height: normal;
+    font-size: 48px;
+
+}

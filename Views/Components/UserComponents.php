@@ -353,6 +353,45 @@
         <?php
         }
 
+        public function PopulaireComparations() 
+        {
+            $bestcomps = $this->vehctl->getPopulaireComparations() ;
+        ?>
+        <div class="comp-container">
+            <h1 class="titles">Comparaisons populaires de voitures</h1>
+            <div class='conainer-bestcomp'>
+
+                <?php 
+                    foreach($bestcomps as $best)
+                    {
+                    ?>
+
+                        <div class='comp'>
+                            <div class='element1' style="background-image: url('<?php echo $best['url1']?>'); background-size: cover; "><p><?php echo $best['Nom1']?></p></div>
+                            <p class="VS">VS</p>
+                            <div class='element2' style="background-image: url('<?php echo $best['url2']?>'); background-size: cover; "><p><?php echo $best['Nom2']?></p></div>
+                        </div>
+                <?php 
+                    }
+                    ?>
+                
+                <!-- <div class='comp'>
+                    <div class='element1' ><p>Chery</p></div>
+                    <div class='element2'><p>Chery</p></div>
+                </div>
+                <div class='comp'>
+                    <div class='element1' ><p>Chery</p></div>
+                    <div class='element2'><p>Chery</p></div>
+                </div> -->
+
+            </div>
+           
+        </div>
+        <!-- style="background-image: url('path/to/your/image.jpg'); background-size: cover; height: 300px; width: 100%; color: white; padding: 20px;" -->
+
+        <?php
+        }
+
 
     }
 ?>

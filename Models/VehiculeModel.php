@@ -60,6 +60,29 @@
             return $results;
         }
 
+        public function getPopulaireComparations()
+        {
+            $conn = $this->db->connect();
+            $requet = "SELECT tab1.*,v1.Nom as Nom1 ,v2.Nom as Nom2  from 
+            (SELECT tab.*,url as url2 FROM
+            (SELECT comparison.*,url as url1
+            FROM comparison
+            INNER JOIN imagevehicule ON imagevehicule.IdVehicule = comparison.VehiculeId1
+            INNER JOIN image ON image.ImageId = imagevehicule.IdImage
+             ) as tab
+             INNER JOIN imagevehicule ON imagevehicule.IdVehicule = tab.VehiculeId2
+             INNER JOIN image ON image.ImageId = imagevehicule.IdImage
+             )as tab1
+             INNER JOIN vehicule as v1 ON v1.VehiculeId = tab1.VehiculeId1 
+             INNER JOIN vehicule as v2 ON v2.VehiculeId = tab1.VehiculeId2
+            ORDER by NombreDesFoisUtiliser DESC
+            LIMIT 3
+            " ;
+            $result = $this->db->requete($conn,$requet);
+            $this->db->disconnect($conn);
+            return $result;
+        }
+
         
 
 

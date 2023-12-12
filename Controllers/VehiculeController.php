@@ -24,6 +24,12 @@ class VehiculeController{
         $res = $this->vehicule->getAnneeByVersion($version) ; 
         return $res ; 
     }
+    public function getPopulaireComparations()
+    {
+        $res =$this->vehicule->getPopulaireComparations();
+        return $res ;
+    }
+    
     
 
     

@@ -18,7 +18,7 @@ require_once("Views/Components/UserComponents.php");
             $this->UserComponents->principaleMarques();
             $this->UserComponents->formComparation();
             $this->UserComponents->guideAchatButton();
-
+            $this->UserComponents->PopulaireComparations();
             $this->UserComponents->footer() ; 
             echo "</body> </html>";
         }
