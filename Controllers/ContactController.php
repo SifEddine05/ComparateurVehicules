@@ -1,5 +1,5 @@
 <?php
-    require_once('Models/ContactModel.php');
+    require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Models/ContactModel.php');
     class ContactController {
         private $model ; 
         public function __construct()

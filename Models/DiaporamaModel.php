@@ -1,6 +1,6 @@
 <?php
-    require_once('DataBase.php') ; 
-class DiaporamaModel{
+    require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Models/DataBase.php') ; 
+    class DiaporamaModel{
     private $db;
 
     public function __construct()

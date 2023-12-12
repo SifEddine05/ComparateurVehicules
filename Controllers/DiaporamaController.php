@@ -1,5 +1,5 @@
 <?php
-require_once("Models/DiaporamaModel.php");
+require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Models/DiaporamaModel.php');
  class DiaporamaController {
     private $diaporama ; 
     public function __construct()

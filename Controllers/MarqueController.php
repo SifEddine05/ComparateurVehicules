@@ -1,5 +1,5 @@
 <?php
-    require_once("Models/MarqueModel.php");
+    require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Models/MarqueModel.php');
 
     class MarqueController
     {
@@ -11,6 +11,11 @@
         public function getPrincipaleMarque()
         {
             $res = $this->marque->getPrincipaleMarques();
+            return $res ;
+        }
+        public function getAllMarques()
+        {
+            $res= $this->marque->getAllMarques();
             return $res ;
         }
     }

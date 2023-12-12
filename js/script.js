@@ -108,7 +108,6 @@ function showallOptions(index)
 }
 
 function filterOptions(index) {
-    console.log(index);
     const input = document.getElementById('searchInput'+index);
     
     const dropdowns = document.getElementsByClassName('dropdown');
@@ -130,17 +129,35 @@ function filterOptions(index) {
             }
         }
         dropdown.classList.add('active');
-
     }
-    
 
 }
 
-function selectOption(value,index) {
-    document.getElementById('searchInput'+index).value = value;
+function selectOption(value,index,nom) {
+    console.log(index);
+    document.getElementById('searchInput'+index).value = nom;
+    document.getElementById('hidesearchInput'+index).value = value;
     const dropdowns = document.getElementsByClassName('dropdown');
     const dropdown =dropdowns[index-1];
     dropdown.classList.remove('active');
+    if(index==1 || index==5 || index==9)
+    { 
+        getModeleOptions(value,index+1)
+        Marque(index)
+    }
+    else if(index==2 || index==6 || index==10)
+    {
+        Marque(index)
+
+    }
+    else if(index==3 || index==7 || index==11)
+    {
+
+    }
+    else{
+
+    }
+
 }
 
 document.addEventListener('click', function (e) {
@@ -181,6 +198,40 @@ document.getElementById('NombreVehicule').addEventListener('change' , (e)=>{
         document.getElementById("form4").style.display = 'block' ;
     }
 })
+
+function Marque(id)
+{
+    let index = id 
+    const btn1 = document.getElementById('searchInput'+index) ;
+    index= index +1 
+    const btn2 = document.getElementById('searchInput'+index) ;
+    btn2.value=''
+    btn2.disabled = false;
+}
+
+
+
+
+
+function getModeleOptions(id,inex) {
+
+    $.ajax({
+
+        url: '/ComparateurVehicules/api/apiRoutes.php',
+        type: 'POST',
+        data: {marqueId: id , index :inex},
+        success: function(response) {
+            $('.drop-div2').empty()
+
+            $('.drop-div2').append(response);
+        },
+        error: function() {
+            console.error('Failed to reload content.');
+        }
+    });
+}
+
+
 
 
 

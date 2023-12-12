@@ -9,8 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mina&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon+SC&family=Mina&display=swap" rel="stylesheet">
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 
     <title>Document</title>
