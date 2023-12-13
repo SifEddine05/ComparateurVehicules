@@ -29,6 +29,7 @@ class VehiculeController{
         $res =$this->vehicule->getPopulaireComparations();
         return $res ;
     }
+   
     
     
 

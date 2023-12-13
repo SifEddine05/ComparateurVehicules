@@ -377,6 +377,9 @@ function getAnneeOptions(id,inex)
 
 
 
+
+
+
 const CompareSubmit = document.getElementById("CompareBtn")
 CompareSubmit?.addEventListener('click' , ()=>{
     const marque1 = document.getElementById("hidesearchInput1")?.value
@@ -416,7 +419,7 @@ CompareSubmit?.addEventListener('click' , ()=>{
                 span.style.display="block"
             }
             else{
-                console.log("good");
+                location.href="/ComparateurVehicules/compare?V1="+annee1+"&V2="+annee2+"$V3="+annee3
             }
         }
         else if(nbrForms==4)
@@ -426,11 +429,12 @@ CompareSubmit?.addEventListener('click' , ()=>{
                 span.style.display="block"
             }
             else{
-                console.log("good");
+                location.href="/ComparateurVehicules/compare?V1="+annee1+"&V2="+annee2+"$V3="+annee3+"$V4="+annee4
+
             }
         }
         else{
-            console.log("good");
+            location.href="/ComparateurVehicules/compare?V1="+annee1+"&V2="+annee2
         }
     }
 

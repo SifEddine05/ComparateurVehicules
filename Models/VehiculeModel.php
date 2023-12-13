@@ -48,7 +48,7 @@
         {
             $conn = $this->db->connect();
 
-            $query = $conn->prepare("SELECT Annees
+            $query = $conn->prepare("SELECT Annees , VehiculeId
             FROM `vehicule`
             INNER JOIN caracteristique ON vehicule.CaracteristiqueId = caracteristique.CaracteristiqueId
             WHERE version = ?
@@ -59,6 +59,8 @@
             $this->db->disconnect($conn);
             return $results;
         }
+
+       
 
         public function getPopulaireComparations()
         {

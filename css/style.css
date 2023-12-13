@@ -533,6 +533,10 @@ form h5 {
     height: 600px;
     padding-top: 50px;
 }
+.comp:hover{
+    opacity: 65%;
+    cursor: pointer;
+}
 
 .VS{
     color: #00F !important;

@@ -204,9 +204,11 @@
         public function showOptionsAnnee($version,$id)
         {
             $versions = $this->vehctl->getAnneeByVersion($version);
+            ?>
+            <?php
             foreach($versions as $vr)
             {?>
-                <div class="dropdown-item" onclick="selectOption('<?php echo $vr['Annees'] ?>','<?php echo $id ?>','<?php echo $vr['Annees'] ?>')"><?php echo $vr['Annees'] ?></div>
+                <div  class="dropdown-item" onclick="selectOption('<?php echo $vr['VehiculeId'] ?>','<?php echo $id ?>','<?php echo $vr['Annees'] ?>')"><?php echo $vr['Annees'] ?></div>
             <?php
             }
         }
@@ -366,11 +368,11 @@
                     {
                     ?>
 
-                        <div class='comp'>
+                        <a href='/ComparateurVehicules/compare?V1=<?php echo $best['VehiculeId1']?>&V2=<?php echo $best['VehiculeId2']?>' class='comp'>
                             <div class='element1' style="background-image: url('<?php echo $best['url1']?>'); background-size: cover; "><p><?php echo $best['Nom1']?></p></div>
                             <p class="VS">VS</p>
                             <div class='element2' style="background-image: url('<?php echo $best['url2']?>'); background-size: cover; "><p><?php echo $best['Nom2']?></p></div>
-                        </div>
+                        </a>
                 <?php 
                     }
                     ?>

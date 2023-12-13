@@ -28,4 +28,6 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Views/Components/U
         echo $result;
     }
 
+   
+
 ?>
