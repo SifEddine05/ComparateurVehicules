@@ -85,13 +85,24 @@
             return $result;
         }
 
-        
-
-
-        // public function getVehiculeByMMVA()
-        // {
-            
-        // }
+        public function getVehiculeById($id)
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("SELECT VehiculeId,vehicule.Nom,marque.Nom as marque , modele.Name as modele , moteur.* , caracteristique.* , performances.* ,url as image FROM `vehicule` 
+            INNER JOIN marque on marque.MarqueId=vehicule.MarqueId 
+            INNER JOIN modele on modele.ModeleId=vehicule.ModeleId
+            INNER JOIN moteur on moteur.MoteurId = vehicule.MoteurId
+            INNER JOIN caracteristique on caracteristique.CaracteristiqueId = vehicule.CaracteristiqueId
+            INNER JOIN performances on performances.PerformancesId = vehicule.PerformancesId
+            INNER JOIN imagevehicule ON imagevehicule.IdVehicule=vehicule.VehiculeId
+            INNER JOIN image ON image.ImageId = imagevehicule.IdImage
+            WHERE VehiculeId=?
+            LIMIT 1") ;
+           $query->execute(array($id));
+           $results = $query->fetchAll(PDO::FETCH_ASSOC);
+           $this->db->disconnect($conn);
+           return $results;
+        }
 
 
     }

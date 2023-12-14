@@ -584,5 +584,24 @@ form h5 {
     font-weight: 900;
     line-height: normal;
     font-size: 48px;
+}
 
+table {
+    border-collapse: collapse;
+    width: 90%;
+}
+
+th, td {
+    text-align: center;
+    /* border: 2px solid #aaaaaae4; */
+    border: 2px solid #aaaaaae4;
+    padding: 10px;
+    text-align: center;
+}
+
+.ComaparasionTable{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
