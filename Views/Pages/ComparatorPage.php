@@ -7,9 +7,17 @@ require_once("Views/Components/UserComponents.php");
         {
             $this->UserComponents = new UserComponents();
         }
+
+
+        public function comparationTable(){
+
+        }
          
         public function getPage()
         {
+            $V1Id = $_GET["V1"];
+            $V2Id = $_GET["V2"];
+
             $this->UserComponents->Header();
             echo "<body>";
             $this->UserComponents->NavBar();

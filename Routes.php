@@ -8,6 +8,10 @@
         header("location:" . substr($request, 0, -1));
     };
 
+    if (strpos($request, "?")) {
+        $request = substr($request, 0, - (strlen($request) - strpos($request, "?")));
+    }
+
     $LandingPage = new LandingPage();
     $ComparatorPage = new ComparatorPage();
 
