@@ -441,25 +441,7 @@ CompareSubmit?.addEventListener('click' , ()=>{
 })
 
 
-const dimension = document.getElementById('dimbtn');
-console.log(dimension);
 
-dimension.addEventListener('click', () => {
-    const elements = document.getElementsByClassName('Dim');
-
-    const elementsArray = Array.from(elements);
-
-  
-
-    elementsArray.forEach(element => {
-        console.log('displayyyyyyyy', element.style.display);
-        if (element.style.display === "block") {
-            element.style.display = "none";
-        } else {
-            element.style.display = "block";
-        }
-    });
-});
 
 
 
