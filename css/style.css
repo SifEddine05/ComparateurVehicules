@@ -588,13 +588,13 @@ form h5 {
 
 table {
     border-collapse: collapse;
-    width: 90%;
+    min-width: 100%;
 }
 
 th, td {
     text-align: center;
     /* border: 2px solid #aaaaaae4; */
-    border: 2px solid #aaaaaae4;
+    border: 2px solid #fff;
     padding: 10px;
     text-align: center;
 }
@@ -604,4 +604,43 @@ th, td {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 50px;
 }
+
+.table-container{
+    max-width: 100%;
+    overflow: auto;
+}
+
+th>h4 {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+}
+td>h4{
+    font-size: 20px;
+    font-weight: normal;
+    font-family: 'Montserrat';
+    padding: 0;
+    margin: 0;
+}
+
+
+
+th{
+    background-color: #068FFF;
+    
+}
+td img {
+    border-radius: 5px;
+    border: 0px !important;
+}
+td img:hover{
+    opacity: 75%;
+    border-radius: 5px;
+    border: 0px !important;
+}
+
