@@ -9,9 +9,9 @@ a{
     text-decoration: none !important; 
 }
 .contacts-container{
-    display: flex;
-    justify-content: center;
-    gap: 45px;
+    display: flex !important;
+    justify-content: center !important;
+    gap: 45px !important;
 }
 .button{
     padding: 10px;
@@ -31,21 +31,23 @@ a{
 .button-container{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center ;
     gap: 25px;
 }
 .NavBar{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 25px;
-    padding-right: 25px;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding-left: 25px !important;
+    padding-right: 25px !important;
 }
 .container-diapo{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding-top: 25px;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    padding-top: 25px !important;
+    padding-bottom: 5px;
+    padding-right: 5px;
     
 }
 
@@ -83,82 +85,13 @@ h1{
 
 }
 
-.diaporama{
-    position: relative;
-    max-width: 100%;
-    display: flex;
-}
-
-.diaporama div{
-    position: relative;
-    height: 575px;
-    width: 300px;
-    background-color: #4E4FEB;
-    margin-right: 25px;
-}
-
-
-.diaporama img {
-    width: 750px;
-    height: auto;
-    position: absolute;
-    right: 0;
-    margin-top: 70px;
-    margin-right:65px ;
-    border: 2px solid #068FFF; 
-    border-radius: 2%;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-.diaporama a:hover{
-    background-color: #068FFF;
-   opacity: 95%;
-}
-.diaporama a {
-    display: none;
-
-}
-.diaporama h3 {
-    position: absolute;
-    right: 70px;
-    width: 75px;
-    margin-top: 80px;
-    background-color: #068FFF;
-    text-align: center;
-    padding:10px ;
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 10%;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-    
-}
-
-
-.diaporama img.active {
-    opacity: 1;
-}
-
-.diaporama a.active {
-    display: block;
-}
-
-.diaporama h3.active {
-    opacity: 1;
-}
-
 .menu-container{
-    width: 100%;
+    width: 100% !important;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #4E4FEB;
-    border: 1px solid #068FFF ;
-   
-    margin-right: 10px;
-   
+    border: 1px solid #068FFF ;   
     margin-top: 5px;
 }
 .menu-container a{
@@ -167,8 +100,8 @@ h1{
     font-size: 22px;
     font-weight: bold;
     color: white;
-    padding-top:15px ;
-    padding-bottom:15px ;
+    padding-top:10px ;
+    padding-bottom:10px ;
     border-left: 1px solid white;
 }
 .menu-container a:hover{
@@ -212,7 +145,10 @@ h1{
 }
 
 footer{
-    background-color: white ;
+    background-color: white !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 .typewrite{
@@ -229,7 +165,7 @@ body {
     /*FF4D30*/
     /* background-color: rgba(255,237,234,0.2); */
     background-color: #EEEEEE !important;
-    margin-bottom: 0;
+    margin-bottom: 0 !important;
 }
 
 
@@ -366,7 +302,7 @@ form h5 {
     width: 100%;
     place-items: center;
     grid-template-columns: repeat(2, 1fr); /* Three columns of equal width */
-    gap: 20px 0px ;
+    gap: 20px 45px !important;
 }
 
 
@@ -465,7 +401,7 @@ form h5 {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap:100px;
+    gap:100px !important;
 
 }
 
@@ -484,7 +420,7 @@ form h5 {
 
 #titleachat
 {
-    margin-bottom: 10px;
+    margin-bottom: 20px !important;
 }
 
 #NavigateGuide{
@@ -521,14 +457,14 @@ form h5 {
 
 
 .comp-container{
-    margin-top: 50px;
+    margin-top: 100px;
     margin-bottom: 50px;
 
 }
 
 .comp{
     margin: auto;
-    width: 400px;
+    width: 600px ;
     border-radius: 5px;
     height: 600px;
     padding-top: 50px;
@@ -540,6 +476,8 @@ form h5 {
 
 .VS{
     color: #00F !important;
+    margin-top: 16px;
+    margin-bottom: 16px;
 }
 .comp .element1{
     width:380px;
@@ -563,7 +501,7 @@ form h5 {
     align-items: center;
     border-radius: 25px;
     background-color: #068FFF;
-    margin-top: 50px;
+    margin-top: 0px;
     transform: rotate(-10deg); /* Equal to rotateZ(45deg) */
 }
 
@@ -571,7 +509,7 @@ form h5 {
     display: flex;
     justify-content: center;
     align-content: center;
-    gap: 10px;
+    gap: 100px;
 }
 
 .comp p{
@@ -676,11 +614,11 @@ td img:hover{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 50px;
+    margin-top: 10px;
     margin-bottom: 50px;
 }
 .LatestNews{
-    width: 60% !important;
+    width: 55% !important;
 }
 
 
@@ -691,13 +629,14 @@ td img:hover{
 .carousel-item h3{
     position: absolute;
     top: 10px;
+    right: 10px;
     color: white;
     z-index: 5;
     padding: 10px;
-     color: #fff;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 1);
+    background-color: #068FFF;
+    border-radius: 10px;
     font-style: bold;
-    font-size: 36px;
+    font-size: 34px;
 }
 
 
@@ -706,6 +645,10 @@ td img:hover{
 .NewsCard{
     border:2px solid #fff;
     width: 600px;
+    box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.2);
+    -webkit-box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.2);
+    -moz-box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.2);
+    
 }
 
 .Title-container{
@@ -741,6 +684,8 @@ td img:hover{
     width: 85%;
     margin: auto;
     margin-bottom: 50px;
+    margin-top: 50px;
+    text-align: center;
 }
 
 .Cards-container{
@@ -766,6 +711,12 @@ td img:hover{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.carousel-item img{
+    width: 750px;
+    border: 2px solid #068FFF ; 
+    border-radius: 2%;
 }
 
 

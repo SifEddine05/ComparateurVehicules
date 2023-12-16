@@ -12,62 +12,7 @@ class NewsPage {
             $this->UserComponents = new UserComponents();
             $this->newsctl = new NewsController();
         }
-        public function getLatestNews()
-        {
-            $lastnews = $this->newsctl->getLatestNews();
-            
-            ?>
-    <div class="LatestNews-container">
-        <h5 class="titles">Les derniers News</h5>
-        <div class="LatestNews">
-            <div id="demo" class="carousel slide" data-bs-ride="carousel">
-
-                <!-- Indicators/dots -->
-                <div class="carousel-indicators">
-                <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-                <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-                <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-                </div>
-
-                <!-- The slideshow/carousel -->
-                <div class="carousel-inner">
-                <div class="carousel-item active">
-                <a href="/ComparateurVehicule/newsdetails?id=<?php echo $lastnews[0]['NewsId']?>" >
-                    <img src="<?php echo $lastnews[0]['image']?>"  class="d-block w-100">
-                    <h3><?php echo $lastnews[0]['titre'] ?> </h3>
-                </a>
-                    
-                </div>
-                <div class="carousel-item">
-                <a href="/ComparateurVehicule/newsdetails?id=<?php echo $lastnews[1]['NewsId']?>" >
-
-                    <img src="<?php echo $lastnews[1]['image']?>" class="d-block w-100">
-                    <h3><?php echo $lastnews[1]['titre'] ?> </h3>
-                </a>
-
-                </div>
-                <div class="carousel-item">
-                <a href="/ComparateurVehicule/newsdetails?id=<?php echo $lastnews[2]['NewsId']?>" >
-                    <img src="<?php echo $lastnews[2]['image']?>"  class="d-block w-100">
-                    <h3><?php echo $lastnews[2]['titre'] ?> </h3>
-                </a>
-
-                </div>
-                </div>
-
-                <!-- Left and right controls/icons -->
-                <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-                    </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                </button>
-            </div>
-        </div>
-    </div>
-
-        <?php
-        }
+        
 
 
         public function NewsCard($news)
@@ -96,7 +41,7 @@ class NewsPage {
 
         ?>
             <div class="News-container">
-                <h5 class="titles"> Explorez tous les News</h5>
+                <h5 class="titles"> Explorez  les derniers news des vehicules</h5>
                 <div class="Cards-container">
                     <?php foreach($lastnews as $last)
                     {
@@ -156,14 +101,13 @@ class NewsPage {
 
         public function getPage()
         {
-            $records_per_page = 2;
+            $records_per_page = 10;
             $page = isset($_GET['page']) ? $_GET['page'] : 1;
             $offset = ($page - 1) * $records_per_page;
             $this->UserComponents->Header();
             echo "<body>";
             $this->UserComponents->NavBar();
             $this->UserComponents->menu() ; 
-            $this->getLatestNews();
             $this->NewsCards($offset,$records_per_page);
             $this->Pagination($page,$records_per_page) ;
             $this->UserComponents->footer() ; 

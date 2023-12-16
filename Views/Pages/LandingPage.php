@@ -17,47 +17,72 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Vehicu
 
 
         }
+
         public function Diaporama()
         {
             $res = $this->diapctrl->getDiaporama();
+            $nbr = count($res);
             ?>
-            <div class="container-diapo">
-                <div class="diapo-text">
-                <h2>
-                    <h1>Avec Notre Website</h1>
-                    <a  class="typewrite" data-period="2000" data-type='[ "Découvrez l avenir automobile ", "Explorez les dernières actualités et publicités ", "Des conseils éclairés pour des décisions automobiles" ]'>
-                        <span class="wrap"></span>
-                    </a>
-                </h2>
-                </div>
-                <div class="diaporama">
-                        <div class="box"></div>
-                    <?php
-                    foreach($res as  $key => $d)
-                    {
-                        $class = ($key === 0) ? 'active' : '';
-                    ?>
-                            
-                            <a class="<?php echo $class; ?>" href=<?php echo $d['url'] ?> >
-                                <img class="<?php echo $class; ?>" src="<?php echo $d['image']; ?>" alt="diaporama"/>
-                                <h3 class="<?php echo $class; ?>"><?php  if($d['Type']=="pub"){
-                                echo "Publicite" ;
-                            }
-                            else{
-                                echo "News";
-                            } ?></h3>
-                        </a>
-                        
+            <div class="LatestNews-container">
 
-                    <?php
-                    }
-                    ?>
+                <div class="container-diapo">
+                    <div class="diapo-text">
+                    <h2>
+                        <h1>Avec Notre Website</h1>
+                        <a  class="typewrite" data-period="2000" data-type='[ "Découvrez l avenir automobile ", "Explorez les dernières actualités et publicités ", "Des conseils éclairés pour des décisions automobiles" ]'>
+                            <span class="wrap"></span>
+                        </a>
+                    </h2>
                 </div>
-            
+                <div class="LatestNews">
+                    <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+                        <!-- Indicators/dots -->
+                        <div class="carousel-indicators">
+                            <?php
+                                for ($i = 0; $i < $nbr; $i++) {
+                                ?>
+                                    <button type="button" data-bs-target="#demo" data-bs-slide-to="<?php echo $i ?>" class="<?php if($i==0) echo 'active'?>"></button>
+                            <?php }
+                            ?>
+                        </div>
+                        <div class="carousel-inner">
+                            <?php 
+                                foreach($res as $index => $el)
+                                {?>
+                                    <div class="carousel-item <?php if($index==0) echo 'active'?>">
+                                        <a href="<?php echo $el['url']?>" >
+                                            <img src="<?php echo $el['image']?>"  class="d-block w-100">
+                                            <h3 class='diapo-type'><?php  if($el['Type']=="pub"){
+                                            echo "Publicite" ;
+                                        }
+                                        else{
+                                            echo "News";
+                                        } ?></h3>
+                                        </a>
+                                    </div>
+                          <?php }
+                            
+                            ?>
+                            
+                        
+                        </div>
+
+                        <!-- Left and right controls/icons -->
+                        <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                            </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+                </div>
             </div>
-            <?php
-            // print_r($res);
-        } 
+        </div>
+
+        <?php
+        }
+        
         public function guideAchatButton()
         {
         ?>
