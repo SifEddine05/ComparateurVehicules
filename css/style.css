@@ -588,7 +588,9 @@ form h5 {
 
 table {
     border-collapse: collapse;
-    min-width: 100%;
+    table-layout: auto;
+    width: 100%;
+
 }
 
 th, td {
@@ -599,6 +601,22 @@ th, td {
     text-align: center;
 }
 
+td{
+    width: 800px;
+}
+.sub-headers,.principlae-carc{
+    width: 300px;
+    position: sticky;
+    left: 0;
+    z-index: 1;
+}
+.header{
+    position: sticky;
+    top: 0;
+
+}
+
+
 .ComaparasionTable{
     display: flex;
     justify-content: center;
@@ -608,9 +626,12 @@ th, td {
 }
 
 .table-container{
-    max-width: 100%;
+    max-width: 90vw;
     overflow: auto;
+    max-height: 100vh;
+    
 }
+
 
 th>h4 {
     margin: 0;
@@ -619,6 +640,13 @@ th>h4 {
     color: white;
     font-weight: bold;
     font-size: 24px;
+}
+.header{
+    background-color: #4E4FEB;
+}
+.sub-headers h4{
+    font-size: 20px !important;
+    font-weight: normal !important;
 }
 td>h4{
     font-size: 20px;

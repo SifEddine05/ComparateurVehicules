@@ -16,8 +16,8 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Vehicu
         public function createLigne($titile,$res1,$res2,$res3,$res4,$unit,$elem,$class)
         {
         ?>
-            <tr>
-                <th><h4><?php echo $titile?></h4></th>
+            <tr >
+                <th class="<?php echo $class?>"  ><h4><?php echo $titile?></h4></th>
                 <td><h4><?php echo $res1[0][$elem]?> <?php echo $unit ?></h4></td>
                 <td><h4><?php echo $res2[0][$elem]?>  <?php echo $unit ?></h4></td>
                 <?php if($res3!=-1)
@@ -45,6 +45,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Vehicu
             $res2 = $this->vehctl->getVehiculeById($id2);
             if($id3!=-1){
                 $res3 = $this->vehctl->getVehiculeById($id3);
+                
             }
             else {
                 $res3 = -1;
@@ -62,10 +63,10 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Vehicu
             <div class="ComaparasionTable">
                 <h5 class="titles">Le resultat de comparison </h5>
                 <div class="table-container">
-                    <table>
+                    <table >
                         <thead>
                             <tr>
-                                <th><h4>Caractéristiques</h4></th>
+                                <th style="background-color:#4E4FEB" ><h4>Caractéristiques</h4></th>
                                 <th class="header"><h4><?php echo $res1[0]['Nom'] ?></h4></th>
                                 <th class="header"><h4><?php echo $res2[0]['Nom'] ?></h4></th>
                                 <?php 
@@ -85,15 +86,15 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Vehicu
                         </thead>
                         <tbody>
                             <tr>
-                                <th><h4>Image de Vehicule</h4></th>
+                                <th class="principlae-carc"><h4>Image de Vehicule</h4></th>
                                 <td>
                                     <a href='/ComparateurVehicules/Vehicule?id=<?php echo $res1[0]['VehiculeId']?>'  >
-                                        <img src="<?php echo $res1[0]['image'] ?>" width="300px" alt="vehicule1" />
+                                        <img src="<?php echo $res1[0]['image'] ?>" width="350px" alt="vehicule1" />
                                     </a>
                                 </td>
                                 <td>
                                     <a href='/ComparateurVehicules/Vehicule?id=<?php echo $res2[0]['VehiculeId']?>'  >
-                                        <img src="<?php echo $res2[0]['image'] ?>" width="300px" alt="vehicule2" />
+                                        <img src="<?php echo $res2[0]['image'] ?>" width="350px" alt="vehicule2" />
                                     </a>
                                 </td>
                                 <?php if($id3!=-1)
@@ -101,7 +102,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Vehicu
                                 ?>
                                     <td>
                                         <a href='/ComparateurVehicules/Vehicule?id=<?php echo $res3[0]['VehiculeId']?>'  >
-                                            <img src="<?php echo $res3[0]['image'] ?>" width="300px" alt="vehicule3" />
+                                            <img src="<?php echo $res3[0]['image'] ?>" width="350px" alt="vehicule3" />
                                         </a>
                                     </td>
                                 <?php
@@ -111,9 +112,9 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Vehicu
                                 <?php if($id4!=-1)
                                 {
                                 ?>
-                                    <td>
+                                    <td >
                                         <a href='/ComparateurVehicules/Vehicule?id=<?php echo $res4[0]['VehiculeId']?>'  >
-                                            <img src="<?php echo $res4[0]['image'] ?>" width="300px" alt="vehicule4" />
+                                            <img src="<?php echo $res4[0]['image'] ?>" width="350px" alt="vehicule4" />
                                         </a>
                                     </td>
                                 <?php
@@ -123,49 +124,49 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Vehicu
                                 
                             </tr>
                             <?php 
-                                $this->createLigne('Marque',$res1,$res2,$res3,$res4,'','marque','marque');
-                                $this->createLigne('Modèle',$res1,$res2,$res3,$res4,'','modele','modele');
-                                $this->createLigne('Version',$res1,$res2,$res3,$res4,'','Version','Version');
-                                $this->createLigne('Année',$res1,$res2,$res3,$res4,'','Annees','Annees');
-                                $this->createLigne('Prix',$res1,$res2,$res3,$res4,'$','Prix','Prix');
+                                $this->createLigne('Marque',$res1,$res2,$res3,$res4,'','marque','principlae-carc');
+                                $this->createLigne('Modèle',$res1,$res2,$res3,$res4,'','modele','principlae-carc');
+                                $this->createLigne('Version',$res1,$res2,$res3,$res4,'','Version','principlae-carc');
+                                $this->createLigne('Année',$res1,$res2,$res3,$res4,'','Annees','principlae-carc');
+                                $this->createLigne('Prix',$res1,$res2,$res3,$res4,'$','Prix','principlae-carc');
                             ?> 
                             <tr >
-                                <th colspan=5><h4 id="dimbtn">Dimensions </h4></th>
+                                <th colspan=5 style="background-color:#4E4FEB" ><h4 id="dimbtn">Dimensions </h4></th>
                             </tr>
                             <?php 
-                                $this->createLigne('Largeur',$res1,$res2,$res3,$res4,'m','Largeur','Dim');
-                                $this->createLigne('Hauteur',$res1,$res2,$res3,$res4,'m','Hauteur','Dim');
-                                $this->createLigne('Capacité',$res1,$res2,$res3,$res4,' places','NombrePlaces','Dim');
-                                $this->createLigne('Volume de Coffre',$res1,$res2,$res3,$res4,'litres','VolumeCoffre','Dim');
+                                $this->createLigne('Largeur',$res1,$res2,$res3,$res4,'m','Largeur','sub-headers');
+                                $this->createLigne('Hauteur',$res1,$res2,$res3,$res4,'m','Hauteur','sub-headers');
+                                $this->createLigne('Capacité',$res1,$res2,$res3,$res4,' places','NombrePlaces','sub-headers');
+                                $this->createLigne('Volume de Coffre',$res1,$res2,$res3,$res4,'litres','VolumeCoffre','sub-headers');
                             ?>    
                            
-                            <tr>
-                                <th colspan=5><h4 id="dimcarc">Caractéristiques </h4></th>
+                            <tr >
+                                <th colspan=5 style="background-color:#4E4FEB"><h4 id="dimcarc">Caractéristiques </h4></th>
                             </tr>
                             <?php 
-                                $this->createLigne('Energie',$res1,$res2,$res3,$res4,'','Energie','Carc');
-                                $this->createLigne('Consommation',$res1,$res2,$res3,$res4,'','Consommation','Carc');
-                                $this->createLigne('Boite de Vitesse',$res1,$res2,$res3,$res4,'','Boite','Carc');
-                                $this->createLigne('Nombre des Vitesses',$res1,$res2,$res3,$res4,'','NbVitesses','Carc');
+                                $this->createLigne('Energie',$res1,$res2,$res3,$res4,'','Energie','sub-headers');
+                                $this->createLigne('Consommation',$res1,$res2,$res3,$res4,'','Consommation','sub-headers');
+                                $this->createLigne('Boite de Vitesse',$res1,$res2,$res3,$res4,'','Boite','sub-headers');
+                                $this->createLigne('Nombre des Vitesses',$res1,$res2,$res3,$res4,'','NbVitesses','sub-headers');
                             ?> 
                             <tr>
-                                <th colspan=5><h4 id="dimperf">Performances </h4></th>
+                                <th colspan=5 style="background-color:#4E4FEB"><h4 id="dimperf">Performances </h4></th>
                             </tr>
                             <?php 
-                                $this->createLigne('Vitesse Maximale',$res1,$res2,$res3,$res4,'km/h','VitesseMaximum','Perf');
-                                $this->createLigne('Accélération',$res1,$res2,$res3,$res4,'s','Acceleration','Perf');
+                                $this->createLigne('Vitesse Maximale',$res1,$res2,$res3,$res4,'km/h','VitesseMaximum','sub-headers');
+                                $this->createLigne('Accélération',$res1,$res2,$res3,$res4,'s','Acceleration','sub-headers');
                             ?> 
                             <tr>
-                                <th colspan=5><h4 id="dimmotr">Moteur</h4></th>
+                                <th colspan=5 style="background-color:#4E4FEB"><h4 id="dimmotr">Moteur</h4></th>
                             </tr>
                             <?php 
-                                $this->createLigne('Nombre de Cylindres',$res1,$res2,$res3,$res4,'','NombreCylindres','Motr');
-                                $this->createLigne('Nombre de soupapes par cylindre',$res1,$res2,$res3,$res4,'','NombreSoupapesParCylindre','Motr');
-                                $this->createLigne('Cylindrée	',$res1,$res2,$res3,$res4,'L','Cylindree','Motr');
-                                $this->createLigne('Puissance DIN',$res1,$res2,$res3,$res4,'Ch','PuissanceDIN','Motr');
-                                $this->createLigne('Couple moteur',$res1,$res2,$res3,$res4,'Nm','CoupleMoteur','Motr');
-                                $this->createLigne('Couple moteur',$res1,$res2,$res3,$res4,'Nm','CoupleMoteur','Motr');
-                                $this->createLigne('Puissance Fiscale',$res1,$res2,$res3,$res4,'Cv','PuissanceFiscale','Motr');
+                                $this->createLigne('Nombre de Cylindres',$res1,$res2,$res3,$res4,'','NombreCylindres','sub-headers');
+                                $this->createLigne('Nombre de soupapes par cylindre',$res1,$res2,$res3,$res4,'','NombreSoupapesParCylindre','sub-headers');
+                                $this->createLigne('Cylindrée	',$res1,$res2,$res3,$res4,'L','Cylindree','sub-headers');
+                                $this->createLigne('Puissance DIN',$res1,$res2,$res3,$res4,'Ch','PuissanceDIN','sub-headers');
+                                $this->createLigne('Couple moteur',$res1,$res2,$res3,$res4,'Nm','CoupleMoteur','sub-headers');
+                                $this->createLigne('Couple moteur',$res1,$res2,$res3,$res4,'Nm','CoupleMoteur','sub-headers');
+                                $this->createLigne('Puissance Fiscale',$res1,$res2,$res3,$res4,'Cv','PuissanceFiscale','sub-headers');
 
 
                             ?> 
