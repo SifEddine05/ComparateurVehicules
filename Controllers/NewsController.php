@@ -23,7 +23,11 @@ class NewsController{
     {
         $res = $this->news->getNbrNews();
         return $res ; 
-
+    }
+    public function getNewsById($id)
+    {
+        $res = $this->news->getNewsById($id);
+        return $res ;
     }
 
 }

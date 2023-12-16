@@ -69,8 +69,8 @@
             ?>
             <div class="menu-container">
                 <a href="/ComparateurVehicules">Accueil</a>
-                <a href="News">News</a>
-                <a  href="compare">Comparateur</a>
+                <a href="/ComparateurVehicules/news">News</a>
+                <a  href="/ComparateurVehicules/compare">Comparateur</a>
                 <a  href="Marque">Marque</a>
                 <a  href="Avis">Avis</a>
                 <a  href="GuideAchat">Guide Achat</a>
@@ -101,8 +101,8 @@
             </div>
             <div class="list-liens">
                 <a href="/ComparateurVehicules">Accueil</a>
-                <a href="News">News</a>
-                <a  href="Comparateur">Comparateur</a>
+                <a href="/ComparateurVehicules/news">News</a>
+                <a  href="/ComparateurVehicules/compare">Comparateur</a>
                 <a  href="Marque">Marque</a>
                 <a  href="Avis">Avis</a>
                 <a  href="GuideAchat">Guide Achat</a>

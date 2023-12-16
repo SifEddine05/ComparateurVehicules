@@ -28,7 +28,7 @@ class NewsPage {
                         <p> Date de publication : <span><?php echo $news['date_creation']?></span></p>
                     </div>
                     <div class="voirPlus">
-                        <a href="<?php echo $news['NewsId'] ?>" >Voir Plus </a>
+                        <a href="/ComparateurVehicules/newsdetails?id=<?php echo $news['NewsId'] ?>" >Voir Plus </a>
                     </div>
                 </div>
             </div>    

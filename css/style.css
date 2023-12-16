@@ -664,10 +664,12 @@ td img:hover{
     font-weight: bold;
     margin-bottom: 10px;
     padding-top: 5px;
+    text-align: left;
 }
 
 .NewsCardContent{
     padding: 15px;
+    text-align: left;
 }
 .NewsCardContent p{
     font-size: 14px;
@@ -718,6 +720,62 @@ td img:hover{
     border: 2px solid #068FFF ; 
     border-radius: 2%;
 }
+
+
+.NewsDetails{
+    margin-left: 100px;
+    margin-right: 100px;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    padding: 10px;
+    border: 2px solid #fff ;
+    box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.1);
+    -webkit-box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.1);
+    -moz-box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.1);
+
+}
+
+.NewsDetails h2{
+    margin-bottom: 25px
+}
+
+
+.NewsDetails .Newscontent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    flex-direction: column;
+    padding-left: 75px;
+    padding-right: 75px;
+
+
+}
+.NewsDetails .Newscontent img{
+    width: 50vw;
+    border-radius: 5px;
+}
+
+.NewsDetails .Newscontent .datecreate{
+    margin-left: 45vw;
+    font-size: 16;
+    font-weight: normal;
+}
+
+
+.NewsDetails .Newscontent  .descrp{
+    font-size: 22px;
+    font-weight: 500;
+    text-align: left;
+    margin-bottom: 50px;
+}
+
+.NewsDetails .Newscontent  .text{
+    font-size: 18px;
+
+}
+
 
 
 

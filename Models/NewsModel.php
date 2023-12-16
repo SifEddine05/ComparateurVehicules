@@ -26,7 +26,7 @@
         {
             $conn = $this->db->connect();
             
-            $query = $conn->prepare("SELECT news.*, url as image FROM `news` 
+            $query = $conn->prepare("SELECT DISTINCT news.*, url as image FROM `news` 
             INNER JOIN imagenews ON imagenews.NewsId = news.NewsId
             INNER JOIN image ON image.ImageId = imagenews.ImageId
             ORDER BY date_creation DESC
@@ -47,6 +47,17 @@
             $result = $this->db->requete($conn,$requet);
             $this->db->disconnect($conn);
             return $result;
+        }
+        public function getNewsById($id){
+            $conn = $this->db->connect();
+            $query = $conn->prepare("SELECT  news.*, url as image FROM `news` 
+            INNER JOIN imagenews ON imagenews.NewsId = news.NewsId
+            INNER JOIN image ON image.ImageId = imagenews.ImageId
+            Where news.NewsId=?") ;
+           $query->execute(array($id));
+           $results = $query->fetchAll(PDO::FETCH_ASSOC);
+           $this->db->disconnect($conn);
+           return $results;
         }
     
     
