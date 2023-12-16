@@ -85,7 +85,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Vehicu
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr >
                                 <th class="principlae-carc"><h4>Image de Vehicule</h4></th>
                                 <td>
                                     <a href='/ComparateurVehicules/Vehicule?id=<?php echo $res1[0]['VehiculeId']?>'  >

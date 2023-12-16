@@ -1,6 +1,8 @@
 <?php
     require_once("./Views/Pages/LandingPage.php");
     require_once("./Views/Pages/ComparatorPage.php");
+    require_once("./Views/Pages/NewsPage.php");
+
 
     $request = $_SERVER['REQUEST_URI'];
    
@@ -14,6 +16,8 @@
 
     $LandingPage = new LandingPage();
     $ComparatorPage = new ComparatorPage();
+    $NewsPage = new NewsPage();
+
 
     switch ($request) {
 
@@ -24,6 +28,9 @@
             break;
         case '/ComparateurVehicules/compare':
             $ComparatorPage->getPage();
+            break;
+        case '/ComparateurVehicules/news':
+            $NewsPage->getPage();
             break;
         default:
             printf("Not Found");

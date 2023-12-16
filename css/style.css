@@ -586,6 +586,24 @@ form h5 {
     font-size: 48px;
 }
 
+
+
+
+.ComaparasionTable{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.table-container{
+    max-width: 90vw;
+    overflow: auto; 
+    max-height: 90vh;
+    
+}
+
 table {
     border-collapse: collapse;
     table-layout: auto;
@@ -604,34 +622,11 @@ th, td {
 td{
     width: 800px;
 }
-.sub-headers,.principlae-carc{
-    width: 300px;
-    position: sticky;
-    left: 0;
-    z-index: 1;
-}
-.header{
-    position: sticky;
-    top: 0;
 
-}
-
-
-.ComaparasionTable{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 50px;
-}
-
-.table-container{
-    max-width: 90vw;
-    overflow: auto;
-    max-height: 100vh;
+th{
+    background-color: #068FFF;
     
 }
-
 
 th>h4 {
     margin: 0;
@@ -641,13 +636,7 @@ th>h4 {
     font-weight: bold;
     font-size: 24px;
 }
-.header{
-    background-color: #4E4FEB;
-}
-.sub-headers h4{
-    font-size: 20px !important;
-    font-weight: normal !important;
-}
+
 td>h4{
     font-size: 20px;
     font-weight: normal;
@@ -657,11 +646,6 @@ td>h4{
 }
 
 
-
-th{
-    background-color: #068FFF;
-    
-}
 td img {
     border-radius: 5px;
     border: 0px !important;
@@ -671,4 +655,25 @@ td img:hover{
     border-radius: 5px;
     border: 0px !important;
 }
+
+.sub-headers,.principlae-carc{
+    width: 300px;
+    position: sticky;
+    left: 0;
+    z-index: 1;
+}
+.header{
+    position: sticky;
+    background-color: #4E4FEB;
+    top: 0;
+}
+.sub-headers h4{
+    font-size: 20px !important;
+    font-weight: normal !important;
+}
+
+
+
+
+
 
