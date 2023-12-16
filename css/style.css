@@ -575,7 +575,6 @@ form h5 {
 }
 
 .comp p{
-    font-size: 28px;
     color: #fff;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
     font-family: IM FELL French Canon SC;
@@ -612,15 +611,14 @@ table {
 }
 
 th, td {
-    text-align: center;
+    text-align: center !important;
     /* border: 2px solid #aaaaaae4; */
-    border: 2px solid #fff;
-    padding: 10px;
-    text-align: center;
+    border: 2px solid #fff !important;
+    padding: 10px !important;
 }
 
 td{
-    width: 800px;
+    width: 800px !important;
 }
 
 th{
@@ -662,8 +660,8 @@ td img:hover{
     left: 0;
     z-index: 1;
 }
-.header{
-    position: sticky;
+.header {
+    position: sticky ;
     background-color: #4E4FEB;
     top: 0;
 }
@@ -671,6 +669,117 @@ td img:hover{
     font-size: 20px !important;
     font-weight: normal !important;
 }
+
+
+.LatestNews-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.LatestNews{
+    width: 60% !important;
+}
+
+
+.carousel-item{
+    position: relative;
+}
+
+.carousel-item h3{
+    position: absolute;
+    top: 10px;
+    color: white;
+    z-index: 5;
+    padding: 10px;
+     color: #fff;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 1);
+    font-style: bold;
+    font-size: 36px;
+}
+
+
+
+
+.NewsCard{
+    border:2px solid #fff;
+    width: 600px;
+}
+
+.Title-container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: start;
+    gap: 20px;
+
+}
+
+.Title-container h6{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-top: 5px;
+}
+
+.NewsCardContent{
+    padding: 15px;
+}
+.NewsCardContent p{
+    font-size: 14px;
+    margin: 0;
+}
+
+.NewsCardContent .desciption{
+    font-size: 20px !important;
+    font-weight: normal;
+    margin-bottom: 30px;
+}
+
+.News-container{
+    width: 85%;
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+.Cards-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Three columns of equal width */
+    gap: 30px 30px ;
+
+}
+
+.voirPlus{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.voirPlus a{
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 4px;
+}
+
+.pagination-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
