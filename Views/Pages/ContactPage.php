@@ -41,7 +41,7 @@ class ContactPage {
                         </div>
                     </div>
                     <div class="from-email">
-                        <form action="process_form.php" method="post">
+                        <form action="/ComparateurVehicules/api/apiRoutes.php" method="post">
                             <label for="name">Nom <span> *</span></label>
                             <input type="text" name="name" required><br>
                             

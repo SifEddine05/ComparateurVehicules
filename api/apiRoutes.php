@@ -27,6 +27,23 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Views/Components/U
         $result = $vctl->showOptionsAnnee($id,$index);
         echo $result;
     }
+    if (isset($_POST['message'])) 
+    {
+
+        $name = $_POST["name"];
+        $email = $_POST["email"];
+        $message = $_POST["message"];
+    
+        $to = "ks_sellami@esi.dz"; 
+        $subject = "New Message from AutoLook";
+    
+        $email_message = "Nom : $name\n";
+        $email_message .= "Email : $email\n\n";
+        $email_message .= "Message :\n$message";
+    
+        // mail($to, $subject, $email_message);
+        print("sendMessage") ;
+    }
 
    
 
