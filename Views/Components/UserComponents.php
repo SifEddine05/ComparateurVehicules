@@ -71,10 +71,10 @@
                 <a href="/ComparateurVehicules">Accueil</a>
                 <a href="/ComparateurVehicules/news">News</a>
                 <a  href="/ComparateurVehicules/compare">Comparateur</a>
-                <a  href="Marque">Marque</a>
-                <a  href="Avis">Avis</a>
-                <a  href="GuideAchat">Guide Achat</a>
-                <a  href="Contact">Contact</a>
+                <a  href="/ComparateurVehicules/marque">Marque</a>
+                <a  href="/ComparateurVehicules/avis">Avis</a>
+                <a  href="/ComparateurVehicules/guideachat">Guide Achat</a>
+                <a  href="/ComparateurVehicules/contact">Contact</a>
             </div>
             <?php
         }
@@ -103,10 +103,10 @@
                 <a href="/ComparateurVehicules">Accueil</a>
                 <a href="/ComparateurVehicules/news">News</a>
                 <a  href="/ComparateurVehicules/compare">Comparateur</a>
-                <a  href="Marque">Marque</a>
-                <a  href="Avis">Avis</a>
-                <a  href="GuideAchat">Guide Achat</a>
-                <a  href="Contact">Contact</a>
+                <a  href="/ComparateurVehicules/marque">Marque</a>
+                <a  href="/ComparateurVehicules/avis">Avis</a>
+                <a  href="/ComparateurVehicules/guideachat">Guide Achat</a>
+                <a  href="/ComparateurVehicules/contact">Contact</a>
             </div>
             <p class="copyright">Auto Look © 2023</p>
         </footer>

@@ -645,9 +645,10 @@ td img:hover{
 .NewsCard{
     border:2px solid #fff;
     width: 600px;
-    box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.2);
-    -webkit-box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.2);
-    -moz-box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.05);
+    -webkit-box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.05);
+    -moz-box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.05);
     
 }
 
@@ -777,6 +778,112 @@ td img:hover{
 }
 
 
+
+.ContactSection{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+.ContactSection h5{
+    text-align: center !important;
+}
+
+
+.contactsection-container{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    gap: 50px;
+    
+}
+
+.contact-informations{
+    width: 50%;
+}
+
+.contact-informations p{
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+.contact-informations span{
+    font-weight: normal;
+    font-size: 20px;
+
+}
+
+.contact-informations .logos-contact{
+    width: 40px;
+
+}
+
+.contacts-infos a{
+    color: #000;
+    font-size: 18px;
+    font-weight: 400;
+    margin-left: 5px;
+
+}
+
+.contacts-infos{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 50px 50px;
+    margin-top: 75px;
+}
+.contacts-infos a:hover{
+    color: #00F;
+}
+
+
+.from-email{
+    width: 50%;
+    
+}
+
+.from-email form {
+    width: 90%;
+    margin: 20px auto;
+    margin-top: 0;
+    padding: 20px;
+    padding-top: 0;
+    border-radius: 8px;
+}
+
+.from-email label {
+    display: block;
+    margin-bottom: 8px;
+    color: #000;
+    font-size: 20px;
+    font-weight: bold;
+}
+.from-email label span{
+    color: red;
+    font-size: 20px;
+}
+
+.from-email input,.from-email textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.from-email input[type="submit"] {
+    background-color: #068FFF;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+
+}
+
+.from-email input[type="submit"]:hover {
+    background-color: #00F;
+}
 
 
 

@@ -3,6 +3,8 @@
     require_once("./Views/Pages/ComparatorPage.php");
     require_once("./Views/Pages/NewsPage.php");
     require_once("./Views/Pages/NewsDetails.php");
+    require_once("./Views/Pages/ContactPage.php");
+
 
 
     $request = $_SERVER['REQUEST_URI'];
@@ -19,6 +21,7 @@
     $ComparatorPage = new ComparatorPage();
     $NewsPage = new NewsPage();
     $NewsDetails = new NewsDetails();
+    $ContactPage = new ContactPage();
 
 
 
@@ -38,6 +41,10 @@
         case '/ComparateurVehicules/newsdetails':
             $NewsDetails->getPage();
             break;
+        case '/ComparateurVehicules/contact':
+            $ContactPage->getPage();
+            break;
+
         default:
             printf("Not Found");
             break;
