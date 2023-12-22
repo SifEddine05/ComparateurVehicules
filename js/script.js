@@ -453,7 +453,6 @@ sendMsgBtn?.addEventListener('click' , ()=>{
 
 const SignUpbtn =document.getElementById('InscrptionBtn')
 SignUpbtn?.addEventListener('click',()=>{
-    console.log("hhhhh");
     const nom = document.getElementById("NomSignup").value ; 
     const prenom = document.getElementById("PrenomSignup").value ; 
     const sexe = document.getElementById("SexeSignup").value ;
@@ -489,6 +488,37 @@ SignUpbtn?.addEventListener('click',()=>{
     
 })
 
+
+
+const LoginBtn = document.getElementById('LoginBtn') ; 
+LoginBtn?.addEventListener('click',()=>{
+    const email = document.getElementById("emailLogin").value ;
+    const password = document.getElementById("passwordLogin").value ;
+    if(email==='' || password==='' )
+    {
+        alert("S'il vous plait remplissez tous les champs")
+    }
+    else{
+        $.ajax({
+            url: '/ComparateurVehicules/api/apiRoutes.php',
+            type: 'POST',
+            data: {emailLogin : email , passwordLogin :password},
+            success: function(response) {
+                console.log(response);
+                if(response==1)
+                {
+                    location.href='/ComparateurVehicules/'
+                }
+                else{
+                    alert('Mot de passe ou email incorrect ')
+                }
+            },
+            error: function() {
+                console.error('Failed to reload content.');
+            }
+        });
+    }
+})
 typewriter()
 
 

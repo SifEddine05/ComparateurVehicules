@@ -12,4 +12,10 @@ class UserController{
         $res = $this->user->NewUser($nom,$prenom,$sexe,$dateNaissance,$email ,$pwd) ; 
         return $res ;
     }
+
+    public function Login($email,$password)
+    {
+        $res = $this->user->Login($email,$password) ; 
+        return $res ; 
+    }
 }

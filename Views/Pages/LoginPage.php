@@ -19,15 +19,15 @@ class LoginPage {
         <div class="SignupForm-container">
             <h5 class='titles'>Connectez-Vous</h5>
             <div class="SignupForm" > 
-                <label for="email">Email  <span> *</span></label>
-                <input type="email" id="EmailSignup" placeholder='Entrez votre email' name="email" required><br>
+                <label for="emailLogin">Email  <span> *</span></label>
+                <input type="email" id="emailLogin" placeholder='Entrez votre email' name="emailLogin" required><br>
 
-                <label for="password">Mot de passe   <span> *</span></label>
-                <input type="password" id="PwdSignup" placeholder='Entrez votre mot de passe' name="password" required><br>
+                <label for="passwordLogin">Mot de passe   <span> *</span></label>
+                <input type="password" id="passwordLogin" placeholder='Entrez votre mot de passe' name="passwordLogin" required><br>
             
                 <p>Vous n'avez pas un compte allez à<a href='/ComparateurVehicules/signup'> Inscription</a></p>
                 
-                <input type="submit" id='InscrptionBtn' value="Connexion">
+                <input type="submit" id='LoginBtn' value="Connexion">
             </div>
         </div>
     <?php

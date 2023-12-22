@@ -53,19 +53,16 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/userCo
         $userctl = new UserController() ; 
         $res = $userctl->NewUser($nom,$prenom,$sexe,$dateNaissance,$email ,$hashedpwd) ; 
         echo $res ;
-        // if($res)
-        // {
-        //     header("location: /ComparateurVehicules/") ;
-        // }
-        // else{
-        //     echo $res;
-        // }
-
-
-        // header("location: /ProjetWeb/");
-
     }
 
+    if(isset($_POST['emailLogin']))
+    {
+        $email = $_POST['emailLogin'] ; 
+        $hashedpwd = $_POST['passwordLogin'] ; 
+        $userctl = new UserController() ; 
+        $res = $userctl->Login($email,$hashedpwd) ; 
+        echo $res ; 
+    }
    
 
 ?>
