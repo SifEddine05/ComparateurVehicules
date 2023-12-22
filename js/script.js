@@ -415,14 +415,9 @@ CompareSubmit?.addEventListener('click' , ()=>{
 })
 
 
-
-const sendMsg = document.getElementById("EnvoyerMsg") ; 
-sendMsg.addEventListener('click' , ()=>{
-    const nom = document.getElementById("MsgName").value ; 
-    const email = document.getElementById("MsgEmail").value ; 
-    const message = document.getElementById("MsgMsg").value ; 
+function sendMsg(nom , email , message)
+{
     $.ajax({
-
         url: '/ComparateurVehicules/api/apiRoutes.php',
         type: 'POST',
         data: {name: nom , email : email , message :message},
@@ -440,10 +435,16 @@ sendMsg.addEventListener('click' , ()=>{
             console.error('Failed to reload content.');
         }
     });
+}
+
+const sendMsgBtn = document.getElementById("EnvoyerMsg") ; 
+sendMsgBtn?.addEventListener('click' , ()=>{
+    const nom = document.getElementById("MsgName").value ; 
+    const email = document.getElementById("MsgEmail").value ; 
+    const message = document.getElementById("MsgMsg").value ; 
+    sendMsg(nom,email,message) ; 
+   
 })
-
-
-
 
 typewriter()
 
