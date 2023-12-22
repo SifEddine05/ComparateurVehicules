@@ -63,6 +63,13 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/userCo
         $res = $userctl->Login($email,$hashedpwd) ; 
         echo $res ; 
     }
+    if(isset($_POST['Logout']))
+    {
+        setcookie("user", "", time() - 3600, "/");
+        echo 1 ;
+    }
+
+
    
 
 ?>

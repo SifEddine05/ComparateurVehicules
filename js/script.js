@@ -519,6 +519,28 @@ LoginBtn?.addEventListener('click',()=>{
         });
     }
 })
+
+
+const LogoutBtn = document.getElementById('LogoutBtn')
+LogoutBtn?.addEventListener('click',()=>{
+    var result = confirm("Vous Etes sur que vous voulez déconnecter");
+    if(result){
+        $.ajax({
+            url: '/ComparateurVehicules/api/apiRoutes.php',
+            type: 'POST',
+            data: {Logout : 1 },
+            success: function(response) {
+                if(response)
+                {
+                    location.href='/ComparateurVehicules/'
+                }
+            },
+            error: function() {
+                console.error('Failed to reload content.');
+            }
+        });
+    }
+})
 typewriter()
 
 

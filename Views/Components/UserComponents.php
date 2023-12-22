@@ -53,10 +53,20 @@
             }
             ?>
                 </div>
+            <?php
+            if (isset($_COOKIE['user'])) {?>
+                <div class="button-container">
+                    <button class="button" id='LogoutBtn'>Déconnexion</button>
+                </div>
+            <?php } 
+            else {?>
                 <div class="button-container">
                     <a class="button" href='/ComparateurVehicules/login'>Connexion</a>
                     <a class="button" href='/ComparateurVehicules/signup'>Inscription</a>
                 </div>
+            <?php } 
+            ?>
+                
             </div>            
          <?php   
         }
