@@ -416,6 +416,32 @@ CompareSubmit?.addEventListener('click' , ()=>{
 
 
 
+const sendMsg = document.getElementById("EnvoyerMsg") ; 
+sendMsg.addEventListener('click' , ()=>{
+    const nom = document.getElementById("MsgName").value ; 
+    const email = document.getElementById("MsgEmail").value ; 
+    const message = document.getElementById("MsgMsg").value ; 
+    $.ajax({
+
+        url: '/ComparateurVehicules/api/apiRoutes.php',
+        type: 'POST',
+        data: {name: nom , email : email , message :message},
+        success: function(response) {
+            if(response)
+            {
+                alert('Votre message a été envoyer avec success')
+                document.getElementById("MsgName").value='';
+                document.getElementById("MsgEmail").value='' ; 
+                document.getElementById("MsgMsg").value='' ; 
+            }
+            
+        },
+        error: function() {
+            console.error('Failed to reload content.');
+        }
+    });
+})
+
 
 
 

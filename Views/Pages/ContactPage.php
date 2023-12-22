@@ -41,18 +41,19 @@ class ContactPage {
                         </div>
                     </div>
                     <div class="from-email">
-                        <form action="/ComparateurVehicules/api/apiRoutes.php" method="post">
+                        <div >
                             <label for="name">Nom <span> *</span></label>
-                            <input type="text" name="name" required><br>
+                            <input type="text" id="MsgName" name="name" required><br>
                             
                             <label for="email">Email <span> *</span></label>
-                            <input type="email" name="email" required><br>
+                            <input type="email" id="MsgEmail" name="email" required><br>
                             
                             <label for="message">Message <span> *</span></label>
-                            <textarea name="message" rows="7" required></textarea><br>
+                            <textarea name="message" id="MsgMsg" rows="7" required></textarea><br>
                             
-                            <input type="submit" value="Envoyer">
-                        </form>
+                            <input type="submit" id="EnvoyerMsg" value="Envoyer">
+                        </div>
+                        
                     </div>
                 </div>
             </div>

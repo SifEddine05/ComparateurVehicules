@@ -843,8 +843,8 @@ td img:hover{
 }
 
 .from-email form {
-    width: 90%;
-    margin: 20px auto;
+    width: 100%;
+    
     margin-top: 0;
     padding: 20px;
     padding-top: 0;

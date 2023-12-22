@@ -2,6 +2,7 @@
 
 <?php 
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Views/Components/UserComponents.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/MessagesController.php');
 
 
     if (isset($_POST['marqueId'])) {    
@@ -33,16 +34,9 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Views/Components/U
         $name = $_POST["name"];
         $email = $_POST["email"];
         $message = $_POST["message"];
-    
-        $to = "ks_sellami@esi.dz"; 
-        $subject = "New Message from AutoLook";
-    
-        $email_message = "Nom : $name\n";
-        $email_message .= "Email : $email\n\n";
-        $email_message .= "Message :\n$message";
-    
-        // mail($to, $subject, $email_message);
-        print("sendMessage") ;
+        $msgctl = new MessageController();
+        $res = $msgctl->sendMessage($name,$email,$message) ; 
+        echo $res ; 
     }
 
    
