@@ -18,7 +18,7 @@ class SignupPage {
     {?>
         <div class="SignupForm-container">
             <h5 class='titles'>Crée un compte</h5>
-            <div class="SignupForm">
+            <form class="SignupForm" action='/ComparateurVehicules/api/apiRoutes.php' method='post'>
                 <label for="nom">Nom <span> *</span></label>
                 <input type="text"  name="nom" required><br>
                 
@@ -29,7 +29,7 @@ class SignupPage {
                 <input type="text"  name="sexe" required><br>
 
                 <label for="dateNaissance">Date de naissance <span> *</span></label>
-                <input type="text"  name="dateNaissance" required><br>
+                <input type="date"  name="dateNaissance" required><br>
                 
                 <label for="email">Email  <span> *</span></label>
                 <input type="email"  name="email" required><br>
@@ -40,7 +40,7 @@ class SignupPage {
                 <p>Avez vous déja un compte allez à<a href='/ComparateurVehicules/login'> Connexion</a></p>
                 
                 <input type="submit"  value="Inscription">
-            </div>
+            </from>
         </div>
     <?php
     }

@@ -900,7 +900,7 @@ td img:hover{
 }
 
 .SignupForm-container{
-    background-color: #EEEEEE !important;
+    background-color: rgba(238, 238, 238, 0.8) !important;
     padding-top: 25px;
     padding-bottom: 25px;
     padding-left: 50px;
@@ -930,16 +930,20 @@ td img:hover{
     margin-bottom: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .SignupForm input[type="submit"]{
     background-color: #068FFF;
     border: 0;
+  
     border-radius: 5px;
     margin-top: 15px;
     color: white;
     padding-top: 10px;
     padding-bottom: 10px;
+   
     font-weight: bold;
 }
 .SignupForm input[type="submit"]:hover{

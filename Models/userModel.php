@@ -9,11 +9,11 @@
             $this->db = new DataBaseModel();
         }
 
-        public function NewUser($nom,$prenom,$sexe,$dateNaissance,$email ,$pwd,$status)
+        public function NewUser($nom,$prenom,$sexe,$dateNaissance,$email ,$pwd)
         {
             $conn = $this->db->connect();
             
-            $query = $conn->prepare("INSERT INTO `user`(`UserId`, `Nom`, `Prenom`, `Sexe`, `DateDeNaissance`, `email`, `MotDePasse`, `Status`, `isAdmin`)
+            $query = $conn->prepare("INSERT INTO `user`(`Nom`, `Prenom`, `Sexe`, `DateDeNaissance`, `email`, `MotDePasse`, `Status`, `isAdmin`)
                                      VALUES (:nom, :prenom, :sexe, :dateNaissance,:email, :pwd, 'pending', 0)");
         
             $query->bindParam(':nom', $nom, PDO::PARAM_STR);
@@ -24,7 +24,9 @@
             $query->bindParam(':pwd', $pwd, PDO::PARAM_STR);
         
             $query->execute();
-        
+            $cookie_name = "user";
+            $cookie_value = $conn->lastInsertId();
+            setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
             
         
             $this->db->disconnect($conn);
