@@ -442,8 +442,51 @@ sendMsgBtn?.addEventListener('click' , ()=>{
     const nom = document.getElementById("MsgName").value ; 
     const email = document.getElementById("MsgEmail").value ; 
     const message = document.getElementById("MsgMsg").value ; 
-    sendMsg(nom,email,message) ; 
+    if(nom==='' || email==='' || message=== ''){
+        alert("S'il vous plait remplissez tous les champs")
+    }
+    else{
+        sendMsg(nom,email,message) ; 
+    }
    
+})
+
+const SignUpbtn =document.getElementById('InscrptionBtn')
+SignUpbtn?.addEventListener('click',()=>{
+    console.log("hhhhh");
+    const nom = document.getElementById("NomSignup").value ; 
+    const prenom = document.getElementById("PrenomSignup").value ; 
+    const sexe = document.getElementById("SexeSignup").value ;
+    const dateNaissance = document.getElementById("DateSignup").value ;
+    const email = document.getElementById("EmailSignup").value ;
+    const password = document.getElementById("PwdSignup").value ;
+    if(nom==='' || prenom ==='' || sexe==='' || dateNaissance ==='' || email==='' || password==='' )
+    {
+        alert("S'il vous plait remplissez tous les champs")
+    }
+    else{
+        $.ajax({
+            url: '/ComparateurVehicules/api/apiRoutes.php',
+            type: 'POST',
+            data: {nom: nom , prenom : prenom , sexe : sexe , dateNaissance : dateNaissance ,  email : email , password :password},
+            success: function(response) {
+                console.log(response);
+                if(response==1)
+                {
+                    location.href='/ComparateurVehicules/'
+                }
+                else if(response==2)
+                {
+                    alert('Votre adress email est deja enregistrer')
+                }
+                
+            },
+            error: function() {
+                console.error('Failed to reload content.');
+            }
+        });
+    }
+    
 })
 
 typewriter()

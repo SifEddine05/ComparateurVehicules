@@ -925,7 +925,7 @@ td img:hover{
 }
 
 
-.SignupForm input{
+.SignupForm input ,select{
     width: 100%;
     margin-bottom: 10px;
     padding-top: 5px;

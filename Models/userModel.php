@@ -12,26 +12,39 @@
         public function NewUser($nom,$prenom,$sexe,$dateNaissance,$email ,$pwd)
         {
             $conn = $this->db->connect();
+           try {
+                $query = $conn->prepare("INSERT INTO `user`(`Nom`, `Prenom`, `Sexe`, `DateDeNaissance`, `email`, `MotDePasse`, `Status`, `isAdmin`)
+                VALUES (:nom, :prenom, :sexe, :dateNaissance,:email, :pwd, 'pending', 0)");
+
+                $query->bindParam(':nom', $nom, PDO::PARAM_STR);
+                $query->bindParam(':prenom', $prenom, PDO::PARAM_STR);
+                $query->bindParam(':sexe', $sexe, PDO::PARAM_STR);
+                $query->bindParam(':dateNaissance', $dateNaissance, PDO::PARAM_STR);
+                $query->bindParam(':email', $email, PDO::PARAM_STR);
+                $query->bindParam(':pwd', $pwd, PDO::PARAM_STR);
+
+                $query->execute();
+                $cookie_name = "user";
+                $cookie_value = $conn->lastInsertId();
+                setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
+
+
+                $this->db->disconnect($conn);
+
+                return 1; 
+            } catch (PDOException $e) {
+                if ($e->getCode() == '23000' && $e->errorInfo[1] == 1062) {
+                    return 2;
+                } else {
+                    throw $e;
+                }
+            } 
             
-            $query = $conn->prepare("INSERT INTO `user`(`Nom`, `Prenom`, `Sexe`, `DateDeNaissance`, `email`, `MotDePasse`, `Status`, `isAdmin`)
-                                     VALUES (:nom, :prenom, :sexe, :dateNaissance,:email, :pwd, 'pending', 0)");
-        
-            $query->bindParam(':nom', $nom, PDO::PARAM_STR);
-            $query->bindParam(':prenom', $prenom, PDO::PARAM_STR);
-            $query->bindParam(':sexe', $sexe, PDO::PARAM_STR);
-            $query->bindParam(':dateNaissance', $dateNaissance, PDO::PARAM_STR);
-            $query->bindParam(':email', $email, PDO::PARAM_STR);
-            $query->bindParam(':pwd', $pwd, PDO::PARAM_STR);
-        
-            $query->execute();
-            $cookie_name = "user";
-            $cookie_value = $conn->lastInsertId();
-            setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
-            
-        
-            $this->db->disconnect($conn);
-        
-            return true; 
+        }
+
+        public function Login($email,$password)
+        {
+
         }
         
 

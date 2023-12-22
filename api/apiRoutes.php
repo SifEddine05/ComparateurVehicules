@@ -52,10 +52,14 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/userCo
 
         $userctl = new UserController() ; 
         $res = $userctl->NewUser($nom,$prenom,$sexe,$dateNaissance,$email ,$hashedpwd) ; 
-        if($res)
-        {
-            header("location: /ComparateurVehicules/") ;
-        }
+        echo $res ;
+        // if($res)
+        // {
+        //     header("location: /ComparateurVehicules/") ;
+        // }
+        // else{
+        //     echo $res;
+        // }
 
 
         // header("location: /ProjetWeb/");
