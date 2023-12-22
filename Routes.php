@@ -4,6 +4,8 @@
     require_once("./Views/Pages/NewsPage.php");
     require_once("./Views/Pages/NewsDetails.php");
     require_once("./Views/Pages/ContactPage.php");
+    require_once("./Views/Pages/SignupPage.php");
+
 
 
 
@@ -22,6 +24,7 @@
     $NewsPage = new NewsPage();
     $NewsDetails = new NewsDetails();
     $ContactPage = new ContactPage();
+    $SignupPage = new SignupPage();
 
 
 
@@ -43,6 +46,9 @@
             break;
         case '/ComparateurVehicules/contact':
             $ContactPage->getPage();
+            break;
+        case '/ComparateurVehicules/signup':
+            $SignupPage->getPage();
             break;
 
         default:

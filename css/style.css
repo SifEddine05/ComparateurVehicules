@@ -885,7 +885,69 @@ td img:hover{
     background-color: #00F;
 }
 
+.SignupBody{
+    /* background-color: #00F !important; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; 
+    margin: 0;
+     /* Bg-login.jpg */
+    background-image:  url("/ComparateurVehicules/assets/Bg-login.jpg");
+    background-position: center; 
+    background-repeat: no-repeat ; 
+    background-size: cover; 
+}
 
+.SignupForm-container{
+    background-color: #EEEEEE !important;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 10px;
+    width: 40vw;
+    text-align: center;
+}
+
+.SignupForm-container h5{
+    margin: 0;
+}
+
+.SignupForm label{
+    display: block;
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+}
+.SignupForm span{
+   color: red;
+}
+
+
+.SignupForm input{
+    width: 100%;
+    margin-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.SignupForm input[type="submit"]{
+    background-color: #068FFF;
+    border: 0;
+    border-radius: 5px;
+    margin-top: 15px;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+.SignupForm input[type="submit"]:hover{
+    background-color: #00F;
+}
+.SignupForm p{
+    text-align: center;
+}
 
 
 

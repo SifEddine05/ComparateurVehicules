@@ -14,8 +14,6 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Vehicu
             $this->UserComponents = new UserComponents();
             $this->diapctrl = new DiaporamaController();
             $this->vehctl = new VehiculeController();
-
-
         }
 
         public function Diaporama()
