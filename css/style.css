@@ -313,7 +313,7 @@ form h5 {
 
 }
 .dropdown {
-    position: absolute;
+    position: absolute !important;
     width: 100%;
     max-height: 150px;
     overflow: auto;
@@ -329,7 +329,7 @@ form h5 {
 }
 
 .dropdown-item {
-    padding: 10px;
+    padding: 10px !important;
     cursor: pointer;
 }
 
@@ -925,7 +925,7 @@ td img:hover{
 }
 
 
-.SignupForm input ,select{
+.SignupForm input , .SignupForm select{
     width: 100%;
     margin-bottom: 10px;
     padding-top: 5px;
