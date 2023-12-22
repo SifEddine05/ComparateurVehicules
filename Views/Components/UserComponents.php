@@ -54,8 +54,8 @@
             ?>
                 </div>
                 <div class="button-container">
-                    <button class="button">Login</button>
-                    <button class="button">SignUp</button>
+                    <a class="button" href='/ComparateurVehicules/login'>Connexion</a>
+                    <a class="button" href='/ComparateurVehicules/signup'>Inscription</a>
                 </div>
             </div>            
          <?php   
