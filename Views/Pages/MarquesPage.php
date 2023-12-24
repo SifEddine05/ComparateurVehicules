@@ -36,13 +36,32 @@ class MarquePage {
                     <p class='titl'>Année de création</p>
                     <p class='info'>1973</p>
                 </div>
-
-
             </div>
-
+            <div class='PrncipaleVehicules'>
+                <h5 >Les vehicules principales</h5>
+                <div class='listVechlsPrincipale'>
+                    <div >
+                        <img src='/ComparateurVehicules/assets/Tigo8.jpg' width="200px" />
+                        <p>Chery Tiggo 8</p>
+                    </div>
+                    <div >
+                        <img src='/ComparateurVehicules/assets/Tigo8.jpg' width="200px" />
+                        <p>Chery Tiggo 8</p>
+                    </div>
+                    <div >
+                        <img src='/ComparateurVehicules/assets/Tigo8.jpg' width="200px" />
+                        <p>Chery Tiggo 8</p>
+                    </div>
+                    <div >
+                        <img src='/ComparateurVehicules/assets/Tigo8.jpg' width="200px" />
+                        <p>Chery Tiggo 8</p>
+                    </div>
+                </div>
+            </div>
         </div>
     <?php
     }
+
 
     public function getPage()
     {
