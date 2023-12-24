@@ -6,6 +6,8 @@
     require_once("./Views/Pages/ContactPage.php");
     require_once("./Views/Pages/SignupPage.php");
     require_once("./Views/Pages/LoginPage.php");
+    require_once("./Views/Pages/MarquesPage.php");
+
 
 
 
@@ -28,6 +30,8 @@
     $ContactPage = new ContactPage();
     $SignupPage = new SignupPage();
     $LoginPage = new LoginPage();
+    $MarquePage = new MarquePage();
+
 
 
 
@@ -55,6 +59,9 @@
             break;
         case '/ComparateurVehicules/login':
             $LoginPage->getPage();
+            break;
+        case '/ComparateurVehicules/marque':
+            $MarquePage->getPage();
             break;
 
         default:
