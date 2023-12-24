@@ -40,27 +40,44 @@ class MarquePage {
             <div class='PrncipaleVehicules'>
                 <h5 >Les vehicules principales</h5>
                 <div class='listVechlsPrincipale'>
-                    <div >
-                        <img src='/ComparateurVehicules/assets/Tigo8.jpg' width="200px" />
+                    <a href='/ComparateurVehicules/vehicule?id=1'>
+                        <img src='/ComparateurVehicules/assets/Tigo8.jpg' width="250px" />
                         <p>Chery Tiggo 8</p>
-                    </div>
-                    <div >
-                        <img src='/ComparateurVehicules/assets/Tigo8.jpg' width="200px" />
+                    </a>
+                    <a href='/ComparateurVehicules/vehicule?id=1'>
+                        <img src='/ComparateurVehicules/assets/Tigo8.jpg' width="250px" />
                         <p>Chery Tiggo 8</p>
-                    </div>
-                    <div >
-                        <img src='/ComparateurVehicules/assets/Tigo8.jpg' width="200px" />
+                    </a>
+                    <a href='/ComparateurVehicules/vehicule?id=1'>
+                        <img src='/ComparateurVehicules/assets/Tigo8.jpg' width="250px" />
                         <p>Chery Tiggo 8</p>
-                    </div>
-                    <div >
-                        <img src='/ComparateurVehicules/assets/Tigo8.jpg' width="200px" />
+                    </a>
+                    <a href='/ComparateurVehicules/vehicule?id=1'>
+                        <img src='/ComparateurVehicules/assets/Tigo8.jpg' width="250px" />
                         <p>Chery Tiggo 8</p>
-                    </div>
+                    </a>
                 </div>
+            </div>
+            <div class='List-Vehicule-Choose'>
+                <h5 >Coisissez une voiture pour affichier ces spécifications :</h5>
+                <div class='select-container'>
+                    <select>
+                        <option>Selectionner une vehicule</option>
+                        <option>Vehicule 1</option>
+                        <option>Vehicule 2</option>
+                        <option>Vehicule 3</option>
+                        <option>Vehicule 4</option>
+                        <option>Vehicule 5</option>
+                    </select>
+                </div>
+                
             </div>
         </div>
     <?php
     }
+
+
+    
 
 
     public function getPage()

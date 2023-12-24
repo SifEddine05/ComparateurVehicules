@@ -966,7 +966,7 @@ td img:hover{
 }
 
 .MarqueInfos{
-    width: 60%;
+    width: 70%;
 }
 
 .MarqueNL{
@@ -1032,9 +1032,56 @@ td img:hover{
 .listVechlsPrincipale img{
     border-radius: 5px;
 }
+.listVechlsPrincipale p{
+    color: #000 !important;
+
+} 
 .listVechlsPrincipale :hover{
     opacity: 80%;
     cursor: pointer;
+}
+.List-Vehicule-Choose{
+  
+    width: 70%;
+    
+}
+.List-Vehicule-Choose h5{
+    color: #00F;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: IM FELL French Canon SC;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    font-size: 32px;
+    margin: 0;
+    margin-bottom: 25px;
+    margin-top: 10px;
+}
+.List-Vehicule-Choose select{
+    width: 400px;
+    height: fit-content;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    background-color: #4E4FEB;
+    color: white;
+    border-radius: 5px;
+}
+.List-Vehicule-Choose select:hover{
+    cursor: pointer;
+}
+.List-Vehicule-Choose option{
+    max-height: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    overflow: auto;
+}
+
+
+.List-Vehicule-Choose .select-container{
+    display: flex ; 
+    justify-content: center;
+    align-items: center;
 }
 
 
