@@ -1,14 +1,19 @@
 <?php 
-require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/userController.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Views/Components/UserComponents.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Views/Pages/ComparatorPage.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/VehiculeController.php');
+
+
 
 class MarquePage {
-    private $user ;
+    private $compar ;
     private $UserComponents ;
+    private $vehctl ;
     public function __construct()
     {
-        $this->user = new UserController();
         $this->UserComponents = new UserComponents();
+        $this->compar = new ComparatorPage();
+        $this->vehctl = new VehiculeController();
     }
 
     public function MarqueInformation()
@@ -76,8 +81,92 @@ class MarquePage {
     <?php
     }
 
+    public function createLigne($titile,$res1,$unit,$elem,$class)
+    {
+    ?>
+        <tr >
+            <th class="<?php echo $class?>"  ><h4><?php echo $titile?></h4></th>
+            <td><h4><?php echo $res1[0][$elem]?> <?php echo $unit ?></h4></td>
+        </tr> 
 
-    
+    <?php
+    }
+    public function VehiculeInformations()
+    { 
+        $res1 = $this->vehctl->getVehiculeById(7);
+    ?>
+    <div class="vehiculeinfo">
+        <div class="table-container" id="table-vch-marque">
+                    <table >
+                        <thead>
+                            <tr>
+                                <th style="background-color:#4E4FEB" ><h4>Caractéristiques</h4></th>
+                                <th class="header"><h4><?php echo $res1[0]['Nom'] ?></h4></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr >
+                                <th class="principlae-carc"><h4>Image de Vehicule</h4></th>
+                                <td>
+                                    <a href='/ComparateurVehicules/Vehicule?id=<?php echo $res1[0]['VehiculeId']?>'  >
+                                        <img src="<?php echo $res1[0]['image'] ?>" width="350px" alt="vehicule1" />
+                                    </a>
+                                </td>
+                            </tr>
+                            <?php 
+                                $this->createLigne('Marque',$res1,'','marque','principlae-carc');
+                                $this->createLigne('Modèle',$res1,'','modele','principlae-carc');
+                                $this->createLigne('Version',$res1,'','Version','principlae-carc');
+                                $this->createLigne('Année',$res1,'','Annees','principlae-carc');
+                                $this->createLigne('Prix',$res1,'$','Prix','principlae-carc');
+                            ?> 
+                            <tr >
+                                <th colspan=5 style="background-color:#4E4FEB" ><h4 id="dimbtn">Dimensions </h4></th>
+                            </tr>
+                            <?php 
+                                $this->createLigne('Largeur',$res1,'m','Largeur','sub-headers');
+                                $this->createLigne('Hauteur',$res1,'m','Hauteur','sub-headers');
+                                $this->createLigne('Capacité',$res1,' places','NombrePlaces','sub-headers');
+                                $this->createLigne('Volume de Coffre',$res1,'litres','VolumeCoffre','sub-headers');
+                            ?>    
+                           
+                            <tr >
+                                <th colspan=5 style="background-color:#4E4FEB"><h4 id="dimcarc">Caractéristiques </h4></th>
+                            </tr>
+                            <?php 
+                                $this->createLigne('Energie',$res1,'','Energie','sub-headers');
+                                $this->createLigne('Consommation',$res1,'','Consommation','sub-headers');
+                                $this->createLigne('Boite de Vitesse',$res1,'','Boite','sub-headers');
+                                $this->createLigne('Nombre des Vitesses',$res1,'','NbVitesses','sub-headers');
+                            ?> 
+                            <tr>
+                                <th colspan=5 style="background-color:#4E4FEB"><h4 id="dimperf">Performances </h4></th>
+                            </tr>
+                            <?php 
+                                $this->createLigne('Vitesse Maximale',$res1,'km/h','VitesseMaximum','sub-headers');
+                                $this->createLigne('Accélération',$res1,'s','Acceleration','sub-headers');
+                            ?> 
+                            <tr>
+                                <th colspan=5 style="background-color:#4E4FEB"><h4 id="dimmotr">Moteur</h4></th>
+                            </tr>
+                            <?php 
+                                $this->createLigne('Nombre de Cylindres',$res1,'','NombreCylindres','sub-headers');
+                                $this->createLigne('Nombre de soupapes par cylindre',$res1,'','NombreSoupapesParCylindre','sub-headers');
+                                $this->createLigne('Cylindrée	',$res1,'L','Cylindree','sub-headers');
+                                $this->createLigne('Puissance DIN',$res1,'Ch','PuissanceDIN','sub-headers');
+                                $this->createLigne('Couple moteur',$res1,'Nm','CoupleMoteur','sub-headers');
+                                $this->createLigne('Couple moteur',$res1,'Nm','CoupleMoteur','sub-headers');
+                                $this->createLigne('Puissance Fiscale',$res1,'Cv','PuissanceFiscale','sub-headers');
+
+
+                            ?> 
+                        
+                        </tbody>
+                    </table>
+        </div>
+    </div>
+    <?php
+    }
 
 
     public function getPage()
@@ -88,6 +177,7 @@ class MarquePage {
         $this->UserComponents->menu() ; 
         $this->UserComponents->principaleMarques();
         $this->MarqueInformation();
+        $this->VehiculeInformations();
         $this->UserComponents->footer() ; 
         echo "</body> </html>";
     }

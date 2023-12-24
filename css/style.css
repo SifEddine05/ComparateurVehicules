@@ -1084,7 +1084,18 @@ td img:hover{
     align-items: center;
 }
 
+#table-vch-marque{
+    height: fit-content !important;
+    max-height: fit-content;
+}
 
+.vehiculeinfo{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
 
 
 
