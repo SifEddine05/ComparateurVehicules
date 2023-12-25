@@ -88,12 +88,12 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Vehicu
                             <tr >
                                 <th class="principlae-carc"><h4>Image de Vehicule</h4></th>
                                 <td>
-                                    <a href='/ComparateurVehicules/Vehicule?id=<?php echo $res1[0]['VehiculeId']?>'  >
+                                    <a href='/ComparateurVehicules/vehicule?id=<?php echo $res1[0]['VehiculeId']?>'  >
                                         <img src="<?php echo $res1[0]['image'] ?>" width="350px" alt="vehicule1" />
                                     </a>
                                 </td>
                                 <td>
-                                    <a href='/ComparateurVehicules/Vehicule?id=<?php echo $res2[0]['VehiculeId']?>'  >
+                                    <a href='/ComparateurVehicules/vehicule?id=<?php echo $res2[0]['VehiculeId']?>'  >
                                         <img src="<?php echo $res2[0]['image'] ?>" width="350px" alt="vehicule2" />
                                     </a>
                                 </td>
@@ -101,7 +101,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Vehicu
                                 {
                                 ?>
                                     <td>
-                                        <a href='/ComparateurVehicules/Vehicule?id=<?php echo $res3[0]['VehiculeId']?>'  >
+                                        <a href='/ComparateurVehicules/vehicule?id=<?php echo $res3[0]['VehiculeId']?>'  >
                                             <img src="<?php echo $res3[0]['image'] ?>" width="350px" alt="vehicule3" />
                                         </a>
                                     </td>
@@ -113,7 +113,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Vehicu
                                 {
                                 ?>
                                     <td >
-                                        <a href='/ComparateurVehicules/Vehicule?id=<?php echo $res4[0]['VehiculeId']?>'  >
+                                        <a href='/ComparateurVehicules/vehicule?id=<?php echo $res4[0]['VehiculeId']?>'  >
                                             <img src="<?php echo $res4[0]['image'] ?>" width="350px" alt="vehicule4" />
                                         </a>
                                     </td>
@@ -164,7 +164,6 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Vehicu
                                 $this->createLigne('Nombre de soupapes par cylindre',$res1,$res2,$res3,$res4,'','NombreSoupapesParCylindre','sub-headers');
                                 $this->createLigne('Cylindrée	',$res1,$res2,$res3,$res4,'L','Cylindree','sub-headers');
                                 $this->createLigne('Puissance DIN',$res1,$res2,$res3,$res4,'Ch','PuissanceDIN','sub-headers');
-                                $this->createLigne('Couple moteur',$res1,$res2,$res3,$res4,'Nm','CoupleMoteur','sub-headers');
                                 $this->createLigne('Couple moteur',$res1,$res2,$res3,$res4,'Nm','CoupleMoteur','sub-headers');
                                 $this->createLigne('Puissance Fiscale',$res1,$res2,$res3,$res4,'Cv','PuissanceFiscale','sub-headers');
 

@@ -163,7 +163,6 @@ class MarquePage {
                                 $this->createLigne('Cylindrée	',$res1,'L','Cylindree','sub-headers');
                                 $this->createLigne('Puissance DIN',$res1,'Ch','PuissanceDIN','sub-headers');
                                 $this->createLigne('Couple moteur',$res1,'Nm','CoupleMoteur','sub-headers');
-                                $this->createLigne('Couple moteur',$res1,'Nm','CoupleMoteur','sub-headers');
                                 $this->createLigne('Puissance Fiscale',$res1,'Cv','PuissanceFiscale','sub-headers');
 
 

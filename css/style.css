@@ -1097,7 +1097,18 @@ td img:hover{
     margin-bottom: 50px;
 }
 
+#VehiculeName {
+    border-bottom: 0 !important;
+}
 
+#VehiculeImage{
+    padding-bottom: 10px;
+}
+
+.Vhinfo1{
+padding-left: 50px;
+padding-right: 50px;
+}
 
 
 

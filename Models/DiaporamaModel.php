@@ -15,7 +15,7 @@
         INNER JOIN image ON image.ImageId = diaporama.IdImage 
         WHERE diaporama.UrlPublicite IS NOT NULL
         UNION
-        SELECT diaporama.DiaporamaId, CONCAT('newsDetails?id=', diaporama.IdNews) AS url, diaporama.Type, image.url AS image 
+        SELECT diaporama.DiaporamaId, CONCAT('newsdetails?id=', diaporama.IdNews) AS url, diaporama.Type, image.url AS image 
         FROM diaporama 
         INNER JOIN image ON image.ImageId = diaporama.IdImage 
         WHERE diaporama.UrlPublicite IS NULL;";
