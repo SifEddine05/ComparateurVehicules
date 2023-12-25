@@ -28,5 +28,10 @@
             $res= $this->marque->getPrincipaleVehicules($id);
             return $res ;
         }
+        public function getAllVehicules($id)
+        {
+            $res= $this->marque->getAllVehicules($id);
+            return $res ;
+        }
     }
 ?>

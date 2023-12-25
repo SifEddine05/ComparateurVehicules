@@ -51,5 +51,17 @@
            $this->db->disconnect($conn);
            return $results;
         }
+
+        public function getAllVehicules($id)
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("SELECT vehicule.Nom ,vehicule.VehiculeId   FROM `vehicule` 
+            INNER JOIN marque on marque.MarqueId=vehicule.MarqueId
+            Where marque.MarqueId=? ") ;
+           $query->execute(array($id));
+           $results = $query->fetchAll(PDO::FETCH_ASSOC);
+           $this->db->disconnect($conn);
+           return $results;
+        }
     }
 ?>

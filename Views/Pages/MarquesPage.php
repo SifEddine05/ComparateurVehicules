@@ -24,7 +24,7 @@ class MarquePage {
     {
         $marqueInfo = $this->marque->getMarqueById(1)[0];
         $principaleVehc= $this->marque->getPrincipaleVehicules(1);
-        print_r($principaleVehc);
+        $Allvehicules = $this->marque->getAllVehicules(1);
     ?>
         <div class="MarqueInfos-container">
             <h5 class='titles'>Les Informations de la marque</h5>
@@ -64,30 +64,22 @@ class MarquePage {
                     <?php
                     }
                    ?>
-                    <!-- <a href='/ComparateurVehicules/vehicule?id=1'>
-                        <img src='/ComparateurVehicules/assets/Tigo8.jpg' width="250px" />
-                        <p>Chery Tiggo 8</p>
-                    </a>
-                    <a href='/ComparateurVehicules/vehicule?id=1'>
-                        <img src='/ComparateurVehicules/assets/Tigo8.jpg' width="250px" />
-                        <p>Chery Tiggo 8</p>
-                    </a>
-                    <a href='/ComparateurVehicules/vehicule?id=1'>
-                        <img src='/ComparateurVehicules/assets/Tigo8.jpg' width="250px" />
-                        <p>Chery Tiggo 8</p>
-                    </a> -->
                 </div>
             </div>
             <div class='List-Vehicule-Choose'>
                 <h5 >Coisissez une voiture pour affichier ces spécifications :</h5>
                 <div class='select-container'>
-                    <select>
-                        <option>Selectionner une vehicule</option>
-                        <option>Vehicule 1</option>
-                        <option>Vehicule 2</option>
-                        <option>Vehicule 3</option>
-                        <option>Vehicule 4</option>
-                        <option>Vehicule 5</option>
+                    <select name='VehiculeInfoSelect'>
+                        <option value='None'>Selectionner une vehicule</option>
+                        <?php 
+                            foreach($Allvehicules as $veh)
+                            {
+                            ?>
+                                <option value='<?php echo $veh['VehiculeId']?>'><?php echo $veh['Nom'] ?></option>
+
+                        <?php
+                            }
+                        ?>
                     </select>
                 </div>
                 
