@@ -20,11 +20,11 @@ class MarquePage {
         
     }
 
-    public function MarqueInformation()
+    public function MarqueInformation($id)
     {
-        $marqueInfo = $this->marque->getMarqueById(1)[0];
-        $principaleVehc= $this->marque->getPrincipaleVehicules(1);
-        $Allvehicules = $this->marque->getAllVehicules(1);
+        $marqueInfo = $this->marque->getMarqueById($id)[0];
+        $principaleVehc= $this->marque->getPrincipaleVehicules($id);
+        $Allvehicules = $this->marque->getAllVehicules($id);
     ?>
         <div class="MarqueInfos-container">
             <h5 class='titles'>Les Informations de la marque</h5>
@@ -69,13 +69,13 @@ class MarquePage {
             <div class='List-Vehicule-Choose'>
                 <h5 >Coisissez une voiture pour affichier ces spécifications :</h5>
                 <div class='select-container'>
-                    <select name='VehiculeInfoSelect'>
-                        <option value='None'>Selectionner une vehicule</option>
+                    <select name='VehiculeInfoSelect' id='SelectVechMark'>
+                        <option value=-1>Selectionner une vehicule</option>
                         <?php 
                             foreach($Allvehicules as $veh)
                             {
                             ?>
-                                <option value='<?php echo $veh['VehiculeId']?>'><?php echo $veh['Nom'] ?></option>
+                                <option value=<?php echo $veh['VehiculeId']?>><?php echo $veh['Nom'] ?></option>
 
                         <?php
                             }
@@ -85,6 +85,8 @@ class MarquePage {
                 
             </div>
         </div>
+        <div class="vehiculeinfo" id="vchinfos"></div>
+
     <?php
     }
 
@@ -98,11 +100,10 @@ class MarquePage {
 
     <?php
     }
-    public function VehiculeInformations()
+    public function VehiculeInformations($id)
     { 
-        $res1 = $this->vehctl->getVehiculeById(7);
+        $res1 = $this->vehctl->getVehiculeById($id);
     ?>
-    <div class="vehiculeinfo">
         <div class="table-container" id="table-vch-marque">
                     <table >
                         <thead>
@@ -171,20 +172,23 @@ class MarquePage {
                         </tbody>
                     </table>
         </div>
-    </div>
     <?php
     }
 
 
     public function getPage()
     {
+        $Id = isset($_GET["id"]) ? $_GET["id"] : -1;
+
         $this->UserComponents->Header();
         echo "<body>";
         $this->UserComponents->NavBar();
         $this->UserComponents->menu() ; 
         $this->UserComponents->principaleMarques();
-        $this->MarqueInformation();
-        $this->VehiculeInformations();
+        if($Id !=-1){
+            $this->MarqueInformation($Id);
+        }
+        
         $this->UserComponents->footer() ; 
         echo "</body> </html>";
     }

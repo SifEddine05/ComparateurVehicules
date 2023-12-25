@@ -1,5 +1,5 @@
 <?php 
-require_once("Views/Components/UserComponents.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/ComparateurVehicules/Views/Components/UserComponents.php");
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/VehiculeController.php');
 
     class ComparatorPage {

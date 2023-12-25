@@ -541,6 +541,35 @@ LogoutBtn?.addEventListener('click',()=>{
         });
     }
 })
+
+
+const selectVech = document.getElementById('SelectVechMark')
+selectVech?.addEventListener('change' ,(e)=>{
+    const value= e.target.value
+    const div = document.getElementById('vchinfos');
+
+    if(value!=-1)
+    {
+        $.ajax({
+            url: '/ComparateurVehicules/api/apiRoutes.php',
+            type: 'POST',
+            data: {idVech : value },
+            success: function(response) {
+                if(response)
+                {
+                    div.innerHTML=response
+                }
+            },
+            error: function() {
+                console.error('Failed to reload content.');
+            }
+        });
+    }
+    else{
+        div.innerHTML='';
+    }
+
+})
 typewriter()
 
 

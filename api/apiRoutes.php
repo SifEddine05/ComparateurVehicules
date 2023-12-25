@@ -4,6 +4,8 @@
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Views/Components/UserComponents.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/MessagesController.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/userController.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Views/Pages/MarquesPage.php');
+
 
 
     if (isset($_POST['marqueId'])) {    
@@ -67,6 +69,12 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/userCo
     {
         setcookie("user", "", time() - 3600, "/");
         echo 1 ;
+    }
+    if(isset($_POST['idVech']))
+    {
+        $id=$_POST['idVech'];
+        $marque = new MarquePage();
+        echo $marque->VehiculeInformations($id);
     }
 
 
