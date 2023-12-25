@@ -24,5 +24,32 @@
             $this->db->disconnect($conn);
             return $result;
         }
+        public function getMarqueById($id)
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("SELECT marque.* ,image.url as logo FROM `marque` 
+            INNER JOIN image On image.ImageId=marque.ImageId
+            WHERE MarqueId=?") ;
+           $query->execute(array($id));
+           $results = $query->fetchAll(PDO::FETCH_ASSOC);
+           $this->db->disconnect($conn);
+           return $results;
+        }
+        
+
+        public function getPrincipaleVehicules($id)
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("SELECT vehicule.Nom ,vehicule.VehiculeId , image.url as image  FROM `vehicule` 
+            INNER JOIN marque on marque.MarqueId=vehicule.MarqueId
+            INNER JOIN imagevehicule ON VehiculeId = imagevehicule.IdVehicule
+            INNER JOIN image ON imagevehicule.IdImage = image.ImageId
+            Where marque.MarqueId=?
+            LIMIT 4 ") ;
+           $query->execute(array($id));
+           $results = $query->fetchAll(PDO::FETCH_ASSOC);
+           $this->db->disconnect($conn);
+           return $results;
+        }
     }
 ?>

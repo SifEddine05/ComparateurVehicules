@@ -2,6 +2,7 @@
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Views/Components/UserComponents.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Views/Pages/ComparatorPage.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/VehiculeController.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/MarqueController.php');
 
 
 
@@ -9,43 +10,61 @@ class MarquePage {
     private $compar ;
     private $UserComponents ;
     private $vehctl ;
+    private $marque ; 
     public function __construct()
     {
         $this->UserComponents = new UserComponents();
         $this->compar = new ComparatorPage();
         $this->vehctl = new VehiculeController();
+        $this->marque = new MarqueController() ;
+        
     }
 
     public function MarqueInformation()
-    {?>
+    {
+        $marqueInfo = $this->marque->getMarqueById(1)[0];
+        $principaleVehc= $this->marque->getPrincipaleVehicules(1);
+        print_r($principaleVehc);
+    ?>
         <div class="MarqueInfos-container">
             <h5 class='titles'>Les Informations de la marque</h5>
             <div class="MarqueInfos">
                 <div class="MarqueNL">
                     <div class="MarqueName">
-                        <h4>Cherry</h4>
+                        <h4><?php echo $marqueInfo['Nom'] ?></h4>
                     </div>
                     <div class="MarqueLogo">
-                        <img src='/ComparateurVehicules/assets/Chery.png' width="100%"/>
+                        <img src='<?php echo $marqueInfo['logo'] ?>' width="100%"/>
                     </div>
                 </div>
                 <div class="Marqueinfo">
                     <p class='titl'>Pays d'origine </p>
-                    <p class='info'>Almenand</p>
+                    <p class='info'><?php echo $marqueInfo['PaysOrigine'] ?></p>
                 </div>
                 <div class="Marqueinfo">
                     <p class='titl'>Siège Social</p>
-                    <p class='info'>Auerbach in der Oberpfalz, Allemagne</p>
+                    <p class='info'><?php echo $marqueInfo['SiegeSociale'] ?></p>
                 </div>
                 <div class="Marqueinfo">
                     <p class='titl'>Année de création</p>
-                    <p class='info'>1973</p>
+                    <p class='info'><?php echo $marqueInfo['AnneeCreation'] ?></p>
                 </div>
             </div>
             <div class='PrncipaleVehicules'>
                 <h5 >Les vehicules principales</h5>
                 <div class='listVechlsPrincipale'>
-                    <a href='/ComparateurVehicules/vehicule?id=1'>
+                    <?php 
+                    foreach($principaleVehc as $vech)
+                    {
+                    ?>
+                        <a href='/ComparateurVehicules/vehicule?id=<?php echo $vech['VehiculeId'] ?>'>
+                            <img src='<?php echo $vech['image'] ?>' width="250px" />
+                            <p><?php echo  $vech['Nom'] ?></p>
+                        </a>
+                    <?php
+                    }
+                   ?>
+                    <!-- <a href='/ComparateurVehicules/vehicule?id=1'>
                         <img src='/ComparateurVehicules/assets/Tigo8.jpg' width="250px" />
                         <p>Chery Tiggo 8</p>
                     </a>
@@ -56,11 +75,7 @@ class MarquePage {
                     <a href='/ComparateurVehicules/vehicule?id=1'>
                         <img src='/ComparateurVehicules/assets/Tigo8.jpg' width="250px" />
                         <p>Chery Tiggo 8</p>
-                    </a>
-                    <a href='/ComparateurVehicules/vehicule?id=1'>
-                        <img src='/ComparateurVehicules/assets/Tigo8.jpg' width="250px" />
-                        <p>Chery Tiggo 8</p>
-                    </a>
+                    </a> -->
                 </div>
             </div>
             <div class='List-Vehicule-Choose'>

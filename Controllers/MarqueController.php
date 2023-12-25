@@ -18,5 +18,15 @@
             $res= $this->marque->getAllMarques();
             return $res ;
         }
+        public function getMarqueById($id)
+        {
+            $res= $this->marque->getMarqueById($id);
+            return $res ;
+        }
+        public function getPrincipaleVehicules($id)
+        {
+            $res= $this->marque->getPrincipaleVehicules($id);
+            return $res ;
+        }
     }
 ?>
