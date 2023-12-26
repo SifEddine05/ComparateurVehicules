@@ -1182,9 +1182,6 @@ padding-right: 50px;
 .Best-Avis-Section .Avis{
    position: relative;
    width: 350px;
-
-   
-
 }
 
 .Best-Avis-Section .Avis img{
@@ -1193,9 +1190,10 @@ padding-right: 50px;
 
 .Best-Avis-Section .Avis h6{
     position: absolute;
-    top: 50px;
-    left: 60px;
+    top: 40px;
+    left: 5px;
     font-size: 22px;
+    font-weight: normal;
 }
 
 .Best-Avis-Section .Avis p{

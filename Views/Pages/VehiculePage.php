@@ -1,14 +1,17 @@
 <?php 
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Views/Components/UserComponents.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/VehiculeController.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/AvisController.php');
 
 class VehiculePage {
     private $UserComponents ;
     private $Vctl ;
+    private $avisctl ; 
     public function __construct()
     {
         $this->UserComponents = new UserComponents();
         $this->Vctl = new VehiculeController();
+        $this->avisctl = new AvisController();
     }
 
     public function vehiculeInformations($id)
@@ -144,47 +147,64 @@ class VehiculePage {
     <?php
     }
     // Comment.png
+    /* SELECT * FROM `avis` 
+INNER JOIN user on user.UserId=avis.UserId
+WHERE VehiculeId=7 and Confirmer=1 
+ORDER By Apprecie DESC*/
 
-    public function BestAvis()
+    public function BestAvis($id)
     { 
+        $bestAvis = $this->avisctl->getBestAvis($id);
+    
     ?>
         <div class='Best-Avis-Section'>
             <div class='Title'>
                 <h5 class='titles'>Les Avis les plus appréciés</h5>
                 <a href='/ComparateurVehicules/avis'>Voir tous les avis</a>
             </div>
+            <?php 
+            if($bestAvis)
+            {
+            ?>
             <div class='BestAvis-container'>
                 <div class='Avis-Container'>
                     <div class='Avis'>
                         <img src='/ComparateurVehicules/assets/Comment.png' alt='comment' />
-                        <h6>Hello I liked this vehicule</h6>
-                        <p>Note : 4.5/5⭐</p>
+                        <h6><?php echo $bestAvis[0]['Commentaire'] ?></h6>
+                        <p>Note : <?php echo $bestAvis[0]['Note'] ?>/5⭐</p>
                     </div>
-                    <h3> <span>👤</span> Sellmai SifEddine</h3>
+                    <h3> <span>👤</span> <?php echo $bestAvis[0]['Nom'].' '.$bestAvis[2]['Prenom'] ?></h3>
                 </div>
 
                 <div class='Avis-Container'>
                     <div class='Avis'>
                         <img src='/ComparateurVehicules/assets/Comment.png' alt='comment' />
-                        <h6>Hello I liked this vehicule</h6>
-                        <p>Note : 4.5/5⭐</p>
+                        <h6><?php echo $bestAvis[1]['Commentaire'] ?></h6>
+                        <p>Note : <?php echo $bestAvis[1]['Note'] ?>/5⭐</p>
                     </div>
-                    <h3> <span>👤</span> Sellmai SifEddine</h3>
+                    <h3> <span>👤</span><?php echo $bestAvis[1]['Nom'].' '.$bestAvis[2]['Prenom'] ?></h3>
                 </div>
 
                 <div class='Avis-Container'>
                     <div class='Avis'>
                         <img src='/ComparateurVehicules/assets/Comment.png' alt='comment' />
-                        <h6>Hello I liked this vehicule</h6>
-                        <p>Note : 4.5/5⭐</p>
+                        <h6><?php echo $bestAvis[2]['Commentaire'] ?></h6>
+                        <p>Note : <?php echo $bestAvis[2]['Note'] ?>/5⭐</p>
                     </div>
-                    <h3> <span>👤</span> Sellmai SifEddine</h3>
+                    <h3> <span>👤</span> <?php echo $bestAvis[2]['Nom'].' '.$bestAvis[2]['Prenom'] ?></h3>
                 </div>
                 
             </div>
+            <?php
+            }else {
+                echo "<h3 style='color:red'>il n'y a pas d'avis pour cette vethicule</h3>" ;
+            }
+            ?>
+
         </div>
     <?php
-    }
+    }    
+
 
 
    
@@ -199,7 +219,7 @@ class VehiculePage {
         $this->UserComponents->menu() ; 
         $this->vehiculeInformations($id);
         $this->UserComponents->formComparation();
-        $this->BestAvis();
+        $this->BestAvis($id);
         $this->UserComponents->footer() ; 
         echo "</body> </html>";
     }
