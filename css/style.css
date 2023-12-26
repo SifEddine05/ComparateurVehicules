@@ -1110,6 +1110,36 @@ padding-left: 50px;
 padding-right: 50px;
 }
 
+.showBtn-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  
+}
+
+#showMoreBtn ,#showLessBtn{
+    border: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color: #068FFF;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+#showMoreBtn:hover , #showLessBtn:hover{
+    background-color: #00F;
+}
+
+#moreInfos{
+    display: none;
+}
+
 
 
 

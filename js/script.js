@@ -570,6 +570,28 @@ selectVech?.addEventListener('change' ,(e)=>{
     }
 
 })
+
+
+
+const showMoreBtn = document.getElementById('showMoreBtn')
+showMoreBtn?.addEventListener('click',()=>{
+    const div = document.getElementById('moreInfos')
+    
+        div.style.display='block' ; 
+
+   showMoreBtn.style.display = 'none'
+})
+
+const showLessBtn = document.getElementById('showLessBtn')
+showLessBtn?.addEventListener('click',()=>{
+    const div = document.getElementById('moreInfos')
+   
+    div.style.display='none' ; 
+    
+   showMoreBtn.style.display = 'block'
+})
+
+
 typewriter()
 
 

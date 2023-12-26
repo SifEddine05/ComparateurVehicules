@@ -11,9 +11,9 @@ class VehiculePage {
         $this->Vctl = new VehiculeController();
     }
 
-    public function vehiculeInformations()
+    public function vehiculeInformations($id)
     {
-        $vechinfo = $this->Vctl->getVehiculeById(7)[0];
+        $vechinfo = $this->Vctl->getVehiculeById($id)[0];
     ?>
     <div class="MarqueInfos-container">
             <h5 class='titles'>Les Informations de la vehivule</h5>
@@ -46,9 +46,11 @@ class VehiculePage {
                     <p class='titl'>Prix</p>
                     <p class='info'><?php echo $vechinfo['Prix']?> $</p>
                 </div>
+                <div class='showBtn-container'>
+                    <button id='showMoreBtn'>Voir Plus </button>  
+                </div>
 
-               
-                
+            <div id='moreInfos'>
                 <div class="Marqueinfo Vhinfo1">
                     <p class='titl'>Largeur</p>
                     <p class='info'><?php echo $vechinfo['Largeur']?> m</p>
@@ -129,6 +131,11 @@ class VehiculePage {
                     <p class='titl'>Puissance Fiscale</p>
                     <p class='info'><?php echo $vechinfo['PuissanceFiscale']?> Cv</p>
                 </div>
+                <div class='showBtn-container'>
+                    <button id='showLessBtn'>Voir Moins </button>  
+                </div>
+            </div>  
+
                 
             </div>
             
@@ -138,11 +145,13 @@ class VehiculePage {
     }
     public function getPage()
     {
+        $id = isset($_GET["id"]) ? $_GET["id"] : -1;
+
         $this->UserComponents->Header();
         echo "<body>";
         $this->UserComponents->NavBar();
         $this->UserComponents->menu() ; 
-        $this->vehiculeInformations();
+        $this->vehiculeInformations($id);
         $this->UserComponents->footer() ; 
         echo "</body> </html>";
     }
