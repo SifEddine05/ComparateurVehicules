@@ -591,6 +591,49 @@ showLessBtn?.addEventListener('click',()=>{
    showMoreBtn.style.display = 'block'
 })
 
+if (location.href.match(/^.*\/ComparateurVehicules\/vehicule\?id=\d+$/)) {
+    const marque1 = document.getElementById("searchInput1")
+    const modele1= document.getElementById("searchInput2")
+    const version1= document.getElementById("searchInput3")
+    const annee1 = document.getElementById("searchInput4")
+    const Hidemarque1 = document.getElementById("hidesearchInput1")
+    const Hidemodele1= document.getElementById("hidesearchInput2")
+    const Hideversion1= document.getElementById("hidesearchInput3")
+
+    const Hideannee1 = document.getElementById("hidesearchInput4")
+    var match = location.href.match(/\/ComparateurVehicules\/vehicule\?id=(\d+)/);
+    const id = match[1];
+    Hideannee1.value=id ;
+    console.log(id);
+
+    $.ajax({
+        url: '/ComparateurVehicules/api/apiRoutes.php',
+        type: 'POST',
+        data: {IdVehicule : id },
+        success: function(response) {
+            console.log(response[0]);
+            const res = response[0];
+            marque1.value=res.marque ;
+            modele1.value=res.modele;
+            version1.value = res.Version;
+            Hidemarque1.value=res.marque ;
+            Hidemodele1.value=res.modele;
+            Hideversion1.value = res.Version;
+            annee1.value = res.Annees ;
+            marque1.disabled =true ;
+
+        },
+        error: function() {
+            console.error('Failed to reload content.');
+        }
+    });
+
+
+} else {
+    console.log('non');
+}
+
+
 
 typewriter()
 

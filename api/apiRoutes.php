@@ -5,6 +5,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Views/Components/U
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/MessagesController.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/userController.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Views/Pages/MarquesPage.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/VehiculeController.php');
 
 
 
@@ -77,6 +78,18 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Views/Pages/Marque
         echo $marque->VehiculeInformations($id);
     }
 
+    if(isset($_POST['IdVehicule'])) {
+        $id = $_POST['IdVehicule'];
+        $VehiculeController = new VehiculeController();
+        $res = $VehiculeController->getVehiculeById($id);
+    
+        $jsonResponse = json_encode($res);
+    
+        header('Content-Type: application/json');
+    
+        echo $jsonResponse;
+    }
+    
 
    
 

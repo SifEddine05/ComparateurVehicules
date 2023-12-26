@@ -143,6 +143,12 @@ class VehiculePage {
 
     <?php
     }
+
+
+    public function CompareWithOthers()
+    {
+        $this->UserComponents->formComparation();
+    }
     public function getPage()
     {
         $id = isset($_GET["id"]) ? $_GET["id"] : -1;
@@ -152,6 +158,7 @@ class VehiculePage {
         $this->UserComponents->NavBar();
         $this->UserComponents->menu() ; 
         $this->vehiculeInformations($id);
+        $this->CompareWithOthers();
         $this->UserComponents->footer() ; 
         echo "</body> </html>";
     }
