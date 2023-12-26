@@ -143,12 +143,52 @@ class VehiculePage {
 
     <?php
     }
+    // Comment.png
 
+    public function BestAvis()
+    { 
+    ?>
+        <div class='Best-Avis-Section'>
+            <div class='Title'>
+                <h5 class='titles'>Les Avis les plus appréciés</h5>
+                <a href='/ComparateurVehicules/avis'>Voir tous les avis</a>
+            </div>
+            <div class='BestAvis-container'>
+                <div class='Avis-Container'>
+                    <div class='Avis'>
+                        <img src='/ComparateurVehicules/assets/Comment.png' alt='comment' />
+                        <h6>Hello I liked this vehicule</h6>
+                        <p>Note : 4.5/5⭐</p>
+                    </div>
+                    <h3> <span>👤</span> Sellmai SifEddine</h3>
+                </div>
 
-    public function CompareWithOthers()
-    {
-        $this->UserComponents->formComparation();
+                <div class='Avis-Container'>
+                    <div class='Avis'>
+                        <img src='/ComparateurVehicules/assets/Comment.png' alt='comment' />
+                        <h6>Hello I liked this vehicule</h6>
+                        <p>Note : 4.5/5⭐</p>
+                    </div>
+                    <h3> <span>👤</span> Sellmai SifEddine</h3>
+                </div>
+
+                <div class='Avis-Container'>
+                    <div class='Avis'>
+                        <img src='/ComparateurVehicules/assets/Comment.png' alt='comment' />
+                        <h6>Hello I liked this vehicule</h6>
+                        <p>Note : 4.5/5⭐</p>
+                    </div>
+                    <h3> <span>👤</span> Sellmai SifEddine</h3>
+                </div>
+                
+            </div>
+        </div>
+    <?php
     }
+
+
+   
+    
     public function getPage()
     {
         $id = isset($_GET["id"]) ? $_GET["id"] : -1;
@@ -158,7 +198,8 @@ class VehiculePage {
         $this->UserComponents->NavBar();
         $this->UserComponents->menu() ; 
         $this->vehiculeInformations($id);
-        $this->CompareWithOthers();
+        $this->UserComponents->formComparation();
+        $this->BestAvis();
         $this->UserComponents->footer() ; 
         echo "</body> </html>";
     }
