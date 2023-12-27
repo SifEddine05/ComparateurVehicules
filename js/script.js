@@ -642,8 +642,18 @@ const AddAvisBtn =document.getElementById('AddAvisBtn')
 AddAvisBtn?.addEventListener('click',()=>{
     const radioButtons=document.getElementsByName('stars');
     const comment = document.getElementById('commentAvis').value ; 
-    var match = location.href.match(/\/ComparateurVehicules\/vehicule\?id=(\d+)/);
-    const id = match[1];
+    var match1 = location.href.match(/\/ComparateurVehicules\/vehicule\?id=(\d+)/);
+    var match2 = location.href.match(/\/ComparateurVehicules\/marque\?id=(\d+)/);
+    let Vid = -1 ;
+    let Mid = -1 ;
+
+    if(match1){
+        Vid = match1[1]
+    }
+    else if(match2)
+    {
+        Mid = match2[1]
+    }
     let selectdStar =0 ;
     for (var i = 0; i < radioButtons.length; i++) {
         if (radioButtons[i].checked) {
@@ -659,12 +669,19 @@ AddAvisBtn?.addEventListener('click',()=>{
         $.ajax({
             url: '/ComparateurVehicules/api/apiRoutes.php',
             type: 'POST',
-            data: {NbrStars : id , comment : comment ,Vid :id },
+            data: {NbrStars : selectdStar , comment : comment ,Vid :Vid , Mid:Mid},
             success: function(response) {
                 console.log(response);
                 if(response==1)
                 {
                     alert('Votre Commentaire a été ajouter avec success')
+                    for (var i = 0; i < radioButtons.length; i++) {
+                        if (radioButtons[i].checked) {
+                          radioButtons[i].checked = false
+                          break; 
+                        }
+                    }
+                    document.getElementById('commentAvis').value='';
                 }
             },
             error: function() {

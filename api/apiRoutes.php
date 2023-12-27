@@ -94,9 +94,10 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/AvisCo
         $nbrStars = $_POST['NbrStars'];
         $comment = $_POST['comment'];
         $Vid = $_POST['Vid']; 
+        $Mid = $_POST['Mid'];
 
         $avis = new AvisController() ; 
-        $res = $avis->AddAvis($nbrStars,$comment,$Vid) ; 
+        $res = $avis->AddAvis($nbrStars,$comment,$Vid,$Mid) ; 
         echo $res ;
     }
     

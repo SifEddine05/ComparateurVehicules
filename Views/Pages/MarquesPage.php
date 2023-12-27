@@ -3,6 +3,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Views/Components/U
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Views/Pages/ComparatorPage.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/VehiculeController.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/MarqueController.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/AvisController.php');
 
 
 
@@ -11,12 +12,16 @@ class MarquePage {
     private $UserComponents ;
     private $vehctl ;
     private $marque ; 
+    private $avisctl ; 
+
     public function __construct()
     {
         $this->UserComponents = new UserComponents();
         $this->compar = new ComparatorPage();
         $this->vehctl = new VehiculeController();
         $this->marque = new MarqueController() ;
+        $this->avisctl = new AvisController();
+
         
     }
 
@@ -174,6 +179,121 @@ class MarquePage {
     <?php
     }
 
+    public function BestAvis($id)
+    { 
+        $bestAvis = $this->avisctl->getBestAvisMarque($id);
+    
+    ?>
+        <div class='Best-Avis-Section'>
+            <div class='Title'>
+                <h5 class='titles'>Les Avis les plus appréciés</h5>
+                <a href='/ComparateurVehicules/avis'>Voir tous les avis</a>
+            </div>
+            <?php 
+            if($bestAvis)
+            {
+            ?>
+            <div class='BestAvis-container'>
+                <div class='Avis-Container'>
+                    <div class='Avis'>
+                        <img src='/ComparateurVehicules/assets/Comment.png' alt='comment' />
+                        <h6><?php echo $bestAvis[0]['Commentaire'] ?></h6>
+                        <p>Note : <?php echo $bestAvis[0]['Note'] ?>/5⭐</p>
+                    </div>
+                    <h3> <span>👤</span> <?php echo $bestAvis[0]['Nom'].' '.$bestAvis[2]['Prenom'] ?></h3>
+                </div>
+
+                <div class='Avis-Container'>
+                    <div class='Avis'>
+                        <img src='/ComparateurVehicules/assets/Comment.png' alt='comment' />
+                        <h6><?php echo $bestAvis[1]['Commentaire'] ?></h6>
+                        <p>Note : <?php echo $bestAvis[1]['Note'] ?>/5⭐</p>
+                    </div>
+                    <h3> <span>👤</span><?php echo $bestAvis[1]['Nom'].' '.$bestAvis[2]['Prenom'] ?></h3>
+                </div>
+
+                <div class='Avis-Container'>
+                    <div class='Avis'>
+                        <img src='/ComparateurVehicules/assets/Comment.png' alt='comment' />
+                        <h6><?php echo $bestAvis[2]['Commentaire'] ?></h6>
+                        <p>Note : <?php echo $bestAvis[2]['Note'] ?>/5⭐</p>
+                    </div>
+                    <h3> <span>👤</span> <?php echo $bestAvis[2]['Nom'].' '.$bestAvis[2]['Prenom'] ?></h3>
+                </div>
+                
+            </div>
+            <?php
+            }else {
+                echo "<h3 style='color:red'>il n'y a pas d'avis pour cette vethicule</h3>" ;
+            }
+            ?>
+
+        </div>
+    <?php
+    }   
+
+
+    public function AddAvis()
+    {
+    ?>  
+    <div class='AddAvisSection'>
+        <h5 class='titles'>Ajouter votre Avis </h5>
+        <div class='Avis'>
+            <div class='Note-container'>
+                <h3>Note :</h3>
+                <div class="container">
+                    <div class="container__items">
+                        <input type="radio" name="stars" id="st5" value=5>
+                        <label for="st5">
+                        <div class="star-stroke">
+                            <div class="star-fill"></div>
+                        </div>
+                        <div class="label-description" data-content="Excellent"></div>
+                        </label>
+                        <input type="radio" name="stars" id="st4" value=4>
+                        <label for="st4">
+                        <div class="star-stroke">
+                            <div class="star-fill"></div>
+                        </div>
+                        <div class="label-description" data-content="Good"></div>
+                        </label>
+                        <input type="radio" name="stars" id="st3" value=3>
+                        <label for="st3">
+                        <div class="star-stroke">
+                            <div class="star-fill"></div>
+                        </div>
+                        <div class="label-description" data-content="OK"></div>
+                        </label>
+                        <input type="radio" name="stars" id="st2" value=2>
+                        <label for="st2">
+                        <div class="star-stroke">
+                            <div class="star-fill"></div>
+                        </div>
+                        <div class="label-description" data-content="Bad"></div>
+                        </label>
+                        <input type="radio" name="stars" id="st1" value=1>
+                        <label for="st1">
+                        <div class="star-stroke">
+                            <div class="star-fill"></div>
+                        </div>
+                        
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class='Comentaire'>
+                <h3>Commentaire : </h3>
+                <textarea  rows="6" cols="100" id='commentAvis'></textarea>
+            </div>
+            <button id="AddAvisBtn">Ajouter</button>
+        </div>
+       
+        
+    </div> 
+    
+
+    <?php
+    }
 
     public function getPage()
     {
@@ -186,8 +306,12 @@ class MarquePage {
         $this->UserComponents->principaleMarques();
         if($Id !=-1){
             $this->MarqueInformation($Id);
+            $this->BestAvis($Id);
+
         }
-        
+        if (isset($_COOKIE['user']) and $Id !=-1) {
+            $this->AddAvis();
+        }
         $this->UserComponents->footer() ; 
         echo "</body> </html>";
     }
