@@ -205,6 +205,67 @@ ORDER By Apprecie DESC*/
     <?php
     }    
 
+    public function AddAvis()
+    {
+    ?>  
+    <div class='AddAvisSection'>
+        <h5 class='titles'>Ajouter votre Avis </h5>
+        <div class='Avis'>
+            <div class='Note-container'>
+                <h3>Note :</h3>
+                <div class="container">
+                    <div class="container__items">
+                        <input type="radio" name="stars" id="st5">
+                        <label for="st5">
+                        <div class="star-stroke">
+                            <div class="star-fill"></div>
+                        </div>
+                        <div class="label-description" data-content="Excellent"></div>
+                        </label>
+                        <input type="radio" name="stars" id="st4">
+                        <label for="st4">
+                        <div class="star-stroke">
+                            <div class="star-fill"></div>
+                        </div>
+                        <div class="label-description" data-content="Good"></div>
+                        </label>
+                        <input type="radio" name="stars" id="st3">
+                        <label for="st3">
+                        <div class="star-stroke">
+                            <div class="star-fill"></div>
+                        </div>
+                        <div class="label-description" data-content="OK"></div>
+                        </label>
+                        <input type="radio" name="stars" id="st2">
+                        <label for="st2">
+                        <div class="star-stroke">
+                            <div class="star-fill"></div>
+                        </div>
+                        <div class="label-description" data-content="Bad"></div>
+                        </label>
+                        <input type="radio" name="stars" id="st1">
+                        <label for="st1">
+                        <div class="star-stroke">
+                            <div class="star-fill"></div>
+                        </div>
+                        
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class='Comentaire'>
+                <h3>Commentaire : </h3>
+                <textarea  rows="6" cols="100" ></textarea>
+            </div>
+            <button >Ajouter</button>
+        </div>
+       
+        
+    </div> 
+    
+
+    <?php
+    }
 
 
    
@@ -220,6 +281,7 @@ ORDER By Apprecie DESC*/
         $this->vehiculeInformations($id);
         $this->UserComponents->formComparation();
         $this->BestAvis($id);
+        $this->AddAvis();
         $this->UserComponents->footer() ; 
         echo "</body> </html>";
     }

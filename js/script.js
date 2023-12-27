@@ -633,7 +633,10 @@ if (location.href.match(/^.*\/ComparateurVehicules\/vehicule\?id=\d+$/)) {
     console.log('non');
 }
 
-
+// Rating Initialization
+$(document).ready(function() {
+    $('#rateMe1').mdbRate();
+  });
 
 typewriter()
 

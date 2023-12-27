@@ -1215,14 +1215,120 @@ padding-right: 50px;
 {
     font-size: 32px;
 }
+:root{
+    --primary-colour: #191919;
+    --secondary-colour: hsl(233 80% 70%);
+   
+    --star-colour: hsl(38 90% 55%);
+  }
+
+.AddAvisSection{
+    padding-left: 100px;
+    padding-right: 100px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.AddAvisSection .Avis{
+    border-radius: 5px;
+    padding: 10px;
+    padding-left: 100px;
+    padding-right: 100px;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    /* box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.1);
+    -webkit-box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.1);
+    -moz-box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.1); */
+}
+.AddAvisSection .Note-container
+{
+    display: flex;
+    justify-content: start;
+    gap: 50px;
+    align-items: center;
+}
+.AddAvisSection .Comentaire{
+    margin-top: 15px;
+    text-align: left;
+}
+.AddAvisSection .Comentaire textarea{
+    padding: 10px;
+}
+.AddAvisSection .Avis button {
+    border: 0;
+    padding-top: 10px;
+    align-self: end !important;
+    padding-bottom: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color: #4E4FEB;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+.AddAvisSection .Avis button:hover{
+    background-color: #00F;
+}
 
 
-
-
-
-
-
-
-
+.AddAvisSection .container{
+    width: 250px;
+    text-align: center;
+    margin: 0;
+    height: fit-content;
+    transform:  rotateY(180deg);
+  }
+  
+  .AddAvisSection .container .container__items{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0 .5em;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .AddAvisSection .container .container__items input{
+    display: none;
+  }
+  
+  .AddAvisSection .container .container__items label{
+    width: 20%;
+    aspect-ratio: 1;
+    cursor: pointer;
+  }
+  
+  .AddAvisSection .container .container__items label .star-stroke{
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    background: var(--secondary-colour);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  }
+  
+  .AddAvisSection .container .container__items label .star-stroke .star-fill{
+    width: 70%;
+    aspect-ratio: 1;
+    background: var(--primary-colour);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  }
+  
+  .AddAvisSection .container .container__items input:hover ~ label .star-stroke,.container .container__items input:checked ~ label .star-stroke{
+    background: var(--star-colour);
+  }
+  
+  .AddAvisSection .container .container__items input:checked ~ label .star-stroke .star-fill{
+    background: var(--star-colour);
+  }
+  
+ 
 
 
