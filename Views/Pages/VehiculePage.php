@@ -267,7 +267,32 @@ ORDER By Apprecie DESC*/
     <?php
     }
 
+    public function PopulaireComparations($id) 
+    {
+        $bestcomps = $this->Vctl->getPopulaireComparationsById($id) ;
+    ?>
+    <div class="comp-container">
+        <h1 class="titles">Comparaisons populaires de voitures</h1>
+        <div class='conainer-bestcomp'>
 
+            <?php 
+                foreach($bestcomps as $best)
+                {
+                ?>
+
+                    <a href='/ComparateurVehicules/compare?V1=<?php echo $best['VehiculeId1']?>&V2=<?php echo $best['VehiculeId2']?>' class='comp'>
+                        <div class='element1' style="background-image: url('<?php echo $best['url1']?>'); background-size: cover; "><p><?php echo $best['Nom1']?></p></div>
+                        <p class="VS">VS</p>
+                        <div class='element2' style="background-image: url('<?php echo $best['url2']?>'); background-size: cover; "><p><?php echo $best['Nom2']?></p></div>
+                    </a>
+            <?php 
+                }
+                ?>
+        </div>
+       
+    </div>
+    <?php
+    }
    
     
     public function getPage()
@@ -281,7 +306,11 @@ ORDER By Apprecie DESC*/
         $this->vehiculeInformations($id);
         $this->UserComponents->formComparation();
         $this->BestAvis($id);
-        $this->AddAvis();
+        if (isset($_COOKIE['user'])) {
+            $this->AddAvis();
+        }
+
+        $this->PopulaireComparations($id);
         $this->UserComponents->footer() ; 
         echo "</body> </html>";
     }

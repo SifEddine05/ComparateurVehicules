@@ -34,6 +34,11 @@ class VehiculeController{
         $res =$this->vehicule->getVehiculeById($id);
         return $res ;
     }
+    public function getPopulaireComparationsById($id)
+    {
+        $res =$this->vehicule->getPopulaireComparationsById($id);
+        return $res ;
+    }
    
     
     
