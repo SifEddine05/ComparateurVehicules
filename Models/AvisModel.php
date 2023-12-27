@@ -21,6 +21,17 @@
            $this->db->disconnect($conn);
            return $results;
         }
-    }
+
+        public function AddAvis($stars ,$comment,$Vid)
+        {
+            $conn = $this->db->connect();
+            $userId = $_COOKIE['user'];
+            $query = $conn->prepare("INSERT INTO `avis`( `Note`, `Apprecie`, `UserId`, `Confirmer`, `VehiculeId`, `Commentaire`, `MarqueId`) VALUES (?,0,?,0,?,?,null)") ;
+           $query->execute(array($stars,$userId,$Vid,$comment));
+           $this->db->disconnect($conn);
+           return 1;
+        }
+
+}
 
 ?>

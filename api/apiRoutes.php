@@ -6,6 +6,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Messag
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/userController.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Views/Pages/MarquesPage.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/VehiculeController.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/AvisController.php');
 
 
 
@@ -89,8 +90,16 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Vehicu
     
         echo $jsonResponse;
     }
-    
+    if(isset($_POST['NbrStars'])) {
+        $nbrStars = $_POST['NbrStars'];
+        $comment = $_POST['comment'];
+        $Vid = $_POST['Vid']; 
 
+        $avis = new AvisController() ; 
+        $res = $avis->AddAvis($nbrStars,$comment,$Vid) ; 
+        echo $res ;
+    }
+    
    
 
 ?>

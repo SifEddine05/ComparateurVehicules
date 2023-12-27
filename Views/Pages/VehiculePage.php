@@ -215,35 +215,35 @@ ORDER By Apprecie DESC*/
                 <h3>Note :</h3>
                 <div class="container">
                     <div class="container__items">
-                        <input type="radio" name="stars" id="st5">
+                        <input type="radio" name="stars" id="st5" value=5>
                         <label for="st5">
                         <div class="star-stroke">
                             <div class="star-fill"></div>
                         </div>
                         <div class="label-description" data-content="Excellent"></div>
                         </label>
-                        <input type="radio" name="stars" id="st4">
+                        <input type="radio" name="stars" id="st4" value=4>
                         <label for="st4">
                         <div class="star-stroke">
                             <div class="star-fill"></div>
                         </div>
                         <div class="label-description" data-content="Good"></div>
                         </label>
-                        <input type="radio" name="stars" id="st3">
+                        <input type="radio" name="stars" id="st3" value=3>
                         <label for="st3">
                         <div class="star-stroke">
                             <div class="star-fill"></div>
                         </div>
                         <div class="label-description" data-content="OK"></div>
                         </label>
-                        <input type="radio" name="stars" id="st2">
+                        <input type="radio" name="stars" id="st2" value=2>
                         <label for="st2">
                         <div class="star-stroke">
                             <div class="star-fill"></div>
                         </div>
                         <div class="label-description" data-content="Bad"></div>
                         </label>
-                        <input type="radio" name="stars" id="st1">
+                        <input type="radio" name="stars" id="st1" value=1>
                         <label for="st1">
                         <div class="star-stroke">
                             <div class="star-fill"></div>
@@ -255,9 +255,9 @@ ORDER By Apprecie DESC*/
             </div>
             <div class='Comentaire'>
                 <h3>Commentaire : </h3>
-                <textarea  rows="6" cols="100" ></textarea>
+                <textarea  rows="6" cols="100" id='commentAvis'></textarea>
             </div>
-            <button >Ajouter</button>
+            <button id="AddAvisBtn">Ajouter</button>
         </div>
        
         

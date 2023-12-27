@@ -611,7 +611,6 @@ if (location.href.match(/^.*\/ComparateurVehicules\/vehicule\?id=\d+$/)) {
         type: 'POST',
         data: {IdVehicule : id },
         success: function(response) {
-            console.log(response[0]);
             const res = response[0];
             marque1.value=res.marque ;
             modele1.value=res.modele;
@@ -637,6 +636,43 @@ if (location.href.match(/^.*\/ComparateurVehicules\/vehicule\?id=\d+$/)) {
 $(document).ready(function() {
     $('#rateMe1').mdbRate();
   });
+
+
+const AddAvisBtn =document.getElementById('AddAvisBtn')
+AddAvisBtn?.addEventListener('click',()=>{
+    const radioButtons=document.getElementsByName('stars');
+    const comment = document.getElementById('commentAvis').value ; 
+    var match = location.href.match(/\/ComparateurVehicules\/vehicule\?id=(\d+)/);
+    const id = match[1];
+    let selectdStar =0 ;
+    for (var i = 0; i < radioButtons.length; i++) {
+        if (radioButtons[i].checked) {
+          selectdStar = radioButtons[i].value
+          break; 
+        }
+    }
+    if(selectdStar ===0 || comment==='')
+    {
+        alert("S'il vous plait remplissez tous les champs");
+    }
+    else {
+        $.ajax({
+            url: '/ComparateurVehicules/api/apiRoutes.php',
+            type: 'POST',
+            data: {NbrStars : id , comment : comment ,Vid :id },
+            success: function(response) {
+                console.log(response);
+                if(response==1)
+                {
+                    alert('Votre Commentaire a été ajouter avec success')
+                }
+            },
+            error: function() {
+                console.error('Failed to reload content.');
+            }
+        });
+    }
+})
 
 typewriter()
 

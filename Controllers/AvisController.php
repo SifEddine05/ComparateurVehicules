@@ -11,6 +11,11 @@
             $res = $this->Avis->getBestAvis($id) ;
             return $res ;
         }
+        public function AddAvis($stars ,$comment,$Vid)
+        {
+            $res = $this->Avis->AddAvis($stars ,$comment,$Vid) ;
+            return $res ;
+        }
     }
 
 
