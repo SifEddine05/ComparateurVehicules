@@ -21,6 +21,16 @@
             $res = $this->Avis->getBestAvisMarque($id) ;
             return $res ;
         }
+        public function getNbrAvis($id)
+        {
+            $res = $this->Avis->getNbrAvis($id) ; 
+            return $res ; 
+        }
+        public function getAvisByPage($id,$offset,$records_per_page)
+        {
+            $res = $this->Avis->getAvisByPage($id,$offset,$records_per_page) ; 
+            return $res ;
+        }
     }
 
 

@@ -54,7 +54,39 @@
            return $results;
         }
 
+        public function getNbrAvis($id)
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("SELECT COUNT(AvisVehiculeId) as Nbr FROM avis Where avis.VehiculeId=? and avis.Confirmer=1") ;
+           $query->execute(array($id));
+           $results = $query->fetchAll(PDO::FETCH_ASSOC);
+           $this->db->disconnect($conn);
+           return $results;
+        }
+        public function getAvisByPage($id,$offset,$records_per_page)
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("SELECT * FROM `avis` 
+            INNER JOIN user on user.UserId=avis.UserId
+            WHERE VehiculeId=:id and Confirmer=1 
+            ORDER By Apprecie DESC
+            LIMIT :offset, :records_per_page");
+            $query->bindParam(':id', $id, PDO::PARAM_INT);
+            $query->bindParam(':offset', $offset, PDO::PARAM_INT);
+            $query->bindParam(':records_per_page', $records_per_page, PDO::PARAM_INT);
+            $query->execute();
+            $results = $query->fetchAll(PDO::FETCH_ASSOC);            
+            $this->db->disconnect($conn);
+            return $results;
+        }
+
 
 }
+
+/*SELECT * FROM `avis` 
+            INNER JOIN user on user.UserId=avis.UserId
+            WHERE VehiculeId=7 and Confirmer=1 
+            ORDER By Apprecie DESC
+            LIMIT 0,5*/
 
 ?>

@@ -9,7 +9,9 @@
     require_once("./Views/Pages/MarquesPage.php");
     require_once("./Views/Pages/VehiculePage.php");
     require_once("./Views/Pages/AvisPage.php");
+    require_once("./Views/Pages/AvisVehiculePage.php");
 
+    
 
 
 
@@ -37,6 +39,7 @@
     $MarquePage = new MarquePage();
     $VehiculePage = new VehiculePage();
     $AvisPage = new AvisPage();
+    $AvisVehiculePage = new AvisVehiculePage();
 
 
 
@@ -74,6 +77,9 @@
             break;
         case '/ComparateurVehicules/avis':
             $AvisPage->getPage();
+            break;
+        case '/ComparateurVehicules/avisVehicule':
+            $AvisVehiculePage->getPage();
             break;
 
         default:

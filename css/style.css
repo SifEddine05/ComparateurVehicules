@@ -1192,6 +1192,7 @@ padding-right: 50px;
     position: absolute;
     top: 40px;
     left: 5px;
+    width: 350px;
     font-size: 22px;
     font-weight: normal;
 }
@@ -1329,6 +1330,20 @@ padding-right: 50px;
     background: var(--star-colour);
   }
   
+.BestAvis-container2{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.MarqueInfos-container a{
+    color: #000;
+    padding: 10px;
+}
+.MarqueInfos-container a:hover{
+opacity: 65%;
+}
 
  
 
