@@ -324,7 +324,7 @@
                         foreach($principaleVehc as $vech)
                         {
                         ?>
-                            <a href='<?php if ($type == 0) echo "/ComparateurVehicules/vehicule?id="; else echo "/ComparateurVehicules/avisVehicule?id="; ?> <?php echo $vech['VehiculeId']; ?>'>
+                            <a href='<?php if ($type == 0) echo "/ComparateurVehicules/vehicule?id=".$vech['VehiculeId']; else echo "/ComparateurVehicules/avisVehicule?id=".$vech['VehiculeId']; ?>'>
                                 <img src='<?php echo $vech['image'] ?>' width="250px" />
                                 <p><?php echo  $vech['Nom'] ?></p>
                             </a>
