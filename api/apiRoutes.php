@@ -75,7 +75,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/AvisCo
     if(isset($_POST['idVech']))
     {
         $id=$_POST['idVech'];
-        $marque = new MarquePage();
+        $marque = new UserComponents();
         echo $marque->VehiculeInformations($id);
     }
 

@@ -644,6 +644,7 @@ AddAvisBtn?.addEventListener('click',()=>{
     const comment = document.getElementById('commentAvis').value ; 
     var match1 = location.href.match(/\/ComparateurVehicules\/vehicule\?id=(\d+)/);
     var match2 = location.href.match(/\/ComparateurVehicules\/marque\?id=(\d+)/);
+    var match3 = location.href.match(/\/ComparateurVehicules\/avis\?id=(\d+)/);
     let Vid = -1 ;
     let Mid = -1 ;
 
@@ -653,6 +654,11 @@ AddAvisBtn?.addEventListener('click',()=>{
     else if(match2)
     {
         Mid = match2[1]
+    }
+    else if(match3)
+    {
+        Mid = match3[1]
+
     }
     let selectdStar =0 ;
     for (var i = 0; i < radioButtons.length; i++) {

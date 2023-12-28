@@ -4,7 +4,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Views/Components/U
 
 
 
-class MarquePage {
+class AvisPage {
     private $UserComponents ;
    
 
@@ -23,9 +23,9 @@ class MarquePage {
         echo "<body>";
         $this->UserComponents->NavBar();
         $this->UserComponents->menu() ; 
-        $this->UserComponents->principaleMarques(0);
+        $this->UserComponents->principaleMarques(1);
         if($Id !=-1){
-            $this->UserComponents->MarqueInformation($Id,0);
+            $this->UserComponents->MarqueInformation($Id,1);
             $this->UserComponents->BestAvis($Id);
         }
         if (isset($_COOKIE['user']) and $Id !=-1) {

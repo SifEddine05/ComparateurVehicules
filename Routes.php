@@ -8,6 +8,8 @@
     require_once("./Views/Pages/LoginPage.php");
     require_once("./Views/Pages/MarquesPage.php");
     require_once("./Views/Pages/VehiculePage.php");
+    require_once("./Views/Pages/AvisPage.php");
+
 
 
 
@@ -34,6 +36,8 @@
     $LoginPage = new LoginPage();
     $MarquePage = new MarquePage();
     $VehiculePage = new VehiculePage();
+    $AvisPage = new AvisPage();
+
 
 
 
@@ -67,6 +71,9 @@
             break;
         case '/ComparateurVehicules/vehicule':
             $VehiculePage->getPage();
+            break;
+        case '/ComparateurVehicules/avis':
+            $AvisPage->getPage();
             break;
 
         default:

@@ -152,7 +152,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Vehicu
             $this->UserComponents->NavBar();
             $this->Diaporama() ; 
             $this->UserComponents->menu() ; 
-            $this->UserComponents->principaleMarques();
+            $this->UserComponents->principaleMarques(0);
             $this->UserComponents->formComparation();
             $this->guideAchatButton();
             $this->PopulaireComparations();
