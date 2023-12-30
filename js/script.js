@@ -697,6 +697,23 @@ AddAvisBtn?.addEventListener('click',()=>{
     }
 })
 
+
+
+const FavBtn = document.getElementById('Fav');
+FavBtn?.addEventListener('click', () => {
+    const image = document.getElementById('FavImage');
+    console.log(image.src);
+    console.log(image.src.match(/^.*\/ComparateurVehicules\/assets\/Cstar$/));
+    if (image.src.match(/^.*\/ComparateurVehicules\/assets\/Cstar$/)) {
+        alert('La Voiture a été ajouter a votre favorite ')
+        image.src = '/ComparateurVehicules/assets/Ostar';
+    } else {
+        alert('La Voiture a été supprimer de votre favorite ')
+
+        image.src = '/ComparateurVehicules/assets/Cstar';
+    }
+});
+
 typewriter()
 
 

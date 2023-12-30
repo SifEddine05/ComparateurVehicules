@@ -1346,5 +1346,16 @@ opacity: 65%;
 }
 
  
-
+.MarqueInfos-container .Fav{
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    gap: 10px;
+    padding-right: 100px;
+    align-self: flex-end;
+    color: #00F;
+}
+.MarqueInfos-container .Fav:hover{
+    cursor: pointer;
+}
 

@@ -19,6 +19,15 @@ class VehiculePage {
         $vechinfo = $this->Vctl->getVehiculeById($id)[0];
     ?>
     <div class="MarqueInfos-container">
+    <?php if (isset($_COOKIE['user'])) {
+        ?>
+
+            <div class='Fav' id='Fav'>
+                <!-- <h3>Ajouter au Favorite</h3> -->
+                <img id='FavImage' src='/ComparateurVehicules/assets/Cstar' width='50px'/>
+
+            </div>
+    <?php  } ?>
             <h5 class='titles'>Les Informations de la vehivule</h5>
             <div class="MarqueInfos">
                 <div class="MarqueNL">
