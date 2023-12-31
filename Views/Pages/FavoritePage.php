@@ -4,7 +4,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Views/Components/U
 
 
 
-class AvisPage {
+class FavoritePage {
     private $UserComponents ;
    
 
@@ -13,7 +13,13 @@ class AvisPage {
         $this->UserComponents = new UserComponents();    
     }
 
-   
+   public function FavorisVehicules()
+   { ?>
+        <div class='VechFavSection'>
+            <h5 class='titles'>Vos véhicules favorisés</h5>
+        </div>
+   <?php
+   }
 
     public function getPage()
     {
@@ -23,14 +29,7 @@ class AvisPage {
         echo "<body>";
         $this->UserComponents->NavBar();
         $this->UserComponents->menu() ; 
-        $this->UserComponents->principaleMarques(1);
-        if($Id !=-1){
-            $this->UserComponents->MarqueInformation($Id,1);
-            $this->UserComponents->BestAvis($Id);
-        }
-        if (isset($_COOKIE['user']) and $Id !=-1) {
-            $this->UserComponents->AddAvis();
-        }
+        $this->FavorisVehicules();
         $this->UserComponents->footer() ; 
         echo "</body> </html>";
     }
