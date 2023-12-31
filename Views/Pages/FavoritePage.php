@@ -1,66 +1,41 @@
 <?php 
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Views/Components/UserComponents.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/FavoriteController.php');
 
 
 
 
 class FavoritePage {
     private $UserComponents ;
-   
+    private $favorite ;
+
 
     public function __construct()
     {
-        $this->UserComponents = new UserComponents();    
+        $this->UserComponents = new UserComponents();   
+        $this->favorite= new FavoriteController();
+ 
     }
 
    public function FavorisVehicules()
-   { ?>
+   { 
+     $favorites = $this->favorite->getFavoriteByU();
+    ?>
         <div class='VechFavSection'>
             <h5 class='titles'>Vos véhicules favorisés</h5>
             <div class='Fav-container'>
-                <div >
-                    <img src='/ComparateurVehicules/assets/Tigo8.jpg' width="100%" />
-                    <img class="delImg" src='/ComparateurVehicules/assets/supprimer.png' width='40px' />
-                    <p><a href='/ComparateurVehicules/vehicule?id=7' >Chery Tiggo 8</a></p>
-                </div>
-                <div href='/ComparateurVehicules/vehicule?id=7'>
-                    <img src='/ComparateurVehicules/assets/Tigo8.jpg' width="100%" />
-                    <img class="delImg" src='/ComparateurVehicules/assets/supprimer.png' width='40px' />
-                    <p><a href='/ComparateurVehicules/vehicule?id=7' >Chery Tiggo 8</a></p>
-                </div>
-
-                <div href='/ComparateurVehicules/vehicule?id=7'>
-                    <img src='/ComparateurVehicules/assets/Tigo8.jpg' width="100%" />
-                    <img class="delImg" src='/ComparateurVehicules/assets/supprimer.png' width='40px' />
-                    <p><a href='/ComparateurVehicules/vehicule?id=7' >Chery Tiggo 8</a></p>
-                </div>
-
-                <div href='/ComparateurVehicules/vehicule?id=7'>
-                    <img src='/ComparateurVehicules/assets/Tigo8.jpg' width="100%" />
-                    <img class="delImg" src='/ComparateurVehicules/assets/supprimer.png' width='40px' />
-                    <p><a href='/ComparateurVehicules/vehicule?id=7' >Chery Tiggo 8</a></p>
-                </div>
-
-                <div href='/ComparateurVehicules/vehicule?id=7'>
-                    <img src='/ComparateurVehicules/assets/Tigo8.jpg' width="100%" />
-                    <img class="delImg" src='/ComparateurVehicules/assets/supprimer.png' width='40px' />
-                    <p><a href='/ComparateurVehicules/vehicule?id=7' >Chery Tiggo 8</a></p>
-                </div>
-
-                <div href='/ComparateurVehicules/vehicule?id=7'>
-                    <img src='/ComparateurVehicules/assets/Tigo8.jpg' width="100%" />
-                    <img class="delImg" src='/ComparateurVehicules/assets/supprimer.png' width='40px' />
-                    <p><a href='/ComparateurVehicules/vehicule?id=7' >Chery Tiggo 8</a></p>
-                </div>
-
-                <div href='/ComparateurVehicules/vehicule?id=7'>
-                    <img src='/ComparateurVehicules/assets/Tigo8.jpg' width="100%" />
-                    <img class="delImg" src='/ComparateurVehicules/assets/supprimer.png' width='40px' />
-                    <p><a href='/ComparateurVehicules/vehicule?id=7' >Chery Tiggo 8</a></p>
-                </div>
-                
-                
-                  
+                <?php
+                    foreach($favorites as $fav)
+                    {
+                    ?>
+                        <div>
+                            <img src='<?php echo $fav['image'] ?>' width="100%" />
+                            <img class="delImg" src='/ComparateurVehicules/assets/supprimer.png' width='40px' />
+                            <p><a href='/ComparateurVehicules/vehicule?id=<?php echo $fav['VehiculeId'] ?>' ><?php echo $fav['Nom'] ?></a></p>
+                        </div>
+                    <?php
+                    }
+                ?>   
             </div>
         </div>
    <?php

@@ -36,6 +36,21 @@
         return $results;
     }
 
+    public function getFavoriteByU()
+    {
+        $userId = $_COOKIE['user'];
+        $conn = $this->db->connect();
+        $query = $conn->prepare("SELECT vehicule.VehiculeId , vehicule.Nom, image.url as image  FROM `favorite` INNER JOIN vehicule on vehicule.VehiculeId=favorite.vehiculeID 
+        INNER JOIN imagevehicule on vehicule.VehiculeId = imagevehicule.IdVehicule
+        INNER JOIN image on image.ImageId = imagevehicule.IdImage
+        Where favorite.userID=?") ;
+        $query->execute(array($userId));
+        $results = $query->fetchAll(PDO::FETCH_ASSOC);
+        $this->db->disconnect($conn);
+        return $results;
+    }
+
+
 }
 
 ?>
