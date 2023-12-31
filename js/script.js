@@ -639,8 +639,6 @@ if (location.href.match(/^.*\/ComparateurVehicules\/vehicule\?id=\d+$/)) {
     });
 
 
-} else {
-    console.log('non');
 }
 
 // Rating Initialization
@@ -748,6 +746,33 @@ FavBtn?.addEventListener('click', () => {
             }
         });
     }
+});
+
+const delFavBtns = document.getElementsByClassName('delImg');
+
+Array.from(delFavBtns).forEach(btn => {
+    btn.addEventListener('click', () => {
+        const DelFav =btn.value 
+        var result = window.confirm("Etes vous sure que vous voulez supprimer cette voiture ?");
+        if(result)
+        {
+            $.ajax({
+                url: '/ComparateurVehicules/api/apiRoutes.php',
+                type: 'POST',
+                data: {DelFav :DelFav },
+                success: function(response) {
+                    if(response==1)
+                    {
+                        location.reload()
+                    }
+                },
+                error: function() {
+                    console.error('Failed to reload content.');
+                }
+            });
+        }
+        
+    });
 });
 
 typewriter()
