@@ -11,5 +11,15 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Models/FavoriteMod
         $res = $this->favorite->AddFavorite($Vid) ; 
         return $res ; 
     }
+    public function getFavoriteByUV($Vid)
+    {
+        $res = $this->favorite->getFavoriteByUV($Vid) ; 
+        return $res ; 
+    }
+    public function DeleteFavorite($Vid)
+    {
+        $res = $this->favorite->DeleteFavorite($Vid) ; 
+        return $res ; 
+    }
  } 
 ?>

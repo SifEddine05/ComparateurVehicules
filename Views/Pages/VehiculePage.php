@@ -2,16 +2,20 @@
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Views/Components/UserComponents.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/VehiculeController.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/AvisController.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/FavoriteController.php');
+
 
 class VehiculePage {
     private $UserComponents ;
     private $Vctl ;
     private $avisctl ; 
+    private $favorite ;
     public function __construct()
     {
         $this->UserComponents = new UserComponents();
         $this->Vctl = new VehiculeController();
         $this->avisctl = new AvisController();
+        $this->favorite= new FavoriteController();
     }
 
     public function vehiculeInformations($id)
@@ -20,12 +24,12 @@ class VehiculePage {
     ?>
     <div class="MarqueInfos-container">
     <?php if (isset($_COOKIE['user'])) {
+            $nbr = $this->favorite->getFavoriteByUV($id)[0]['nbr'] ; 
         ?>
 
             <div class='Fav' id='Fav'>
                 <!-- <h3>Ajouter au Favorite</h3> -->
-                <img id='FavImage' src='/ComparateurVehicules/assets/Cstar' width='50px'/>
-
+                <img id='FavImage' src=<?php if($nbr==0) { echo '/ComparateurVehicules/assets/Cstar' ;} else {echo '/ComparateurVehicules/assets/Ostar' ;} ?> width='50px'/>
             </div>
     <?php  } ?>
             <h5 class='titles'>Les Informations de la vehivule</h5>

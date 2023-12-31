@@ -108,6 +108,15 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Favori
         echo $res ; 
     }
 
+    if(isset($_POST['DelFav'])) {
+        $Vid = $_POST['DelFav'] ;
+        $favorite = new FavoriteController(); 
+        $res = $favorite->DeleteFavorite($Vid) ; 
+        echo $res ; 
+    }
+
+    
+
   
     
    

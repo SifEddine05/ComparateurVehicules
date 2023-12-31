@@ -703,9 +703,6 @@ const FavBtn = document.getElementById('Fav');
 FavBtn?.addEventListener('click', () => {
     const image = document.getElementById('FavImage');
     var match1 = location.href.match(/\/ComparateurVehicules\/vehicule\?id=(\d+)/);
-
-    console.log(image.src);
-    console.log(image.src.match(/^.*\/ComparateurVehicules\/assets\/Cstar$/));
     if (image.src.match(/^.*\/ComparateurVehicules\/assets\/Cstar$/)) {
         image.src = '/ComparateurVehicules/assets/Ostar';
         $.ajax({
@@ -713,8 +710,6 @@ FavBtn?.addEventListener('click', () => {
             type: 'POST',
             data: {NewFav : match1[1] },
             success: function(response) {
-                console.log(response);
-                console.log('hhhhh');
                 if(response==1)
                 {
                     alert('La Voiture a été ajouter a votre favorite ')
@@ -726,9 +721,21 @@ FavBtn?.addEventListener('click', () => {
         });
 
     } else {
-        alert('La Voiture a été supprimer de votre favorite ')
-
         image.src = '/ComparateurVehicules/assets/Cstar';
+        $.ajax({
+            url: '/ComparateurVehicules/api/apiRoutes.php',
+            type: 'POST',
+            data: {DelFav : match1[1] },
+            success: function(response) {
+                if(response==1)
+                {
+                    alert('La Voiture a été supprimer de votre favorite ')
+                }
+            },
+            error: function() {
+                console.error('Failed to reload content.');
+            }
+        });
     }
 });
 
