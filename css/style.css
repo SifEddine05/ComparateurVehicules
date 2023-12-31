@@ -1359,6 +1359,8 @@ opacity: 65%;
     cursor: pointer;
 }
 
-font {
-    display: none;
+.button-container img:hover{
+    opacity: 75%;
 }
+
+

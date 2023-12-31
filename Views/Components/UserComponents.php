@@ -58,6 +58,9 @@
             <?php
             if (isset($_COOKIE['user'])) {?>
                 <div class="button-container">
+                    <a id='FavoriteA' href='/ComparateurVehicules/favoris'>
+                        <img src='/ComparateurVehicules/assets/Fav.png' width='40px' />
+                    </a>
                     <button class="button" id='LogoutBtn'>Déconnexion</button>
                 </div>
             <?php } 
