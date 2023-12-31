@@ -1368,5 +1368,50 @@ opacity: 65%;
     text-align: center;
     margin-top: 50px;
     margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
+.Fav-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns of equal width */
+    row-gap: 25px;
+    column-gap: 60px;
+}
+
+.Fav-container div p a{
+    color: #000;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.Fav-container div p a:hover{
+    cursor: pointer;
+    color: #00F;
+}
+.Fav-container div img{
+    border-top-right-radius: 5px ;
+    border-top-left-radius: 5px ;
+
+}
+.Fav-container div{
+    position: relative;
+    width: 400px;
+}
+
+.Fav-container .delImg{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 5;
+}
+
+.Fav-container .delImg:hover{
+    opacity: 50%;
+    cursor: pointer;
+}
+
+
 

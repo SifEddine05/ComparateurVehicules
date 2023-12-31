@@ -17,6 +17,51 @@ class FavoritePage {
    { ?>
         <div class='VechFavSection'>
             <h5 class='titles'>Vos véhicules favorisés</h5>
+            <div class='Fav-container'>
+                <div >
+                    <img src='/ComparateurVehicules/assets/Tigo8.jpg' width="100%" />
+                    <img class="delImg" src='/ComparateurVehicules/assets/supprimer.png' width='40px' />
+                    <p><a href='/ComparateurVehicules/vehicule?id=7' >Chery Tiggo 8</a></p>
+                </div>
+                <div href='/ComparateurVehicules/vehicule?id=7'>
+                    <img src='/ComparateurVehicules/assets/Tigo8.jpg' width="100%" />
+                    <img class="delImg" src='/ComparateurVehicules/assets/supprimer.png' width='40px' />
+                    <p><a href='/ComparateurVehicules/vehicule?id=7' >Chery Tiggo 8</a></p>
+                </div>
+
+                <div href='/ComparateurVehicules/vehicule?id=7'>
+                    <img src='/ComparateurVehicules/assets/Tigo8.jpg' width="100%" />
+                    <img class="delImg" src='/ComparateurVehicules/assets/supprimer.png' width='40px' />
+                    <p><a href='/ComparateurVehicules/vehicule?id=7' >Chery Tiggo 8</a></p>
+                </div>
+
+                <div href='/ComparateurVehicules/vehicule?id=7'>
+                    <img src='/ComparateurVehicules/assets/Tigo8.jpg' width="100%" />
+                    <img class="delImg" src='/ComparateurVehicules/assets/supprimer.png' width='40px' />
+                    <p><a href='/ComparateurVehicules/vehicule?id=7' >Chery Tiggo 8</a></p>
+                </div>
+
+                <div href='/ComparateurVehicules/vehicule?id=7'>
+                    <img src='/ComparateurVehicules/assets/Tigo8.jpg' width="100%" />
+                    <img class="delImg" src='/ComparateurVehicules/assets/supprimer.png' width='40px' />
+                    <p><a href='/ComparateurVehicules/vehicule?id=7' >Chery Tiggo 8</a></p>
+                </div>
+
+                <div href='/ComparateurVehicules/vehicule?id=7'>
+                    <img src='/ComparateurVehicules/assets/Tigo8.jpg' width="100%" />
+                    <img class="delImg" src='/ComparateurVehicules/assets/supprimer.png' width='40px' />
+                    <p><a href='/ComparateurVehicules/vehicule?id=7' >Chery Tiggo 8</a></p>
+                </div>
+
+                <div href='/ComparateurVehicules/vehicule?id=7'>
+                    <img src='/ComparateurVehicules/assets/Tigo8.jpg' width="100%" />
+                    <img class="delImg" src='/ComparateurVehicules/assets/supprimer.png' width='40px' />
+                    <p><a href='/ComparateurVehicules/vehicule?id=7' >Chery Tiggo 8</a></p>
+                </div>
+                
+                
+                  
+            </div>
         </div>
    <?php
    }
