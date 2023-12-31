@@ -367,7 +367,7 @@
     
         <?php
         }
-        public function VehiculeInformations($id)
+        public function VehiculeInformations($id,$type)
         { 
             $res1 = $this->vehctl->getVehiculeById($id);
         ?>
@@ -383,7 +383,7 @@
                                 <tr >
                                     <th class="principlae-carc"><h4>Image de Vehicule</h4></th>
                                     <td>
-                                        <a href='/ComparateurVehicules/Vehicule?id=<?php echo $res1[0]['VehiculeId']?>'  >
+                                        <a href='<?php if ($type == 0) echo "/ComparateurVehicules/vehicule?id=".$id; else echo "/ComparateurVehicules/avisVehicule?id=".$id; ?>'  >
                                             <img src="<?php echo $res1[0]['image'] ?>" width="350px" alt="vehicule1" />
                                         </a>
                                     </td>

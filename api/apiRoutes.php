@@ -76,8 +76,9 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Favori
     if(isset($_POST['idVech']))
     {
         $id=$_POST['idVech'];
+        $type = $_POST['type'];
         $marque = new UserComponents();
-        echo $marque->VehiculeInformations($id);
+        echo $marque->VehiculeInformations($id,$type);
     }
 
     if(isset($_POST['IdVehicule'])) {

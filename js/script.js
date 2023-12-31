@@ -547,13 +547,24 @@ const selectVech = document.getElementById('SelectVechMark')
 selectVech?.addEventListener('change' ,(e)=>{
     const value= e.target.value
     const div = document.getElementById('vchinfos');
+    var match1 = location.href.match(/\/ComparateurVehicules\/marque\?id=(\d+)/);
+    var match3 = location.href.match(/\/ComparateurVehicules\/avis\?id=(\d+)/);
+    let type ;
+    if(match1)
+    {
+        type = 0 ;
+    }
+    else if(match3)
+    {
+        type= 1 ;
+    } 
 
     if(value!=-1)
     {
         $.ajax({
             url: '/ComparateurVehicules/api/apiRoutes.php',
             type: 'POST',
-            data: {idVech : value },
+            data: {idVech : value ,type :type },
             success: function(response) {
                 if(response)
                 {
