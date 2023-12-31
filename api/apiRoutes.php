@@ -7,6 +7,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/userCo
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Views/Pages/MarquesPage.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/VehiculeController.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/AvisController.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/FavoriteController.php');
 
 
 
@@ -100,6 +101,14 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/AvisCo
         $res = $avis->AddAvis($nbrStars,$comment,$Vid,$Mid) ; 
         echo $res ;
     }
+    if(isset($_POST['NewFav'])) {
+        $Vid = $_POST['NewFav'] ;
+        $favorite = new FavoriteController() ; 
+        $res = $favorite->AddFavorite($Vid) ; 
+        echo $res ; 
+    }
+
+  
     
    
 
