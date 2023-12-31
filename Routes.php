@@ -11,6 +11,7 @@
     require_once("./Views/Pages/AvisPage.php");
     require_once("./Views/Pages/AvisVehiculePage.php");
     require_once("./Views/Pages/FavoritePage.php");
+    require_once("./Views/Pages/GuidePage.php");
 
 
     
@@ -43,6 +44,7 @@
     $AvisPage = new AvisPage();
     $AvisVehiculePage = new AvisVehiculePage();
     $FavoritePage =new FavoritePage();
+    $GuidePage = new GuidePage();
 
 
 
@@ -86,6 +88,9 @@
             break;
         case '/ComparateurVehicules/favoris':
             $FavoritePage->getPage();
+            break;
+        case '/ComparateurVehicules/guideachat':
+            $GuidePage->getPage();
             break;
 
         default:
