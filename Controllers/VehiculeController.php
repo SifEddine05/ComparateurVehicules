@@ -40,6 +40,11 @@ class VehiculeController{
         return $res ;
     }
    
+    public function getAllVehiculesIDs()
+    {
+        $res =$this->vehicule->getAllVehiculesIDs();
+        return $res ;
+    }
     
     
 

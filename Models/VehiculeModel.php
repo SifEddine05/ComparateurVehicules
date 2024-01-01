@@ -129,6 +129,15 @@
            return $results;
         }
 
+        public function getAllVehiculesIDs()
+        {
+            $conn = $this->db->connect();
+            $requet = "SELECT VehiculeId,Nom FROM `vehicule` " ;
+            $result = $this->db->requete($conn,$requet);
+            $this->db->disconnect($conn);
+            return $result;
+        }
+
 
     }
 

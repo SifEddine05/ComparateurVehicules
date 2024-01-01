@@ -775,6 +775,13 @@ Array.from(delFavBtns).forEach(btn => {
     });
 });
 
+
+const SelectVechGuide = document.getElementById('SelectVechGuide')
+
+SelectVechGuide?.addEventListener('change',(e)=>{
+    location.href='/ComparateurVehicules/vehicule?id='+e.target.value
+})
+
 typewriter()
 
 

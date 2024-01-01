@@ -1,6 +1,7 @@
 <?php 
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Views/Components/UserComponents.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/GuideController.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/VehiculeController.php');
 
 
 
@@ -8,12 +9,14 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/GuideC
 class GuidePage {
     private $UserComponents ;
     private $guide ;
+    private $vehctl ; 
    
 
     public function __construct()
     {
         $this->UserComponents = new UserComponents();   
         $this->guide = new GuideController(); 
+        $this->vehctl = new VehiculeController();
     }
 
    public function Advices($offset,$records_per_page)
@@ -110,6 +113,35 @@ class GuidePage {
         <?php }
 
 
+
+    public function chooseVehicule()
+    {
+        $Allvehicules = $this->vehctl->getAllVehiculesIDs();
+    ?>
+    <div class='chooseVech'>
+
+        <div class='List-Vehicule-Choose'>
+            <h5 >Coisissez une voiture pour affichier ces spécifications :</h5>
+            <div class='select-container'>
+                <select name='VehiculeInfoSelect' id='SelectVechGuide'>
+                    <option value=-1>Selectionner une vehicule</option>
+                    <?php 
+                        foreach($Allvehicules as $veh)
+                        {
+                        ?>
+                            <option value=<?php echo $veh['VehiculeId']?>><?php echo $veh['Nom'] ?></option>
+
+                    <?php
+                        }
+                    ?>
+                </select>
+            </div>   
+        </div>
+    </div>
+    
+<?php
+    }
+
     public function getPage()
     {
         $records_per_page = 4;
@@ -121,6 +153,7 @@ class GuidePage {
         $this->UserComponents->menu() ; 
         $this->Advices($offset,$records_per_page);
         $this->Pagination($page,$records_per_page) ;
+        $this->chooseVehicule();
         $this->UserComponents->footer() ; 
         echo "</body> </html>";
     }

@@ -1433,3 +1433,12 @@ opacity: 65%;
     flex-direction: column; */
 }
 
+.chooseVech{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
