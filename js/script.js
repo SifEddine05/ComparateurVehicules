@@ -782,6 +782,39 @@ SelectVechGuide?.addEventListener('change',(e)=>{
     location.href='/ComparateurVehicules/vehicule?id='+e.target.value
 })
 
+
+
+
+
+const LoginBtnAdmin = document.getElementById('LoginBtnAdmin') ; 
+LoginBtnAdmin?.addEventListener('click',()=>{
+    const email = document.getElementById("emailLogin").value ;
+    const password = document.getElementById("passwordLogin").value ;
+    if(email==='' || password==='' )
+    {
+        alert("S'il vous plait remplissez tous les champs")
+    }
+    else{
+        $.ajax({
+            url: '/ComparateurVehicules/api/apiRoutes.php',
+            type: 'POST',
+            data: {AdminEmailLogin : email , passwordLogin :password},
+            success: function(response) {
+                console.log(response);
+                if(response==1)
+                {
+                    location.href='/ComparateurVehicules/admin'
+                }
+                else{
+                    alert('Mot de passe ou email incorrect ')
+                }
+            },
+            error: function() {
+                console.error('Failed to reload content.');
+            }
+        });
+    }
+})
 typewriter()
 
 

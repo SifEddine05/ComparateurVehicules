@@ -68,6 +68,9 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Favori
         $res = $userctl->Login($email,$hashedpwd) ; 
         echo $res ; 
     }
+
+
+    
     if(isset($_POST['Logout']))
     {
         setcookie("user", "", time() - 3600, "/");
@@ -113,6 +116,17 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Favori
         $Vid = $_POST['DelFav'] ;
         $favorite = new FavoriteController(); 
         $res = $favorite->DeleteFavorite($Vid) ; 
+        echo $res ; 
+    }
+
+
+
+    if(isset($_POST['AdminEmailLogin']))
+    {
+        $email = $_POST['AdminEmailLogin'] ; 
+        $hashedpwd = $_POST['passwordLogin'] ; 
+        $userctl = new UserController() ; 
+        $res = $userctl->AdminLogin($email,$hashedpwd) ; 
         echo $res ; 
     }
 

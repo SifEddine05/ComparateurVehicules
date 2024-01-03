@@ -18,4 +18,9 @@ class UserController{
         $res = $this->user->Login($email,$password) ; 
         return $res ; 
     }
+    public function AdminLogin($email,$password)
+    {
+        $res = $this->user->AdminLogin($email,$password) ; 
+        return $res ; 
+    }
 }

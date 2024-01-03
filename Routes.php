@@ -15,6 +15,10 @@
     require_once("./Views/Pages/GuideInfosPage.php");
 
 
+    require_once("./Views/AdminPages/LoginAdminPage.php");
+    require_once("./Views/AdminPages/HomeAdminPage.php");
+
+
 
     
 
@@ -34,6 +38,10 @@
         $request = substr($request, 0, - (strlen($request) - strpos($request, "?")));
     }
 
+    // if (strpos($request, "/admin")) {
+    //     $request = "/ComparateurVehicules/admin";
+    // }
+
     $LandingPage = new LandingPage();
     $ComparatorPage = new ComparatorPage();
     $NewsPage = new NewsPage();
@@ -48,6 +56,11 @@
     $FavoritePage =new FavoritePage();
     $GuidePage = new GuidePage();
     $GuideInfosPage = new GuideInfosPage();
+
+
+    $LoginAdminPage = new LoginAdminPage();
+    $HomeAdminPage = new HomeAdminPage();
+
 
 
 
@@ -97,6 +110,16 @@
             break;
         case '/ComparateurVehicules/guide':
             $GuideInfosPage->getPage();
+            break;
+
+        
+        case '/ComparateurVehicules/admin/login':
+            $LoginAdminPage->getPage();
+            break;
+        
+            
+        case '/ComparateurVehicules/admin':
+            $HomeAdminPage->getPage();
             break;
 
         default:

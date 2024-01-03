@@ -45,7 +45,7 @@
         public function Login($email,$password)
         {
             $conn = $this->db->connect();
-            $query = $conn->prepare("SELECT * FROM `user` WHERE email=:email");
+            $query = $conn->prepare("SELECT * FROM `user` WHERE email=:email and STATUS='accepted'");
 
             
             $query->bindParam(':email', $email, PDO::PARAM_STR);
@@ -59,6 +59,40 @@
                 if($userPasswordHash == md5($password))
                 {
                     $cookie_name = "user";
+                    $cookie_value = $userId;
+                    setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
+                    return 1 ;
+                }
+                else{
+                    return -1;
+
+                }
+                $this->db->disconnect($conn);
+            }
+
+
+
+        }
+
+
+
+        public function AdminLogin($email,$password)
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("SELECT * FROM `user` WHERE email=:email and isAdmin=1 and STATUS='accepted'");
+
+            
+            $query->bindParam(':email', $email, PDO::PARAM_STR);
+            $query->execute();
+            $userData = $query->fetch(PDO::FETCH_ASSOC);
+            if ($userData) {
+
+                $userId = $userData['UserId'];
+                $userEmail = $userData['email'];
+                $userPasswordHash = $userData['MotDePasse'];
+                if($userPasswordHash == md5($password))
+                {
+                    $cookie_name = "admin";
                     $cookie_value = $userId;
                     setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
                     return 1 ;
