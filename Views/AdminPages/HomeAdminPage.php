@@ -15,7 +15,22 @@ class HomeAdminPage {
  
     }
 
-    
+    public function ChoosePage()
+   { 
+    ?>
+        <div class='ChoosePageAdmin'>
+            <h5 class='titles'>Choisissez une catégorie</h5>
+            <div class='Pages-choose-container'>
+                <a href='/ComparateurVehicules/admin/vehicules' class='elem' style="background-image: url('/ComparateurVehicules/assets/VehiculeAdmin.jpg'); background-size: cover;   background-position: center;"><p>Gestion des Vehicules</p></a>
+                <a href='/ComparateurVehicules/admin/avis' class='elem' style="background-image: url('/ComparateurVehicules/assets/AvisAdmin.jpg'); background-size: cover;   background-position: center;"><p>Gestion des Avis</p></a>
+                <a href='/ComparateurVehicules/admin/news' class='elem' style="background-image: url('/ComparateurVehicules/assets/NewsAdmin.jpg'); background-size: cover;   background-position: center;"><p>Gestion des News</p></a>
+                <a href='/ComparateurVehicules/admin/users' class='elem' style="background-image: url('/ComparateurVehicules/assets/userAdmin.jpg'); background-size: cover;   background-position: center;"><p>Gestion des Utilisateurs</p></a>
+                <a href='/ComparateurVehicules/admin/params' class='elem' style="background-image: url('/ComparateurVehicules/assets/settingAdmin.jpg'); background-size: cover;   background-position: center;"><p>Gestion des Paramètres</p></a>
+
+            </div>
+        </div>
+   <?php
+   }
    
 
     public function getPage()
@@ -23,7 +38,7 @@ class HomeAdminPage {
         if (isset($_COOKIE['admin'])) {
             $this->AdminComponents->Header();
             echo "<body>";
-            echo "<div>Sifou</div>";
+            $this->ChoosePage();
             echo "</body> </html>";
         } else {
             header("Location: /ComparateurVehicules/admin/login"); 

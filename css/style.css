@@ -1442,3 +1442,47 @@ opacity: 65%;
     margin-top: 50px;
 }
 
+/**************************************Admin******************************************************/
+.ChoosePageAdmin{
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 25px;
+}
+.Pages-choose-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Three columns of equal width */
+    margin: 0;
+    gap: 25px 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+
+}
+.Pages-choose-container .elem{
+    height: 300px;
+    width: 100%;
+}
+.Pages-choose-container .elem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.33);
+    -webkit-box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.33);
+    -moz-box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.33);
+}
+
+.Pages-choose-container .elem:hover{
+    opacity: 75%;
+}
+
+.Pages-choose-container .elem p{
+    color: #fff;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    font-family: IM FELL French Canon SC;
+    font-style: normal;
+    text-align: center;
+    font-weight: 900;
+    line-height: normal;
+    font-size: 48px;
+}
