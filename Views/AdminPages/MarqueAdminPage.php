@@ -40,16 +40,18 @@ class MarqueAdminPage {
             </tr>
         </thead>
         <tbody>
+
             <?php 
                 foreach($res as $m)
                 {
+                    //<a class='AddBtn' href='/ComparateurVehicules/admin/AddMarques'>Ajouter </a> 
                 ?>
                     <tr>
                         <td><?php echo $m['Nom'] ?></td>
                         <td><?php echo $m['PaysOrigine'] ?></td>
                         <td><?php echo $m['SiegeSociale'] ?></td>
                         <td><?php echo $m['AnneeCreation'] ?></td>
-                        <td><a class='AddBtn' href='/ComparateurVehicules/admin/AddMarques'>Ajouter </a> | <a class='EditBtn' href='/ComparateurVehicules/admin/EditMarques'>Modifier </a> | <a class='DeleteBtn'href='/ComparateurVehicules/admin/RemoveMarques'>Supprimer </a></p></td>
+                        <td><a class='EditBtn' href='/ComparateurVehicules/admin/EditMarques'>Modifier </a> | <a class='DeleteBtn'href='/ComparateurVehicules/admin/RemoveMarques'>Supprimer </a></p></td>
                         <td><a href='/ComparateurVehicules/admin/marques?id=<?php echo $m['MarqueId']?>'>Cliquer pour la gestion des vehicules </a></td>
 
                     </tr>

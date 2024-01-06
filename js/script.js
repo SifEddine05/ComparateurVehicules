@@ -824,6 +824,34 @@ $(document).ready(function() {
     table.searchPanes.container().prependTo(table.table().container());
     table.searchPanes.resizePanes();
 });
+
+$(document).ready(function () {
+    // Create your new element (replace this with your actual content)
+    var newElement = $('<a href="/ComparateurVehicules/admin/AddMarque"></a>').css({
+        'background-color': '#068FFF',
+        'color': 'white',
+        'marging-left':'10px',
+        'padding': '8px',
+        'border-radius': '5px',
+        'font-weight' : 'bold'
+    }).hover(
+        function () {
+            // Mouse enter - change background color to blue
+            $(this).css('background-color', 'blue');
+        },
+        function () {
+            // Mouse leave - revert background color to the original
+            $(this).css('background-color', '#068FFF');
+        }
+    ).text('Ajouter une Marque');
+    
+    
+    // Insert the new element in front of the element with class 'dataTables_length'
+    $('div.dataTables_filter label').after(newElement);
+
+    // Initialize DataTable
+        // Your DataTable initialization options go here
+    });
 typewriter()
 
 

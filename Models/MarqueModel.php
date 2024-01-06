@@ -71,6 +71,5 @@
             $this->db->disconnect($conn);
             return $result;
         }
-
     }
 ?>
