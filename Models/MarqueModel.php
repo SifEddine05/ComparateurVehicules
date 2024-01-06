@@ -63,5 +63,14 @@
            $this->db->disconnect($conn);
            return $results;
         }
+        public function getAllMarquesInformations()
+        {
+            $conn = $this->db->connect();
+            $requet = "SELECT * FROM `marque` " ;
+            $result = $this->db->requete($conn,$requet);
+            $this->db->disconnect($conn);
+            return $result;
+        }
+
     }
 ?>

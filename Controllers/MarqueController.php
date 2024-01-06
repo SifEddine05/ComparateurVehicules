@@ -33,5 +33,10 @@
             $res= $this->marque->getAllVehicules($id);
             return $res ;
         }
+        public function getAllMarquesInformations()
+        {
+            $res= $this->marque->getAllMarquesInformations();
+            return $res ;
+        }
     }
 ?>
