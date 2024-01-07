@@ -162,8 +162,16 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Marque
                 }
             } else {
                 echo "Sorry, there was an error uploading your file.";
-            }
-            
+            }   
+    }
+
+    if(isset($_POST['DeleteMarqueId']))
+    {
+        $marquectl = new MarqueController();
+        $id = $_POST["DeleteMarqueId"];
+        $res = $marquectl->DeleteMarque($id);
+        echo $res ;
+
     }
 
     

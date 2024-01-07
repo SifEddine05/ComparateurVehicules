@@ -1525,15 +1525,21 @@ div.dataTables_wrapper div.dataTables_length select{
 #example a.EditBtn{
     color: blue;
 }
-#example a.DeleteBtn{
-    color: red;
-}
+
 
 #example a:hover{
     font-weight: bold ;
 }
 div.dataTables_filter label{
     margin-right: 25px;
+}
+.DeleteMarqueBton{
+    background-color: transparent;
+    border: 0;
+    color: red;
+}
+.DeleteMarqueBton:hover{
+    font-weight: bold ;
 }
 
 

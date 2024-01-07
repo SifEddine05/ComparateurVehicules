@@ -53,5 +53,10 @@
             $res= $this->marque->AddMarque($Nom,$ImageId,$PaysOrigine,$SiegeSociale,$AnneeCreation,$Principale);
             return $res ;
         }
+        public function DeleteMarque($id)
+        {
+            $res= $this->marque->DeleteMarque($id);
+            return $res ;
+        }
     }
 ?>

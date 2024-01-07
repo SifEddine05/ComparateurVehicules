@@ -98,5 +98,13 @@
             $this->db->disconnect($conn);
             return 1;
         }
+        public function DeleteMarque($id)
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("DELETE FROM `marque` WHERE MarqueId=?") ;
+            $query->execute(array($id));
+            $this->db->disconnect($conn);
+            return 1;
+        }
     }
 ?>
