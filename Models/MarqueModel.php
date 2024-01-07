@@ -71,5 +71,32 @@
             $this->db->disconnect($conn);
             return $result;
         }
+
+        public function GetLastId()
+        {
+            $conn = $this->db->connect();
+            $requet = "SELECT MAX(marque.MarqueId) AS ID FROM marque" ;
+            $result = $this->db->requete($conn,$requet);
+            $this->db->disconnect($conn);
+            return $result;
+        }
+        public function AddMarqueLogo($url)
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("INSERT INTO `image`( `url`) VALUES (?)") ;
+           $query->execute(array($url));
+           $lastInsertId = $conn->lastInsertId();
+
+           $this->db->disconnect($conn);
+           return $lastInsertId;
+        }
+        public function AddMarque($Nom,$ImageId,$PaysOrigine,$SiegeSociale,$AnneeCreation,$Principale)
+        { 
+            $conn = $this->db->connect();
+            $query = $conn->prepare("INSERT INTO `marque`(`Nom`, `ImageId`, `PaysOrigine`, `SiegeSociale`, `AnneeCreation`, `Principale`) VALUES (?,?,?,?,?,?)") ;
+            $query->execute(array($Nom,$ImageId,$PaysOrigine,$SiegeSociale,$AnneeCreation,$Principale));
+            $this->db->disconnect($conn);
+            return 1;
+        }
     }
 ?>

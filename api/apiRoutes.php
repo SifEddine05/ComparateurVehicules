@@ -8,6 +8,8 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Views/Pages/Marque
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/VehiculeController.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/AvisController.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/FavoriteController.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/MarqueController.php');
+
 
 
 
@@ -128,6 +130,40 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Favori
         $userctl = new UserController() ; 
         $res = $userctl->AdminLogin($email,$hashedpwd) ; 
         echo $res ; 
+    }
+
+    if(isset($_POST['nomAddMarque']))
+    {
+            $marquectl = new MarqueController();
+            $Id= $marquectl->GetLastId()[0]['ID'];
+        
+            $nom = $_POST["nomAddMarque"];
+            $paysOrigine = $_POST["paysOrigine"];
+            $siegSociale = $_POST["siegSociale"];
+            $anneeCreation = $_POST["anneeCreation"];
+            $principale = isset($_POST["principale"]) ? 1 : 0; 
+
+            
+            $targetDirectory = $_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/assets/'; 
+            $imageFileType = strtolower(pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION));
+            $targetFileName = "marque". $Id."." . $imageFileType; 
+            $targetFile = $targetDirectory . $targetFileName;
+            $uploadOk = 1;
+
+            if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
+                echo "The file " . basename($_FILES["image"]["name"]) . " has been uploaded.";
+                $imageId = $marquectl->AddMarqueLogo('/ComparateurVehicules/assets/'.$targetFileName) ; 
+                $res = $marquectl->AddMarque($nom,$imageId,$paysOrigine,$siegSociale,$anneeCreation,$principale);
+
+                echo $res ;
+                if($res==1)
+                {
+                    header("Location: /ComparateurVehicules/admin/marques");
+                }
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }
+            
     }
 
     

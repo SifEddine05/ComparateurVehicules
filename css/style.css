@@ -1539,3 +1539,70 @@ div.dataTables_filter label{
 
 
 
+
+.AddMarqueForm{
+    text-align: center;
+    padding-left: 150px;
+    padding-right: 150px;
+    margin-top: 25px;
+    margin-bottom: 50px;
+}
+
+.AddMarqueForm .titles{
+    margin-bottom: 25px !important;
+}
+.AddMarqueForm form {
+    background-color: #fff;
+    text-align: left;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.AddMarqueForm label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.AddMarqueForm label[for="principale"]
+{
+    display: inline;
+    margin-right: 15px;
+}
+
+.AddMarqueForm label span{
+    color: red;
+}
+
+.AddMarqueForm input[type="checkbox"]{
+    margin-bottom:25px;
+    padding-top: 25px;
+    height: 20px;
+    width: 20px;
+    align-self: flex-end;
+}
+.AddMarqueForm .check-container{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+}
+.AddMarqueForm input:not(input[type="checkbox"]) {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.AddMarqueForm input[type="submit"] {
+    background-color: #068FFF;
+    color: #fff;
+    cursor: pointer;
+}
+
+.AddMarqueForm input[type="submit"]:hover{
+    background-color: #00F;
+}
+
+

@@ -18,6 +18,8 @@
     require_once("./Views/AdminPages/LoginAdminPage.php");
     require_once("./Views/AdminPages/HomeAdminPage.php");
     require_once("./Views/AdminPages/MarqueAdminPage.php");
+    require_once("./Views/AdminPages/addMarquePage.php");
+
 
 
 
@@ -62,6 +64,7 @@
     $LoginAdminPage = new LoginAdminPage();
     $HomeAdminPage = new HomeAdminPage();
     $MarqueAdminPage = new MarqueAdminPage();
+    $addMarquePage = new addMarquePage();
 
 
 
@@ -124,6 +127,10 @@
             break;
         case '/ComparateurVehicules/admin/marques':
             $MarqueAdminPage->getPage();
+            break;
+        
+        case '/ComparateurVehicules/admin/addmarque':
+            $addMarquePage->getPage();
             break;
 
         default:

@@ -827,7 +827,7 @@ $(document).ready(function() {
 
 $(document).ready(function () {
     // Create your new element (replace this with your actual content)
-    var newElement = $('<a href="/ComparateurVehicules/admin/AddMarque"></a>').css({
+    var newElement = $('<a href="/ComparateurVehicules/admin/addmarque"></a>').css({
         'background-color': '#068FFF',
         'color': 'white',
         'marging-left':'10px',

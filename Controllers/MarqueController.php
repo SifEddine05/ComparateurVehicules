@@ -38,5 +38,20 @@
             $res= $this->marque->getAllMarquesInformations();
             return $res ;
         }
+        public function GetLastId()
+        {
+            $res= $this->marque->GetLastId();
+            return $res ;
+        }
+        public function AddMarqueLogo($url)
+        {
+            $res= $this->marque->AddMarqueLogo($url);
+            return $res ;
+        }
+        public function AddMarque($Nom,$ImageId,$PaysOrigine,$SiegeSociale,$AnneeCreation,$Principale)
+        {
+            $res= $this->marque->AddMarque($Nom,$ImageId,$PaysOrigine,$SiegeSociale,$AnneeCreation,$Principale);
+            return $res ;
+        }
     }
 ?>
