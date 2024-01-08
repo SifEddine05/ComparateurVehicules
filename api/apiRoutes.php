@@ -212,7 +212,18 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Marque
             }           
     }
 
-    if(isset($_POST['nomAddVehicule']))
+    
+
+    if(isset($_POST['DeleteVehiculeId']))
+    {
+        $vctl = new VehiculeController();
+        $id = $_POST["DeleteVehiculeId"];
+        $res = $vctl->DeleteVehicule($id);
+        echo $res ;
+
+    }
+
+    if(isset($_POST['nomAddVehicule'])) //nomAddVehicule
     {
         $vctl= new VehiculeController();
 
@@ -274,18 +285,89 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Marque
         {
             header("Location: /ComparateurVehicules/admin/vehicules?id=".$MarqueId);
         }
-
-    }
-
-    if(isset($_POST['DeleteVehiculeId']))
-    {
-        $vctl = new VehiculeController();
-        $id = $_POST["DeleteVehiculeId"];
-        $res = $vctl->DeleteVehicule($id);
-        echo $res ;
-
     }
     
+
+
+
+    // ------------------------------------Edit
+    if(isset($_POST['nomEditVehicule']))
+    {
+        print("hello");
+        $vctl= new VehiculeController();
+
+        $modele = $_POST['Modele'];
+        $ModeleId=$_POST['ModeleId'];
+        $vctl->editModele($ModeleId, $modele);
+
+        $nbrcyl=$_POST['NbrCylindres'];
+        $nbrsoup=$_POST['NbrSouspapes'];
+        $cylin=$_POST['Cylindree'];
+        $puissDin=$_POST['PuissanceDIN'];
+        $Couple=$_POST['CoupleMoteur'];
+        $puissFis=$_POST['PuissanceFiscale'];
+        $MoteurId = $_POST['MoteurId'];
+        $vctl->editMoteur($MoteurId, $nbrcyl, $nbrsoup, $cylin, $puissDin, $Couple, $puissFis);
+
+
+        $largeur=$_POST['Largeur'];
+        $hauteur=$_POST['Hauteur'];
+        $nbrPlaces=$_POST['NbrPlaces'];
+        $VolCoffre=$_POST['VolCoffre'];
+        $DimensionId=$_POST['DimensionsId'];
+        $vctl->editDimensions($DimensionId, $largeur, $hauteur, $nbrPlaces, $VolCoffre);
+
+
+
+        $vitesseMax=$_POST['VitesseMax'];
+        $Acceleration=$_POST['Acceleration'];
+        $PerformancesId=$_POST['PerformancesId'];
+        $vctl->editPerformance($PerformancesId, $vitesseMax, $Acceleration);
+
+
+
+        $Energie=$_POST['Energie'];
+        $Consommation=$_POST['Consommation'];
+        $Version=$_POST['Version'];
+        $Annees=$_POST['Annee'];
+        $Boite=$_POST['BoiteVitesse'];
+        $NbVitesse=$_POST['NbrVitesses'];
+        $CaracteristiqueId = $_POST['CaracteristiqueId'];
+        $vctl->editCaracteristique($CaracteristiqueId, $Energie, $Consommation, $Version, $Annees, $Boite, $NbVitesse);
+
+
+        
+        $Nom=$_POST['nomEditVehicule'];
+        $MarqueId=$_POST['Marque'];
+        $Prix=$_POST['Prix'];
+        $VehiculeId = $_POST['VehiculeId'];
+        $vctl->editVehicule($VehiculeId, $Nom, $MarqueId, $ModeleId, $MoteurId, $DimensionId, $PerformancesId, $CaracteristiqueId, $Prix);
+
+        $image = $_FILES["image"]["name"] ; 
+        $targetDirectory = $_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/assets/'; 
+        $Id= $vctl->GetLastId()[0]['ID'];
+        $imageId = $_POST['ImageId'];
+        if($image)
+        {
+            $imageFileType = strtolower(pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION));
+            $targetFileName = "vehicule1". $Id."." . $imageFileType; 
+            $targetFile = $targetDirectory . $targetFileName;
+            $uploadOk = 1;
+            if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
+                echo "The file " . basename($_FILES["image"]["name"]) . " has been uploaded.";
+                $imageId = $vctl->AddImage('/ComparateurVehicules/assets/'.$targetFileName) ;
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }  
+        }
+
+        $vctl->EditVehiculeImage($imageId,$VehiculeId) ;
+        header("Location: /ComparateurVehicules/admin/vehicules?id=".$MarqueId);
+
+
+    }
+
+
 
   
     

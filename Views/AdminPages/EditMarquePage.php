@@ -20,15 +20,15 @@ class EditMarquePage {
     $marqueInfo = $this->marquectl->getMarqueById(8)[0];
     ?>
         <div class='AddMarqueForm'>
-            <h5 class='titles'>Edit Marque</h5>
+            <h5 class='titles'>Modifier  Marque</h5>
             <form action="/ComparateurVehicules/api/apiRoutes.php" method="post" enctype="multipart/form-data">
                 <label for="nomEditMarque">Nom de la marque <span>*</span></label>
-                <input type="text" id="nomEditMarque" name="nomEditMarque" value=<?php echo $marqueInfo['Nom'] ?>  required><br>
+                <input  type="text" id="nomEditMarque" name="nomEditMarque" value=<?php echo $marqueInfo['Nom'] ?>  required><br>
 
                 <input type="hidden"  name="editMarqueId" id="editMarqueId" value=<?php echo $marqueInfo['MarqueId'] ?> />
-                 <div class='ModifyImage'>
+                <div class='ModifyImage'>
                     <div>
-                        <label for="image">Modifier le logo de la marque <span>*</span></label>
+                        <label for="image">Modifier le logo de la marque </label>
                         <input type="file" id="image" name="image" accept="image/*"><br>
                     </div>
                     <img src="<?php echo $marqueInfo['logo']?>" width='150px'/>

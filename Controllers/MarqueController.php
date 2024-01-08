@@ -63,5 +63,8 @@
             $res= $this->marque->EditMarque($id,$Nom,$ImageId,$PaysOrigine,$SiegeSociale,$AnneeCreation,$Principale);
             return $res ;
         }
+        
+        
+        
     }
 ?>

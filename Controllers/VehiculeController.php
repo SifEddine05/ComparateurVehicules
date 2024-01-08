@@ -103,5 +103,35 @@ class VehiculeController{
         $res =$this->vehicule->DeleteVehicule($id);
         return $res ; 
     }
+
+
+    public function editModele($modeleId, $newName) {
+        return $this->vehicule->EditModele($modeleId, $newName);
+    }
+
+    public function editMoteur($moteurId, $nbrcyl, $nbrsoup, $cylin, $puissDin, $Couple, $puissFis) {
+        return $this->vehicule->EditMoteur($moteurId, $nbrcyl, $nbrsoup, $cylin, $puissDin, $Couple, $puissFis);
+    }
+
+    public function editDimensions($dimensionId, $largeur, $hauteur, $nbrPlaces, $VolCoffre) {
+        return $this->vehicule->EditDimensions($dimensionId, $largeur, $hauteur, $nbrPlaces, $VolCoffre);
+    }
+
+    public function editPerformance($performanceId, $vitesseMax, $Acceleration) {
+        return $this->vehicule->EditPerformance($performanceId, $vitesseMax, $Acceleration);
+    }
+
+    public function editCaracteristique($caracteristiqueId, $Energie, $Consommation, $Version, $Annees, $Boite, $NbVitesse) {
+        return $this->vehicule->EditCaracteristique($caracteristiqueId, $Energie, $Consommation, $Version, $Annees, $Boite, $NbVitesse);
+    }
+
+    public function editVehicule($vehiculeId, $Nom, $MarqueId, $ModeleId, $MoteurId, $DimensionId, $PerformancesId, $CaracteristiqueId, $Prix) {
+        return $this->vehicule->EditVehicule($vehiculeId, $Nom, $MarqueId, $ModeleId, $MoteurId, $DimensionId, $PerformancesId, $CaracteristiqueId, $Prix);
+    }
+    public function EditVehiculeImage($imageId, $vehiculeId) 
+    {
+        $res= $this->vehicule->EditVehiculeImage($imageId, $vehiculeId);
+        return $res ;
+    }
 }
 ?>

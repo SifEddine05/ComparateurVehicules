@@ -88,7 +88,7 @@
         public function getVehiculeById($id)
         {
             $conn = $this->db->connect();
-            $query = $conn->prepare("SELECT VehiculeId,vehicule.Nom,vehicule.Prix,marque.Nom as marque ,dimensions.* , modele.Name as modele , moteur.* , caracteristique.* , performances.* ,url as image FROM `vehicule` 
+            $query = $conn->prepare("SELECT VehiculeId,vehicule.Nom,vehicule.Prix,marque.Nom as marque ,image.ImageId,marque.MarqueId ,dimensions.* , modele.Name as modele , modele.ModeleId, moteur.* , caracteristique.* , performances.* ,url as image FROM `vehicule` 
             INNER JOIN marque on marque.MarqueId=vehicule.MarqueId 
             INNER JOIN modele on modele.ModeleId=vehicule.ModeleId
             INNER JOIN moteur on moteur.MoteurId = vehicule.MoteurId
@@ -253,7 +253,79 @@
             return 1;
         }
 
+// --------------------------------------Edit Vehicule -----------------------------------------------------------
 
+    public function EditModele($modeleId, $newName)
+    {
+        $conn = $this->db->connect();
+        $query = $conn->prepare("UPDATE `modele` SET `Name` = ? WHERE `ModeleId` = ?");
+        $query->execute(array($newName, $modeleId));
+        $affectedRows = $query->rowCount();
+        $this->db->disconnect($conn);
+        return $affectedRows > 0;
     }
+
+    public function EditMoteur($moteurId, $nbrcyl, $nbrsoup, $cylin, $puissDin, $Couple, $puissFis)
+    {
+        $conn = $this->db->connect();
+        $query = $conn->prepare("UPDATE `moteur` SET `NombreCylindres` = ?, `NombreSoupapesParCylindre` = ?, `Cylindree` = ?, `PuissanceDIN` = ?, `CoupleMoteur` = ?, `PuissanceFiscale` = ? WHERE `MoteurId` = ?");
+        $query->execute(array($nbrcyl, $nbrsoup, $cylin, $puissDin, $Couple, $puissFis, $moteurId));
+        $affectedRows = $query->rowCount();
+        $this->db->disconnect($conn);
+        return $affectedRows > 0;
+    }
+
+    public function EditDimensions($dimensionId, $largeur, $hauteur, $nbrPlaces, $VolCoffre)
+    {
+        $conn = $this->db->connect();
+        $query = $conn->prepare("UPDATE `dimensions` SET `Largeur` = ?, `Hauteur` = ?, `NombrePlaces` = ?, `VolumeCoffre` = ? WHERE `DimensionsId` = ?");
+        $query->execute(array($largeur, $hauteur, $nbrPlaces, $VolCoffre, $dimensionId));
+        $affectedRows = $query->rowCount();
+        $this->db->disconnect($conn);
+        return $affectedRows > 0;
+    }
+
+    public function EditPerformance($performanceId, $vitesseMax, $Acceleration)
+    {
+        $conn = $this->db->connect();
+        $query = $conn->prepare("UPDATE `performances` SET `VitesseMaximum` = ?, `Acceleration` = ? WHERE `PerformancesId` = ?");
+        $query->execute(array($vitesseMax, $Acceleration, $performanceId));
+        $affectedRows = $query->rowCount();
+        $this->db->disconnect($conn);
+        return $affectedRows > 0;
+    }
+
+    public function EditCaracteristique($caracteristiqueId, $Energie, $Consommation, $Version, $Annees, $Boite, $NbVitesse)
+    {
+        $conn = $this->db->connect();
+        $query = $conn->prepare("UPDATE `caracteristique` SET `Energie` = ?, `Consommation` = ?, `Version` = ?, `Annees` = ?, `Boite` = ?, `NbVitesses` = ? WHERE `CaracteristiqueId` = ?");
+        $query->execute(array($Energie, $Consommation, $Version, $Annees, $Boite, $NbVitesse, $caracteristiqueId));
+        $affectedRows = $query->rowCount();
+        $this->db->disconnect($conn);
+        return $affectedRows > 0;
+    }
+
+    public function EditVehicule($vehiculeId, $Nom, $MarqueId, $ModeleId, $MoteurId, $DimensionId, $PerformancesId, $CaracteristiqueId, $Prix)
+    {
+        $conn = $this->db->connect();
+        $query = $conn->prepare("UPDATE `vehicule` SET `Nom` = ?, `MarqueId` = ?, `ModeleId` = ?, `MoteurId` = ?, `DimensionId` = ?, `PerformancesId` = ?, `CaracteristiqueId` = ?, `Prix` = ? WHERE `VehiculeId` = ?");
+        $query->execute(array($Nom, $MarqueId, $ModeleId, $MoteurId, $DimensionId, $PerformancesId, $CaracteristiqueId, $Prix, $vehiculeId));
+        $affectedRows = $query->rowCount();
+        $this->db->disconnect($conn);
+        return $affectedRows > 0;
+    }
+    public function EditVehiculeImage($imageId, $vehiculeId) 
+    {
+        $conn = $this->db->connect();
+        $query = $conn->prepare("UPDATE `imagevehicule` SET `IdImage` = ? WHERE `IdVehicule` = ?");
+        $query->execute(array($imageId,$vehiculeId));
+        $this->db->disconnect($conn);
+    
+        return 1; 
+    }
+
+
+
+}
 
 ?>
