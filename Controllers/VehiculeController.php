@@ -50,13 +50,38 @@ class VehiculeController{
         $res =$this->vehicule->getAllVehiculeByMarqueId($id);
         return $res ;
     }
-    public function AddVehicule()
+
+
+    public function AddModele($modele)
     {
-
+        $res =$this->vehicule->AddModele($modele);
+        return $res ;
     }
+    public function AddMoteur($nbrcyl,$nbrsoup,$cylin,$puissDin,$Couple,$puissFis){
     
-    
-
-    
+        $res =$this->vehicule->AddMoteur($nbrcyl,$nbrsoup,$cylin,$puissDin,$Couple,$puissFis);
+        return $res ;
+    }
+    public function AddDimensions($largeur,$hauteur,$nbrPlaces,$VolCoffre)
+    {
+        $res =$this->vehicule->AddDimensions($largeur,$hauteur,$nbrPlaces,$VolCoffre);
+        return $res ;
+    }
+    public function AddPerformance($vitesseMax,$Acceleration)
+    {
+        $res =$this->vehicule->AddPerformance($vitesseMax,$Acceleration);
+        return $res ;
+    }
+    public function AddCaracteristique($Energie,$Consommation,$Version,$Annees,$Boite,$NbVitesse)
+    {
+        $res =$this->vehicule->AddCaracteristique($Energie,$Consommation,$Version,$Annees,$Boite,$NbVitesse);
+        return $res ;
+    }
+    public function AddVehicule($Nom, $MarqueId, $ModeleId, $MoteurId, $DimensionId, $PerformancesId, $CaracteristiqueId, $Prix)
+    {
+        $res =$this->vehicule->AddVehicule($Nom, $MarqueId, $ModeleId, $MoteurId, $DimensionId, $PerformancesId, $CaracteristiqueId, $Prix);
+        return $res ;
+    }
+     
 }
 ?>

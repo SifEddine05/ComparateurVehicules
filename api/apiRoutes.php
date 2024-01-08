@@ -209,16 +209,49 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Marque
             if($res==1)
             {
                 header("Location: /ComparateurVehicules/admin/marques");
-            }
-
-
-            
-            
-            
-            
-             
+            }           
     }
-//nomEditMarque
+
+    if(isset($_POST['nomAddVehicule']))
+    {
+        $vctl= new VehiculeController();
+
+        $modele = $_POST['Modele'];
+        $ModeleId=$vctl->AddModele($modele);
+
+        $nbrcyl=$_POST['NbrCylindres'];
+        $nbrsoup=$_POST['NbrSouspapes'];
+        $cylin=$_POST['Cylindree'];
+        $puissDin=$_POST['PuissanceDIN'];
+        $Couple=$_POST['CoupleMoteur'];
+        $puissFis=$_POST['PuissanceFiscale'];
+        $MoteurId = $vctl->AddMoteur($nbrcyl,$nbrsoup,$cylin,$puissDin,$Couple,$puissFis);
+
+        $largeur=$_POST['Largeur'];
+        $hauteur=$_POST['Hauteur'];
+        $nbrPlaces=$_POST['NbrPlaces'];
+        $VolCoffre=$_POST['VolCoffre'];
+        $DimensionId=$vctl->AddDimensions($largeur,$hauteur,$nbrPlaces,$VolCoffre);
+
+
+        $vitesseMax=$_POST['VitesseMax'];
+        $Acceleration=$_POST['Acceleration'];
+        $PerformancesId=$vctl->AddPerformance($vitesseMax,$Acceleration);
+
+        $Energie=$_POST['Energie'];
+        $Consommation=$_POST['Consommation'];
+        $Version=$_POST['Version'];
+        $Annees=$_POST['Annee'];
+        $Boite=$_POST['BoiteVitesse'];
+        $NbVitesse=$_POST['NbrVitesses'];
+        $CaracteristiqueId = $vctl->AddCaracteristique($Energie,$Consommation,$Version,$Annees,$Boite,$NbVitesse);
+    
+        
+        $Nom=$_POST['nomAddVehicule'];
+        $MarqueId=$_POST['Marque'];
+        $Prix=$_POST['Prix'];
+        $vctl->AddVehicule($Nom, $MarqueId, $ModeleId, $MoteurId, $DimensionId, $PerformancesId, $CaracteristiqueId, $Prix);
+    }
     
 
   

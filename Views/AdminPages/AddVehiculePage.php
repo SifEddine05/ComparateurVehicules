@@ -45,22 +45,25 @@ class AddVehiculePage {
                 <input type="text" id="Modele" name="Modele" required><br>
 
                 <label for="Version">Version <span>*</span></label>
-                <input type="text" id="Version" name="siegSociale" required><br>
+                <input type="text" id="Version" name="Version" required><br>
+
+                <label for="Annee">Année <span>*</span></label>
+                <input type="number" id="Annee" name="Annee" required><br>
 
                 <label for="Prix">Prix <span>*</span></label>
-                <input type="number" id="Prix" name="Prix" required><br>
+                <input step="any" type="number" id="Prix" name="Prix" required><br>
                 
                 <label for="Largeur">Largeur <span>*</span></label>
-                <input type="number" id="Largeur" name="Largeur" required><br>
+                <input step="any" type="number" id="Largeur" name="Largeur" required><br>
                 
                 <label for="Hauteur">Hauteur <span>*</span></label>
-                <input type="number" id="Hauteur" name="Hauteur" required><br>
+                <input step="any" type="number" id="Hauteur" name="Hauteur" required><br>
                 
-                <label for="Capacite">Capacité <span>*</span></label>
-                <input type="number" id="Capacite" name="Capacite" required><br>
+                <label for="NbrPlaces">Nombre de places <span>*</span></label>
+                <input type="number" id="NbrPlaces" name="NbrPlaces" required><br>
                 
                 <label for="VolCoffre">Volume de Coffre <span>*</span></label>
-                <input type="number" id="VolCoffre" name="VolCoffre" required><br>
+                <input step="any" type="number" id="VolCoffre" name="VolCoffre" required><br>
                 
                 <label for="Energie">Energie <span>*</span></label>
                 <input type="text" id="Energie" name="Energie" required><br>
@@ -75,10 +78,10 @@ class AddVehiculePage {
                 <input type="number" id="NbrVitesses" name="NbrVitesses" required><br>
                 
                 <label for="VitesseMax">Vitesse Maximale <span>*</span></label>
-                <input type="number" id="VitesseMax" name="VitesseMax" required><br>
+                <input step="any" type="number" id="VitesseMax" name="VitesseMax" required><br>
                 
                 <label for="Acceleration">Accélération <span>*</span></label>
-                <input type="number" id="Acceleration" name="Acceleration" required><br>
+                <input step="any" type="number" id="Acceleration" name="Acceleration" required><br>
                 
                 <label for="NbrCylindres">Nombre de Cylindres<span>*</span></label>
                 <input type="number" id="NbrCylindres" name="NbrCylindres" required><br>
@@ -87,13 +90,16 @@ class AddVehiculePage {
                 <input type="number" id="NbrSouspapes" name="NbrSouspapes" required><br>
                 
                 <label for="Cylindree">Cylindrée<span>*</span></label>
-                <input type="number" id="Cylindree" name="Cylindree" required><br>
+                <input step="any" type="number" id="Cylindree" name="Cylindree" required><br>
                 
+                <label for="PuissanceDIN">Puissance DIN<span>*</span></label>
+                <input step="any" type="number" id="PuissanceDIN" name="PuissanceDIN" required><br>
+
                 <label for="CoupleMoteur">Couple moteur<span>*</span></label>
-                <input type="number" id="CoupleMoteur" name="CoupleMoteur" required><br>
+                <input step="any" type="number" id="CoupleMoteur" name="CoupleMoteur" required><br>
                 
                 <label for="PuissanceFiscale">Puissance Fiscale<span>*</span></label>
-                <input type="number" id="PuissanceFiscale" name="PuissanceFiscale" required><br>
+                <input step="any" type="number" id="PuissanceFiscale" name="PuissanceFiscale" required><br>
 
                 <input type="submit" value="Submit">
             </form>

@@ -163,17 +163,53 @@
             return $lastInsertedId;
         }
 
+        public function AddMoteur($nbrcyl,$nbrsoup,$cylin,$puissDin,$Couple,$puissFis){
+            $conn = $this->db->connect();
+            $query = $conn->prepare("INSERT INTO `moteur`( `NombreCylindres`, `NombreSoupapesParCylindre`, `Cylindree`, `PuissanceDIN`, `CoupleMoteur`, `PuissanceFiscale`) VALUES (?,?,?,?,?,?)") ;
+            $query->execute(array($nbrcyl,$nbrsoup,$cylin,$puissDin,$Couple,$puissFis));
+            $lastInsertedId = $conn->lastInsertId();
+            $this->db->disconnect($conn);
+            return $lastInsertedId;
+        }
 
-
-        public function AddVehicule()
+        public function AddDimensions($largeur,$hauteur,$nbrPlaces,$VolCoffre)
         {
             $conn = $this->db->connect();
-            $query = $conn->prepare("") ;
-            $query->execute(array($id));
-            $results = $query->fetchAll(PDO::FETCH_ASSOC);
-
+            $query = $conn->prepare("INSERT INTO `dimensions`( `Largeur`, `Hauteur`, `NombrePlaces`, `VolumeCoffre`) VALUES (?,?,?,?)") ;
+            $query->execute(array($largeur,$hauteur,$nbrPlaces,$VolCoffre));
+            $lastInsertedId = $conn->lastInsertId();
             $this->db->disconnect($conn);
-            return $results;
+            return $lastInsertedId;
+        }
+
+        public function AddPerformance($vitesseMax,$Acceleration)
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("INSERT INTO `performances`( `VitesseMaximum`, `Acceleration`) VALUES (?,?)") ;
+            $query->execute(array($vitesseMax,$Acceleration));
+            $lastInsertedId = $conn->lastInsertId();
+            $this->db->disconnect($conn);
+            return $lastInsertedId;
+        }
+
+        public function AddCaracteristique($Energie,$Consommation,$Version,$Annees,$Boite,$NbVitesse)
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("INSERT INTO `caracteristique`( `Energie`, `Consommation`, `Version`, `Annees`, `Boite`, `NbVitesses`) VALUES (?,?,?,?,?,?)") ;
+            $query->execute(array($Energie,$Consommation,$Version,$Annees,$Boite,$NbVitesse));
+            $lastInsertedId = $conn->lastInsertId();
+            $this->db->disconnect($conn);
+            return $lastInsertedId;
+        }
+
+
+        public function AddVehicule($Nom, $MarqueId, $ModeleId, $MoteurId, $DimensionId, $PerformancesId, $CaracteristiqueId, $Prix)
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("INSERT INTO `vehicule`(`Nom`, `MarqueId`, `ModeleId`, `MoteurId`, `DimensionId`, `PerformancesId`, `CaracteristiqueId`, `Prix`, `NbrVisite`) VALUES (?,?,?,?,?,?,?,?,0)") ;
+            $query->execute(array($Nom, $MarqueId, $ModeleId, $MoteurId, $DimensionId, $PerformancesId, $CaracteristiqueId, $Prix));
+            $this->db->disconnect($conn);
+            return 1;
         }
 
 
