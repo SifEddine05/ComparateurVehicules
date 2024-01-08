@@ -153,6 +153,29 @@
             return $results;
         }
 
+//--------------------------------------------- Add vehicule --------------------------------------------------------------------------
+        public function AddModele($modele){
+            $conn = $this->db->connect();
+            $query = $conn->prepare("INSERT INTO `modele`( `Name`) VALUES (?)") ;
+            $query->execute(array($modele));
+            $lastInsertedId = $conn->lastInsertId();
+            $this->db->disconnect($conn);
+            return $lastInsertedId;
+        }
+
+
+
+        public function AddVehicule()
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("") ;
+            $query->execute(array($id));
+            $results = $query->fetchAll(PDO::FETCH_ASSOC);
+
+            $this->db->disconnect($conn);
+            return $results;
+        }
+
 
 
     }

@@ -16,9 +16,11 @@ class AddMarquePage {
 
     public function AddMarque()
    { 
+    
     ?>
         <div class='AddMarqueForm'>
-            <h5 class='titles'>Add New Marque</h5>
+            <h5 class='titles'>Ajouter Une  Marque</h5>
+            
             <form action="/ComparateurVehicules/api/apiRoutes.php" method="post" enctype="multipart/form-data">
                 <label for="nomAddMarque">Nom de la marque <span>*</span></label>
                 <input type="text" id="nomAddMarque" name="nomAddMarque" required><br>

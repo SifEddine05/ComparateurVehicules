@@ -50,6 +50,10 @@ class VehiculeController{
         $res =$this->vehicule->getAllVehiculeByMarqueId($id);
         return $res ;
     }
+    public function AddVehicule()
+    {
+
+    }
     
     
 

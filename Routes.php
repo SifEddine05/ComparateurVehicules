@@ -21,6 +21,7 @@
     require_once("./Views/AdminPages/addMarquePage.php");
     require_once("./Views/AdminPages/EditMarquePage.php");
     require_once("./Views/AdminPages/VehiculeAdminPage.php");
+    require_once("./Views/AdminPages/AddVehiculePage.php");
 
 
 
@@ -70,6 +71,7 @@
     $addMarquePage = new addMarquePage();
     $EditMarquePage =new EditMarquePage();
     $VehiculeAdminPage = new VehiculeAdminPage();
+    $AddVehiculePage = new AddVehiculePage();
 
 
 
@@ -142,6 +144,9 @@
             break;
         case '/ComparateurVehicules/admin/vehicules':
             $VehiculeAdminPage->getPage();
+            break;
+        case '/ComparateurVehicules/admin/addvehicule':
+            $AddVehiculePage->getPage();
             break;
 
         default:

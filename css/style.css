@@ -1576,8 +1576,8 @@ div.dataTables_filter label{
 
 .AddMarqueForm{
     text-align: center;
-    padding-left: 150px;
-    padding-right: 150px;
+    padding-left: 200px;
+    padding-right: 200px;
     margin-top: 25px;
     margin-bottom: 50px;
 }
@@ -1620,7 +1620,7 @@ div.dataTables_filter label{
     justify-content: start;
     align-items: start;
 }
-.AddMarqueForm input:not(input[type="checkbox"]) {
+.AddMarqueForm input:not(input[type="checkbox"]) ,.AddMarqueForm select {
     width: 100%;
     padding: 8px;
     margin-bottom: 16px;
