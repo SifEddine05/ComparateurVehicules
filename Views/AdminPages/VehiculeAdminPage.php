@@ -37,6 +37,7 @@ class VehiculeAdminPage {
                 <th>Version</th>
                 <th>Année</th>
                 <th>Action</th>
+                <th>Lien Vers Vehicule</th>
             </tr>
         </thead>
         <tbody>
@@ -53,7 +54,7 @@ class VehiculeAdminPage {
                         <td><?php echo $v['Version'] ?></td>
                         <td><?php echo $v['Annees'] ?></td>
                         <td><a class='EditBtn' href='/ComparateurVehicules/admin/editvehicule?id=<?php echo $v['VehiculeId'] ?>'>Modifier </a> | <button class='DeleteVehiculeBton' value=<?php echo $v['VehiculeId'] ?> >Supprimer </button></p></td>
-
+                        <td><a href='/ComparateurVehicules/vehicule?id=<?php echo $v['VehiculeId']?>'>Cliquer </a></td>
                     </tr>
                 <?php
                 }
@@ -68,6 +69,8 @@ class VehiculeAdminPage {
                 <th>Version</th>
                 <th>Année</th>
                 <th>Action</th>
+                <th>Lien Vers Vehicule</th>
+
             </tr>
         </tfoot>
     </table>
