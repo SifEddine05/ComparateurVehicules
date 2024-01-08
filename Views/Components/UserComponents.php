@@ -447,7 +447,8 @@
         public function BestAvis($id)
         { 
             $bestAvis = $this->avisctl->getBestAvisMarque($id);
-        
+            $arraySize = count($bestAvis);
+
         ?>
             <div class='Best-Avis-Section'>
                 <div class='Title'>
@@ -465,18 +466,21 @@
                             <h6><?php echo $bestAvis[0]['Commentaire'] ?></h6>
                             <p>Note : <?php echo $bestAvis[0]['Note'] ?>/5⭐</p>
                         </div>
-                        <h3> <span>👤</span> <?php echo $bestAvis[0]['Nom'].' '.$bestAvis[2]['Prenom'] ?></h3>
+                        <h3> <span>👤</span> <?php echo $bestAvis[0]['Nom'].' '.$bestAvis[0]['Prenom'] ?></h3>
                     </div>
     
+                   <?php if($arraySize>=2) { ?>
                     <div class='Avis-Container'>
                         <div class='Avis'>
                             <img src='/ComparateurVehicules/assets/Comment.png' alt='comment' />
                             <h6><?php echo $bestAvis[1]['Commentaire'] ?></h6>
                             <p>Note : <?php echo $bestAvis[1]['Note'] ?>/5⭐</p>
                         </div>
-                        <h3> <span>👤</span><?php echo $bestAvis[1]['Nom'].' '.$bestAvis[2]['Prenom'] ?></h3>
+                        <h3> <span>👤</span><?php echo $bestAvis[1]['Nom'].' '.$bestAvis[1]['Prenom'] ?></h3>
                     </div>
-    
+                    <?php } ?>
+
+                    <?php if($arraySize>=3) { ?>
                     <div class='Avis-Container'>
                         <div class='Avis'>
                             <img src='/ComparateurVehicules/assets/Comment.png' alt='comment' />
@@ -485,7 +489,8 @@
                         </div>
                         <h3> <span>👤</span> <?php echo $bestAvis[2]['Nom'].' '.$bestAvis[2]['Prenom'] ?></h3>
                     </div>
-                    
+                    <?php } ?>
+
                 </div>
                 <?php
                 }else {
