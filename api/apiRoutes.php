@@ -276,6 +276,15 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Marque
         }
 
     }
+
+    if(isset($_POST['DeleteVehiculeId']))
+    {
+        $vctl = new VehiculeController();
+        $id = $_POST["DeleteVehiculeId"];
+        $res = $vctl->DeleteVehicule($id);
+        echo $res ;
+
+    }
     
 
   

@@ -98,5 +98,10 @@ class VehiculeController{
         $res =$this->vehicule->AddVehiculeImage($imageId,$VehiculeId);
         return $res ; 
     }
+    function DeleteVehicule($id)
+    {
+        $res =$this->vehicule->DeleteVehicule($id);
+        return $res ; 
+    }
 }
 ?>

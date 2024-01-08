@@ -242,6 +242,17 @@
             return 1;
         }
 
+        public function DeleteVehicule($id)
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("DELETE FROM `imagevehicule` WHERE IdVehicule =?;
+            DELETE FROM `vehicule` WHERE VehiculeId=? ;
+            ") ;
+            $query->execute(array($id,$id));
+            $this->db->disconnect($conn);
+            return 1;
+        }
+
 
     }
 

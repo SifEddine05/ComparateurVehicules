@@ -924,4 +924,30 @@ $(document).ready(function () {
     });
 
 
+const DeleteVehiculeBton = document.getElementsByClassName('DeleteVehiculeBton')
+Array.from(DeleteVehiculeBton).forEach(btn => {
+btn?.addEventListener('click',()=>{
+    var result = confirm("Vous Etes sur que vous voulez supprimer cette vehicule");
+    const id = btn.value ; 
+    if(result){
+        $.ajax({
+
+            url: '/ComparateurVehicules/api/apiRoutes.php',
+            type: 'POST',
+            data: {DeleteVehiculeId: id },
+            success: function(response) {
+                console.log(response);
+               if(response==1)
+               {
+                    console.log("deleted");
+                    location.reload();
+               }
+            },
+            error: function() {
+                console.error('Failed to reload content.');
+            }
+        });
+    }
+    })
+})
 
