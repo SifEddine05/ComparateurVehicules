@@ -208,10 +208,39 @@
             $conn = $this->db->connect();
             $query = $conn->prepare("INSERT INTO `vehicule`(`Nom`, `MarqueId`, `ModeleId`, `MoteurId`, `DimensionId`, `PerformancesId`, `CaracteristiqueId`, `Prix`, `NbrVisite`) VALUES (?,?,?,?,?,?,?,?,0)") ;
             $query->execute(array($Nom, $MarqueId, $ModeleId, $MoteurId, $DimensionId, $PerformancesId, $CaracteristiqueId, $Prix));
+            $lastInsertedId = $conn->lastInsertId();
+            $this->db->disconnect($conn);
+            return $lastInsertedId;
+        }
+
+        public function GetLastId()
+        {
+            $conn = $this->db->connect();
+            $requet = "SELECT MAX(vehicule.VehiculeId) AS ID FROM vehicule" ;
+            $result = $this->db->requete($conn,$requet);
+            $this->db->disconnect($conn);
+            return $result;
+        }
+
+        public function AddImage($url)
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("INSERT INTO `image`( `url`) VALUES (?)") ;
+           $query->execute(array($url));
+           $lastInsertId = $conn->lastInsertId();
+           $this->db->disconnect($conn);
+           return $lastInsertId;
+        }
+
+    
+        public function AddVehiculeImage($imageId,$VehiculeId) 
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("INSERT INTO `imagevehicule`( `IdImage`, `IdVehicule`) VALUES (?,?)") ;
+            $query->execute(array($imageId,$VehiculeId));
             $this->db->disconnect($conn);
             return 1;
         }
-
 
 
     }

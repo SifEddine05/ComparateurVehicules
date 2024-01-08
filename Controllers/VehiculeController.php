@@ -83,5 +83,20 @@ class VehiculeController{
         return $res ;
     }
      
+    public function GetLastId()
+    {
+        $res =$this->vehicule->GetLastId();
+        return $res ;
+    }
+    public function AddImage($url)
+    {
+        $res =$this->vehicule->AddImage($url);
+        return $res ; 
+    }
+    public function AddVehiculeImage($imageId,$VehiculeId) 
+    {
+        $res =$this->vehicule->AddVehiculeImage($imageId,$VehiculeId);
+        return $res ; 
+    }
 }
 ?>

@@ -245,12 +245,36 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Marque
         $Boite=$_POST['BoiteVitesse'];
         $NbVitesse=$_POST['NbrVitesses'];
         $CaracteristiqueId = $vctl->AddCaracteristique($Energie,$Consommation,$Version,$Annees,$Boite,$NbVitesse);
-    
+        echo $CaracteristiqueId ;
+
         
         $Nom=$_POST['nomAddVehicule'];
         $MarqueId=$_POST['Marque'];
         $Prix=$_POST['Prix'];
-        $vctl->AddVehicule($Nom, $MarqueId, $ModeleId, $MoteurId, $DimensionId, $PerformancesId, $CaracteristiqueId, $Prix);
+        $VehiculeId = $vctl->AddVehicule($Nom, $MarqueId, $ModeleId, $MoteurId, $DimensionId, $PerformancesId, $CaracteristiqueId, $Prix);
+        echo $VehiculeId ;
+        $image = $_FILES["image"]["name"] ; 
+        echo $image;
+        $targetDirectory = $_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/assets/'; 
+        $Id= $vctl->GetLastId()[0]['ID'];
+        $imageFileType = strtolower(pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION));
+        $targetFileName = "vehicule". $Id."." . $imageFileType; 
+        $targetFile = $targetDirectory . $targetFileName;
+        $uploadOk = 1;
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
+            echo "The file " . basename($_FILES["image"]["name"]) . " has been uploaded.";
+            $imageId = $vctl->AddImage('/ComparateurVehicules/assets/'.$targetFileName) ;
+        } else {
+            echo "Sorry, there was an error uploading your file.";
+        }
+
+        $res = $vctl->AddVehiculeImage($imageId,$VehiculeId) ;
+        echo $res ;
+        if($res==1)
+        {
+            header("Location: /ComparateurVehicules/admin/vehicules?id=".$MarqueId);
+        }
+
     }
     
 
