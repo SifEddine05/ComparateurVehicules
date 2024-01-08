@@ -187,7 +187,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Marque
             $image = $_FILES["image"]["name"] ; 
             $targetDirectory = $_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/assets/'; 
             $marquectl = new MarqueController();
-            $Id= $marquectl->GetLastId()[0]['ID'];
+            $Id= $marquectl->GetLastId()[0]['ID'] + 1;
 
             $imageId = $marquectl->getMarqueById($marqueId)[0]['ImageId'];
             if($image)
@@ -345,12 +345,12 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Marque
 
         $image = $_FILES["image"]["name"] ; 
         $targetDirectory = $_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/assets/'; 
-        $Id= $vctl->GetLastId()[0]['ID'];
+        $Id= $vctl->GetLastId()[0]['ID'] + 1;
         $imageId = $_POST['ImageId'];
         if($image)
         {
             $imageFileType = strtolower(pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION));
-            $targetFileName = "vehicule1". $Id."." . $imageFileType; 
+            $targetFileName = "vehicule". $Id."." . $imageFileType; 
             $targetFile = $targetDirectory . $targetFileName;
             $uploadOk = 1;
             if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {

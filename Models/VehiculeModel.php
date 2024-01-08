@@ -216,10 +216,10 @@
         public function GetLastId()
         {
             $conn = $this->db->connect();
-            $requet = "SELECT MAX(vehicule.VehiculeId) AS ID FROM vehicule" ;
+            $requet = "SELECT MAX(image.ImageId) AS ID FROM image" ;
             $result = $this->db->requete($conn,$requet);
             $this->db->disconnect($conn);
-            return $result;
+            return $result ;
         }
 
         public function AddImage($url)

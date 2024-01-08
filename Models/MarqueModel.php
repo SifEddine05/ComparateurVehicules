@@ -75,10 +75,10 @@
         public function GetLastId()
         {
             $conn = $this->db->connect();
-            $requet = "SELECT MAX(marque.MarqueId) AS ID FROM marque" ;
+            $requet = "SELECT MAX(image.ImageId) AS ID FROM image" ;
             $result = $this->db->requete($conn,$requet);
             $this->db->disconnect($conn);
-            return $result;
+            return $result ;
         }
         public function AddMarqueLogo($url)
         {
