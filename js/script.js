@@ -817,41 +817,8 @@ LoginBtnAdmin?.addEventListener('click',()=>{
 })
 
 
-$(document).ready(function() {
-    var table = $('#example').DataTable({
-        searchPanes: true
-    });
-    table.searchPanes.container().prependTo(table.table().container());
-    table.searchPanes.resizePanes();
-});
 
-$(document).ready(function () {
-    // Create your new element (replace this with your actual content)
-    var newElement = $('<a href="/ComparateurVehicules/admin/addmarque"></a>').css({
-        'background-color': '#068FFF',
-        'color': 'white',
-        'marging-left':'10px',
-        'padding': '8px',
-        'border-radius': '5px',
-        'font-weight' : 'bold'
-    }).hover(
-        function () {
-            // Mouse enter - change background color to blue
-            $(this).css('background-color', 'blue');
-        },
-        function () {
-            // Mouse leave - revert background color to the original
-            $(this).css('background-color', '#068FFF');
-        }
-    ).text('Ajouter une Marque');
-    
-    
-    // Insert the new element in front of the element with class 'dataTables_length'
-    $('div.dataTables_filter label').after(newElement);
 
-    // Initialize DataTable
-        // Your DataTable initialization options go here
-    });
 
 
 
@@ -882,6 +849,79 @@ btn?.addEventListener('click',()=>{
     })
 })
 typewriter()
+
+
+$(document).ready(function() {
+    var table1 = $('#exampleVech').DataTable({
+        searchPanes: true
+    });
+    console.log(table1.searchPanes.container());
+    console.log(table1.table().container());
+
+    table1.searchPanes.container().prependTo(table1.table().container());
+    console.log(table1.searchPanes.container());
+
+    table1.searchPanes.resizePanes();
+});
+
+
+$(document).ready(function() {
+    var table = $('#example').DataTable({
+        searchPanes: true
+    });
+    table.searchPanes.container().prependTo(table.table().container());
+    table.searchPanes.resizePanes();
+});
+
+
+$(document).ready(function () {
+
+    console.log(location.href);
+    var match2 = location.href.match(/^.*\ComparateurVehicules\/admin\/marques/);
+    var match1 = location.href.match(/^.*\ComparateurVehicules\/admin\/vehicules(?:\?id=(\d+))?/);
+
+    if(match2)
+    {
+        var newElement = $('<a href="/ComparateurVehicules/admin/addmarque"></a>').css({
+            'background-color': '#068FFF',
+            'color': 'white',
+            'marging-left':'10px',
+            'padding': '8px',
+            'border-radius': '5px',
+            'font-weight' : 'bold'
+        }).hover(
+            function () {
+                $(this).css('background-color', 'blue');
+            },
+            function () {
+                $(this).css('background-color', '#068FFF');
+            }
+        ).text('Ajouter une Marque');    
+    }
+    else if(match1)
+    {
+        var newElement = $('<a href="/ComparateurVehicules/admin/addvehicule"></a>').css({
+            'background-color': '#068FFF',
+            'color': 'white',
+            'marging-left':'10px',
+            'padding': '8px',
+            'border-radius': '5px',
+            'font-weight' : 'bold'
+        }).hover(
+            function () {
+                $(this).css('background-color', 'blue');
+            },
+            function () {
+                $(this).css('background-color', '#068FFF');
+            }
+        ).text('Ajouter une Vehicule');
+    }
+    
+    
+    
+    $('div.dataTables_filter label').after(newElement);
+
+    });
 
 
 

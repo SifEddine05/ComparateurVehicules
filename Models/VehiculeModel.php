@@ -138,6 +138,22 @@
             return $result;
         }
 
+        public function getAllVehiculeByMarqueId($id)
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("SELECT marque.MarqueId ,marque.Nom as marque ,vehicule.VehiculeId, vehicule.Nom , modele.Name as Modele, caracteristique.Version ,caracteristique.Annees FROM `vehicule`
+            INNER JOIN marque on marque.MarqueId = vehicule.MarqueId
+            INNER JOIN caracteristique on caracteristique.CaracteristiqueId = vehicule.CaracteristiqueId
+            INNER JOIN modele on modele.ModeleId = vehicule.ModeleId 
+            WHERE marque.MarqueId=?") ;
+            $query->execute(array($id));
+            $results = $query->fetchAll(PDO::FETCH_ASSOC);
+
+            $this->db->disconnect($conn);
+            return $results;
+        }
+
+
 
     }
 

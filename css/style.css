@@ -1503,7 +1503,7 @@ opacity: 65%;
     max-width: 90%;
     margin: auto;
 }
-#example thead tr th{
+#example thead tr th,#exampleVech thead tr th{
     background-color: #068FFF;
     border: 0;
     color: white;
@@ -1516,18 +1516,18 @@ div.dataTables_wrapper div.dataTables_length select{
     background-color: white;
     width: 50px !important;
 }
-#example a {
+#example a ,#exampleVech a{
     color: #000;
 }
-#example a.AddBtn{
+#example a.AddBtn ,#exampleVech a.AddBtn{
     color: green;
 }
-#example a.EditBtn{
+#example a.EditBtn ,#exampleVech a.EditBtn{
     color: blue;
 }
 
 
-#example a:hover{
+#example a:hover, #exampleVech a:hover{
     font-weight: bold ;
 }
 div.dataTables_filter label{
@@ -1539,6 +1539,15 @@ div.dataTables_filter label{
     color: red;
 }
 .DeleteMarqueBton:hover{
+    font-weight: bold ;
+}
+
+.DeleteVehiculeBton{
+    background-color: transparent;
+    border: 0;
+    color: red;
+}
+.DeleteVehiculeBton:hover{
     font-weight: bold ;
 }
 
