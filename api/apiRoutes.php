@@ -174,6 +174,51 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Marque
 
     }
 
+    if(isset($_POST['nomEditMarque']))
+    {
+            
+        
+            $nom = $_POST["nomEditMarque"];
+            $marqueId= $_POST["editMarqueId"];
+            $paysOrigine = $_POST["paysOrigine"];
+            $siegSociale = $_POST["siegSociale"];
+            $anneeCreation = $_POST["anneeCreation"];
+            $principale = isset($_POST["principale"]) ? 1 : 0; 
+            $image = $_FILES["image"]["name"] ; 
+            $targetDirectory = $_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/assets/'; 
+            $marquectl = new MarqueController();
+            $Id= $marquectl->GetLastId()[0]['ID'];
+
+            $imageId = $marquectl->getMarqueById($marqueId)[0]['ImageId'];
+            if($image)
+            {
+                $imageFileType = strtolower(pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION));
+                $targetFileName = "marque". $Id."." . $imageFileType; 
+                $targetFile = $targetDirectory . $targetFileName;
+                $uploadOk = 1;
+                if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
+                    echo "The file " . basename($_FILES["image"]["name"]) . " has been uploaded.";
+                    $imageId = $marquectl->AddMarqueLogo('/ComparateurVehicules/assets/'.$targetFileName) ;
+                } else {
+                    echo "Sorry, there was an error uploading your file.";
+                }  
+            }
+            
+
+            $res = $marquectl->EditMarque($marqueId,$nom,$imageId,$paysOrigine,$siegSociale,$anneeCreation,$principale);
+            if($res==1)
+            {
+                header("Location: /ComparateurVehicules/admin/marques");
+            }
+
+
+            
+            
+            
+            
+             
+    }
+//nomEditMarque
     
 
   

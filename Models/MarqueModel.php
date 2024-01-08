@@ -106,5 +106,13 @@
             $this->db->disconnect($conn);
             return 1;
         }
+        public function EditMarque($id,$Nom,$ImageId,$PaysOrigine,$SiegeSociale,$AnneeCreation,$Principale)
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("UPDATE `marque` SET `Nom`=?,`ImageId`=? ,`PaysOrigine`=? ,`SiegeSociale`=? ,`AnneeCreation`=?,`Principale`=? WHERE MarqueId=?") ;
+            $query->execute(array($Nom,$ImageId,$PaysOrigine,$SiegeSociale,$AnneeCreation,$Principale,$id));
+            $this->db->disconnect($conn);
+            return 1;
+        }
     }
 ?>

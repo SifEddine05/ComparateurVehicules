@@ -51,7 +51,7 @@ class MarqueAdminPage {
                         <td><?php echo $m['PaysOrigine'] ?></td>
                         <td><?php echo $m['SiegeSociale'] ?></td>
                         <td><?php echo $m['AnneeCreation'] ?></td>
-                        <td><a class='EditBtn' href='/ComparateurVehicules/admin/EditMarques'>Modifier </a> | <button class='DeleteMarqueBton' value=<?php echo $m['MarqueId'] ?>>Supprimer </button></p></td>
+                        <td><a class='EditBtn' href='/ComparateurVehicules/admin/editmarque?id=<?php echo $m['MarqueId'] ?>'>Modifier </a> | <button class='DeleteMarqueBton' value=<?php echo $m['MarqueId'] ?>>Supprimer </button></p></td>
                         <td><a href='/ComparateurVehicules/admin/marques?id=<?php echo $m['MarqueId']?>'>Cliquer pour la gestion des vehicules </a></td>
 
                     </tr>

@@ -58,5 +58,10 @@
             $res= $this->marque->DeleteMarque($id);
             return $res ;
         }
+        public function EditMarque($id,$Nom,$ImageId,$PaysOrigine,$SiegeSociale,$AnneeCreation,$Principale)
+        {
+            $res= $this->marque->EditMarque($id,$Nom,$ImageId,$PaysOrigine,$SiegeSociale,$AnneeCreation,$Principale);
+            return $res ;
+        }
     }
 ?>

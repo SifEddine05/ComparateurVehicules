@@ -1542,6 +1542,25 @@ div.dataTables_filter label{
     font-weight: bold ;
 }
 
+.AddMarqueForm .ModifyImage{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.AddMarqueForm .ModifyImage input{
+    width: 50% !important;
+    margin-right: 15px;
+}
+
+.AddMarqueForm .ModifyImage img{
+    border: 1px solid #000;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.AddMarqueForm .ModifyImage div{
+    width: 100%;
+}
 
 
 
