@@ -23,7 +23,6 @@ class LoginAdminPage {
                 <label for="passwordLogin">Mot de passe   <span> *</span></label>
                 <input type="password" id="passwordLogin" placeholder='Entrez votre mot de passe' name="passwordLogin" required><br>
             
-                <p>Vous n'avez pas un compte allez à<a href='/ComparateurVehicules/signup'> Inscription</a></p>
                 
                 <input type="submit" id='LoginBtnAdmin' value="Connexion">
             </div>

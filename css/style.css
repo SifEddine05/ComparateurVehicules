@@ -1527,6 +1527,7 @@ div.dataTables_wrapper div.dataTables_length select{
 }
 
 
+
 #example a:hover, #exampleVech a:hover{
     font-weight: bold ;
 }
@@ -1638,5 +1639,35 @@ div.dataTables_filter label{
 .AddMarqueForm input[type="submit"]:hover{
     background-color: #00F;
 }
+
+.commenteCase{
+    max-width: 250px;
+    overflow: auto;
+}
+
+
+.AccepteAvisBton{
+    background-color: transparent;
+    border: 0;
+    color: #00F;
+}
+.AccepteAvisBton:hover{
+    background-color: transparent;
+    border: 0;
+    font-weight: bold;
+}
+
+.RefuseAvisBton , .BloqueUserBton{
+    background-color: transparent;
+    border: 0;
+    color: red;
+}
+
+.RefuseAvisBton:hover , .BloqueUserBton:hover{
+    background-color: transparent;
+    border: 0;
+    font-weight: bold;
+}
+
 
 

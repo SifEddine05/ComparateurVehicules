@@ -23,6 +23,7 @@
     require_once("./Views/AdminPages/VehiculeAdminPage.php");
     require_once("./Views/AdminPages/AddVehiculePage.php");
     require_once("./Views/AdminPages/EditVehiculePage.php");
+    require_once("./Views/AdminPages/AvisAdminPage.php");
 
 
 
@@ -74,6 +75,7 @@
     $VehiculeAdminPage = new VehiculeAdminPage();
     $AddVehiculePage = new AddVehiculePage();
     $EditVehiculePage = new EditVehiculePage();
+    $AvisAdminPage = new AvisAdminPage();
 
 
 
@@ -152,6 +154,9 @@
             break;
         case '/ComparateurVehicules/admin/editvehicule':
             $EditVehiculePage->getPage();
+            break;
+        case '/ComparateurVehicules/admin/avis':
+            $AvisAdminPage->getPage();
             break;
 
         default:

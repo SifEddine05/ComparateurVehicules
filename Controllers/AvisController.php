@@ -31,7 +31,18 @@
             $res = $this->Avis->getAvisByPage($id,$offset,$records_per_page) ; 
             return $res ;
         }
-    }
+        public function getAllAvisVehcicule()
+        {
+            $res = $this->Avis->getAllAvisVehcicule() ; 
+            return $res ;
+        }
+        public function AccepteAvis($id)
+        {
+            $res = $this->Avis->AccepteAvis($id);
+            return $res ;
+        }
+
+}
 
 
 ?>

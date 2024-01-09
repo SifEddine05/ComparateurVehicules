@@ -367,6 +367,17 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Marque
 
     }
 
+    if(isset($_POST['AccepteAvisId']))
+    {
+        $avisctl = new AvisController();
+        $AvisId = $_POST['AccepteAvisId'] ;
+
+        $res= $avisctl->AccepteAvis($AvisId) ;
+
+        echo $res ;
+
+    }
+
 
 
   

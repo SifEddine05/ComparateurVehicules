@@ -951,3 +951,33 @@ btn?.addEventListener('click',()=>{
     })
 })
 
+
+
+
+
+const AccepteAvisBton = document.getElementsByClassName('AccepteAvisBton')
+Array.from(AccepteAvisBton).forEach(btn => {
+btn?.addEventListener('click',()=>{
+    var result = confirm("Vous Etes sur que vous voulez accepter cette avis");
+    const id = btn.value ; 
+    if(result){
+        $.ajax({
+
+            url: '/ComparateurVehicules/api/apiRoutes.php',
+            type: 'POST',
+            data: {AccepteAvisId: id },
+            success: function(response) {
+                console.log(response);
+               if(response==1)
+               {
+                    console.log("deleted");
+                    location.reload();
+               }
+            },
+            error: function() {
+                console.error('Failed to reload content.');
+            }
+        });
+    }
+    })
+})

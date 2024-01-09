@@ -79,7 +79,26 @@
             $this->db->disconnect($conn);
             return $results;
         }
+        public function getAllAvisVehcicule()
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("SELECT avis.*,user.*,vehicule.VehiculeId , vehicule.Nom as vechNom FROM `avis` 
+            INNER JOIN user on user.UserId = avis.UserId
+            INNER JOIN vehicule on vehicule.VehiculeId = avis.VehiculeId");
+            $query->execute();
+            $results = $query->fetchAll(PDO::FETCH_ASSOC);            
+            $this->db->disconnect($conn);
+            return $results;
+        }
 
+        public function AccepteAvis($id)
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("UPDATE `avis` SET `Confirmer`=1 WHERE AvisVehiculeId=?") ;
+           $query->execute(array($id));
+           $this->db->disconnect($conn);
+           return 1;
+        }
 
 }
 
