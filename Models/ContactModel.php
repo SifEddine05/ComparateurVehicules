@@ -12,7 +12,7 @@
         public function getContacts()
         {
             $conn = $this->db->connect();
-            $requet="SELECT contact.type,contact.url,contact.Name ,image.url as logo FROM `contact` Inner Join image on contact.logo = image.ImageId";
+            $requet="SELECT id , contact.type,contact.url,contact.Name ,image.url as logo FROM `contact` Inner Join image on contact.logo = image.ImageId";
             $result = $this->db->requete($conn,$requet);
             $this->db->disconnect($conn);
             return $result;
