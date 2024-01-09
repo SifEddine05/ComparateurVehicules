@@ -1687,3 +1687,56 @@ div.dataTables_filter label{
 }
 
 
+.ChoosePageParams{
+    height: 100vh !important;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-image: url('/ComparateurVehicules/assets/settingAdmin.jpg'); 
+    background-size: cover;   
+    background-position: center;
+}
+
+.Params-choose-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    flex-direction: row;
+    height: screen;
+    
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+
+.Params-choose-container .elem{
+    height: 300px;
+    width: 80%;
+    background-color: #4E4FEB;
+}
+.Params-choose-container .elem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.33);
+    -webkit-box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.33);
+    -moz-box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.33);
+}
+
+.Params-choose-container .elem:hover{
+    opacity: 75%;
+}
+
+.Params-choose-container .elem p{
+    color: #fff;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    font-family: IM FELL French Canon SC;
+    font-style: normal;
+    text-align: center;
+    font-weight: 900;
+    line-height: normal;
+    font-size: 48px;
+}
