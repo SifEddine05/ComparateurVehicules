@@ -23,6 +23,23 @@ class GuideController{
         $res = $this->guide->getGuideById($id);
         return $res ;
     }
+    public function getAllGuide()
+    {
+        $res = $this->guide->getAllGuide();
+        return $res ; 
+    }
+
+    public function AddImage($url)
+    {
+        $res = $this->guide->AddImage($url);
+        return $res ; 
+    }
+
+    public function AddGuide($titre,$imageId, $description,$text)
+    {
+        $res = $this->guide->AddGuide($titre,$imageId, $description,$text);
+        return $res ; 
+    }
 
 }
 ?>

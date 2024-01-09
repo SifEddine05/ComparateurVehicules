@@ -44,8 +44,35 @@
            $this->db->disconnect($conn);
            return $results;
         }
-    
-    
+        
+        public function getAllGuide()
+        {
+            $conn = $this->db->connect();
+            $requet = "SELECT * FROM `guideachat`";
+            $result = $this->db->requete($conn,$requet);
+            $this->db->disconnect($conn);
+            return $result;
+        }
+
+        public function AddGuide($titre,$imageId, $description,$text)
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("INSERT INTO `guideachat`( `Titre`, `ImageId`, `Description`, `Text`) VALUES (?,?,?,?)") ;
+            $query->execute(array($titre ,$imageId, $description,$text));
+            $lastInsertedId = $conn->lastInsertId();
+            $this->db->disconnect($conn);
+            return $lastInsertedId;
+        }
+
+        public function AddImage($url)
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("INSERT INTO `image`( `url`) VALUES (?)") ;
+            $query->execute(array($url));
+            $lastInsertId = $conn->lastInsertId();
+            $this->db->disconnect($conn);
+            return $lastInsertId;
+        }
     }
 
 ?>

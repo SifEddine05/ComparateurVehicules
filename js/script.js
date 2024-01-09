@@ -880,6 +880,7 @@ $(document).ready(function () {
     var match2 = location.href.match(/^.*\ComparateurVehicules\/admin\/marques/);
     var match1 = location.href.match(/^.*\ComparateurVehicules\/admin\/vehicules(?:\?id=(\d+))?/);
     var match3 = location.href.match(/^.*\ComparateurVehicules\/admin\/news(?:\?id=(\d+))?/);
+    var match4 = location.href.match(/^.*\ComparateurVehicules\/admin\/params\/guide(?:\?id=(\d+))?/);
 
     if(match2)
     {
@@ -934,6 +935,24 @@ $(document).ready(function () {
                 $(this).css('background-color', '#068FFF');
             }
         ).text('Ajouter une News'); 
+    }
+    else if(match4)
+    {
+        var newElement = $('<a href="/ComparateurVehicules/admin/params/addguide"></a>').css({
+            'background-color': '#068FFF',
+            'color': 'white',
+            'marging-left':'10px',
+            'padding': '8px',
+            'border-radius': '5px',
+            'font-weight' : 'bold'
+        }).hover(
+            function () {
+                $(this).css('background-color', 'blue');
+            },
+            function () {
+                $(this).css('background-color', '#068FFF');
+            }
+        ).text('Ajouter un Guide'); 
     }
     
     

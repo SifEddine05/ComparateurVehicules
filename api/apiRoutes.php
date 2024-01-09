@@ -10,6 +10,8 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/AvisCo
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/FavoriteController.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/MarqueController.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/NewsController.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/GuideController.php');
+
 
 
 
@@ -487,6 +489,38 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/NewsCo
         $user = new UserController();
         $res = $user->AccepteUser($userId);
         echo $res;
+    }
+
+
+    if(isset($_POST['titreAddGuide']))
+    {
+        $guide = new GuideController();
+        $vctl = new VehiculeController();
+
+        $titre = $_POST['titreAddGuide'];
+        $Description = $_POST['Description'];
+        $Text = $_POST['Text'] ; 
+
+        $image = $_FILES["image"]["name"] ; 
+        $targetDirectory = $_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/assets/'; 
+        $Id= $vctl->GetLastId()[0]['ID'];
+        $imageFileType = strtolower(pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION));
+        $targetFileName = "guide". $Id."." . $imageFileType; 
+        $targetFile = $targetDirectory . $targetFileName;
+        $uploadOk = 1;
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
+            echo "The file " . basename($_FILES["image"]["name"]) . " has been uploaded.";
+            $imageId = $guide->AddImage('/ComparateurVehicules/assets/'.$targetFileName) ;
+            $res = $guide->AddGuide($titre,$imageId, $Description,$Text);
+            if($res)
+            {
+                header("Location: /ComparateurVehicules/admin/params/guide");
+            }
+        } else {
+            echo "Sorry, there was an error uploading your file.";
+        }
+
+
     }
 
 

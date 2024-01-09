@@ -1740,3 +1740,10 @@ div.dataTables_filter label{
     line-height: normal;
     font-size: 48px;
 }
+
+
+.guideCase {
+    max-width: 700px;
+    overflow: auto;
+
+}
