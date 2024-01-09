@@ -83,7 +83,16 @@
             $this->db->disconnect($conn);
             return $lastInsertedId;
         }
-        //UPDATE `guideachat` SET `Titre`='[value-2]',`ImageId`='[value-3]',`Description`='[value-4]',`Text`='[value-5]' WHERE GuideAchatId=
+
+        public function DeleteGuide($Id)
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("DELETE FROM `guideachat` WHERE GuideAchatId=?;
+            ") ;
+            $query->execute(array($Id));
+            $this->db->disconnect($conn);
+            return 1;
+        }
     }
 
 ?>

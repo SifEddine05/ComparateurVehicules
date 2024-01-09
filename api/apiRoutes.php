@@ -555,6 +555,14 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/GuideC
 
     }
 
+    if(isset($_POST['DeleteGuideId']))
+    {
+        $guide = new GuideController();
+        $guideId = $_POST['DeleteGuideId'] ; 
+        $res = $guide->DeleteGuide($guideId) ;
+        echo $res ; 
+    }
+
 
 
   

@@ -46,5 +46,11 @@ class GuideController{
         return $res ; 
     }
 
+    public function DeleteGuide($Id)
+    {
+        $res = $this->guide->DeleteGuide($Id);
+        return $res ; 
+    }
+
 }
 ?>
