@@ -98,7 +98,14 @@
             $this->db->disconnect($conn);
             return 1;
         }
-    
+        public function DeleteNews($newsId)
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("DELETE FROM `news` WHERE NewsId=?") ;
+            $query->execute(array($newsId));
+            $this->db->disconnect($conn);
+            return 1;
+        }
     
 }
 

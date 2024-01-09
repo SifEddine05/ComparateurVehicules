@@ -436,6 +436,16 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/NewsCo
 
 
 
+    if(isset($_POST['DeleteNewsId']))
+    {
+        $newsId=$_POST['DeleteNewsId'];
+        $newsctl = new NewsController();
+        $res=$newsctl->DeleteNews($newsId);
+        echo $res ; 
+    }
+
+
+
   
     
    

@@ -45,10 +45,15 @@ class NewsController{
         $res = $this->news->AddImage($url);
         return $res ;
     }
-    
+
     public function AddImageNews($imageId,$NewsId)
     {
         $res = $this->news->AddImageNews($imageId,$NewsId);
+        return $res ;
+    }
+    public function DeleteNews($newsId)
+    {
+        $res = $this->news->DeleteNews($newsId);
         return $res ;
     }
 

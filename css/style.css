@@ -1657,13 +1657,13 @@ div.dataTables_filter label{
     font-weight: bold;
 }
 
-.RefuseAvisBton , .BloqueUserBton{
+.RefuseAvisBton , .BloqueUserBton, .DeleteNewsBton{
     background-color: transparent;
     border: 0;
     color: red;
 }
 
-.RefuseAvisBton:hover , .BloqueUserBton:hover{
+.RefuseAvisBton:hover , .BloqueUserBton:hover ,.DeleteNewsBton:hover{
     background-color: transparent;
     border: 0;
     font-weight: bold;

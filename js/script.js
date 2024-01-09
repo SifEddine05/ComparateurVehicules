@@ -1056,3 +1056,31 @@ btn?.addEventListener('click',()=>{
     }
     })
 })
+
+
+
+const DeleteNewsBton = document.getElementsByClassName('DeleteNewsBton')
+Array.from(DeleteNewsBton).forEach(btn => {
+btn?.addEventListener('click',()=>{
+    var result = confirm("Vous Etes sur que vous voulez supprimer ce news");
+    const id = btn.value ; 
+    if(result){
+        $.ajax({
+
+            url: '/ComparateurVehicules/api/apiRoutes.php',
+            type: 'POST',
+            data: {DeleteNewsId: id },
+            success: function(response) {
+                console.log(response);
+               if(response==1)
+               {
+                    location.reload();
+               }
+            },
+            error: function() {
+                console.error('Failed to reload content.');
+            }
+        });
+    }
+    })
+})

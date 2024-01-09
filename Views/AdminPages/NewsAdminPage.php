@@ -47,7 +47,7 @@ class NewsAdminPage {
                         <td class="commenteCase"><?php echo $n['titre'] ?></td>
                         <td class="commenteCase"><?php echo $n['description'] ?></td>
                         <td><?php echo $n['date_creation'] ?></td>
-                        <td><a class='EditBtn' href='/ComparateurVehicules/admin/editnews?id=<?php echo $n['NewsId'] ?>'>Modifier </a> | <button class='DeleteMarqueBton' value=<?php echo $n['NewsId'] ?>>Supprimer </button></p></td>
+                        <td><a class='EditBtn' href='/ComparateurVehicules/admin/editnews?id=<?php echo $n['NewsId'] ?>'>Modifier </a> | <button class='DeleteNewsBton' value=<?php echo $n['NewsId'] ?>>Supprimer </button></p></td>
                     </tr>
                 <?php
                 }
