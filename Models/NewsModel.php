@@ -101,8 +101,11 @@
         public function DeleteNews($newsId)
         {
             $conn = $this->db->connect();
-            $query = $conn->prepare("DELETE FROM `news` WHERE NewsId=?") ;
-            $query->execute(array($newsId));
+            $query = $conn->prepare("
+            DELETE FROM `imagenews` WHERE NewsId =?;
+            DELETE FROM `news` WHERE NewsId=?;
+            ") ;
+            $query->execute(array($newsId,$newsId));
             $this->db->disconnect($conn);
             return 1;
         }
