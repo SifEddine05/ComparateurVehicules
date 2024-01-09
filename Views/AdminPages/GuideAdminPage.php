@@ -45,7 +45,7 @@ class GuideAdminPage {
                     <tr>
                         <td class="commenteCase"><?php echo $n['Titre'] ?></td>
                         <td class="guideCase"><div><?php echo $n['Description'] ?></div></td>
-                        <td><a class='EditBtn' href='/ComparateurVehicules/admin/editnews?id=<?php echo $n['GuideAchatId'] ?>'>Modifier </a> | <button class='DeleteNewsBton' value=<?php echo $n['GuideAchatId'] ?>>Supprimer </button></p></td>
+                        <td><a class='EditBtn' href='/ComparateurVehicules/admin/params/editguide?id=<?php echo $n['GuideAchatId'] ?>'>Modifier </a> | <button class='DeleteNewsBton' value=<?php echo $n['GuideAchatId'] ?>>Supprimer </button></p></td>
                     </tr>
                 <?php
                 }

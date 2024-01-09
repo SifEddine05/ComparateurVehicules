@@ -496,7 +496,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/GuideC
     {
         $guide = new GuideController();
         $vctl = new VehiculeController();
-
+    
         $titre = $_POST['titreAddGuide'];
         $Description = $_POST['Description'];
         $Text = $_POST['Text'] ; 
@@ -519,6 +519,38 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/GuideC
         } else {
             echo "Sorry, there was an error uploading your file.";
         }
+    }
+
+    if(isset($_POST['titreEditGuide']))
+    {
+        $guide = new GuideController();
+        $vctl = new VehiculeController();
+
+        $titre = $_POST['titreEditGuide'];
+        $Description = $_POST['Description'];
+        $Text = $_POST['Text'] ; 
+        $imageId = $_POST['ImageId'];
+        $guideId = $_POST['guideId'];
+
+        $image = $_FILES["image"]["name"] ; 
+        $targetDirectory = $_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/assets/'; 
+        $Id= $vctl->GetLastId()[0]['ID'];
+        if($image)
+        {
+            $imageFileType = strtolower(pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION));
+            $targetFileName = "guide". $Id."." . $imageFileType; 
+            $targetFile = $targetDirectory . $targetFileName;
+            $uploadOk = 1;
+            if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
+                echo "The file " . basename($_FILES["image"]["name"]) . " has been uploaded.";
+                $imageId = $guide->AddImage('/ComparateurVehicules/assets/'.$targetFileName) ;
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }  
+        }
+        $res = $guide->EditGuide($titre,$imageId, $Description,$Text,$guideId);
+        echo $res ;
+        header("Location: /ComparateurVehicules/admin/params/guide");
 
 
     }

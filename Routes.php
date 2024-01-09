@@ -31,6 +31,8 @@
     require_once("./Views/AdminPages/ParamsAdminPage.php");
     require_once("./Views/AdminPages/GuideAdminPage.php");
     require_once("./Views/AdminPages/AddGuidePage.php");
+    require_once("./Views/AdminPages/EditGuidePage.php");
+
 
 
     
@@ -94,6 +96,7 @@
     $ParamsAdminPage = new ParamsAdminPage();
     $GuideAdminPage = new GuideAdminPage();
     $AddGuidePage = new AddGuidePage();
+    $EditGuidePage = new EditGuidePage();
 
 
 
@@ -195,6 +198,9 @@
             break;
         case '/ComparateurVehicules/admin/params/addguide':
             $AddGuidePage->getPage();
+            break;
+        case '/ComparateurVehicules/admin/params/editguide':
+            $EditGuidePage->getPage();
             break;
         //ParamsAdminPage     
 

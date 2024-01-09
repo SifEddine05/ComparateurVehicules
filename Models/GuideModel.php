@@ -73,6 +73,17 @@
             $this->db->disconnect($conn);
             return $lastInsertId;
         }
+
+        public function EditGuide($titre,$imageId, $description,$text,$guideId)
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("UPDATE `guideachat` SET `Titre`=?,`ImageId`=?,`Description`=?,`Text`=? WHERE GuideAchatId=?") ;
+            $query->execute(array($titre ,$imageId, $description,$text,$guideId));
+            $lastInsertedId = $conn->lastInsertId();
+            $this->db->disconnect($conn);
+            return $lastInsertedId;
+        }
+        //UPDATE `guideachat` SET `Titre`='[value-2]',`ImageId`='[value-3]',`Description`='[value-4]',`Text`='[value-5]' WHERE GuideAchatId=
     }
 
 ?>

@@ -40,6 +40,11 @@ class GuideController{
         $res = $this->guide->AddGuide($titre,$imageId, $description,$text);
         return $res ; 
     }
+    public function EditGuide($titre,$imageId, $description,$text,$guideId)
+    {
+        $res = $this->guide->EditGuide($titre,$imageId, $description,$text,$guideId);
+        return $res ; 
+    }
 
 }
 ?>
