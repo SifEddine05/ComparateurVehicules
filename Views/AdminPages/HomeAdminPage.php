@@ -19,7 +19,7 @@ class HomeAdminPage {
    { 
     ?>
         <div class='ChoosePageAdmin'>
-            <h5 class='titles'>Choisissez une catégorie</h5>
+            <!-- <h5 class='titles'>Choisissez une catégorie</h5> -->
             <div class='Pages-choose-container'>
                 <a href='/ComparateurVehicules/admin/marques' class='elem' style="background-image: url('/ComparateurVehicules/assets/VehiculeAdmin.jpg'); background-size: cover;   background-position: center;"><p>Gestion des Vehicules</p></a>
                 <a href='/ComparateurVehicules/admin/avis' class='elem' style="background-image: url('/ComparateurVehicules/assets/AvisAdmin.jpg'); background-size: cover;   background-position: center;"><p>Gestion des Avis</p></a>

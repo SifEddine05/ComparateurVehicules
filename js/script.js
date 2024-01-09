@@ -879,6 +879,7 @@ $(document).ready(function () {
     console.log(location.href);
     var match2 = location.href.match(/^.*\ComparateurVehicules\/admin\/marques/);
     var match1 = location.href.match(/^.*\ComparateurVehicules\/admin\/vehicules(?:\?id=(\d+))?/);
+    var match3 = location.href.match(/^.*\ComparateurVehicules\/admin\/news(?:\?id=(\d+))?/);
 
     if(match2)
     {
@@ -915,6 +916,24 @@ $(document).ready(function () {
                 $(this).css('background-color', '#068FFF');
             }
         ).text('Ajouter une Vehicule');
+    }
+    else if(match3)
+    {
+        var newElement = $('<a href="/ComparateurVehicules/admin/addnews"></a>').css({
+            'background-color': '#068FFF',
+            'color': 'white',
+            'marging-left':'10px',
+            'padding': '8px',
+            'border-radius': '5px',
+            'font-weight' : 'bold'
+        }).hover(
+            function () {
+                $(this).css('background-color', 'blue');
+            },
+            function () {
+                $(this).css('background-color', '#068FFF');
+            }
+        ).text('Ajouter une News'); 
     }
     
     

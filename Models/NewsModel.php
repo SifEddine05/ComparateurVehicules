@@ -59,6 +59,15 @@
            $this->db->disconnect($conn);
            return $results;
         }
+
+        public function getAllNews()
+        {
+           $conn = $this->db->connect();
+            $requet = "SELECT * FROM `news`";
+            $result = $this->db->requete($conn,$requet);
+            $this->db->disconnect($conn);
+            return $result;
+        }
     
     
     }
