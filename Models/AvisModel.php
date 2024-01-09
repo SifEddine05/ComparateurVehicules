@@ -99,6 +99,14 @@
            $this->db->disconnect($conn);
            return 1;
         }
+        public function RefuserAvis($id)
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("UPDATE `avis` SET `Confirmer`=-1 WHERE AvisVehiculeId=?") ;
+           $query->execute(array($id));
+           $this->db->disconnect($conn);
+           return 1;
+        }
 
 }
 

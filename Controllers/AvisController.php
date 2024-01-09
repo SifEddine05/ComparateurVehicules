@@ -41,6 +41,11 @@
             $res = $this->Avis->AccepteAvis($id);
             return $res ;
         }
+        public function RefuserAvis($id)
+        {
+            $res = $this->Avis->RefuserAvis($id);
+            return $res ;
+        }
 
 }
 

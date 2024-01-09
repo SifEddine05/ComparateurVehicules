@@ -981,3 +981,31 @@ btn?.addEventListener('click',()=>{
     }
     })
 })
+
+
+
+const RefuseAvisBton = document.getElementsByClassName('RefuseAvisBton')
+Array.from(RefuseAvisBton).forEach(btn => {
+btn?.addEventListener('click',()=>{
+    var result = confirm("Vous Etes sur que vous voulez refuser cette avis");
+    const id = btn.value ; 
+    if(result){
+        $.ajax({
+
+            url: '/ComparateurVehicules/api/apiRoutes.php',
+            type: 'POST',
+            data: {RefuseAvisId: id },
+            success: function(response) {
+                console.log(response);
+               if(response==1)
+               {
+                    location.reload();
+               }
+            },
+            error: function() {
+                console.error('Failed to reload content.');
+            }
+        });
+    }
+    })
+})
