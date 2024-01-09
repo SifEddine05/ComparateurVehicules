@@ -29,6 +29,7 @@ class AvisAdminPage {
    public function TableData()
    {
     $res = $this->avisctl->getAllAvisVehcicule();
+    print_r($res);
     ?>
     <table id="example" class="table table-striped nowrap" style="width:100%">
         <thead>
@@ -49,19 +50,26 @@ class AvisAdminPage {
                     //<a class='AddBtn' href='/ComparateurVehicules/admin/AddMarques'>Ajouter </a> 
                 ?>
                     <tr>
-                        <td><?php echo $a['Prenom']." ". $a['Nom'] ; ?></td>
+                        <td
+                                
+                        class='<?php echo ($a['Status'] != "accepted") ? "userNo" : ""; ?>'
+'
+                        > 
+                            <?php echo $a['Prenom']." ". $a['Nom'] ; ?>
+                        </td>
                         <td><?php echo $a['vechNom'] ?></td>
                         <td class="commenteCase"><?php echo $a['Commentaire'] ?></td>
-                        <td><?php  if($a['Confirmer']==0) { echo "En attente" ;}
+                        <?php  if($a['Confirmer']==0) { 
+                                        echo "<td class='enatt'> <span>En attente</span> </td>" ;}
                                     elseif($a['Confirmer']==1)
                                     {
-                                        echo "Confirmer";
+                                        echo "<td class='confm'><span>Confirmer</span>  </td>";
                                     }
                                     else{
-                                        echo "Refuser";
+                                        echo "<td class='refus'> <span>Refuser</span> </td>";
 
                                     }
-                            ?></td>
+                            ?>
 
                         <?php if($a['Confirmer']==0)
                         {
@@ -76,7 +84,7 @@ class AvisAdminPage {
                         }
                         else{
                         ?>
-                            <td>No Action</td>
+                            <td><button class='AccepteAvisBton' value=<?php echo $a['AvisVehiculeId'] ?>>Accpter </button></td>
                         <?php
                         }
                         ?>

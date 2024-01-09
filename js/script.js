@@ -1009,3 +1009,31 @@ btn?.addEventListener('click',()=>{
     }
     })
 })
+
+
+
+const BloqueUserBton = document.getElementsByClassName('BloqueUserBton')
+Array.from(BloqueUserBton).forEach(btn => {
+btn?.addEventListener('click',()=>{
+    var result = confirm("Vous Etes sur que vous voulez bloquer ce utilisateur");
+    const id = btn.value ; 
+    if(result){
+        $.ajax({
+
+            url: '/ComparateurVehicules/api/apiRoutes.php',
+            type: 'POST',
+            data: {BloqueUserId: id },
+            success: function(response) {
+                console.log(response);
+               if(response==1)
+               {
+                    location.reload();
+               }
+            },
+            error: function() {
+                console.error('Failed to reload content.');
+            }
+        });
+    }
+    })
+})

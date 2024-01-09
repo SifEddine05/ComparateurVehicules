@@ -1669,5 +1669,21 @@ div.dataTables_filter label{
     font-weight: bold;
 }
 
+.enatt{
+    color: #000 !important;
+    font-weight: bold;
+}  
+.confm{
+    color: rgb(3, 87, 3) !important;
+    font-weight: bold;
+}  
+.refus
+{
+    color: red !important;
+    font-weight: bold;
+}
+.userNo{
+    color: red !important;
+}
 
 

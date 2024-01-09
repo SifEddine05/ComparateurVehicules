@@ -23,4 +23,9 @@ class UserController{
         $res = $this->user->AdminLogin($email,$password) ; 
         return $res ; 
     }
+    public function BloquerUser($id)
+    {
+        $res = $this->user->BloquerUser($id) ; 
+        return $res ;
+    }
 }

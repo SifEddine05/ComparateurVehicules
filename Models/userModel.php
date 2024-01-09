@@ -107,6 +107,15 @@
 
 
         }
+
+        public function BloquerUser($id)
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("UPDATE `user` SET `Status`='bloquer' WHERE UserId=?") ;
+            $query->execute(array($id));
+            $this->db->disconnect($conn);
+            return 1;
+        }
         
 
 }

@@ -382,13 +382,17 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Marque
     {
         $avisctl = new AvisController();
         $AvisId = $_POST['RefuseAvisId'] ;
-
         $res= $avisctl->RefuserAvis($AvisId) ;
-
         echo $res ;
-
     }
-    //RefuseAvisId
+
+    if(isset($_POST['BloqueUserId']))
+    {
+        $userId=$_POST['BloqueUserId'];
+        $userctl = new userController();
+        $res=$userctl->BloquerUser($userId);
+        echo $res ; 
+    }
 
 
 
