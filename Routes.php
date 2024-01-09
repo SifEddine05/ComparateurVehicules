@@ -25,6 +25,8 @@
     require_once("./Views/AdminPages/EditVehiculePage.php");
     require_once("./Views/AdminPages/AvisAdminPage.php");
     require_once("./Views/AdminPages/NewsAdminPage.php");
+    require_once("./Views/AdminPages/AddNewsPage.php");
+
 
 
 
@@ -78,6 +80,7 @@
     $EditVehiculePage = new EditVehiculePage();
     $AvisAdminPage = new AvisAdminPage();
     $NewsAdminPage = new NewsAdminPage();
+    $AddNewsPage = new AddNewsPage();
 
 
 
@@ -163,6 +166,11 @@
         case '/ComparateurVehicules/admin/news':
             $NewsAdminPage->getPage();
             break;
+        case '/ComparateurVehicules/admin/addnews':
+            $AddNewsPage->getPage();
+            break;   
+
+            //AddNewsPage
 
         default:
             printf("Not Found");

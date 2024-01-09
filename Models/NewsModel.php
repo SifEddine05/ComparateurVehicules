@@ -62,14 +62,44 @@
 
         public function getAllNews()
         {
-           $conn = $this->db->connect();
+            $conn = $this->db->connect();
             $requet = "SELECT * FROM `news`";
             $result = $this->db->requete($conn,$requet);
             $this->db->disconnect($conn);
             return $result;
         }
+
+        public function AddNews($titre , $description,$text)
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("INSERT INTO `news`( `titre`, `description`, `Text`) VALUES (?,?,?)") ;
+           $query->execute(array($titre , $description,$text));
+           $lastInsertedId = $conn->lastInsertId();
+           $this->db->disconnect($conn);
+            return $lastInsertedId;
+        }
+
+        public function AddImage($url)
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("INSERT INTO `image`( `url`) VALUES (?)") ;
+            $query->execute(array($url));
+            $lastInsertId = $conn->lastInsertId();
+            $this->db->disconnect($conn);
+            return $lastInsertId;
+        }
+
+        public function AddImageNews($imageId,$NewsId)
+        {
+            //INSERT INTO `imagenews`( `ImageId`, `NewsId`) VALUES (,)
+            $conn = $this->db->connect();
+            $query = $conn->prepare("INSERT INTO `imagenews`( `ImageId`, `NewsId`) VALUES (?,?)") ;
+            $query->execute(array($imageId,$NewsId));
+            $this->db->disconnect($conn);
+            return 1;
+        }
     
     
-    }
+}
 
 ?>

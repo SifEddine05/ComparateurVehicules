@@ -34,6 +34,23 @@ class NewsController{
         $res = $this->news->getAllNews();
         return $res ;
     }
+    public function AddNews($titre , $description,$text)
+    {
+        $res = $this->news->AddNews($titre , $description,$text);
+        return $res ;
+    }
+
+    public function AddImage($url)
+    { 
+        $res = $this->news->AddImage($url);
+        return $res ;
+    }
+    
+    public function AddImageNews($imageId,$NewsId)
+    {
+        $res = $this->news->AddImageNews($imageId,$NewsId);
+        return $res ;
+    }
 
 }
 ?>

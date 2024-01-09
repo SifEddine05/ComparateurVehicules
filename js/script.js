@@ -393,7 +393,7 @@ CompareSubmit?.addEventListener('click' , ()=>{
                 span.style.display="block"
             }
             else{
-                location.href="/ComparateurVehicules/compare?V1="+annee1+"&V2="+annee2+"$V3="+annee3
+                location.href="/ComparateurVehicules/compare?V1="+annee1+"&V2="+annee2+"&V3="+annee3
             }
         }
         else if(nbrForms==4)
@@ -403,7 +403,7 @@ CompareSubmit?.addEventListener('click' , ()=>{
                 span.style.display="block"
             }
             else{
-                location.href="/ComparateurVehicules/compare?V1="+annee1+"&V2="+annee2+"$V3="+annee3+"$V4="+annee4
+                location.href="/ComparateurVehicules/compare?V1="+annee1+"&V2="+annee2+"&V3="+annee3+"&V4="+annee4
 
             }
         }

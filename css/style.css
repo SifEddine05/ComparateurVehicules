@@ -1621,7 +1621,7 @@ div.dataTables_filter label{
     justify-content: start;
     align-items: start;
 }
-.AddMarqueForm input:not(input[type="checkbox"]) ,.AddMarqueForm select {
+.AddMarqueForm input:not(input[type="checkbox"]) ,.AddMarqueForm select ,.AddMarqueForm textarea {
     width: 100%;
     padding: 8px;
     margin-bottom: 16px;

@@ -9,6 +9,8 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Vehicu
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/AvisController.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/FavoriteController.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/MarqueController.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/NewsController.php');
+
 
 
 
@@ -264,6 +266,8 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Marque
         $Prix=$_POST['Prix'];
         $VehiculeId = $vctl->AddVehicule($Nom, $MarqueId, $ModeleId, $MoteurId, $DimensionId, $PerformancesId, $CaracteristiqueId, $Prix);
         echo $VehiculeId ;
+        
+        
         $image = $_FILES["image"]["name"] ; 
         echo $image;
         $targetDirectory = $_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/assets/'; 
@@ -392,6 +396,42 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Marque
         $userctl = new userController();
         $res=$userctl->BloquerUser($userId);
         echo $res ; 
+    }
+
+    if(isset($_POST['titreAddNews']))
+    {
+        $newsctl = new NewsController() ;
+        $vctl = new VehiculeController();
+
+        $titre =  $_POST['titreAddNews'] ;
+        $description =   $_POST['Description'] ;
+        $text =   $_POST['Text'] ;
+
+        $NewsId = $newsctl->AddNews($titre , $description,$text);
+
+        $image = $_FILES["image"]["name"] ; 
+        echo $image;
+        $targetDirectory = $_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/assets/'; 
+        $Id= $vctl->GetLastId()[0]['ID'];
+        $imageFileType = strtolower(pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION));
+        $targetFileName = "news". $Id."." . $imageFileType; 
+        $targetFile = $targetDirectory . $targetFileName;
+        $uploadOk = 1;
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
+            echo "The file " . basename($_FILES["image"]["name"]) . " has been uploaded.";
+            $imageId = $newsctl->AddImage('/ComparateurVehicules/assets/'.$targetFileName) ;
+            $res = $newsctl->AddImageNews($imageId,$NewsId);
+            if($res==1)
+            {
+                header("Location: /ComparateurVehicules/admin/news");
+            }
+        } else {
+            echo "Sorry, there was an error uploading your file.";
+        }
+
+
+
+
     }
 
 
