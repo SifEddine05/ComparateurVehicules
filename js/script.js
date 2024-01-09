@@ -1084,3 +1084,31 @@ btn?.addEventListener('click',()=>{
     }
     })
 })
+
+
+
+const AccepteUserBton = document.getElementsByClassName('AccepteUserBton')
+Array.from(AccepteUserBton).forEach(btn => {
+btn?.addEventListener('click',()=>{
+    var result = confirm("Vous Etes sur que vous voulez Accepter ce Utilisateur");
+    const id = btn.value ; 
+    if(result){
+        $.ajax({
+
+            url: '/ComparateurVehicules/api/apiRoutes.php',
+            type: 'POST',
+            data: {AccepteUserId: id },
+            success: function(response) {
+                console.log(response);
+               if(response==1)
+               {
+                    location.reload();
+               }
+            },
+            error: function() {
+                console.error('Failed to reload content.');
+            }
+        });
+    }
+    })
+})

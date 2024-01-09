@@ -479,12 +479,14 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/NewsCo
         }
         $res = $newsctl->EditImageNews($imageId,$NewsId);
         header("Location: /ComparateurVehicules/admin/news");
+    }
 
-
-
-
-
-
+    if(isset($_POST['AccepteUserId']))
+    {
+        $userId = $_POST['AccepteUserId'];
+        $user = new UserController();
+        $res = $user->AccepteUser($userId);
+        echo $res;
     }
 
 

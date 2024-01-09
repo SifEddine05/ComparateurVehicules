@@ -1646,24 +1646,24 @@ div.dataTables_filter label{
 }
 
 
-.AccepteAvisBton{
+.AccepteAvisBton ,.AccepteUserBton{
     background-color: transparent;
     border: 0;
     color: #00F;
 }
-.AccepteAvisBton:hover{
+.AccepteAvisBton:hover,.AccepteUserBton:hover{
     background-color: transparent;
     border: 0;
     font-weight: bold;
 }
 
-.RefuseAvisBton , .BloqueUserBton, .DeleteNewsBton{
+.RefuseAvisBton , .BloqueUserBton, .DeleteNewsBton,.RefuseUserBton{
     background-color: transparent;
     border: 0;
     color: red;
 }
 
-.RefuseAvisBton:hover , .BloqueUserBton:hover ,.DeleteNewsBton:hover{
+.RefuseAvisBton:hover , .BloqueUserBton:hover ,.DeleteNewsBton:hover,.RefuseUserBton:hover{
     background-color: transparent;
     border: 0;
     font-weight: bold;

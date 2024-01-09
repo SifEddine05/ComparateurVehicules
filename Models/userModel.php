@@ -116,6 +116,25 @@
             $this->db->disconnect($conn);
             return 1;
         }
+
+        public function getAllUsers()
+        {
+            $conn = $this->db->connect();
+            $requet = "SELECT * FROM `user` WHERE isAdmin=0";
+            $result = $this->db->requete($conn,$requet);
+            $this->db->disconnect($conn);
+            return $result;
+        }
+
+
+        public function AccepteUser($id)
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("UPDATE `user` SET `Status`='accepted' WHERE UserId=?") ;
+            $query->execute(array($id));
+            $this->db->disconnect($conn);
+            return 1;
+        }
         
 
 }

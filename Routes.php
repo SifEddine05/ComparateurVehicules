@@ -27,6 +27,7 @@
     require_once("./Views/AdminPages/NewsAdminPage.php");
     require_once("./Views/AdminPages/AddNewsPage.php");
     require_once("./Views/AdminPages/EditNewsPage.php");
+    require_once("./Views/AdminPages/UserAdminPage.php");
 
     
 
@@ -85,6 +86,7 @@
     $NewsAdminPage = new NewsAdminPage();
     $AddNewsPage = new AddNewsPage();
     $EditNewsPage = new EditNewsPage();
+    $UserAdminPage = new UserAdminPage();
 
 
 
@@ -174,6 +176,9 @@
             break;
         case '/ComparateurVehicules/admin/editnews':
             $EditNewsPage->getPage();
+            break;   
+        case '/ComparateurVehicules/admin/users':
+            $UserAdminPage->getPage();
             break;     
 
 

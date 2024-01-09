@@ -28,4 +28,14 @@ class UserController{
         $res = $this->user->BloquerUser($id) ; 
         return $res ;
     }
+    public function getAllUsers()
+    {
+        $res = $this->user->getAllUsers() ; 
+        return $res ;
+    }
+    public function AccepteUser($id)
+    {
+        $res = $this->user->AccepteUser($id) ; 
+        return $res ;
+    }
 }
