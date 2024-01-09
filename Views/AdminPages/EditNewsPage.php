@@ -18,19 +18,24 @@ class EditNewsPage {
     public function EditNews($id)
    { 
         $news = $this->newsctl->getNewsById($id)[0];
-        // print_r($news);
+        print_r($news);
     
     ?>
         <div class='AddMarqueForm'>
             <h5 class='titles'>Modifier Une  News</h5>
             
             <form action="/ComparateurVehicules/api/apiRoutes.php" method="post" enctype="multipart/form-data">
-                <label for="titreAddNews">Titre de News <span>*</span></label>
-                <input value="<?php echo $news['titre']?>" type="text" id="titreAddNews" name="titreAddNews" required><br>
+                <label for="titreEditNews">Titre de News <span>*</span></label>
+                <input value="<?php echo $news['titre']?>" type="text" id="titreEditNews" name="titreEditNews" required><br>
 
-                <label for="image">Ajouter l'image de la news <span>*</span></label>
-                <input type="file" id="image" name="image" accept="image/*" required><br>
+                <div class='ModifyImage'>
+                    <div>
+                        <label for="image">Ajouter l'image de la news <span>*</span></label>
+                        <input type="file" id="image" name="image" accept="image/*" ><br>
+                    </div>
+                    <img src="<?php echo $news['image']?>" width='200px'/>
 
+                </div>
                 <input type="hidden" id="NewsId" name="NewsId" value=<?php echo $news['NewsId'] ?> />
  
                 <label for="Description">Description <span>*</span></label>
