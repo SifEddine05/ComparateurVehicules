@@ -50,7 +50,7 @@
         }
         public function getNewsById($id){
             $conn = $this->db->connect();
-            $query = $conn->prepare("SELECT  news.*, url as image FROM `news` 
+            $query = $conn->prepare("SELECT  news.*, url as image , image.ImageId  FROM `news` 
             INNER JOIN imagenews ON imagenews.NewsId = news.NewsId
             INNER JOIN image ON image.ImageId = imagenews.ImageId
             Where news.NewsId=?") ;
@@ -105,6 +105,22 @@
             $query->execute(array($newsId));
             $this->db->disconnect($conn);
             return 1;
+        }
+        public function EditImageNews($imageId,$NewsId)
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("UPDATE `imagenews` SET `ImageId` = ? WHERE `NewsId` = ?");
+            $query->execute(array($imageId,$NewsId));
+            $this->db->disconnect($conn);
+            return 1; 
+        }
+        public function EditNews($titre , $description,$text ,$newsId)
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("UPDATE `news` SET `titre`=?,`description`=? ,`Text`=? WHERE NewsId=?");
+            $query->execute(array($titre , $description,$text ,$newsId));
+            $this->db->disconnect($conn);
+            return 1; 
         }
     
 }

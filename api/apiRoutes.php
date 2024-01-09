@@ -445,6 +445,49 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/NewsCo
     }
 
 
+    if(isset($_POST['titreEditNews']))
+    {
+        $newsctl = new NewsController() ;
+        $vctl = new VehiculeController();
+
+        $titre =  $_POST['titreEditNews'] ;
+        $description =   $_POST['Description'] ;
+        $text =   $_POST['Text'] ;
+        $NewsId= $_POST['NewsId'];
+
+
+
+        $newsctl->EditNews($titre , $description,$text ,$NewsId);
+
+
+        $image = $_FILES["image"]["name"] ; 
+        $targetDirectory = $_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/assets/'; 
+        $Id= $vctl->GetLastId()[0]['ID'] + 1;
+        $imageId= $_POST['ImageId'];
+        if($image)
+        {
+            $imageFileType = strtolower(pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION));
+            $targetFileName = "news". $Id."." . $imageFileType; 
+            $targetFile = $targetDirectory . $targetFileName;
+            $uploadOk = 1;
+            if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
+                echo "The file " . basename($_FILES["image"]["name"]) . " has been uploaded.";
+                $imageId = $newsctl->AddImage('/ComparateurVehicules/assets/'.$targetFileName) ;
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }  
+        }
+        $res = $newsctl->EditImageNews($imageId,$NewsId);
+        header("Location: /ComparateurVehicules/admin/news");
+
+
+
+
+
+
+    }
+
+
 
   
     

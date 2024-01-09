@@ -56,6 +56,16 @@ class NewsController{
         $res = $this->news->DeleteNews($newsId);
         return $res ;
     }
+    public function EditImageNews($imageId,$NewsId)
+    {
+        $res = $this->news->EditImageNews($imageId,$NewsId);
+        return $res ;
+    }
+    public function EditNews($titre , $description,$text ,$newsId)
+    {
+        $res = $this->news->EditNews($titre , $description,$text ,$newsId);
+        return $res ;
+    }
 
 }
 ?>

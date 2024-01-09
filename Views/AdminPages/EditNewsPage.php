@@ -17,9 +17,7 @@ class EditNewsPage {
 
     public function EditNews($id)
    { 
-        $news = $this->newsctl->getNewsById($id)[0];
-        print_r($news);
-    
+        $news = $this->newsctl->getNewsById($id)[0]; 
     ?>
         <div class='AddMarqueForm'>
             <h5 class='titles'>Modifier Une  News</h5>
@@ -36,8 +34,10 @@ class EditNewsPage {
                     <img src="<?php echo $news['image']?>" width='200px'/>
 
                 </div>
+                
                 <input type="hidden" id="NewsId" name="NewsId" value=<?php echo $news['NewsId'] ?> />
- 
+                <input type="hidden" id="ImageId" name="ImageId" value=<?php echo $news['ImageId'] ?> />
+
                 <label for="Description">Description <span>*</span></label>
                 <textarea  id="Description" name="Description" required rows=3><?php echo $news['description']?></textarea>
 
