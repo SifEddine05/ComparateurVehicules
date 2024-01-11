@@ -718,8 +718,14 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Diapor
         $vctl = new VehiculeController();
         $Vid1 = $_POST['AddCompareVId1'] ;
         $Vid2 = $_POST['AddCompareVId2'] ; 
- 
-        $res = $vctl->AddCompare($Vid1 ,$Vid2) ;
+        $isExist = $vctl->GetCompare($Vid1 ,$Vid2);
+        if($isExist!=null)
+        {
+            $res = $vctl->EditCompare($Vid1 ,$Vid2);
+        }
+        else{
+            $res = $vctl->AddCompare($Vid1 ,$Vid2) ;
+        }
         echo $res ; 
     }
     

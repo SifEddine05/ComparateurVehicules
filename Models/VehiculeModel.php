@@ -335,6 +335,26 @@
         $this->db->disconnect($conn);
         return 1;
     }
+    public function GetCompare($Vid1 ,$Vid2)
+    {
+        $conn = $this->db->connect();
+        $query = $conn->prepare("SELECT * From comparison WHERE (VehiculeId1=? and VehiculeId2=?) or (VehiculeId2=? and VehiculeId1=?)") ;
+        $query->execute(array($Vid1 ,$Vid2,$Vid1,$Vid2));
+        $results = $query->fetchAll(PDO::FETCH_ASSOC);
+        $this->db->disconnect($conn);
+        return $results;
+    }
+
+    public function EditCompare($Vid1 ,$Vid2)
+    {
+        $conn = $this->db->connect();
+        $query = $conn->prepare("UPDATE `comparison` SET `NombreDesFoisUtiliser`=`NombreDesFoisUtiliser`+1 WHERE (VehiculeId1=? and VehiculeId2=?) or (VehiculeId2=? and VehiculeId1=?)") ;
+        $query->execute(array($Vid1,$Vid2,$Vid1,$Vid2));
+        $this->db->disconnect($conn);
+        return 1;
+    }
+
+    
 
 
 

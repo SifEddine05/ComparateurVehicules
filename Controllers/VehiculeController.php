@@ -140,5 +140,16 @@ class VehiculeController{
         $res= $this->vehicule->AddCompare($Vid1 ,$Vid2);
         return $res ;
     }
+    public function EditCompare($Vid1 ,$Vid2)
+    {
+        $res= $this->vehicule->EditCompare($Vid1 ,$Vid2);
+        return $res ;
+    }
+    public function GetCompare($Vid1 ,$Vid2)
+    {
+        $res= $this->vehicule->GetCompare($Vid1 ,$Vid2);
+        return $res ;
+    }
+
 }
 ?>
