@@ -37,6 +37,7 @@
     require_once("./Views/AdminPages/EditContactPage.php");
     require_once("./Views/AdminPages/DiaporamaAdminPage.php");
     require_once("./Views/AdminPages/AddDiaporamaPage.php");
+    require_once("./Views/AdminPages/EditDiaporamaPage.php");
 
 
 
@@ -109,6 +110,7 @@
     $EditContactPage = new EditContactPage();
     $DiaporamaAdminPage = new DiaporamaAdminPage();
     $AddDiaporamaPage = new AddDiaporamaPage();
+    $EditDiaporamaPage = new EditDiaporamaPage();
 
 
     switch ($request) {
@@ -228,7 +230,10 @@
         case '/ComparateurVehicules/admin/params/adddiaporama':
             $AddDiaporamaPage->getPage();
             break;
-        //AddDiaporamaPage     
+        case '/ComparateurVehicules/admin/params/editdiaporama':
+            $EditDiaporamaPage->getPage();
+            break;
+        //EditDiaporamaPage     
 
 
         default:

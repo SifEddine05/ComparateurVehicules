@@ -60,8 +60,8 @@
     public function EditDiapo($imageId, $url,$Type,$diapoId)
     {
         $conn = $this->db->connect();
-        $query = $conn->prepare("UPDATE `diaporama` SET `IdImage`='[value-3]',`UrlPublicite`='[value-4]',`Type`='[value-5]' WHERE DiaporamaId=?") ;
-        $query->execute(array($Type ,$url, $imageId,$Name,$diapoId));
+        $query = $conn->prepare("UPDATE `diaporama` SET `IdImage`=?,`UrlPublicite`=?,`Type`=? WHERE DiaporamaId=?") ;
+        $query->execute(array($imageId, $url,$Type,$diapoId));
         $lastInsertedId = $conn->lastInsertId();
         $this->db->disconnect($conn);
         return $lastInsertedId;

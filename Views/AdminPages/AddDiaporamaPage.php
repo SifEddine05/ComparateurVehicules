@@ -13,7 +13,7 @@ class AddDiaporamaPage {
         $this->AdminComponents = new AdminComponents();   
     }
 
-    public function AddContact()
+    public function AddDiapo()
    { 
     // `IdImage`, `UrlPublicite`, `Type`
     ?>
@@ -47,7 +47,7 @@ class AddDiaporamaPage {
         if (isset($_COOKIE['admin'])) {
             $this->AdminComponents->Header();
             echo "<body>";
-            $this->AddContact();
+            $this->AddDiapo();
             echo "</body> </html>";
         } else {
             header("Location: /ComparateurVehicules/admin/login"); 
