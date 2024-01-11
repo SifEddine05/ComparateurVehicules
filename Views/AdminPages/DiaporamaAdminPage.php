@@ -27,7 +27,6 @@ class DiaporamaAdminPage {
    public function TableData()
    {
     $res = $this->diaporamactl->getDiaporama();
-    print_r($res) ;
     ?>
     <table id="example" class="table table-striped nowrap" style="width:100%">
         <thead>

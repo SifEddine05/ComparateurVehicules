@@ -23,7 +23,6 @@ class EditVehiculePage {
     $marques =$this->marquectl->getAllMarques();
 
     $vehiculeInfos = $this->vctl->getVehiculeById($id)[0];
-    print_r($vehiculeInfos);
     ?>
         <div class='AddMarqueForm'>
             <h5 class='titles'>Modifier Une Vehicule</h5>

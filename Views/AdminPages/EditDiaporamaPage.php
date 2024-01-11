@@ -19,7 +19,6 @@ class EditDiaporamaPage {
     public function EditDiapo($id)
    { 
     $res = $this->diapo->getDiapoById($id)[0];
-    // `IdImage`, `UrlPublicite`, `Type`
     ?>
         <div class='AddMarqueForm'>
             <h5 class='titles'>Modifier Une Diaporama</h5>
