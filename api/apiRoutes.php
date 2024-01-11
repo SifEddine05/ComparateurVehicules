@@ -704,6 +704,15 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Diapor
         
     }
 
+    if(isset($_POST['DeleteDiaporamaId']))
+    {
+        $dipo = new DiaporamaController();
+        $diapoId = $_POST['DeleteDiaporamaId'] ; 
+        $res = $dipo->DeleteDiapo($diapoId) ;
+        echo $res ; 
+    }
+    
+
   
     
    

@@ -1657,13 +1657,13 @@ div.dataTables_filter label{
     font-weight: bold;
 }
 
-.RefuseAvisBton , .BloqueUserBton, .DeleteNewsBton,.RefuseUserBton,.DeleteGuideBton,.DeleteContactBton{
+.RefuseAvisBton , .BloqueUserBton, .DeleteNewsBton,.RefuseUserBton,.DeleteGuideBton,.DeleteContactBton,.DeleteDiaporamaBton{
     background-color: transparent;
     border: 0;
     color: red;
 }
 
-.RefuseAvisBton:hover , .BloqueUserBton:hover ,.DeleteNewsBton:hover,.RefuseUserBton:hover,.DeleteGuideBton:hover,.DeleteContactBton:hover{
+.RefuseAvisBton:hover , .BloqueUserBton:hover ,.DeleteNewsBton:hover,.RefuseUserBton:hover,.DeleteGuideBton:hover,.DeleteContactBton:hover,.DeleteDiaporamaBton:hover{
     background-color: transparent;
     border: 0;
     font-weight: bold;
