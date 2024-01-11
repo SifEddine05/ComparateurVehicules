@@ -18,7 +18,6 @@ class EditContactPage {
     public function EditContact($id)
    { 
         $res = $this->contact->getContactById($id)[0] ; 
-        print_r($res);
     ?>
         <div class='AddMarqueForm'>
             <h5 class='titles'>Modifier Une Contact</h5>

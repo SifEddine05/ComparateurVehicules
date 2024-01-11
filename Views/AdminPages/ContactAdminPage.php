@@ -27,7 +27,6 @@ class ContactAdminPage {
    public function TableData()
    {
     $res = $this->contactctl->getContacts();
-    print_r($res);
     ?>
     <table id="example" class="table table-striped nowrap" style="width:100%">
         <thead>
@@ -49,7 +48,7 @@ class ContactAdminPage {
                         <td ><div><?php echo $n['Name'] ?></div></td>
                         <td ><div><?php echo $n['url'] ?></div></td>
 
-                        <td><a class='EditBtn' href='/ComparateurVehicules/admin/params/editcontact?id=<?php echo $n['id'] ?>'>Modifier </a> | <button class='DeleteGuideBton' value=<?php echo $n['id'] ?>>Supprimer </button></p></td>
+                        <td><a class='EditBtn' href='/ComparateurVehicules/admin/params/editcontact?id=<?php echo $n['id'] ?>'>Modifier </a> | <button class='DeleteContactBton' value=<?php echo $n['id'] ?>>Supprimer </button></p></td>
                     </tr>
                 <?php
                 }

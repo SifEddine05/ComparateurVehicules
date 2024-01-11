@@ -626,6 +626,16 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Contac
         header("Location: /ComparateurVehicules/admin/params/contact");
     }
 
+    
+
+    if(isset($_POST['DeleteContactId']))
+    {
+        $contact = new ContactController();
+        $contactId = $_POST['DeleteContactId'] ; 
+        $res = $contact->DeleteContact($contactId) ;
+        echo $res ; 
+    }
+
 
     
 

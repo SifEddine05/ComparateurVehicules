@@ -1176,3 +1176,30 @@ btn?.addEventListener('click',()=>{
     }
     })
 })
+
+
+const DeleteContactBton = document.getElementsByClassName('DeleteContactBton')
+Array.from(DeleteContactBton).forEach(btn => {
+btn?.addEventListener('click',()=>{
+    var result = confirm("Vous Etes sur que vous voulez supprimer cette contact");
+    const id = btn.value ; 
+    if(result){
+        $.ajax({
+
+            url: '/ComparateurVehicules/api/apiRoutes.php',
+            type: 'POST',
+            data: {DeleteContactId: id },
+            success: function(response) {
+                console.log(response);
+               if(response==1)
+               {
+                    location.reload();
+               }
+            },
+            error: function() {
+                console.error('Failed to reload content.');
+            }
+        });
+    }
+    })
+})

@@ -59,6 +59,15 @@
             $this->db->disconnect($conn);
             return $lastInsertedId;
         }
+
+        public function DeleteContact($contactId)
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("DELETE FROM `contact` WHERE contact.id=?") ;
+            $query->execute(array($contactId));
+            $this->db->disconnect($conn);
+            return 1;
+        }
     }
 
 ?>

@@ -32,6 +32,11 @@
             $res = $this->model->EditContact($Name,$Type, $url,$imageId,$contactId) ;
             return $res ;
         }
+        public function DeleteContact($contactId)
+        {
+            $res = $this->model->DeleteContact($contactId) ;
+            return $res ;
+        }
     }
 
 
