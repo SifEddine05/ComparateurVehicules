@@ -244,16 +244,30 @@
 
         public function DeleteVehicule($id)
         {
-            $conn = $this->db->connect();
-            $query = $conn->prepare("DELETE FROM `imagevehicule` WHERE IdVehicule =?;
-            DELETE FROM `avis` WHERE avis.VehiculeId=? ;         
-            DELETE FROM `favorite` WHERE vehiculeID=? ;
-            DELETE FROM `vehicule` WHERE VehiculeId=? ;
+            try {
+                $conn = $this->db->connect();
             
-            ") ;
-            $query->execute(array($id,$id,$id,$id));
-            $this->db->disconnect($conn);
-            return 1;
+                // Prepare the SQL statements
+                $query = $conn->prepare("
+                    DELETE FROM `imagevehicule` WHERE IdVehicule = ?;
+                    DELETE FROM `avis` WHERE avis.VehiculeId = ?;
+                    DELETE FROM `favorite` WHERE vehiculeID = ?;
+                    DELETE FROM `comparison` WHERE comparison.VehiculeId1 = ? OR comparison.VehiculeId2 = ?;
+                    DELETE FROM `vehicule` WHERE VehiculeId = ?;
+                ");
+            
+                // Execute the queries with the provided parameters
+                $query->execute(array($id, $id, $id, $id, $id, $id));
+            
+                // Disconnect from the database
+                $this->db->disconnect($conn);
+            
+                return 1; // Successful deletion
+            } catch (PDOException $e) {
+                // Handle the exception (e.g., log the error, return an error code, etc.)
+                return $e; // Failed deletion
+            }
+            
         }
 
 // --------------------------------------Edit Vehicule -----------------------------------------------------------

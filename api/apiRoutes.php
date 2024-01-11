@@ -175,6 +175,13 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Diapor
     {
         $marquectl = new MarqueController();
         $id = $_POST["DeleteMarqueId"];
+        $vehicules = $marquectl->getAllVehicules($id);
+        $vctl = new VehiculeController();
+
+        foreach($vehicules as $v)
+        {
+            $ok = $vctl->DeleteVehicule($v['VehiculeId']);
+        }
         $res = $marquectl->DeleteMarque($id);
         echo $res ;
 
