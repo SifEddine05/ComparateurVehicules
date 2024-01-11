@@ -112,7 +112,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Vehicu
 
                 </div>
             </div>
-            <button id="NavigateGuide"> Naviguer au guide d'achat  </button>
+            <a href="/ComparateurVehicules/guideachat" id="NavigateGuide"> Naviguer au guide d'achat  </a>
         </div>
 
         <?php

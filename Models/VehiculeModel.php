@@ -353,6 +353,15 @@
         $this->db->disconnect($conn);
         return 1;
     }
+    public function AddVisite($id)
+    {
+        $conn = $this->db->connect();
+        $query = $conn->prepare("UPDATE `vehicule` SET `NbrVisite`=`NbrVisite`+1  WHERE VehiculeId=?") ;
+        $query->execute(array($id));
+        $this->db->disconnect($conn);
+        return 1;
+    }
+
 
     
 

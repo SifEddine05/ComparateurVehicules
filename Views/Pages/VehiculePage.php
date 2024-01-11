@@ -300,7 +300,7 @@ ORDER By Apprecie DESC*/
     public function getPage()
     {
         $id = isset($_GET["id"]) ? $_GET["id"] : -1;
-
+        $res = $this->Vctl->AddVisite($id);
         $this->UserComponents->Header();
         echo "<body>";
         $this->UserComponents->NavBar();

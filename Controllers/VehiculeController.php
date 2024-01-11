@@ -150,6 +150,11 @@ class VehiculeController{
         $res= $this->vehicule->GetCompare($Vid1 ,$Vid2);
         return $res ;
     }
+    public function AddVisite($id)
+    {
+        $res= $this->vehicule->AddVisite($id);
+        return $res ;
+    }
 
 }
 ?>

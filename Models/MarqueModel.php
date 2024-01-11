@@ -11,7 +11,7 @@
         public function getPrincipaleMarques()
         {
             $conn = $this->db->connect();
-            $requet = "SELECT marque.MarqueId,marque.Nom,url as logo FROM `marque` INNER JOIN image on marque.ImageId = image.ImageId Order by Principale LIMIT 5";
+            $requet = "SELECT marque.MarqueId,marque.Nom,url as logo FROM `marque` INNER JOIN image on marque.ImageId = image.ImageId Where Principale=1 LIMIT 5";
             $result = $this->db->requete($conn,$requet);
             $this->db->disconnect($conn);
             return $result;
@@ -40,11 +40,12 @@
         public function getPrincipaleVehicules($id)
         {
             $conn = $this->db->connect();
-            $query = $conn->prepare("SELECT vehicule.Nom ,vehicule.VehiculeId , image.url as image  FROM `vehicule` 
+            $query = $conn->prepare("SELECT vehicule.Nom ,vehicule.VehiculeId , image.url as image,vehicule.NbrVisite  FROM `vehicule` 
             INNER JOIN marque on marque.MarqueId=vehicule.MarqueId
             INNER JOIN imagevehicule ON VehiculeId = imagevehicule.IdVehicule
             INNER JOIN image ON imagevehicule.IdImage = image.ImageId
             Where marque.MarqueId=?
+            ORDER By NbrVisite DESC
             LIMIT 4 ") ;
            $query->execute(array($id));
            $results = $query->fetchAll(PDO::FETCH_ASSOC);
