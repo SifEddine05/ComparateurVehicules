@@ -326,6 +326,16 @@
     
         return 1; 
     }
+    public function AddCompare($Vid1 ,$Vid2)
+    {
+        $conn = $this->db->connect();
+        $query = $conn->prepare("INSERT INTO `comparison`(`VehiculeId1`, `VehiculeId2`, `NombreDesFoisUtiliser`) VALUES (?,?,1)") ;
+        $query->execute(array($Vid1 ,$Vid2));
+        // $lastInsertId = $conn->lastInsertId();
+        $this->db->disconnect($conn);
+        return 1;
+    }
+
 
 
 

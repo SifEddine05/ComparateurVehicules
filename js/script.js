@@ -351,7 +351,25 @@ function getAnneeOptions(id,inex)
 
 
 
+function AddCompare(Vid1,Vid2)
+{
+    $.ajax({
 
+        url: '/ComparateurVehicules/api/apiRoutes.php',
+        type: 'POST',
+        data: {AddCompareVId1: Vid1 ,AddCompareVId2: Vid2},
+        success: function(response) {
+            console.log(response);
+           if(response==1)
+           {
+                console.log("sucees Add comapre");
+            }
+        },
+        error: function() {
+            console.error('Failed to reload content.');
+        }
+    });
+}
 
 
 const CompareSubmit = document.getElementById("CompareBtn")
@@ -393,6 +411,9 @@ CompareSubmit?.addEventListener('click' , ()=>{
                 span.style.display="block"
             }
             else{
+                AddCompare(annee1,annee2)
+                AddCompare(annee1,annee3)
+                AddCompare(annee2,annee3)
                 location.href="/ComparateurVehicules/compare?V1="+annee1+"&V2="+annee2+"&V3="+annee3
             }
         }
@@ -403,11 +424,19 @@ CompareSubmit?.addEventListener('click' , ()=>{
                 span.style.display="block"
             }
             else{
+                AddCompare(annee1,annee2)
+                AddCompare(annee1,annee3)
+                AddCompare(annee1,annee4)
+                AddCompare(annee2,annee3)
+                AddCompare(annee2,annee4)
+                AddCompare(annee3,annee4)
+
                 location.href="/ComparateurVehicules/compare?V1="+annee1+"&V2="+annee2+"&V3="+annee3+"&V4="+annee4
 
             }
         }
         else{
+            AddCompare(annee1,annee2)
             location.href="/ComparateurVehicules/compare?V1="+annee1+"&V2="+annee2
         }
     }

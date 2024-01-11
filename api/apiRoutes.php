@@ -711,6 +711,17 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Diapor
         $res = $dipo->DeleteDiapo($diapoId) ;
         echo $res ; 
     }
+
+
+    if(isset($_POST['AddCompareVId1']))
+    {
+        $vctl = new VehiculeController();
+        $Vid1 = $_POST['AddCompareVId1'] ;
+        $Vid2 = $_POST['AddCompareVId2'] ; 
+ 
+        $res = $vctl->AddCompare($Vid1 ,$Vid2) ;
+        echo $res ; 
+    }
     
 
   

@@ -133,5 +133,12 @@ class VehiculeController{
         $res= $this->vehicule->EditVehiculeImage($imageId, $vehiculeId);
         return $res ;
     }
+
+
+    public function AddCompare($Vid1 ,$Vid2)
+    {
+        $res= $this->vehicule->AddCompare($Vid1 ,$Vid2);
+        return $res ;
+    }
 }
 ?>
