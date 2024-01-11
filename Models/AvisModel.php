@@ -108,6 +108,23 @@
            return 1;
         }
 
+        public function getAllAvis()
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("SELECT avis.*,user.* , vehicule.Nom as vechNom FROM `avis` 
+            INNER JOIN user on user.UserId = avis.UserId
+            INNER JOIN vehicule on vehicule.VehiculeId = avis.VehiculeId
+            UNION
+            SELECT avis.*,user.* , marque.Nom as vechNom FROM `avis` 
+            INNER JOIN user on user.UserId = avis.UserId
+            INNER JOIN marque on marque.MarqueId = avis.MarqueId
+            ");
+            $query->execute();
+            $results = $query->fetchAll(PDO::FETCH_ASSOC);            
+            $this->db->disconnect($conn);
+            return $results;
+        }
+
 }
 
 /*SELECT * FROM `avis` 

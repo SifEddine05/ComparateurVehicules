@@ -1747,3 +1747,16 @@ div.dataTables_filter label{
     overflow: auto;
 
 }
+
+
+
+::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #5f5e5e;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }

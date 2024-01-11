@@ -246,9 +246,12 @@
         {
             $conn = $this->db->connect();
             $query = $conn->prepare("DELETE FROM `imagevehicule` WHERE IdVehicule =?;
+            DELETE FROM `avis` WHERE avis.VehiculeId=? ;         
+            DELETE FROM `favorite` WHERE vehiculeID=? ;
             DELETE FROM `vehicule` WHERE VehiculeId=? ;
+            
             ") ;
-            $query->execute(array($id,$id));
+            $query->execute(array($id,$id,$id,$id));
             $this->db->disconnect($conn);
             return 1;
         }

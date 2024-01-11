@@ -47,6 +47,12 @@
             return $res ;
         }
 
+        public function getAllAvis()
+        {
+            $res = $this->Avis->getAllAvis();
+            return $res ;
+        }
+
 }
 
 

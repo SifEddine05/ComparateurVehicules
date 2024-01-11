@@ -28,13 +28,14 @@ class AvisAdminPage {
 
    public function TableData()
    {
-    $res = $this->avisctl->getAllAvisVehcicule();
+    // $res = $this->avisctl->getAllAvisVehcicule();
+    $res = $this->avisctl->getAllAvis();
     ?>
     <table id="example" class="table table-striped nowrap" style="width:100%">
         <thead>
             <tr>
+                <th>Vehicule / Marque</th>
                 <th>Utitlisateur</th>
-                <th>Vehicule</th>
                 <th>Commenataire</th>
                 <th>Status</th>
                 <th>Action</th>
@@ -49,6 +50,7 @@ class AvisAdminPage {
                     //<a class='AddBtn' href='/ComparateurVehicules/admin/AddMarques'>Ajouter </a> 
                 ?>
                     <tr>
+                        <td><?php echo $a['vechNom'] ?></td>
                         <td
                                 
                         class='<?php echo ($a['Status'] != "accepted") ? "userNo" : ""; ?>'
@@ -56,7 +58,6 @@ class AvisAdminPage {
                         > 
                             <?php echo $a['Prenom']." ". $a['Nom'] ; ?>
                         </td>
-                        <td><?php echo $a['vechNom'] ?></td>
                         <td class="commenteCase"><?php echo $a['Commentaire'] ?></td>
                         <?php  if($a['Confirmer']==0) { 
                                         echo "<td class='enatt'> <span>En attente</span> </td>" ;}
@@ -87,7 +88,20 @@ class AvisAdminPage {
                         <?php
                         }
                         ?>
-                        <td><button class='BloqueUserBton' value=<?php echo $a['UserId'] ?>>Bloquer </button></td>
+                        
+                       <?php
+                        if($a['Status']=="accepted")
+                        {
+                        ?>
+                            <td><button class='BloqueUserBton' value=<?php echo $a['UserId'] ?>>Bloquer </button> </p></td>
+                        <?php
+                        }
+                        else{
+                        ?>
+                            <td><button class='AccepteUserBton' value=<?php echo $a['UserId'] ?>>Debloquer </button></td>
+                        <?php
+                        }
+                        ?>    
 
                     </tr>
                 <?php
@@ -96,8 +110,8 @@ class AvisAdminPage {
         </tbody>
         <tfoot>
             <tr>
-            <th>Utitlisateur</th>
-                <th>Vehicule</th>
+                <th>Vehicule / Marque</th>
+                <th>Utitlisateur</th>
                 <th>Commenataire</th>
                 <th>Status</th>
                 <th>Action</th>

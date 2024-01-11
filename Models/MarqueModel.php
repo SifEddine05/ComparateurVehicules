@@ -101,8 +101,11 @@
         public function DeleteMarque($id)
         {
             $conn = $this->db->connect();
-            $query = $conn->prepare("DELETE FROM `marque` WHERE MarqueId=?") ;
-            $query->execute(array($id));
+            $query = $conn->prepare("
+            DELETE FROM `avis` WHERE avis.MarqueId=? ;
+            DELETE FROM `marque` WHERE MarqueId=?        
+            ") ;
+            $query->execute(array($id,$id));
             $this->db->disconnect($conn);
             return 1;
         }
