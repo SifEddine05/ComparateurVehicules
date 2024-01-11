@@ -653,6 +653,17 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Diapor
 
         $Type = $_POST['TypeAddDiapo'] ; 
         $url = $_POST['url'] ; 
+        $idNews=null;
+        if($Type=="news")
+        {
+            $queryString = parse_url($url, PHP_URL_QUERY);
+            parse_str($queryString, $queryParams);
+            $idNews = isset($queryParams['id']) ? $queryParams['id'] : null;
+        }
+        // echo "hhhhhhhhhhhhhhhh";
+        // echo $Type;
+        // echo $idNews;
+       
 
 
         $image = $_FILES["image"]["name"] ; 
@@ -665,7 +676,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Diapor
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
             echo "The file " . basename($_FILES["image"]["name"]) . " has been uploaded.";
             $imageId = $dipo->AddImage('/ComparateurVehicules/assets/'.$targetFileName) ;
-            $res = $dipo->AddDiapo($imageId, $url,$Type);
+            $res = $dipo->AddDiapo($imageId, $url,$Type,$idNews);
             if($res)
             {
                 header("Location: /ComparateurVehicules/admin/params/diaporama");

@@ -102,10 +102,11 @@
         {
             $conn = $this->db->connect();
             $query = $conn->prepare("
-            DELETE FROM `imagenews` WHERE NewsId =?;
+            DELETE FROM `diaporama` WHERE IdNews=?;
+            DELETE FROM `imagenews` WHERE NewsId=?;
             DELETE FROM `news` WHERE NewsId=?;
             ") ;
-            $query->execute(array($newsId,$newsId));
+            $query->execute(array($newsId,$newsId,$newsId));
             $this->db->disconnect($conn);
             return 1;
         }

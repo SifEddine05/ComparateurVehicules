@@ -12,9 +12,9 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Models/DiaporamaMo
         return $res ; 
     }
     
-    public function AddDiapo($imageId, $url,$Type)
+    public function AddDiapo($imageId, $url,$Type,$IdNews)
     {
-        $res = $this->diaporama->AddDiapo($imageId, $url,$Type) ; 
+        $res = $this->diaporama->AddDiapo($imageId, $url,$Type,$IdNews) ; 
         return $res ; 
     }
     public function AddImage($url)

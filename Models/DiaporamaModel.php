@@ -25,11 +25,11 @@
         return $result;
     }
 
-    public function AddDiapo($imageId, $url,$Type)
+    public function AddDiapo($imageId, $url,$Type,$IdNews)
     {
         $conn = $this->db->connect();
-        $query = $conn->prepare("INSERT INTO `diaporama`(`IdImage`, `UrlPublicite`, `Type`) VALUES (?,?,?)") ;
-        $query->execute(array($imageId, $url,$Type));
+        $query = $conn->prepare("INSERT INTO `diaporama`(`IdNews`,`IdImage`, `UrlPublicite`, `Type`) VALUES (?,?,?,?)") ;
+        $query->execute(array($IdNews,$imageId, $url,$Type));
         $lastInsertedId = $conn->lastInsertId();
         $this->db->disconnect($conn);
         return $lastInsertedId;
