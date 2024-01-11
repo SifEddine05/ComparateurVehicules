@@ -453,7 +453,7 @@
             <div class='Best-Avis-Section'>
                 <div class='Title'>
                     <h5 class='titles'>Les Avis les plus appréciés</h5>
-                    <a href='/ComparateurVehicules/avis'>Voir tous les avis</a>
+                    <a href='/ComparateurVehicules/avis?id=<?php echo $id ?>'>Voir tous les avis</a>
                 </div>
                 <?php 
                 if($bestAvis)

@@ -52,6 +52,17 @@
             $res = $this->Avis->getAllAvis();
             return $res ;
         }
+        public function getAvisMarqueByPage($id,$offset,$records_per_page)
+        {
+            $res = $this->Avis->getAvisMarqueByPage($id,$offset,$records_per_page);
+            return $res ;
+        }
+       public function getNbrAvisMarque($id)
+       {
+            $res = $this->Avis->getNbrAvisMarque($id);
+            return $res ;
+       }
+
 
 }
 

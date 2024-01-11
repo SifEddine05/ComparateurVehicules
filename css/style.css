@@ -1162,9 +1162,13 @@ padding-right: 50px;
 }
 
 .Best-Avis-Section .BestAvis-container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    /* justify-content: space-between;
+    align-items: center; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns of equal width */
+    row-gap: 100px;
+    column-gap: 60px;
 }
 
 .Best-Avis-Section .Title{
