@@ -94,7 +94,7 @@ h1{
     border: 1px solid #068FFF ;   
     margin-top: 5px;
 }
-.menu-container a{
+.menu-container a ,.menu-container-admin a{
     width: 100%;
     text-align: center;
     font-size: 22px;
@@ -104,10 +104,20 @@ h1{
     padding-bottom:10px ;
     border-left: 1px solid white;
 }
-.menu-container a:hover{
+.menu-container a:hover ,.menu-container-admin a:hover{
     cursor: pointer;
     background-color: #068FFF;
 }
+
+.menu-container-admin{
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4E4FEB;
+    border: 1px solid #068FFF ;   
+}
+
 
 
 

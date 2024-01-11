@@ -45,6 +45,7 @@ class AddGuidePage {
         if (isset($_COOKIE['admin'])) {
             $this->AdminComponents->Header();
             echo "<body>";
+            $this->AdminComponents->menu();
             $this->AddGuide();
             echo "</body> </html>";
         } else {

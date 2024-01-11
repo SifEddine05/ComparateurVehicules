@@ -11,5 +11,18 @@ class AdminComponents {
             <title>Admin Dashboard</title>
         </head>';
     }
+    public function menu()
+    {
+        ?>
+        <div class="menu-container-admin">
+            <a href="/ComparateurVehicules/admin">Page Principale</a>
+            <a href="/ComparateurVehicules/admin/marques">Gestion Vehicules</a>
+            <a  href="/ComparateurVehicules/admin/avis">Gestion Avis</a>
+            <a  href="/ComparateurVehicules/admin/news">Gestion News</a>
+            <a  href="/ComparateurVehicules/admin/users">Gestion Utilisateurs</a>
+            <a  href="/ComparateurVehicules/admin/params">Gestion Paramètres</a>
+        </div>
+        <?php
+    }
 }
 ?>

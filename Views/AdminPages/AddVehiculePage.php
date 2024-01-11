@@ -113,6 +113,7 @@ class AddVehiculePage {
         if (isset($_COOKIE['admin'])) {
             $this->AdminComponents->Header();
             echo "<body>";
+            $this->AdminComponents->menu();
             $this->AddVehicule();
             echo "</body> </html>";
         } else {

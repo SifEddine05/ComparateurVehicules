@@ -70,6 +70,7 @@ class EditMarquePage {
         if (isset($_COOKIE['admin'])) {
             $this->AdminComponents->Header();
             echo "<body>";
+            $this->AdminComponents->menu();
             $this->EditMarque($id);
             echo "</body> </html>";
         } else {

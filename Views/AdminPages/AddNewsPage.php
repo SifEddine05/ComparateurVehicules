@@ -45,6 +45,7 @@ class AddNewsPage {
         if (isset($_COOKIE['admin'])) {
             $this->AdminComponents->Header();
             echo "<body>";
+            $this->AdminComponents->menu();
             $this->AddNews();
             echo "</body> </html>";
         } else {

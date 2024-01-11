@@ -63,6 +63,7 @@ class EditDiaporamaPage {
         if (isset($_COOKIE['admin'])) {
             $this->AdminComponents->Header();
             echo "<body>";
+            $this->AdminComponents->menu();
             $this->EditDiapo($id);
             echo "</body> </html>";
         } else {

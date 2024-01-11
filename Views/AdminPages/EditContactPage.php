@@ -56,6 +56,7 @@ class EditContactPage {
         if (isset($_COOKIE['admin'])) {
             $this->AdminComponents->Header();
             echo "<body>";
+            $this->AdminComponents->menu();
             $this->EditContact($id);
             echo "</body> </html>";
         } else {

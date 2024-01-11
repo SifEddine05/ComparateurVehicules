@@ -58,6 +58,7 @@ class EditGuidePage {
         if (isset($_COOKIE['admin'])) {
             $this->AdminComponents->Header();
             echo "<body>";
+            $this->AdminComponents->menu();
             $this->EditGuide($id);
             echo "</body> </html>";
         } else {

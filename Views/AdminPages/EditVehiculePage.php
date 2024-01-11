@@ -144,6 +144,7 @@ class EditVehiculePage {
         if (isset($_COOKIE['admin'])) {
             $this->AdminComponents->Header();
             echo "<body>";
+            $this->AdminComponents->menu();
             $this->EditVehicule($id);
             echo "</body> </html>";
         } else {

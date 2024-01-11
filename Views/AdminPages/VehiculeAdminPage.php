@@ -85,6 +85,7 @@ class VehiculeAdminPage {
         if (isset($_COOKIE['admin'])) {
             $this->AdminComponents->Header();
             echo "<body>";
+            $this->AdminComponents->menu();
             $this->ChoosePage();
             $this->TableData($id);
             echo "</body> </html>";

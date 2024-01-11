@@ -72,6 +72,7 @@ class ContactAdminPage {
         if (isset($_COOKIE['admin'])) {
             $this->AdminComponents->Header();
             echo "<body>";
+            $this->AdminComponents->menu();
             $this->ChoosePage();
             $this->TableData();
             echo "</body> </html>";
