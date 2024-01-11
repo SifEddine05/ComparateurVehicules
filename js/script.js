@@ -882,6 +882,7 @@ $(document).ready(function () {
     var match3 = location.href.match(/^.*\ComparateurVehicules\/admin\/news(?:\?id=(\d+))?/);
     var match4 = location.href.match(/^.*\ComparateurVehicules\/admin\/params\/guide(?:\?id=(\d+))?/);
     var match5 = location.href.match(/^.*\ComparateurVehicules\/admin\/params\/contact(?:\?id=(\d+))?/);
+    var match6 = location.href.match(/^.*\ComparateurVehicules\/admin\/params\/diaporama(?:\?id=(\d+))?/);
 
     if(match2)
     {
@@ -971,6 +972,23 @@ $(document).ready(function () {
                 $(this).css('background-color', '#068FFF');
             }
         ).text('Ajouter une Contact'); 
+    }
+    else if(match6){
+        var newElement = $('<a href="/ComparateurVehicules/admin/params/adddiaporama"></a>').css({
+            'background-color': '#068FFF',
+            'color': 'white',
+            'marging-left':'10px',
+            'padding': '8px',
+            'border-radius': '5px',
+            'font-weight' : 'bold'
+        }).hover(
+            function () {
+                $(this).css('background-color', 'blue');
+            },
+            function () {
+                $(this).css('background-color', '#068FFF');
+            }
+        ).text('Ajouter une Diaporama'); 
     }
     
     

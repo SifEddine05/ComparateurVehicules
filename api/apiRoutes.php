@@ -12,6 +12,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Marque
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/NewsController.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/GuideController.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/ContactController.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/DiaporamaController.php');
 
 
 
@@ -636,8 +637,37 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Contac
         echo $res ; 
     }
 
-
     
+
+    if(isset($_POST['TypeAddDiapo']))
+    {
+        $dipo = new DiaporamaController();
+        $vctl = new VehiculeController();
+
+        $Type = $_POST['TypeAddDiapo'] ; 
+        $url = $_POST['url'] ; 
+
+
+        $image = $_FILES["image"]["name"] ; 
+        $targetDirectory = $_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/assets/'; 
+        $Id= $vctl->GetLastId()[0]['ID'];
+        $imageFileType = strtolower(pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION));
+        $targetFileName = "diaporama". $Id."." . $imageFileType; 
+        $targetFile = $targetDirectory . $targetFileName;
+        $uploadOk = 1;
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
+            echo "The file " . basename($_FILES["image"]["name"]) . " has been uploaded.";
+            $imageId = $dipo->AddImage('/ComparateurVehicules/assets/'.$targetFileName) ;
+            $res = $dipo->AddDiapo($imageId, $url,$Type);
+            if($res)
+            {
+                header("Location: /ComparateurVehicules/admin/params/diaporama");
+            }
+        } else {
+            echo "Sorry, there was an error uploading your file.";
+        }
+        
+    }
 
 
 
