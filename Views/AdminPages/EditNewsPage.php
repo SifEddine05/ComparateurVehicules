@@ -28,7 +28,7 @@ class EditNewsPage {
 
                 <div class='ModifyImage'>
                     <div>
-                        <label for="image">Ajouter l'image de la news <span>*</span></label>
+                        <label for="image">Modifier l'image de la news <span>*</span></label>
                         <input type="file" id="image" name="image" accept="image/*" ><br>
                     </div>
                     <img src="<?php echo $news['image']?>" width='200px'/>

@@ -593,6 +593,39 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Contac
         }
     }
 
+    
+
+    if(isset($_POST['EditNameContact']))
+    {
+        $contact = new ContactController();
+        $vctl = new VehiculeController();
+        $Name = $_POST['EditNameContact'];
+        $Type = $_POST['Type'];
+        $url =  $_POST['url'];
+        $imageId = $_POST['ImageId'];
+        $contactId = $_POST['id'];
+
+        $image = $_FILES["image"]["name"] ; 
+        $targetDirectory = $_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/assets/'; 
+        $Id= $vctl->GetLastId()[0]['ID'];
+        if($image)
+        {
+            $imageFileType = strtolower(pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION));
+            $targetFileName = "contact". $Id."." . $imageFileType; 
+            $targetFile = $targetDirectory . $targetFileName;
+            $uploadOk = 1;
+            if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
+                echo "The file " . basename($_FILES["image"]["name"]) . " has been uploaded.";
+                $imageId = $contact->AddImage('/ComparateurVehicules/assets/'.$targetFileName) ;
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }  
+        }
+        $res = $contact->EditContact($Name,$Type, $url,$imageId,$contactId);
+        echo $res ;
+        header("Location: /ComparateurVehicules/admin/params/contact");
+    }
+
 
     
 

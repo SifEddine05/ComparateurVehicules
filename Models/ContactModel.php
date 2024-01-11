@@ -37,6 +37,28 @@
             $this->db->disconnect($conn);
             return $lastInsertId;
         }
+
+        public function getContactById($id)
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("SELECT contact.* , image.ImageId , image.url as image FROM `contact` 
+            INNER JOIN image on image.ImageId = contact.logo
+            WHERE contact.id=?") ;
+            $query->execute(array($id));
+            $results = $query->fetchAll(PDO::FETCH_ASSOC);
+            $this->db->disconnect($conn);
+            return $results;
+        }
+
+        public function EditContact($Name,$Type, $url,$imageId,$contactId)
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("UPDATE `contact` SET `type`=?,`url`=?,`logo`=?,`Name`=? WHERE contact.id=?") ;
+            $query->execute(array($Type ,$url, $imageId,$Name,$contactId));
+            $lastInsertedId = $conn->lastInsertId();
+            $this->db->disconnect($conn);
+            return $lastInsertedId;
+        }
     }
 
 ?>

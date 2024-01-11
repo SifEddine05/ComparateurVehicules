@@ -22,6 +22,16 @@
             $res = $this->model->AddImage($url) ;
             return $res ;
         }
+        public function getContactById($id)
+        {
+            $res = $this->model->getContactById($id) ;
+            return $res ;
+        }
+        public function EditContact($Name,$Type, $url,$imageId,$contactId)
+        {
+            $res = $this->model->EditContact($Name,$Type, $url,$imageId,$contactId) ;
+            return $res ;
+        }
     }
 
 
