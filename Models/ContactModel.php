@@ -18,6 +18,25 @@
             return $result;
             
         }
+        public function AddContact($Name,$Type, $url,$imageId)
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("INSERT INTO `contact`(`type`, `url`, `logo`, `Name`) VALUES (?,?,?,?)") ;
+            $query->execute(array($Type ,$url, $imageId,$Name));
+            $lastInsertedId = $conn->lastInsertId();
+            $this->db->disconnect($conn);
+            return $lastInsertedId;
+        }
+
+        public function AddImage($url)
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("INSERT INTO `image`( `url`) VALUES (?)") ;
+            $query->execute(array($url));
+            $lastInsertId = $conn->lastInsertId();
+            $this->db->disconnect($conn);
+            return $lastInsertId;
+        }
     }
 
 ?>

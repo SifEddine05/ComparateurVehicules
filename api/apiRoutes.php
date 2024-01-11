@@ -11,6 +11,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Favori
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/MarqueController.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/NewsController.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/GuideController.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/ContactController.php');
 
 
 
@@ -562,6 +563,38 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/GuideC
         $res = $guide->DeleteGuide($guideId) ;
         echo $res ; 
     }
+
+    if(isset($_POST['AddNameContact']))
+    {
+        $contact = new ContactController();
+        $vctl = new VehiculeController();
+        $Name = $_POST['AddNameContact'];
+        $Type = $_POST['Type'];
+        $url =  $_POST['url'];
+
+
+        $image = $_FILES["image"]["name"] ; 
+        $targetDirectory = $_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/assets/'; 
+        $Id= $vctl->GetLastId()[0]['ID'];
+        $imageFileType = strtolower(pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION));
+        $targetFileName = "contact". $Id."." . $imageFileType; 
+        $targetFile = $targetDirectory . $targetFileName;
+        $uploadOk = 1;
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
+            echo "The file " . basename($_FILES["image"]["name"]) . " has been uploaded.";
+            $imageId = $contact->AddImage('/ComparateurVehicules/assets/'.$targetFileName) ;
+            $res = $contact->AddContact($Name,$Type, $url,$imageId);
+            if($res)
+            {
+                header("Location: /ComparateurVehicules/admin/params/contact");
+            }
+        } else {
+            echo "Sorry, there was an error uploading your file.";
+        }
+    }
+
+
+    
 
 
 

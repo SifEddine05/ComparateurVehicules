@@ -33,6 +33,8 @@
     require_once("./Views/AdminPages/AddGuidePage.php");
     require_once("./Views/AdminPages/EditGuidePage.php");
     require_once("./Views/AdminPages/ContactAdminPage.php");
+    require_once("./Views/AdminPages/AddContactPage.php");
+
 
 
 
@@ -99,6 +101,7 @@
     $AddGuidePage = new AddGuidePage();
     $EditGuidePage = new EditGuidePage();
     $ContactAdminPage = new ContactAdminPage();
+    $AddContactPage = new AddContactPage();
 
 
     switch ($request) {
@@ -206,7 +209,10 @@
         case '/ComparateurVehicules/admin/params/contact':
             $ContactAdminPage->getPage();
             break;
-        //ContactAdminPage     
+        case '/ComparateurVehicules/admin/params/addcontact':
+            $AddContactPage->getPage();
+            break;
+        //AddContactPage     
 
 
         default:

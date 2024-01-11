@@ -11,6 +11,17 @@
             $res = $this->model->getContacts() ;
             return $res ;
         }
+        
+        public function AddContact($Name,$Type, $url,$imageId)
+        {
+            $res = $this->model->AddContact($Name,$Type, $url,$imageId) ;
+            return $res ;
+        }
+        public function AddImage($url)
+        {
+            $res = $this->model->AddImage($url) ;
+            return $res ;
+        }
     }
 
 
