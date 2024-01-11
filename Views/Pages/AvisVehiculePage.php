@@ -51,70 +51,21 @@ class AvisVehiculePage {
             {
             ?>
             <div class='BestAvis-container'>
-            <?php if($Len>0)
-            { ?>
 
-                <div class='Avis-Container'>
-                    <div class='Avis'>
-                        <img src='/ComparateurVehicules/assets/Comment.png' alt='comment' />
-                        <h6><?php echo $bestAvis[0]['Commentaire'] ?></h6>
-                        <p>Note : <?php echo $bestAvis[0]['Note'] ?>/5⭐</p>
+            <?php 
+                foreach($bestAvis as $b)
+                {
+                ?>
+                    <div class='Avis-Container'>
+                        <div class='Avis'>
+                            <img src='/ComparateurVehicules/assets/Comment.png' alt='comment' />
+                            <h6><?php echo $b['Commentaire'] ?></h6>
+                            <p>Note : <?php echo $b['Note'] ?>/5⭐</p>
+                        </div>
+                        <h3> <span>👤</span> <?php echo $b['Nom'].' '.$b['Prenom'] ?></h3>
                     </div>
-                    <h3> <span>👤</span> <?php echo $bestAvis[0]['Nom'].' '.$bestAvis[0]['Prenom'] ?></h3>
-                </div>
             <?php
-            }
-            if($Len>1)
-            { ?>
-                <div class='Avis-Container'>
-                    <div class='Avis'>
-                        <img src='/ComparateurVehicules/assets/Comment.png' alt='comment' />
-                        <h6><?php echo $bestAvis[1]['Commentaire'] ?></h6>
-                        <p>Note : <?php echo $bestAvis[1]['Note'] ?>/5⭐</p>
-                    </div>
-                    <h3> <span>👤</span><?php echo $bestAvis[1]['Nom'].' '.$bestAvis[1]['Prenom'] ?></h3>
-                </div>
-                <?php
-            }
-            if($Len>2)
-            { ?>
-                <div class='Avis-Container'>
-                    <div class='Avis'>
-                        <img src='/ComparateurVehicules/assets/Comment.png' alt='comment' />
-                        <h6><?php echo $bestAvis[2]['Commentaire'] ?></h6>
-                        <p>Note : <?php echo $bestAvis[2]['Note'] ?>/5⭐</p>
-                    </div>
-                    <h3> <span>👤</span> <?php echo $bestAvis[2]['Nom'].' '.$bestAvis[2]['Prenom'] ?></h3>
-                </div>
-                
-            </div>
-            <div class='BestAvis-container2'>
-            <?php
-            }
-            if($Len>3)
-            { ?>
-                <div class='Avis-Container'>
-                    <div class='Avis'>
-                        <img src='/ComparateurVehicules/assets/Comment.png' alt='comment' />
-                        <h6><?php echo $bestAvis[3]['Commentaire'] ?></h6>
-                        <p>Note : <?php echo $bestAvis[3]['Note'] ?>/5⭐</p>
-                    </div>
-                    <h3> <span>👤</span> <?php echo $bestAvis[3]['Nom'].' '.$bestAvis[3]['Prenom'] ?></h3>
-                </div>
-                <?php
-            }
-            if($Len>4)
-            { ?>
-                <div class='Avis-Container'>
-                    <div class='Avis'>
-                        <img src='/ComparateurVehicules/assets/Comment.png' alt='comment' />
-                        <h6><?php echo $bestAvis[4]['Commentaire'] ?></h6>
-                        <p>Note : <?php echo $bestAvis[4]['Note'] ?>/5⭐</p>
-                    </div>
-                    <h3> <span>👤</span> <?php echo $bestAvis[4]['Nom'].' '.$bestAvis[4]['Prenom'] ?></h3>
-                </div>
-                <?php
-            }
+                }
             ?>
             </div>
             <?php
