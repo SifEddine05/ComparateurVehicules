@@ -7,7 +7,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/AvisCo
 
 
 
-class FavoritePage {
+class ProfileAdminPage {
     private $UserComponents ;
     private $favorite ;
 
@@ -25,7 +25,7 @@ class FavoritePage {
         $userinfos = $this->userctl->getUserById($id);
     ?>
     <div class="MarqueInfos-container">
-            <h5 class='titles'>Mes Informations</h5>
+            <h5 class='titles'>Les Informations de l'utilisateur</h5>
             <div class="MarqueInfos">
                 <div class="MarqueNL" id="UserAvatar-container">
                     <div class="MarqueName" id="VehiculeName">
@@ -65,7 +65,7 @@ class FavoritePage {
         $Len = count($bestAvis);
     ?>
         <div class='Best-Avis-Section'>
-            <h3 class='titles'>Mes Avis</h3>
+            <h3 class='titles'>Les Avis de l'utilisateur</h3>
             <?php 
             if($bestAvis)
             {
@@ -104,7 +104,7 @@ class FavoritePage {
 
     ?>
         <div class='VechFavSection'>
-            <h5 class='titles'>Mes véhicules favorisés</h5>
+            <h5 class='titles'>les véhicules favorisés</h5>
             <div class='Fav-container'>
                 <?php
                     foreach($favorites as $fav)
@@ -112,7 +112,6 @@ class FavoritePage {
                     ?>
                         <div>
                             <img src='<?php echo $fav['image'] ?>' width="100%" />
-                            <button value=<?php echo $fav['VehiculeId']  ?> class="delImg"><img   src='/ComparateurVehicules/assets/supprimer.png' width='40px' /></button>
                             <p><a href='/ComparateurVehicules/vehicule?id=<?php echo $fav['VehiculeId'] ?>' ><?php echo $fav['Nom'] ?></a></p>
                         </div>
                     <?php
@@ -142,7 +141,7 @@ class FavoritePage {
         <ul class="pagination">
 
             <li class="page-item <?php if($page==1) echo 'disabled' ?>">
-                <a class="page-link" href="/ComparateurVehicules/favoris?id=<?php echo $id ?>&page=<?php echo $prec ?>" tabindex="-1" aria-disabled="true">Previous</a>
+                <a class="page-link" href="/ComparateurVehicules/admin/profile?id=<?php echo $id ?>&page=<?php echo $prec ?>" tabindex="-1" aria-disabled="true">Previous</a>
             </li>
             
             <?php 
@@ -151,21 +150,21 @@ class FavoritePage {
                     {
                     ?>
                         <li class="page-item active">
-                            <a class="page-link" href="/ComparateurVehicules/favoris?id=<?php echo $id ?>&page=<?php echo $i ?>"><?php echo $i?></a>
+                            <a class="page-link" href="/ComparateurVehicules/admin/profile?id=<?php echo $id ?>&page=<?php echo $i ?>"><?php echo $i?></a>
                         </li>
                     <?php
                     }
                     else{
                         ?>
                         <li class="page-item " aria-current="page">
-                            <a class="page-link" href="/ComparateurVehicules/favoris?id=<?php echo $id ?>&page=<?php echo $i ?>"><?php echo $i?></a>
+                            <a class="page-link" href="/ComparateurVehicules/admin/profile?id=<?php echo $id ?>&page=<?php echo $i ?>"><?php echo $i?></a>
                         </li>
                     <?php
                     }
                 }
             ?>
             <li class="page-item <?php if($page==$nbrPages) echo 'disabled' ?>">
-                <a class="page-link" href="/ComparateurVehicules/favoris?id=<?php echo $id ?>&page=<?php echo $suiv ?>">Next</a>
+                <a class="page-link" href="/ComparateurVehicules/admin/profile?id=<?php echo $id ?>&page=<?php echo $suiv ?>">Next</a>
             </li>
         </ul>
         </nav>
@@ -175,20 +174,19 @@ class FavoritePage {
     }
     public function getPage()
     {
-        $userId = $_COOKIE['user'];
+        $userId = isset($_GET["id"]) ? $_GET["id"] : -1;
+
         $records_per_page = 6;
         $page = isset($_GET['page']) ? $_GET['page'] : 1;
         $offset = ($page - 1) * $records_per_page;
 
         $this->UserComponents->Header();
         echo "<body>";
-        $this->UserComponents->NavBar();
         $this->UserComponents->menu() ; 
         $this->UserInformations($userId);
         $this->FavorisVehicules($userId);
         $this->Avis($userId,$offset,$records_per_page);
         $this->Pagination($page,$records_per_page,$userId) ;        
-        $this->UserComponents->footer() ; 
         echo "</body> </html>";
     }
  
