@@ -23,8 +23,30 @@ class ProfileAdminPage {
     public function UserInformations($id)
     {
         $userinfos = $this->userctl->getUserById($id);
+        $nbr=0;
     ?>
     <div class="MarqueInfos-container">
+            <div class='Fav' id='Fav'>
+                <!-- <h3>Ajouter au Favorite</h3> -->
+                <?php if($userinfos['Status']=="pending")
+                        {
+                        ?>
+                            <button class='AccepteUserBton btnUsersPrfl' value=<?php echo $userinfos['UserId'] ?>>Accpter </button> | <button class='BloqueUserBton btnUsersPrfl' value=<?php echo $userinfos['UserId'] ?>>Refuser </button>
+                       <?php
+                        }else if($userinfos['Status']=="accepted")
+                        {
+                        ?>
+                            <button class='BloqueUserBton btnUsersPrfl' value=<?php echo $userinfos['UserId'] ?>>Bloquer </button>
+                        <?php
+                        }
+                        else{
+                        ?>
+                            <button class='AccepteUserBton btnUsersPrfl' value=<?php echo $userinfos['UserId'] ?>>Debloquer </button>
+                        <?php
+                        }
+                        ?> 
+            </div>
+   
             <h5 class='titles'>Les Informations de l'utilisateur</h5>
             <div class="MarqueInfos">
                 <div class="MarqueNL" id="UserAvatar-container">

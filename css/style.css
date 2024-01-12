@@ -1792,4 +1792,14 @@ div.dataTables_filter label{
     background-color: transparent;
   }
 
+  .btnUsersPrfl{
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    font-weight: bold;
+    box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.1);
+    -moz-box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.1);
+  }
+
+
 
