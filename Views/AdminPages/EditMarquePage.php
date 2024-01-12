@@ -17,7 +17,7 @@ class EditMarquePage {
 
     public function EditMarque($id)
    { 
-    $marqueInfo = $this->marquectl->getMarqueById(8)[0];
+    $marqueInfo = $this->marquectl->getMarqueById($id)[0];
     ?>
         <div class='AddMarqueForm'>
             <h5 class='titles'>Modifier  Marque</h5>
