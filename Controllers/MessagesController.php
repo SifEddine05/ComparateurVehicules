@@ -13,6 +13,11 @@ class MessageController{
         $res = $this->message->sendMessage($nom ,$email ,$message);
         return $res ;
     }
+    public function getAllmessages()
+    {
+        $res = $this->message->getAllmessages();
+        return $res ;
+    }
 
 
 }

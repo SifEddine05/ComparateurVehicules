@@ -21,6 +21,8 @@ class AdminComponents {
             <a  href="/ComparateurVehicules/admin/news">Gestion News</a>
             <a  href="/ComparateurVehicules/admin/users">Gestion Utilisateurs</a>
             <a  href="/ComparateurVehicules/admin/params">Gestion Paramètres</a>
+            <a  href="/ComparateurVehicules/admin/messages">Messages</a>
+
         </div>
         <?php
     }

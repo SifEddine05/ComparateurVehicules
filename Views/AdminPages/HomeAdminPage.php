@@ -26,7 +26,9 @@ class HomeAdminPage {
                 <a href='/ComparateurVehicules/admin/news' class='elem' style="background-image: url('/ComparateurVehicules/assets/NewsAdmin.jpg'); background-size: cover;   background-position: center;"><p>Gestion des News</p></a>
                 <a href='/ComparateurVehicules/admin/users' class='elem' style="background-image: url('/ComparateurVehicules/assets/userAdmin.jpg'); background-size: cover;   background-position: center;"><p>Gestion des Utilisateurs</p></a>
                 <a href='/ComparateurVehicules/admin/params' class='elem' style="background-image: url('/ComparateurVehicules/assets/settingAdmin.jpg'); background-size: cover;   background-position: center;"><p>Gestion des Paramètres</p></a>
+                <a href='/ComparateurVehicules/admin/messages' class='elem' style="background-image: url('/ComparateurVehicules/assets/MsgBg.jpg'); background-size: cover;   background-position: center;"><p>Messages</p></a>
 
+                
             </div>
         </div>
    <?php

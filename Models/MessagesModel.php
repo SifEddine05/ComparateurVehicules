@@ -24,6 +24,14 @@
             $this->db->disconnect($conn);
             return true; 
         }
+        public function getAllmessages()
+        {
+            $conn = $this->db->connect();
+            $requet = "SELECT * FROM `messages`";
+            $result = $this->db->requete($conn,$requet);
+            $this->db->disconnect($conn);
+            return $result;
+        }
 }
         
         

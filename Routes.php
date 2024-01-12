@@ -39,6 +39,7 @@
     require_once("./Views/AdminPages/AddDiaporamaPage.php");
     require_once("./Views/AdminPages/EditDiaporamaPage.php");
     require_once("./Views/AdminPages/ProfileAdminPage.php");
+    require_once("./Views/AdminPages/MessagesAdminPage.php");
 
     
 
@@ -113,6 +114,7 @@
     $AddDiaporamaPage = new AddDiaporamaPage();
     $EditDiaporamaPage = new EditDiaporamaPage();
     $ProfileAdminPage = new ProfileAdminPage();
+    $MessagesAdminPage = new MessagesAdminPage();
 
 
     switch ($request) {
@@ -238,8 +240,11 @@
         case '/ComparateurVehicules/admin/profile':
             $ProfileAdminPage->getPage();
             break;
+        case '/ComparateurVehicules/admin/messages':
+            $MessagesAdminPage->getPage();
+            break;
         
-        //     
+        //  MessagesAdminPage   
 
 
         default:
