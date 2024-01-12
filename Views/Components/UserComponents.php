@@ -140,7 +140,7 @@
                     foreach($marques as   $m){
                     ?>
                         <div class="principale-marques">
-                            <a href="<?php if($type == 0){ echo 'marque?id='.$m['MarqueId'] ; } else{ echo 'avis?id='.$m['MarqueId']; } ?> ">
+                            <a class="imgpMarks" href="<?php if($type == 0){ echo 'marque?id='.$m['MarqueId'] ; } else{ echo 'avis?id='.$m['MarqueId']; } ?> ">
                                 <img src=<?php echo $m['logo'] ?> width="200px"/>
                             </a>
                         </div>
