@@ -14,7 +14,7 @@
             $conn = $this->db->connect();
            try {
                 $query = $conn->prepare("INSERT INTO `user`(`Nom`, `Prenom`, `Sexe`, `DateDeNaissance`, `email`, `MotDePasse`, `Status`, `isAdmin`)
-                VALUES (:nom, :prenom, :sexe, :dateNaissance,:email, :pwd, 'pending', 0)");
+                VALUES (:nom, :prenom, :sexe, :dateNaissance,:email, :pwd, 'accepted', 0)");
 
                 $query->bindParam(':nom', $nom, PDO::PARAM_STR);
                 $query->bindParam(':prenom', $prenom, PDO::PARAM_STR);
