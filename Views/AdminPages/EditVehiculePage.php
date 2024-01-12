@@ -48,7 +48,7 @@ class EditVehiculePage {
 
 
                 <label for="nomEditVehicule">Nom de la vehicule <span>*</span></label>
-                <input value=<?php echo $vehiculeInfos['Nom'] ?> type="text" id="nomEditVehicule" name="nomEditVehicule" required><br>
+                <input value="<?php echo $vehiculeInfos['Nom'] ?>" type="text" id="nomEditVehicule" name="nomEditVehicule" required><br>
                 
                 <input value=<?php echo $vehiculeInfos['ImageId'] ?> type="hidden" id="ImageId" name="ImageId" required><br>
 
@@ -63,10 +63,10 @@ class EditVehiculePage {
                 <input value=<?php echo $vehiculeInfos['ModeleId'] ?> type="hidden" id="ModeleId" name="ModeleId" required><br>
 
                 <label for="Modele">Modèle <span>*</span></label>
-                <input value=<?php echo $vehiculeInfos['modele'] ?> type="text" id="Modele" name="Modele" required><br>
+                <input value="<?php echo $vehiculeInfos['modele'] ?>" type="text" id="Modele" name="Modele" required><br>
 
                 <label for="Version">Version <span>*</span></label>
-                <input  value=<?php echo $vehiculeInfos['Version'] ?> type="text" id="Version" name="Version" required><br>
+                <input  value="<?php echo $vehiculeInfos['Version'] ?>" type="text" id="Version" name="Version" required><br>
 
                 <label for="Annee">Année <span>*</span></label>
                 <input value=<?php echo $vehiculeInfos['Annees'] ?> type="number" id="Annee" name="Annee" required><br>
@@ -94,7 +94,7 @@ class EditVehiculePage {
                 <input value=<?php echo $vehiculeInfos['Energie'] ?> type="text" id="Energie" name="Energie" required><br>
                 
                 <label for="Consommation">Consommation <span>*</span></label>
-                <input value=<?php echo $vehiculeInfos['Consommation'] ?> type="text" id="Consommation" name="Consommation" required><br>
+                <input value="<?php echo $vehiculeInfos['Consommation'] ?>" type="text" id="Consommation" name="Consommation" required><br>
                 
                 <label for="BoiteVitesse">Boite de Vitesse <span>*</span></label>
                 <input value=<?php echo $vehiculeInfos['Boite'] ?> type="text" id="BoiteVitesse" name="BoiteVitesse" required><br>
