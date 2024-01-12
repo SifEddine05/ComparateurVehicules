@@ -48,7 +48,7 @@ class MessagesAdminPage {
                     <tr>
                         <td ><?php echo $m['sender'] ?></td>
                         <td ><div><?php echo $m['email'] ?></div></td>
-                        <td ><div><?php echo $m['message'] ?></div></td>
+                        <td class="commenteCase"><div><?php echo $m['message'] ?></div></td>
                         <td ><div><?php echo $m['datePublish'] ?></div></td>
                     </tr>
                 <?php

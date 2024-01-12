@@ -44,7 +44,7 @@ class DiaporamaAdminPage {
                 ?>
                     <tr>
                         <td ><?php echo $n['Type'] ?></td>
-                        <td ><div><?php echo $n['url'] ?></div></td>
+                        <td class="commenteCase" ><div><?php echo $n['url'] ?></div></td>
 
                         <td><a class='EditBtn' href='/ComparateurVehicules/admin/params/editdiaporama?id=<?php echo $n['DiaporamaId'] ?>'>Modifier </a> | <button class='DeleteDiaporamaBton' value=<?php echo $n['DiaporamaId'] ?>>Supprimer </button></p></td>
                     </tr>

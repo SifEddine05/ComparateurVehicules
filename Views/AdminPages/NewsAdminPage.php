@@ -43,7 +43,7 @@ class NewsAdminPage {
                 foreach($res as $n)
                 {
                 ?>
-                    <tr>
+                    <tr >
                         <td class="commenteCase"><?php echo $n['titre'] ?></td>
                         <td class="commenteCase"><?php echo $n['description'] ?></td>
                         <td><?php echo $n['date_creation'] ?></td>
