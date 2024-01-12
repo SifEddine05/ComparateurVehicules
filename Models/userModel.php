@@ -135,6 +135,16 @@
             $this->db->disconnect($conn);
             return 1;
         }
+
+        public function getUserById($id)
+        {
+            $conn = $this->db->connect();
+            $query = $conn->prepare("SELECT UserId,Nom,Prenom,Sexe,DateDeNaissance,email FROM `user` WHERE UserId=?") ;
+            $query->execute(array($id));
+            $result = $query->fetch(PDO::FETCH_ASSOC);
+            $this->db->disconnect($conn);
+            return $result;
+        }
         
 
 }

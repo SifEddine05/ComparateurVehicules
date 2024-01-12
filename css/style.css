@@ -1395,7 +1395,7 @@ opacity: 65%;
 
 .VechFavSection{
     text-align: center;
-    margin-top: 50px;
+    margin-top: 70px;
     margin-bottom: 50px;
     display: flex;
     flex-direction: column;
@@ -1772,6 +1772,15 @@ div.dataTables_filter label{
 
 
 
+#AvatarUser{
+    width: fit-content;
+}
+
+
+
+
+
+
 ::-webkit-scrollbar {
     width: 3px;
     height: 3px;
@@ -1782,3 +1791,5 @@ div.dataTables_filter label{
   ::-webkit-scrollbar-track {
     background-color: transparent;
   }
+
+

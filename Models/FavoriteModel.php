@@ -36,9 +36,8 @@
         return $results;
     }
 
-    public function getFavoriteByU()
+    public function getFavoriteByU($userId)
     {
-        $userId = $_COOKIE['user'];
         $conn = $this->db->connect();
         $query = $conn->prepare("SELECT vehicule.VehiculeId , vehicule.Nom, image.url as image  FROM `favorite` INNER JOIN vehicule on vehicule.VehiculeId=favorite.vehiculeID 
         INNER JOIN imagevehicule on vehicule.VehiculeId = imagevehicule.IdVehicule

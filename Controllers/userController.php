@@ -38,4 +38,9 @@ class UserController{
         $res = $this->user->AccepteUser($id) ; 
         return $res ;
     }
+    public function getUserById($id)
+    {
+        $res = $this->user->getUserById($id) ; 
+        return $res ;
+    }
 }

@@ -21,9 +21,9 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Models/FavoriteMod
         $res = $this->favorite->DeleteFavorite($Vid) ; 
         return $res ; 
     }
-    public function getFavoriteByU()
+    public function getFavoriteByU($userId)
     {
-        $res = $this->favorite->getFavoriteByU() ; 
+        $res = $this->favorite->getFavoriteByU($userId) ; 
         return $res ;
     }
  } 

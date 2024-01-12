@@ -48,7 +48,7 @@ class AvisPage {
             </div>
             <?php
             }else {
-                echo "<h3 style='color:red'>il n'y a pas d'avis pour cette vethicule</h3>" ;
+                echo "<h3 style='color:red'>il n'y a pas d'avis pour cette Marque</h3>" ;
             }
             ?>
 

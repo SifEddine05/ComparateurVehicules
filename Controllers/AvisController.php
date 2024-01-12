@@ -63,6 +63,18 @@
             return $res ;
        }
 
+       public function getAvisUserByPage($id,$offset,$records_per_page)
+       {
+            $res = $this->Avis->getAvisUserByPage($id,$offset,$records_per_page);
+            return $res ;
+       }
+       
+       public function getNbrAvisUser($id)
+       {
+            $res = $this->Avis->getNbrAvisUser($id);
+            return $res ;
+       }
+
 
 }
 
