@@ -28,7 +28,6 @@ class AvisAdminPage {
 
    public function TableData()
    {
-    // $res = $this->avisctl->getAllAvisVehcicule();
     $res = $this->avisctl->getAllAvis();
     ?>
     <table id="example" class="table table-striped nowrap" style="width:100%">
@@ -47,7 +46,6 @@ class AvisAdminPage {
             <?php 
                 foreach($res as $a)
                 {
-                    //<a class='AddBtn' href='/ComparateurVehicules/admin/AddMarques'>Ajouter </a> 
                 ?>
                     <tr>
                         <td><?php echo $a['vechNom'] ?></td>

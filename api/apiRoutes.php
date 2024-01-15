@@ -236,7 +236,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Diapor
 
     }
 
-    if(isset($_POST['nomAddVehicule'])) //nomAddVehicule
+    if(isset($_POST['nomAddVehicule'])) 
     {
         $vctl= new VehiculeController();
 
@@ -305,7 +305,6 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Diapor
 
 
 
-    // ------------------------------------Edit
     if(isset($_POST['nomEditVehicule']))
     {
         print("hello");
@@ -660,9 +659,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Diapor
             parse_str($queryString, $queryParams);
             $idNews = isset($queryParams['id']) ? $queryParams['id'] : null;
         }
-        // echo "hhhhhhhhhhhhhhhh";
-        // echo $Type;
-        // echo $idNews;
+       
        
 
 
@@ -687,7 +684,6 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Controllers/Diapor
         
     }
 
-    //TypeEditDiapo
 
     if(isset($_POST['TypeEditDiapo']))
     {

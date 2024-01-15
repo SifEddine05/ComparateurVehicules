@@ -144,4 +144,3 @@ class AvisVehiculePage {
  
 }
 
-//getAvisByPage($id,$offset,$records_per_page)

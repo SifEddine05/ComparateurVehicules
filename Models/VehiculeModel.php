@@ -247,7 +247,6 @@
             try {
                 $conn = $this->db->connect();
             
-                // Prepare the SQL statements
                 $query = $conn->prepare("
                     DELETE FROM `imagevehicule` WHERE IdVehicule = ?;
                     DELETE FROM `avis` WHERE avis.VehiculeId = ?;
@@ -256,16 +255,13 @@
                     DELETE FROM `vehicule` WHERE VehiculeId = ?;
                 ");
             
-                // Execute the queries with the provided parameters
                 $query->execute(array($id, $id, $id, $id, $id, $id));
             
-                // Disconnect from the database
                 $this->db->disconnect($conn);
             
-                return 1; // Successful deletion
+                return 1; 
             } catch (PDOException $e) {
-                // Handle the exception (e.g., log the error, return an error code, etc.)
-                return $e; // Failed deletion
+                return $e; 
             }
             
         }
@@ -345,7 +341,6 @@
         $conn = $this->db->connect();
         $query = $conn->prepare("INSERT INTO `comparison`(`VehiculeId1`, `VehiculeId2`, `NombreDesFoisUtiliser`) VALUES (?,?,1)") ;
         $query->execute(array($Vid1 ,$Vid2));
-        // $lastInsertId = $conn->lastInsertId();
         $this->db->disconnect($conn);
         return 1;
     }

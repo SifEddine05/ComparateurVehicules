@@ -50,7 +50,6 @@
                 new TxtType(elements[i], JSON.parse(toRotate), period);
                 }
             }
-            // INJECT CSS
             var css = document.createElement("style");
             css.type = "text/css";
             css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #068FFF}";
@@ -411,10 +410,17 @@ CompareSubmit?.addEventListener('click' , ()=>{
                 span.style.display="block"
             }
             else{
-                AddCompare(annee1,annee2)
-                AddCompare(annee1,annee3)
-                AddCompare(annee2,annee3)
-                location.href="/ComparateurVehicules/compare?V1="+annee1+"&V2="+annee2+"&V3="+annee3
+                if(annee1==annee2 || annee1==annee3 || annee2==annee3 )
+                {
+                    alert('Choissez des vehicules deffirant ');
+                }
+                else{
+                    AddCompare(annee1,annee2)
+                    AddCompare(annee1,annee3)
+                    AddCompare(annee2,annee3)
+                    location.href="/ComparateurVehicules/compare?V1="+annee1+"&V2="+annee2+"&V3="+annee3
+                }
+                
             }
         }
         else if(nbrForms==4)
@@ -424,20 +430,34 @@ CompareSubmit?.addEventListener('click' , ()=>{
                 span.style.display="block"
             }
             else{
-                AddCompare(annee1,annee2)
-                AddCompare(annee1,annee3)
-                AddCompare(annee1,annee4)
-                AddCompare(annee2,annee3)
-                AddCompare(annee2,annee4)
-                AddCompare(annee3,annee4)
+                if(annee1==annee2 || annee1==annee3 || annee1==annee4 || annee2==annee3 || annee2==annee4 || annee3==annee4 )
+                {
+                    alert('Choissez des vehicules deffirant ');
+                }
+                else{
+                    AddCompare(annee1,annee2)
+                    AddCompare(annee1,annee3)
+                    AddCompare(annee1,annee4)
+                    AddCompare(annee2,annee3)
+                    AddCompare(annee2,annee4)
+                    AddCompare(annee3,annee4)
 
-                location.href="/ComparateurVehicules/compare?V1="+annee1+"&V2="+annee2+"&V3="+annee3+"&V4="+annee4
+                    location.href="/ComparateurVehicules/compare?V1="+annee1+"&V2="+annee2+"&V3="+annee3+"&V4="+annee4
+                }
+                
 
             }
         }
         else{
-            AddCompare(annee1,annee2)
-            location.href="/ComparateurVehicules/compare?V1="+annee1+"&V2="+annee2
+            if(annee1==annee2)
+            {
+                alert('Choissez des vehicules deffirant ');
+            }
+            else{
+                AddCompare(annee1,annee2)
+                location.href="/ComparateurVehicules/compare?V1="+annee1+"&V2="+annee2
+            }
+           
         }
     }
 
@@ -670,7 +690,6 @@ if (location.href.match(/^.*\/ComparateurVehicules\/vehicule\?id=\d+$/)) {
 
 }
 
-// Rating Initialization
 $(document).ready(function() {
     $('#rateMe1').mdbRate();
   });
@@ -1278,3 +1297,6 @@ btn?.addEventListener('click',()=>{
     }
     })
 })
+
+
+

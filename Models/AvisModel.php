@@ -141,7 +141,6 @@
             $this->db->disconnect($conn);
             return $results;
         }
-        //getNbrAvisMarque
         public function getNbrAvisMarque($id)
         {
             $conn = $this->db->connect();
@@ -169,7 +168,7 @@
             $this->db->disconnect($conn);
             return $results;
         }
-        //getNbrAvisMarque
+        
         public function getNbrAvisUser($id)
         {
             $conn = $this->db->connect();

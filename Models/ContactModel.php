@@ -1,6 +1,5 @@
 <?php
     require_once($_SERVER['DOCUMENT_ROOT'].'/ComparateurVehicules/Models/DataBase.php') ; 
-    //?page=news&id=123
 
     class ContactModel{
         private $db;

@@ -70,9 +70,6 @@
         $request = substr($request, 0, - (strlen($request) - strpos($request, "?")));
     }
 
-    // if (strpos($request, "/admin")) {
-    //     $request = "/ComparateurVehicules/admin";
-    // }
 
     $LandingPage = new LandingPage();
     $ComparatorPage = new ComparatorPage();
@@ -244,11 +241,10 @@
             $MessagesAdminPage->getPage();
             break;
         
-        //  MessagesAdminPage   
 
 
         default:
-            printf("Not Found");
+            printf("Page Not Found");
             break;
 
         }

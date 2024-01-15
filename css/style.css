@@ -17,7 +17,6 @@ a{
     padding: 10px;
     padding-left: 20px;
     padding-right: 20px;
-    /* background-color: #FF4D30; */
     background-color: #4E4FEB;
     color: white;
     font-weight: bold;
@@ -171,9 +170,6 @@ footer{
 }
 
 body {
-    /* background-color: rgba(37, 37, 208, 0.5); */
-    /*FF4D30*/
-    /* background-color: rgba(255,237,234,0.2); */
     background-color: #EEEEEE !important;
     margin-bottom: 0 !important;
 }
@@ -233,12 +229,7 @@ body {
 
 
 .form-div{
-    /* padding: 10px;    */
     border-radius: 2%; 
-   /* position: relative;
-    padding-left: 75px;
-    padding-right: 75px;
-    padding-top: 25px; */
     box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.33);
     -webkit-box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.33);
     -moz-box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.33);
@@ -311,7 +302,7 @@ form h5 {
     text-align: center;
     width: 100%;
     place-items: center;
-    grid-template-columns: repeat(2, 1fr); /* Three columns of equal width */
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px 45px !important;
 }
 
@@ -355,7 +346,7 @@ form h5 {
 
 .selects-container{
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Three columns of equal width */
+    grid-template-columns: repeat(2, 1fr); 
     gap: 10px 100px;
     padding-left: 75px;
     padding-right: 75px;
@@ -507,7 +498,7 @@ form h5 {
     justify-content: center;
     align-items: center;
     background-color: #068FFF;
-    transform: rotate(-10deg); /* Equal to rotateZ(45deg) */
+    transform: rotate(-10deg); 
     transition-duration: 600ms;
 
 
@@ -523,7 +514,7 @@ form h5 {
     border-radius: 25px;
     background-color: #068FFF;
     margin-top: 0px;
-    transform: rotate(-10deg); /* Equal to rotateZ(45deg) */
+    transform: rotate(-10deg); 
     transition: all ;
     transition-duration: 600ms;
 }
@@ -575,7 +566,6 @@ table {
 
 th, td {
     text-align: center !important;
-    /* border: 2px solid #aaaaaae4; */
     border: 2px solid #fff !important;
     padding: 10px !important;
 }
@@ -718,7 +708,7 @@ td img:hover{
 
 .Cards-container{
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Three columns of equal width */
+    grid-template-columns: repeat(2, 1fr); 
     gap: 30px 30px ;
 
 }
@@ -911,13 +901,11 @@ td img:hover{
 }
 
 .SignupBody{
-    /* background-color: #00F !important; */
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh; 
     margin: 0;
-     /* Bg-login.jpg */
     background-image:  url("/ComparateurVehicules/assets/Bg-login.jpg");
     background-position: center; 
     background-repeat: no-repeat ; 
@@ -1181,10 +1169,7 @@ padding-right: 50px;
 
 .Best-Avis-Section .BestAvis-container{
     display: grid;
-    /* justify-content: space-between;
-    align-items: center; */
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Three columns of equal width */
+    grid-template-columns: repeat(3, 1fr); 
     row-gap: 100px;
     column-gap: 60px;
 }
@@ -1270,9 +1255,6 @@ padding-right: 50px;
     width: fit-content;
     display: flex;
     flex-direction: column;
-    /* box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.1);
-    -webkit-box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.1);
-    -moz-box-shadow: -3px 1px 5px 5px rgba(0,0,0,0.1); */
 }
 .AddAvisSection .Note-container
 {
@@ -1405,7 +1387,7 @@ opacity: 65%;
 
 .Fav-container{
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Three columns of equal width */
+    grid-template-columns: repeat(3, 1fr); 
     row-gap: 25px;
     column-gap: 60px;
 }
@@ -1448,11 +1430,6 @@ opacity: 65%;
     text-align: center;
     margin-top: 50px;
     margin-bottom: 50px;
-    
-    /* display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column; */
 }
 
 .chooseVech{
@@ -1472,7 +1449,7 @@ opacity: 65%;
 }
 .Pages-choose-container{
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Three columns of equal width */
+    grid-template-columns: repeat(2, 1fr);
     margin: 0;
     gap: 25px 25px;
     padding-left: 25px;

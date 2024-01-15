@@ -45,7 +45,6 @@ class VehiculeAdminPage {
             <?php 
                 foreach($vehicules as $v)
                 {
-                    //<a class='AddBtn' href='/ComparateurVehicules/admin/AddMarques'>Ajouter </a> 
                 ?>
                     <tr>
                         <td><?php echo $v['marque'] ?></td>

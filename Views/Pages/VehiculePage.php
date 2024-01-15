@@ -159,11 +159,6 @@ class VehiculePage {
 
     <?php
     }
-    // Comment.png
-    /* SELECT * FROM `avis` 
-INNER JOIN user on user.UserId=avis.UserId
-WHERE VehiculeId=7 and Confirmer=1 
-ORDER By Apprecie DESC*/
 
     public function BestAvis($id)
     { 

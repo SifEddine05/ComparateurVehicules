@@ -15,7 +15,6 @@ class AddDiaporamaPage {
 
     public function AddDiapo()
    { 
-    // `IdImage`, `UrlPublicite`, `Type`
     ?>
         <div class='AddMarqueForm'>
             <h5 class='titles'>Ajouter Une Diaporama</h5>

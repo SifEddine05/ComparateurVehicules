@@ -91,7 +91,6 @@
 
         public function AddImageNews($imageId,$NewsId)
         {
-            //INSERT INTO `imagenews`( `ImageId`, `NewsId`) VALUES (,)
             $conn = $this->db->connect();
             $query = $conn->prepare("INSERT INTO `imagenews`( `ImageId`, `NewsId`) VALUES (?,?)") ;
             $query->execute(array($imageId,$NewsId));
